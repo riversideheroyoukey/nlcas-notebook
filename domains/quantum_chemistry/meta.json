@@ -1,0 +1,7 @@
+{
+  "label_en": "Quantum Chemistry",
+  "category": "physics",
+  "label_ja": "量子化学",
+  "status": "future",
+  "status_note": "Partially supported. Specialized operations not yet connected to CAS."
+}

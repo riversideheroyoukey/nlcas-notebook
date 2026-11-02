@@ -1,0 +1,93 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_jaynes\_cummings}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Jaynes-Cummings モデル（光子と2準位分子の相互作用）を扱う。光子の周波数 $\omega$、分子の遷移周波数 $\omega_0$、光・物質結合定数 $g$ を実数パラメータとして準備する。
+
+omega を実数パラメータとして定義して
+
+\[
+  \omega
+\]
+
+$\omega_0$ を実数パラメータとして定義して
+
+\[
+  \omega_{0}
+\]
+
+g を実数パラメータとして定義して
+
+\[
+  g
+\]
+
+光子の消滅・生成演算子 $a,a^\dagger$ をボゾン演算子として、分子の2準位（スピン1/2）演算子 $S$ をスピン演算子として準備する。
+
+a を光子の生成演算子とする
+
+\[
+  a
+\]
+
+S をスピン演算子として定義して
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+Jaynes-Cummings ハミルトニアン $H=\omega a^\dagger a+\omega_0S_z+g(aS^++a^\dagger S^-)$ を、$S^\pm=S_x\pm iS_y$ として展開した形で登録する。第1項は光子のエネルギー、第2項は分子の励起エネルギー、第3項は光子の吸収・放出による光・物質相互作用を表す。
+
+$\omega a'(1) a(1) + \omega_0 Sz(1) + g (a(1) (Sx(1) + i Sy(1)) + a'(1) (Sx(1) - i Sy(1)))$
+
+\begin{equation}
+  \omega a^{\dagger}(1) a(1) + \omega_0 Sz(1) + g (a(1) (Sx(1) + i Sy(1)) + a^{\dagger}(1) (Sx(1) - i Sy(1)))
+  \label{eq:E1}
+\end{equation}
+
+光子演算子 $a$ のハイゼンベルク方程式（運動方程式）を求める。
+
+a(1) の Heisenberg 方程式 E1
+
+\begin{equation}
+  \frac{d a(1)}{d t} = - g \mathit{i} Sx_1 - g Sy_1 - \omega \mathit{i} {a}_{1}
+  \label{eq:E2}
+\end{equation}
+
+分子側の演算子 $S_x$ のハイゼンベルク方程式を求める。
+
+Sx(1) の Heisenberg 方程式 E1
+
+\begin{equation}
+  \frac{d Sx(1)}{d t} = - 2 \omega_{0} Sy_1 - 2 g \mathit{i} {a}_{1}^{\dagger} Sz_1 + 2 g \mathit{i} Sz_1 {a}_{1}
+  \label{eq:E3}
+\end{equation}
+
+励起数演算子 $N_{\rm ex}=a^\dagger a+S_z/2$（光子数と分子のスピン $z$ 成分の和）を定義する。
+
+a'(1)*a(1) + Sz(1)/2
+
+\begin{equation}
+  a^{\dagger}(1) a(1) + Sz(1)/2
+  \label{eq:E4}
+\end{equation}
+
+ハミルトニアン $H$ と励起数演算子 $N_{\rm ex}$ の交換子を計算する。物理的には、$H$ の3項はそれぞれ単独で全励起数を保存する——光子エネルギー項と分子エネルギー項は励起数基底で対角であり、相互作用項 $g(aS^++a^\dagger S^-)$ は光子1個を分子励起1個に変換する（またはその逆）だけで、$a^\dagger a+S_z$ の合計は変化しない（光子の吸収・放出）。CAS が計算した交換子がちょうど0に潰れるのはこのためであり、決め打ちの答えではなく、実際に計算された打ち消し合いである。（CAS は演算子の恒等式を適用して最終的な簡約値を直接返すため、項ごとの展開過程は別ステップとしては表示されない。）
+
+[E1, E4]
+
+\begin{equation}
+  0
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

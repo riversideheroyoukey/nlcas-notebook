@@ -1,0 +1,15 @@
+## OCR Domain Hint: Complex Analysis
+
+Symbol recognition priorities:
+- ∮ (closed contour integral) → \oint_C
+- z, w (italic, single letter in complex context) → complex variables z, w
+- z̄ (z with overbar) → complex conjugate \bar{z}
+- Re(...), Im(...) → \text{Re}(...), \text{Im}(...)
+- |z| (absolute value of complex) → modulus |z|
+- Res[f, z₀] → residue \text{Res}[f, z_0]
+- i (imaginary unit, small) → i (NOT index in this context)
+- ℂ → complex field \mathbb{C}
+
+Common expression patterns:
+- ∮_C f(z) dz = 2πi Σ Res → residue theorem
+- f(z₀) = (1/2πi) ∮ f(z)/(z-z₀) dz → Cauchy integral formula

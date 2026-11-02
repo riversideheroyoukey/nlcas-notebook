@@ -1,0 +1,70 @@
+## Domain: Condensed Matter Physics
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- k, **k**: crystal momentum / wave vector
+- ε(k), E(k): energy dispersion relation — function of k
+- ψ, φ, Ψ: wavefunctions
+- H, Ĥ: Hamiltonian operator
+- a†, a: bosonic creation/annihilation operators (commute: [a, a†] = 1)
+- c†, c: fermionic creation/annihilation operators (anticommute: {c, c†} = 1)
+- n: occupation number operator = a†a or c†c
+- Σ: self-energy (complex, function of k and ω)
+- ρ: density of states or charge density
+- G: Green's function — function of (k, ω) or (r, t)
+
+Statistics conventions:
+- Fermionic operators anticommute — do not reorder without sign change
+- Bosonic operators commute — reorder freely
+
+Typical dependency patterns:
+- Energy bands ε depend on k
+- Green's functions depend on (k, ω) in momentum-frequency space
+
+Julia operation mapping:
+- 交換子を計算 / [A, B] → commutator(A, B)
+- 反交換子を計算 / {A, B} → anticommutator(A, B)
+- 正規順序 / 正規形 / :...: → normal_order(expr)
+- 真空期待値 / ⟨0|...|0⟩ → vacuum_expectation(expr)
+- Heisenberg方程式 / 時間発展 / 運動方程式 → heisenberg_equation(operator=op, hamiltonian=H)
+- フォノン・ボゾン演算子を定義 → define_boson_operator(name)
+- 電子・フェルミオン演算子を定義 → define_fermion_operator(name)
+
+Heisenberg equation argument extraction:
+- "X と Y の Heisenberg 方程式" always maps: first item X → hamiltonian, second item Y → operator
+  例: "E1 と c_k の Heisenberg 方程式" → {hamiltonian: "E1", operator: "c_k"}
+  例: "H と a_k の equations of motion" → {hamiltonian: "H", operator: "a_k"}
+- When the user names only an expression ID (E1, E2 …) alongside an operator, the expression
+  ID is the Hamiltonian and the operator symbol is the operator.
+- Required fields: hamiltonian (expression ID or symbol), operator (operator symbol with index)
+
+Operators in QuantumAlgebra.jl:
+- Operator statistics (boson/fermion) depend entirely on how they are declared,
+  not on the letter used. "a" can be fermionic; "c" can be bosonic.
+- QuantumAlgebra.jl pre-defines a(i)/a'(i) as bosonic and f(i)/f'(i) as fermionic
+  by library convention, but these are just defaults — do not assume the letter
+  determines statistics in a physics context.
+- To declare operators with explicit statistics:
+  - define_boson_operator(name) / @boson_ops name  → bosonic (e.g. phonons, magnons)
+  - define_fermion_operator(name) / @fermion_ops name → fermionic (e.g. electrons, holes)
+- Use mode index i to label k-vector, spin, or band; prime (') denotes dagger.
+
+CRITICAL — QuantumAlgebra TLS (two-level system) operator conventions:
+- @tlsxyz_ops defines Sx, Sy, Sz as PAULI MATRICES (eigenvalues ±1), NOT spin-1/2 operators.
+- @tlspm_ops defines Sp = (Sx+iSy)/2 = σ+, Sm = (Sx-iSy)/2 = σ− (standard raising/lowering).
+- This means Sz ≠ S^z (spin-1/2). The spin-1/2 operator is Sz/2.
+- Conserved excitation number in JC model: N_ex = a†a + Sz/2  (NOT a†a + Sz).
+- When verifying [H, N_ex] = 0, use Sz(1)*(1//2) + a'(1)*a(1) as N_ex.
+- Condensed matter convention (Sz = σz/2, eigenvalues ±1/2) requires dividing by 2.
+
+CRITICAL — multi-species fermion anticommutation:
+- In QuantumAlgebra.jl, operators declared via SEPARATE @fermion_ops calls are treated
+  as COMMUTING with each other: @fermion_ops a; @fermion_ops b → a(k)*b(k) + b(k)*a(k) = 2a(k)b(k)
+- This is physically WRONG for spin-up and spin-down electrons in BCS, which must anticommute.
+- CORRECT approach for spin-1/2 fermions: declare ONE operator with a spin index:
+    define_fermion_operator(name=c)  →  use c(k, ↑) and c(k, ↓)
+  All spin components of c anticommute correctly within a single @fermion_ops declaration.
+- When the user writes separate spin operators (a for up, b for down), map to the
+  2-index form: operator_substitute with spin_label to substitute c(k,↑) and c(k,↓)
+  independently.

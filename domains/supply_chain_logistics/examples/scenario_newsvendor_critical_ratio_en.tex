@@ -1,0 +1,48 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_newsvendor\_critical\_ratio}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Suppose demand $D$ follows a uniform distribution on $[a,b]$ ($a,b$ are the lower and upper bounds of demand). For an order quantity $Q$, demand below $Q$ leaves excess inventory (overage cost $c_o$ per unit), while demand above $Q$ causes a stockout (underage cost $c_u$ per unit). Prepare $c_u,c_o$ as real parameters. $D$ itself will not appear symbolically in the expressions below — it is a random variable, integrated out (over the uniform density $1/(b-a)$) to obtain the closed-form EXPECTED cost $C(Q)$ in the next step, which depends only on $Q,a,b,c_u,c_o$.
+
+Declare $c_u$, $c_o$ as real.
+
+\[
+  c_u, c_o
+\]
+
+With this setup, define the expected total cost $C(Q)=E_D[\text{overage}+\text{underage}]$, as a function of the order quantity $Q$, as the sum of the expected overage and underage costs — already integrated over $D$'s uniform density (this is the closed form one gets after evaluating $\int_a^Q c_o(Q-D)\frac1{b-a}\,dD+\int_Q^b c_u(D-Q)\frac1{b-a}\,dD$ by hand), so $D$ does not appear here; only its distribution's parameters $a,b$ do.
+
+$C = c_o (Q - a)^2 / (2 (b - a)) + c_u (b - Q)^2 / (2 (b - a))$
+
+\begin{equation}
+  C = c_o (Q - a)^2 / (2 (b - a)) + c_u (b - Q)^2 / (2 (b - a))
+  \label{eq:E1}
+\end{equation}
+
+To find the order quantity that minimizes the expected total cost, take the total derivative of $C$ with respect to $Q$.
+
+Take the total derivative of E1 with respect to Q
+
+\begin{equation}
+  \frac{dC}{dQ} = \frac{\left(Q-a\right) c_{o}}{b-a}-\frac{c_{u} \left(b-Q\right)}{b-a}
+  \label{eq:E2}
+\end{equation}
+
+Set the derivative to zero and solve for $Q$ to find the optimal order quantity $Q^*$ that minimizes the expected total cost.
+
+Solve E2 for Q
+
+\begin{equation}
+  Q = \frac{a c_{o}+c_{u} b}{c_{o}+c_{u}}
+  \label{eq:E3}
+\end{equation}
+
+\end{document}

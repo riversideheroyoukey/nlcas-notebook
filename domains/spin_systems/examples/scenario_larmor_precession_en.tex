@@ -1,0 +1,92 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_larmor\_precession}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the Larmor precession of a spin-1/2 in a magnetic field. Prepare the spin operator $S$ (components $S_x,S_y,S_z$).
+
+S as the spin operator
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+Prepare the gyromagnetic ratio $\gamma$ and the magnetic field strength $B$ as real scalar parameters.
+
+Define gamma, B as real scalars
+
+\[
+  \gamma, B
+\]
+
+Register the Zeeman Hamiltonian $H=-\gamma BS_z$ (the energy of a spin in a magnetic field).
+
+$H = -\gamma B Sz_1$
+
+\begin{equation}
+  H = -\gamma B Sz_1
+  \label{eq:E1}
+\end{equation}
+
+Compute the commutator of the Hamiltonian $H$ with the $x$-component of spin $S_x$. This commutator determines part of the time evolution of $S_x$ (QuantumAlgebra uses the Pauli-matrix convention $[S_x,S_y]=2iS_z$, so the coefficient is twice the textbook $iS_z$).
+
+Compute the commutator of H and $Sx_1$
+
+\begin{equation}
+  - 2 B \gamma \mathit{i} Sy_1
+  \label{eq:E2}
+\end{equation}
+
+Likewise, compute the commutator of the Hamiltonian $H$ with the $y$-component of spin $S_y$.
+
+Compute the commutator of H and $Sy_1$
+
+\begin{equation}
+  2 B \gamma \mathit{i} Sx_1
+  \label{eq:E3}
+\end{equation}
+
+Use the Heisenberg equation $dS_x/dt=i[H,S_x]$ to find the equation of motion for $S_x$. Precession should produce a term proportional to $S_y$.
+
+Heisenberg equation of H for $Sx_1$
+
+\begin{equation}
+  \frac{d Sx_1}{d t} = 2 B \gamma Sy_1
+  \label{eq:E4}
+\end{equation}
+
+Likewise, find the equation of motion for $S_y$. A term proportional to $S_x$, with the opposite sign, should appear.
+
+Heisenberg equation of H for $Sy_1$
+
+\begin{equation}
+  \frac{d Sy_1}{d t} = - 2 B \gamma Sx_1
+  \label{eq:E5}
+\end{equation}
+
+Find the equation of motion for $S_z$. Since $H$ is written purely in terms of $S_z$, $S_z$ should be conserved and this should vanish.
+
+Heisenberg equation of H for $Sz_1$
+
+\begin{equation}
+  \frac{d Sz_1}{d t} = 0
+  \label{eq:E6}
+\end{equation}
+
+Directly compute the commutator of $H$ and $S_z$ to confirm, by another route, the conservation result from the previous step.
+
+Compute the commutator of H and $Sz_1$
+
+\begin{equation}
+  0
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

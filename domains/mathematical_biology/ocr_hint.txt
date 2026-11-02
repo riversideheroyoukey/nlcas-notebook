@@ -1,0 +1,14 @@
+## OCR Domain Hint: Mathematical Biology
+
+Symbol recognition priorities:
+- N(t), P(t), H(t) → population variables N(t), P(t), H(t)
+- Ṅ or dN/dt → time derivative of population \dot{N} or \frac{dN}{dt}
+- r (small, scalar near N) → growth rate r, NOT position vector
+- K (capital) → carrying capacity K
+- α, β, γ (Greek, near population terms) → interaction coefficients
+- D (capital, near ∇² or ∂²/∂x²) → diffusion coefficient D
+
+Common expression patterns:
+- dN/dt = rN(1 - N/K) → logistic growth
+- dN/dt = rN - αNP, dP/dt = βNP - γP → Lotka-Volterra
+- ∂u/∂t = D∇²u + f(u) → reaction-diffusion equation

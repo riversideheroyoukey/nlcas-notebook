@@ -1,0 +1,649 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_d65e9536",
+    "title": "scenario_eoq_optimal_order_quantity",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:19.419814Z",
+    "active_branch_id": "main",
+    "domains": [
+      "production_optimization"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_3d0c10",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "C = K D / Q + h Q / 2",
+      "canonical": "K*D / Q + h*Q / 2",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "K",
+        "D"
+      ],
+      "warnings": [],
+      "input_canonical": "K*D / Q + h*Q / 2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_0b3046",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\frac{dC}{dQ} = \\frac{h}{2}-\\frac{D K}{Q^2}",
+      "canonical": "h/2-(D*K)/Q^2",
+      "created_by_step": "S6",
+      "simplification_log": [],
+      "quantity_name": "C",
+      "derivative_vars": [
+        "Q"
+      ],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "h/2-(D*K)/Q^2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "K*D / Q + h*Q / 2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_95a5fa",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "Q = -\\sqrt{2} \\sqrt{\\frac{D K}{h}}",
+      "canonical": "-(sqrt(2)*sqrt((D*K)/h))",
+      "created_by_step": "S10",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "D",
+        "K"
+      ],
+      "warnings": [],
+      "input_canonical": "-(sqrt(2)*sqrt((D*K)/h))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_fcc251",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "Q = \\sqrt{2} \\sqrt{\\frac{D K}{h}}",
+      "canonical": "sqrt(2)*sqrt((D*K)/h)",
+      "created_by_step": "S11",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "D",
+        "K"
+      ],
+      "warnings": [],
+      "input_canonical": "sqrt(2)*sqrt((D*K)/h)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_ccc9b3",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "C = {{\\sqrt{2} D K}\\over{\\sqrt{\\frac{D K}{h}}}}",
+      "canonical": "(sqrt(2)*D*K)/sqrt((D*K)/h)",
+      "created_by_step": "S14",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(sqrt(2)*D*K)/sqrt((D*K)/h)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "K*D / Q + h*Q / 2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:19.484667Z",
+      "user_text": "年間需要 $D$、1回あたり発注費用 $K$、単位あたり保管費用 $h$、発注量 $Q$ のとき、総費用 $C(Q)=KD/Q+hQ/2$ を定義する（発注費用「発注回数 $D/Q$ ×発注費用 $K$」と保管費用「平均在庫量 $Q/2$ ×保管費用 $h$」の和）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.484851Z",
+      "user_text": "C = K D / Q + h Q / 2",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.486584Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:57:19.489560Z",
+      "user_text": "総費用を最小にする発注量を求めるため、$C$ を発注量 $Q$ で全微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.489603Z",
+      "user_text": "E1 を Q で全微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.491305Z",
+      "user_text": null,
+      "visible_action": "E1 をQ で全微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "Q",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(K * D * Q^-1 + h * Q * 2^-1,Q,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:57:19.492260Z",
+      "user_text": "微分した式をゼロと置いて $Q$ について解き、費用を最小にする発注量の候補を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:19.492296Z",
+      "user_text": "E2 を Q について解いて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:19.509415Z",
+      "user_text": null,
+      "visible_action": "E2 の方程式を解く",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E2",
+        "var": "Q"
+      },
+      "backend": "maxima",
+      "rendered_command": "solve(h * 2^-1 - D * K * (Q^2)^-1, Q)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2"
+      ],
+      "output_refs": [
+        "E3",
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:19.510826Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:19.511709Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:19.511956Z",
+      "user_text": "得られた解のうち経済的に意味のある正の発注量 $Q^*$ を、総費用の式 $C(Q)$ に代入し、最小総費用を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:19.511993Z",
+      "user_text": "E1 に E4 を代入して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:19.517483Z",
+      "user_text": null,
+      "visible_action": "E1 の Q → \\sqrt{2} \\sqrt{\\frac{D K}{h}}",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E1",
+        "lhs": "Q",
+        "rhs": "sqrt(2)*sqrt((D*K)/h)"
+      },
+      "backend": "maxima",
+      "rendered_command": "rhs(block([C], block([Q], ratsimp(subst(Q=sqrt(2) * sqrt(D * K * h^-1),C=K * D * Q^-1 + h * Q * 2^-1)))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S14",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:19.419821Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "C": {
+      "quantity": {
+        "name": "C",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "C_dQ": {
+      "quantity": {
+        "name": "C_dQ",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E2",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Q": {
+      "quantity": {
+        "name": "Q",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E4",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "C": "E5",
+    "\\frac{dC}{dQ}": "E2",
+    "'diff(C,Q,1)": "E2",
+    "Q": "E4"
+  },
+  "expr_counter": 5,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 14,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

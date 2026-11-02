@@ -1,0 +1,96 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_damped\_oscillator\_numeric}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+まず、時間に依存する変位 $x$ と、減衰率 $\gamma$・固有角振動数 $\omega_0$（ともに正の実数）を準備する。
+
+x を時間依存関数として定義する
+
+$\checkmark$ x を時間依存として宣言しました（時間変数: t）
+
+$\gamma$ を正の実数とする
+
+\[
+  \gamma
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle \gamma > 0$\par
+
+$\omega_0$ を正の実数とする
+
+\[
+  \omega_{0}
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle \omega_{0} > 0$\par
+
+以下の減衰振動子の運動方程式を考える（$\gamma$ は減衰率、$\omega_0$ は固有角振動数）。
+
+$\ddot{x} + 2 \gamma \dot{x} + \omega_0^2 x = 0$
+
+\begin{equation}
+  \ddot{x} + 2 \gamma \dot{x} + \omega_0^2 x = 0
+  \label{eq:E1}
+\end{equation}
+
+この微分方程式に指数関数の ansatz $x=e^{rt}$ を代入すると（$\dot x=re^{rt},\ \ddot x=r^2e^{rt}$、両辺を $e^{rt}\neq0$ で割る）、この微分方程式の特性方程式は以下となる。
+
+$r^2 + 2 \gamma r + \omega_0^2 = 0$
+
+\begin{equation}
+  r^2 + 2 \gamma r + \omega_0^2 = 0
+  \label{eq:E2}
+\end{equation}
+
+特性方程式は $r$ の２次式（$ar^2+br+c=0$ で $a=1,\ b=2\gamma,\ c=\omega_0^2$）なので、以下の判別式 $b^2-4ac=(2\gamma)^2-4\omega_0^2$ を得る。ここでは以降の議論を「正なら不足減衰」という自然な形にするため、この符号を反転させた量 $D=4\omega_0^2-(2\gamma)^2=-(b^2-4ac)$ を定義する。
+
+$D = 4 \omega_0^2 - (2 \gamma)^2$
+
+\begin{equation}
+  D = 4 \omega_0^2 - (2 \gamma)^2
+  \label{eq:E3}
+\end{equation}
+
+ここでは減衰振動（不足減衰、$D>0$）を想定する。この選択は扱っている問題に依存する物理的な判断であり、ツール側が代わりに決めるものではないので、以下のように明示的に assume する。
+
+D $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle D > 0$\par
+
+$D>0$ の仮定のもとで、運動方程式（E1）の一般解を求める。
+
+E1 の一般解を求めて
+
+\begin{equation}
+  x=e^ {- \left(\gamma t\right) } \left(k_{1} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)+k_{2} \cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)\right)
+  \label{eq:E4}
+\end{equation}
+
+一般解（E4）には任意定数 $k_1,k_2$ が含まれている。初期条件 $x(0)=1,\ \dot x(0)=0$ を与えて、これらを決定する。
+
+E4 の初期条件を x(0)=1, x'(0)=0 とする
+
+\begin{equation}
+  x = e^ {- \left(\gamma t\right) } \left(\cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)-{{\gamma \sqrt{4 \omega_{0}^2-4 \gamma^2} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)}\over{2 \gamma^2-2 \omega_{0}^2}}\right)
+  \label{eq:E5}
+\end{equation}
+
+次のステップで数値層へフォークするために、決定した解（E5）の右辺だけを取り出して整理する。
+
+E5 の右辺を整理して
+
+\begin{equation}
+  x = -{{\gamma \sqrt{4 \omega_{0}^2-4 \gamma^2} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)+\left(2 \omega_{0}^2-2 \gamma^2\right) \cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)}\over{2 e^{\gamma t} \gamma^2-2 e^{\gamma t} \omega_{0}^2}}
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,1181 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_703925f6",
+    "title": "scenario_free_electron_fermi_surface",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:20.148733Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_7c8cab",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\hbar^2 k^2 / (2 m) - \\mu",
+      "canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "created_by_step": "S7",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_06c77a",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\frac{ - 2 m \\mu + k^{2} \\hbar^{2}}{2 m}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S10",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(-2m*mu + (hbar^2)*(k^2)) / (2m)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_f469aa",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\hbar^2 k^2 / (2 m) - \\mu = 0",
+      "canonical": "hbar^2 * k^2 / (2 * m) - mu = 0",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu = 0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_53a709",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "k = \\sqrt{2}*\\sqrt{m*\\mu}/\\hbar",
+      "canonical": "sqrt(2)*sqrt(m*mu)/hbar",
+      "created_by_step": "S17",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sqrt(2)*sqrt(m*mu)/hbar",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_be2844",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\left( - \\mu + \\frac{\\left( \\frac{\\sqrt{2 m \\mu}}{\\hbar} \\right)^{2} \\hbar^{2}}{2 m}\\right)",
+      "canonical": "_nb_E5",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(-mu + ((hbar^2)*((sqrt(2m*mu) / hbar)^2)) / (2m))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_4b9969",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\xi_k = 0",
+      "canonical": "_nb_E6",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_147308",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\frac{d^{2}}{dk^{2}}\\left(\\xi_k\\right) = \\frac{\\hbar^{2}}{m}",
+      "canonical": "_nb_E7",
+      "created_by_step": "S26",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(hbar^2) / m",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_70e639",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "m_star = m",
+      "canonical": "m",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:21.001071Z",
+      "user_text": "フリー電子モデルの分散関係を扱う。波数 $k$、電子質量 $m$、化学ポテンシャル $\\mu$、換算プランク定数 $\\hbar$ をスカラーパラメータとして準備する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:21.001332Z",
+      "user_text": "k, m, \\mu, \\hbar をスカラーとして定義する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:21.004582Z",
+      "user_text": "k, m, \\mu, \\hbar をスカラーとして定義する",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "k",
+        "_all_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ],
+        "_raw_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:21.717867Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "k",
+        "registered_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables k",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:21.719835Z",
+      "user_text": "フリー電子のエネルギー分散 $\\xi_k=\\hbar^2k^2/(2m)-\\mu$（化学ポテンシャルを基準としたエネルギー）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:21.719892Z",
+      "user_text": "\\xi_k = \\hbar^2 * k^2 / (2 * m) - \\mu",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:21.721122Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:21.723599Z",
+      "user_text": "右辺を整理して見やすい形にする（物理的な意味は変わらない）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:21.723642Z",
+      "user_text": "E1 の右辺を整理して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:26.367255Z",
+      "user_text": null,
+      "visible_action": "E1 の右辺を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (simplify(hbar^2 * k^2 * (2 * m)^-1 - mu))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:26.368269Z",
+      "user_text": "フェルミ面の条件 $\\xi_k=0$（エネルギーがフェルミ準位に一致する）を、右辺を 0 と置いた方程式として確定する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:26.368325Z",
+      "user_text": "E1 の右辺を 0 とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:26.368899Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "rhs_set"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:26.369269Z",
+      "user_text": "この方程式を波数 $k$ について解き、フェルミ波数 $k_F$ を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:26.369304Z",
+      "user_text": "E3 を k について解いて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:26.669838Z",
+      "user_text": null,
+      "visible_action": "E3 の方程式を解く",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E3",
+        "var": "k"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E4 = (_nb_solve_equation(\"hbar^2 * k^2 * (2 * m)^-1 - mu\", \"0\", \"k\"))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E3"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:26.670561Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:26.670853Z",
+      "user_text": "得られたフェルミ波数を元の $\\xi_k$ の式に代入し、フェルミ面上ではエネルギーが恒等的にゼロになることを確認する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:26.670905Z",
+      "user_text": "E1 に E4 を代入して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:28.541158Z",
+      "user_text": null,
+      "visible_action": "E1 の k → sqrt(2)*sqrt(m*\\mu)/\\hbar",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E1",
+        "lhs": "k",
+        "rhs": "sqrt(2)*sqrt(m*mu)/hbar"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E5 = (let _nb_src=normal_form(hbar^2 * k^2 * (2 * m)^-1 - mu)\n  _nb_sub = Dict(eval(Meta.parse(\"k\")) => eval(Meta.parse(\"sqrt(2*m*mu)/hbar\")))\n  if _nb_src isa _QA.QuExpr\n    _nb_nt = Dict{_QA.QuTerm, Number}()\n    for (_nb_op, _nb_c) in _nb_src.terms\n      _nb_new_c = _nb_c isa Symbolics.Num ? Symbolics.substitute(_nb_c, _nb_sub) : _nb_c\n      _nb_nt[_nb_op] = get(_nb_nt, _nb_op, 0) + _nb_new_c\n    end\n    normal_form(_QA.QuExpr(_nb_nt))\n  else\n    Symbolics.substitute(_nb_src, _nb_sub)\n  end\nend)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:28.542881Z",
+      "user_text": "代入結果を整理し、ゼロになることを明示的に確認する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:28.542937Z",
+      "user_text": "E5 の右辺を整理して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:28.660212Z",
+      "user_text": null,
+      "visible_action": "E5 の右辺を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E5"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E6 = (simplify(_nb_E5))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:28.660878Z",
+      "user_text": "有効質量 $m^*$ を求めるため、分散関係 $\\xi_k$ を波数 $k$ について2階微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:28.660933Z",
+      "user_text": "E1 を k で 2 回微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:28.763065Z",
+      "user_text": null,
+      "visible_action": "E1 をk で微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "k",
+        "order": "2"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E7 = (_nb_differentiate(hbar^2 * k^2 * (2 * m)^-1 - mu, k, 2))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:28.763902Z",
+      "user_text": "得られた2階微分から、有効質量 $m^*=\\hbar^2/(d^2\\xi_k/dk^2)$ を定義する（フリー電子モデルでは $m^*=m$、裸の質量に一致するはず）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:28.763962Z",
+      "user_text": "m_star = \\hbar^2 / E7",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:28.766025Z",
+      "user_text": null,
+      "visible_action": "E8 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S29",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:20.148740Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "k": {
+      "quantity": {
+        "name": "k",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E4",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "mu": {
+      "quantity": {
+        "name": "mu",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "hbar": {
+      "quantity": {
+        "name": "hbar",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "xi_k": {
+      "quantity": {
+        "name": "xi_k",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E6",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m_star": {
+      "quantity": {
+        "name": "m_star",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E8",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\xi_k": "E6",
+    "xi_k": "E6",
+    "\\hbar^2 k^2 / (2 m) - \\mu": "E3",
+    "hbar^2*k^2 / (2*m) - mu": "E3",
+    "k": "E4",
+    "\\frac{d^{2}}{dk^{2}}\\left(\\xi_k\\right)": "E7",
+    "((d^2)/(dk^2))*(xi_k)": "E7",
+    "m_star": "E8"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 29,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

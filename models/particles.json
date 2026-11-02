@@ -1,0 +1,478 @@
+{
+  "particles": [
+    {
+      "key": "electron",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "電子"
+        ],
+        "en": [
+          "electron"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "positron",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "陽電子",
+          "ポジトロン"
+        ],
+        "en": [
+          "positron"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "proton",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "陽子",
+          "プロトン"
+        ],
+        "en": [
+          "proton"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "neutron",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "中性子",
+          "ニュートロン"
+        ],
+        "en": [
+          "neutron"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "muon",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ミューオン",
+          "ミュー粒子",
+          "μ粒子"
+        ],
+        "en": [
+          "muon"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "tau",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "タウ粒子",
+          "タウオン",
+          "τ粒子"
+        ],
+        "en": [
+          "tau",
+          "tauon"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "neutrino",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ニュートリノ"
+        ],
+        "en": [
+          "neutrino"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "electron_neutrino",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "電子ニュートリノ"
+        ],
+        "en": [
+          "electron neutrino"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "muon_neutrino",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ミューニュートリノ",
+          "ミュー型ニュートリノ"
+        ],
+        "en": [
+          "muon neutrino"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "tau_neutrino",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "タウニュートリノ",
+          "タウ型ニュートリノ"
+        ],
+        "en": [
+          "tau neutrino"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "クォーク"
+        ],
+        "en": [
+          "quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "up_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "アップクォーク",
+          "uクォーク"
+        ],
+        "en": [
+          "up quark",
+          "up-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "down_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ダウンクォーク",
+          "dクォーク"
+        ],
+        "en": [
+          "down quark",
+          "down-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "charm_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "チャームクォーク",
+          "cクォーク"
+        ],
+        "en": [
+          "charm quark",
+          "charm-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "strange_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ストレンジクォーク",
+          "sクォーク"
+        ],
+        "en": [
+          "strange quark",
+          "strange-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "top_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "トップクォーク",
+          "tクォーク"
+        ],
+        "en": [
+          "top quark",
+          "top-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "bottom_quark",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "ボトムクォーク",
+          "bクォーク"
+        ],
+        "en": [
+          "bottom quark",
+          "bottom-quark"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "hole",
+      "statistics": "fermion",
+      "names": {
+        "ja": [
+          "正孔",
+          "ホール"
+        ],
+        "en": [
+          "hole",
+          "electron hole"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "photon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "光子",
+          "フォトン"
+        ],
+        "en": [
+          "photon"
+        ]
+      },
+      "two_s": 2,
+      "projection_numerators": [
+        -2,
+        2
+      ]
+    },
+    {
+      "key": "w_boson",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "Wボソン",
+          "W粒子"
+        ],
+        "en": [
+          "W boson",
+          "W-boson"
+        ]
+      },
+      "two_s": 2
+    },
+    {
+      "key": "z_boson",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "Zボソン",
+          "Z粒子"
+        ],
+        "en": [
+          "Z boson",
+          "Z-boson"
+        ]
+      },
+      "two_s": 2
+    },
+    {
+      "key": "higgs",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "ヒッグス粒子",
+          "ヒッグスボソン",
+          "ヒッグス"
+        ],
+        "en": [
+          "Higgs",
+          "Higgs boson"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "gluon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "グルーオン",
+          "膠子"
+        ],
+        "en": [
+          "gluon"
+        ]
+      },
+      "two_s": 2,
+      "projection_numerators": [
+        -2,
+        2
+      ]
+    },
+    {
+      "key": "graviton",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "重力子",
+          "グラビトン"
+        ],
+        "en": [
+          "graviton"
+        ]
+      },
+      "two_s": 4,
+      "projection_numerators": [
+        -4,
+        4
+      ]
+    },
+    {
+      "key": "phonon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "フォノン",
+          "格子振動",
+          "格子振動子",
+          "音子"
+        ],
+        "en": [
+          "phonon"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "magnon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "マグノン",
+          "スピン波"
+        ],
+        "en": [
+          "magnon"
+        ]
+      },
+      "two_s": 2
+    },
+    {
+      "key": "plasmon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "プラズモン"
+        ],
+        "en": [
+          "plasmon"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "polaron",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "ポーラロン"
+        ],
+        "en": [
+          "polaron"
+        ]
+      },
+      "two_s": 1
+    },
+    {
+      "key": "exciton",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "励起子",
+          "エキシトン"
+        ],
+        "en": [
+          "exciton"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "cooper_pair",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "クーパー対",
+          "クーパーペア"
+        ],
+        "en": [
+          "Cooper pair",
+          "cooper pair"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "pion",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "パイ中間子",
+          "パイオン",
+          "π中間子"
+        ],
+        "en": [
+          "pion"
+        ]
+      },
+      "two_s": 0
+    },
+    {
+      "key": "kaon",
+      "statistics": "boson",
+      "names": {
+        "ja": [
+          "K中間子",
+          "ケーオン"
+        ],
+        "en": [
+          "kaon",
+          "K meson"
+        ]
+      },
+      "two_s": 0
+    }
+  ],
+  "_comment_spin": "two_s は 2S（スピンの大きさの分子）。**分子で持つのは、半整数を float にしないため**（このプロジェクトの厳密演算規則。F-9 の Surd と同じ理由）。射影 m の値集合は既定で梯子 -S..S、分子で -two_s, -two_s+2, …, two_s。梯子から外れる粒子は projection_numerators に明示する——質量ゼロの粒子はヘリシティ ±S の2状態しか持たず、光子に m=0 は無い。polaron は物性の慣用（電子とフォノンの複合、スピン 1/2 を担う）。**統計は分子の偶奇を決めるが大きさは決めない**ので、two_s は粒子ごとのデータである。"
+}

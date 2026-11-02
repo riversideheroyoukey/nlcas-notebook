@@ -1,0 +1,65 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_transverse\_field\_ising}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+2サイト横磁場イジングモデルを扱う。結合定数 $J$（イジング相互作用の強さ）と横磁場の強さ $\Gamma$ をスカラーパラメータとして準備する。
+
+J, $\Gamma$ をスカラーパラメータとして定義して
+
+\[
+  J, \Gamma
+\]
+
+両サイトで使うスピン演算子 $S$ を準備する。
+
+S をスピン演算子として定義して
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+横磁場イジングハミルトニアン $H=-JS^z_1S^z_2-\Gamma(S^x_1+S^x_2)$（イジング結合項と横磁場項）を登録する。
+
+$H = -J Sz_1 Sz_2 - \Gamma (Sx_1 + Sx_2)$
+
+\begin{equation}
+  H = -J Sz_1 Sz_2 - \Gamma (Sx_1 + Sx_2)
+  \label{eq:E1}
+\end{equation}
+
+ハミルトニアン $H$ とサイト1の $S^z$ の交換子を計算し、SU(2)交換関係に基づく運動方程式の一部を確認する。
+
+[E1, $Sz_1$]
+
+\begin{equation}
+  2 \Gamma \mathit{i} Sy_1
+  \label{eq:E2}
+\end{equation}
+
+平均場近似を行うため、サイト2のスピンを置き換える平均場（c-数）$m_z=\langle S^z\rangle$ をスカラーパラメータとして準備する。
+
+mz をスカラーパラメータとして定義して
+
+\[
+  mz
+\]
+
+サイト2の演算子 $S^z_2$ だけを平均場 $m_z$ に置き換え、平均場ハミルトニアン $H_{\rm MF}$ を得る（サイト1の演算子や横磁場項は変化しないはずである）。
+
+E1 の $S^z_2$ を mz に置き換えて
+
+\begin{equation}
+  H = - \Gamma Sx_1 - \Gamma Sx_2 - J mz Sz_1
+  \label{eq:E3}
+\end{equation}
+
+\end{document}

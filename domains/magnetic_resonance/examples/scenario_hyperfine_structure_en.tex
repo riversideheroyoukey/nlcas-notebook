@@ -1,0 +1,111 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_hyperfine\_structure}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+The hyperfine interaction $H_{\rm hf}=A\,\mathbf I\cdot\mathbf S$, taken along two independent routes. $A$ is the hyperfine coupling constant.
+
+Define A as a scalar
+
+\[
+  A
+\]
+
+[Route A] Couple the nuclear spin $I=3/2$ to the electron spin $S=1/2$. This gives the allowed total angular momenta $F$ and an identity expressing $\mathbf I\cdot\mathbf S$ through $F$. $F$ stays symbolic, so the identity can be carried on by ordinary operations.
+
+couple I=3/2 and S=1/2
+
+\begin{equation}
+  \left| \frac{3}{2} \right\rangle \otimes \left| \frac{1}{2} \right\rangle:\quad F = 1,\; 2
+  \label{eq:E1}
+\end{equation}
+
+\begin{equation}
+  \mathbf{I}\cdot\mathbf{S} = \frac{1}{2}\left[ F(F+1) - \frac{15}{4} - \frac{3}{4} \right]
+  \label{eq:E2}
+\end{equation}
+
+Multiply both sides by the coupling constant $A$ to get the hyperfine eigenvalues — and to check that an identity built without the CAS rides an ordinary both-sides operation.
+
+multiply both sides of E2 by A
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = \frac{2 A F^2+2 A F-9 A}{4}
+  \label{eq:E3}
+\end{equation}
+
+Substitute the upper level $F=2$.
+
+in E3, substitute 2 for F
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = \frac{3 A}{4}
+  \label{eq:E4}
+\end{equation}
+
+Substitute the lower level $F=1$.
+
+in E3, substitute 1 for F
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = -\frac{5 A}{4}
+  \label{eq:E5}
+\end{equation}
+
+Take the interval between the two levels. The Landé interval rule $\Delta E = A\,F_{\rm max}$ says it should be $2A$.
+
+$E4 - E5$
+
+\begin{equation}
+  E4 - E5
+  \label{eq:E6}
+\end{equation}
+
+simplify E6
+
+\begin{equation}
+  2 A
+  \label{eq:E7}
+\end{equation}
+
+[Route B] Now the same $\mathbf I\cdot\mathbf S$ through a spin-algebra trace at infinite temperature. First declare each site's spin — which spins the trace was taken with is part of what the result means, so this is recorded as a timeline step.
+
+site 1 has spin 1/2 and site 2 has spin 3/2
+
+\noindent\textbf{Assumption:}\ $\displaystyle $\par
+
+Register $\mathbf I\cdot\mathbf S$ as the sum of its $x,y,z$ components.
+
+$S^x_1 S^x_2 + S^y_1 S^y_2 + S^z_1 S^z_2$
+
+\begin{equation}
+  S^x_1 S^x_2 + S^y_1 S^y_2 + S^z_1 S^z_2
+  \label{eq:E8}
+\end{equation}
+
+The first moment (expectation value), which should vanish at infinite temperature.
+
+expectation value of E8
+
+\begin{equation}
+  \langle E8 \rangle = 0
+  \label{eq:E9}
+\end{equation}
+
+The second moment. With $\frac13 x_1x_2$ and $x_i=S_i(S_i+1)$, putting in $x_1=3/4$ and $x_2=15/4$ should give $15/16$ — confirmation that the per-site spins are doing the work.
+
+2nd moment of E8
+
+\begin{equation}
+  \langle {E8}^{2} \rangle = \frac{15}{16}
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

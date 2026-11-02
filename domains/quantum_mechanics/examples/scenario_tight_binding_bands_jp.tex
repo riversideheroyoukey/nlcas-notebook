@@ -1,0 +1,100 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_tight\_binding\_bands}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+格子上のホッピング模型 $H=-t\sum_{\langle ij\rangle}c^\dagger_ic_j$（隣接サイト間のホッピング振幅 $t$）を、和を展開せずシンボリックなまま登録する。
+
+$H = -t \sum_{\langle i j \rangle} c'_i c_j$
+
+\begin{equation}
+  H = -t \sum_{\langle ij \rangle} c'_i c_j
+  \label{eq:E1}
+\end{equation}
+
+この模型を1次元鎖として扱った場合の分散関係 $\varepsilon(k)$（ブロッホ行列の固有値。単一副格子の場合はフーリエ変換した和そのもの）を求める。
+
+H の分散関係を求めて
+
+\begin{equation}
+  \varepsilon(k) = -2t \cos k
+  \label{eq:E2}
+\end{equation}
+
+同じホッピング模型を正方格子上で扱った場合の分散関係を求める。
+
+H の正方格子で分散関係を求めて
+
+\begin{equation}
+  \varepsilon(\mathbf{k}) = -2t \left( \cos k_x + \cos k_y \right)
+  \label{eq:E3}
+\end{equation}
+
+三角格子上で、最近接に加えて次近接ホッピング $-t'$ も含めた分散関係を求める（第2近接シェルの寄与が加わる）。
+
+H の三角格子で次近接 -t' を含めて分散関係を求めて
+
+\begin{equation}
+  \varepsilon(\mathbf{k}) = -2t \left( \cos k_x + \cos k_y + \cos(k_x + k_y) \right) -2t' \left( \cos(k_x - k_y) + \cos(2 k_x + k_y) + \cos(k_x + 2 k_y) \right)
+  \label{eq:E4}
+\end{equation}
+
+ハニカム格子（グラフェンの構造）上で分散関係を求める。2つの副格子があるため2本のバンド $\varepsilon_\pm(k)$ が得られ、Dirac点でギャップレスになるはずである。
+
+H のハニカム格子で分散関係を求めて
+
+\begin{equation}
+  \varepsilon_\pm(\mathbf{k}) = \pm t \sqrt{ 3 + 2\cos k_1 + 2\cos k_2 + 2\cos(k_1 - k_2) }
+  \label{eq:E5}
+\end{equation}
+
+ハニカム格子に、副格子ごとに符号の異なるオンサイトエネルギー（質量項 $\Delta$）を加えて分散関係を求める。これによりDirac点にギャップ $2\Delta$ が開くはずである（h-BN型）。
+
+H のハニカム格子で質量 $\Delta$ を含めて分散関係を求めて
+
+\begin{equation}
+  \varepsilon_\pm(\mathbf{k}) = \pm \sqrt{ \Delta^2 + t^2 \left( 3 + 2\cos k_1 + 2\cos k_2 + 2\cos(k_1 - k_2) \right) }
+  \label{eq:E6}
+\end{equation}
+
+カゴメ格子（3副格子）上で分散関係を求める。非二部格子だが、平坦バンドと2本の分散バンドが得られるはずである。
+
+H のカゴメ格子で分散関係を求めて
+
+\begin{equation}
+  \varepsilon_{\mathrm{flat}} = 2t, \quad \varepsilon_\pm(\mathbf{k}) = -t \left( 1 \pm \sqrt{ 3 + 2\cos k_x + 2\cos k_y + 2\cos(k_x + k_y) } \right)
+  \label{eq:E7}
+\end{equation}
+
+Lieb格子上で分散関係を求める（star構造による平坦バンドが期待される）。
+
+H の Lieb 格子で分散関係を求めて
+
+\begin{equation}
+  \varepsilon_0 = 0, \quad \varepsilon_\pm(\mathbf{k}) = \pm t \sqrt{ 4 + 2\cos k_x + 2\cos k_y }
+  \label{eq:E8}
+\end{equation}
+
+特定の格子名を使わず、抽象的なボンドのリスト（副格子ペア・格子ベクトルの変位・振幅）を直接指定して結晶の分散関係を求める。このボンドの組が SSH（Su–Schrieffer–Heeger）二量化鎖そのもので、Bloch 行列と閉じた形のバンドの両方が出る。以前はここに「SSH 模型の分散関係を求めて」という専用の段があったが、\textbf{この一般経路が文字列まで同一の結果を出す}ことを実測したうえで削除した（SCENARIO-MACRO 第6号）——専用経路は Bloch 行列を出さないぶん、むしろ情報が少なかった。
+
+次のボンドで結晶の分散関係を求めて: (0,1,(0),v),(0,1,(-1),w)
+
+\begin{equation}
+  \tilde H(k) = \begin{pmatrix} 0 & v + w e^{-i k} \\ v + w e^{i k} & 0 \end{pmatrix}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  \varepsilon_\pm(k) = \pm \sqrt{ v^2 + w^2 + 2 v w \cos k }
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

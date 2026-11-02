@@ -1,0 +1,80 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_integration\_variable\_notation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+単位円板 $x^2+y^2\le1$ 上での $\iint(x^2+y^2)\,dx\,dy$ を登録する。この時点では CAS に渡さず、範囲つきの表示専用オブジェクトとして保持する。
+
+$x^2$ + $y^2$ $\le$ 1 の領域で $x^2$ + $y^2$ を定積分して
+
+\begin{equation}
+  \iint_{x^2+y^2 \le 1} (x^2 + y^2) \, dx \, dy
+  \label{eq:E1}
+\end{equation}
+
+極座標へ変数変換する。角度変数はキーボードから打ったギリシャ文字 $\theta$ をそのまま使う——ノートが表示するのもこの字なので、書き戻せるのが自然。ヤコビアン $|J|=r$ が被積分関数に掛かり、新しい積分範囲も自動的に算出される。
+
+E1 を x,y から r,θ へ x=r*cos(θ), y=r*sin(θ) で変数変換して
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta
+  \label{eq:E2}
+\end{equation}
+
+変数変換後の定積分を評価する。
+
+この定積分を評価して
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta = \frac{\pi}{2}
+  \label{eq:E3}
+\end{equation}
+
+同じ計算を、今度は TeX 綴りで書き直す。ノートの表示形をそのまま書き戻したときに同じ答えになることを確かめる。
+
+$x^2$ + $y^2$ $\le$ 1 の領域で $x^2$ + $y^2$ を定積分して
+
+\begin{equation}
+  \iint_{x^2+y^2 \le 1} (x^2 + y^2) \, dx \, dy
+  \label{eq:E4}
+\end{equation}
+
+E4 を x,y から r,$\theta$ へ x=r*$\cos$($\theta$), y=r*$\sin$($\theta$) で変数変換して
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta
+  \label{eq:E5}
+\end{equation}
+
+この定積分を評価して
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta = \frac{\pi}{2}
+  \label{eq:E6}
+\end{equation}
+
+単変数の定積分でも同じことを確かめる。変数も上限もギリシャ文字で書く。
+
+$sin(\theta )^2$
+
+\begin{equation}
+  \sin(\theta)^2
+  \label{eq:E7}
+\end{equation}
+
+E7 を θ で 0 から π まで定積分して
+
+\begin{equation}
+  \int_{0}^{\pi} \sin(\theta)^2 \, d\theta = \frac{\pi}{2}
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

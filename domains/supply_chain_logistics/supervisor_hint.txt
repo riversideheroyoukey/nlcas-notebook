@@ -1,0 +1,18 @@
+## Domain: Supply Chain & Logistics
+
+Common symbols and their roles:
+- Q: order quantity (newsvendor decision); D: demand (random)
+- F: demand CDF; f: demand pdf
+- cu: underage (shortage) cost; co: overage (excess) cost
+- critical ratio (critical fractile) = cu/(cu+co)
+- σ: demand standard deviation; L: lead time; z: safety factor
+- SS: safety stock; S: base-stock / order-up-to level; μ: mean demand
+
+Conventions:
+- Newsvendor: minimize expected cost → marginal analysis → optimal Q* satisfies
+  F(Q*) = cu/(cu+co) (critical fractile).  Uniform U[a,b]: Q* = a + (b−a)·cu/(cu+co).
+- Safety stock: SS = z·σ·√L; base-stock level S = μL + z·σ·√L.
+- Risk pooling (square-root law): centralizing n i.i.d. locations cuts total safety
+  stock by a factor 1/√n.
+
+When the user writes "臨界比" compute cu/(cu+co); "安全在庫" → z·σ·√L.

@@ -1,0 +1,818 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_6e0c8dca",
+    "title": "scenario_integration_variable_notation",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:10.995136Z",
+    "active_branch_id": "main",
+    "domains": [
+      "electromagnetism"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_8e918f",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "canonical": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_latex": "x^2 + y^2",
+        "integrand_canonical": "x^2 + y^2",
+        "bounds": [],
+        "region": {
+          "kind": "disk",
+          "radius": "1"
+        }
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_eb3e2d",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "canonical": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "created_by_step": "S6",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_canonical": "r^3",
+        "integrand_latex": "r^3",
+        "bounds": [
+          [
+            "theta",
+            "0",
+            "2*%pi"
+          ],
+          [
+            "r",
+            "0",
+            "1"
+          ]
+        ],
+        "region": null
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_0f417e",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S9",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_ec19fc",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "canonical": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "created_by_step": "S12",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_latex": "x^2 + y^2",
+        "integrand_canonical": "x^2 + y^2",
+        "bounds": [],
+        "region": {
+          "kind": "disk",
+          "radius": "1"
+        }
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_b11a08",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "canonical": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "created_by_step": "S14",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_canonical": "r^3",
+        "integrand_latex": "r^3",
+        "bounds": [
+          [
+            "theta",
+            "0",
+            "2*%pi"
+          ],
+          [
+            "r",
+            "0",
+            "1"
+          ]
+        ],
+        "region": null
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_18c464",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_77cde9",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\sin(\\theta)^2",
+      "canonical": "sin(theta)^2",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(theta)^2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_5bd5ef",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{\\pi} \\sin(\\theta)^2 \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "%pi/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(theta)^2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:11.061217Z",
+      "user_text": "単位円板 $x^2+y^2\\le1$ 上での $\\iint(x^2+y^2)\\,dx\\,dy$ を登録する。この時点では CAS に渡さず、範囲つきの表示専用オブジェクトとして保持する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:11.061416Z",
+      "user_text": "x^2 + y^2 <= 1 の領域で x^2 + y^2 を定積分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:11.062314Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "integral_input"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:58:11.062379Z",
+      "user_text": "極座標へ変数変換する。角度変数はキーボードから打ったギリシャ文字 $\\theta$ をそのまま使う——ノートが表示するのもこの字なので、書き戻せるのが自然。ヤコビアン $|J|=r$ が被積分関数に掛かり、新しい積分範囲も自動的に算出される。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:11.062416Z",
+      "user_text": "E1 を x,y から r,θ へ x=r*cos(θ), y=r*sin(θ) で変数変換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:11.080775Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "change_vars"
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:11.080883Z",
+      "user_text": "変数変換後の定積分を評価する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:11.080929Z",
+      "user_text": "この定積分を評価して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:11.082126Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_integral"
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:11.082197Z",
+      "user_text": "同じ計算を、今度は TeX 綴りで書き直す。ノートの表示形をそのまま書き戻したときに同じ答えになることを確かめる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:11.082237Z",
+      "user_text": "x^2 + y^2 <= 1 の領域で x^2 + y^2 を定積分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:11.082580Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "integral_input"
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:11.082658Z",
+      "user_text": "E4 を x,y から r,\\theta へ x=r*\\cos(\\theta), y=r*\\sin(\\theta) で変数変換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:11.086089Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "change_vars"
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:11.086172Z",
+      "user_text": "この定積分を評価して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:11.087202Z",
+      "user_text": null,
+      "visible_action": "E6 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_integral"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:11.087262Z",
+      "user_text": "単変数の定積分でも同じことを確かめる。変数も上限もギリシャ文字で書く。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:11.087295Z",
+      "user_text": "sin(θ)^2",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:11.088268Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:11.088375Z",
+      "user_text": "E7 を θ で 0 から π まで定積分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:11.090607Z",
+      "user_text": null,
+      "visible_action": "E7 の定積分を求める",
+      "operation": "integrate_definite",
+      "operation_args": {
+        "expr": "E7",
+        "var": "theta",
+        "lower": "0",
+        "upper": "%pi"
+      },
+      "backend": "maxima",
+      "rendered_command": "integrate(sin(theta)^2,theta,0,%pi)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "definite_integral"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S21",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:10.995143Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {},
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\int_{0}^{\\pi} \\sin(\\theta)^2 d\\theta": "E8",
+    "\\int_0^(%pi)*sin(theta)^2*d*theta": "E8"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 21,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

@@ -1,0 +1,552 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_3cfba262",
+    "title": "scenario_risk_pooling_safety_stock",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:55.839652Z",
+    "active_branch_id": "main",
+    "domains": [
+      "supply_chain_logistics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_2cb496",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "SS = z \\sigma \\sqrt{L}",
+      "canonical": "z * sigma * sqrt(L)",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "L"
+      ],
+      "warnings": [],
+      "input_canonical": "z * sigma * sqrt(L)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_bead4d",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "SS = \\sqrt{L n} \\sigma z",
+      "canonical": "sqrt(L*n)*sigma*z",
+      "created_by_step": "S6",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "sqrt(L*n)*sigma*z",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "z * sigma * sqrt(L)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_465ef4",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "ratio = \\frac{\\sqrt{L n}}{\\sqrt{L} n}",
+      "canonical": "sqrt(L*n)/(sqrt(L)*n)",
+      "created_by_step": "S9",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "L"
+      ],
+      "warnings": [],
+      "input_canonical": "sqrt(L*n)/(sqrt(L)*n)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_f348eb",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\frac{1}{\\sqrt{n}}=\\frac{1}{\\sqrt{n}}",
+      "canonical": "1/sqrt(n) = 1/sqrt(n)",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1/sqrt(n) = 1/sqrt(n)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sqrt(L*n)/(sqrt(L)*n)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:55.904785Z",
+      "user_text": "Define the general safety-stock formula $SS=z\\sigma\\sqrt{L}$ ($z$: service-level factor, $\\sigma$: demand standard deviation, $L$: lead time).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:55.904974Z",
+      "user_text": "SS = z * sigma * sqrt(L)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:55.906430Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:58:55.907133Z",
+      "user_text": "Consider pooling the demand of $n$ locations into a single central warehouse. Under the i.i.d. assumption, variances add, so the effective lead-time term becomes $nL$ instead of $L$. Substitute this replacement into the original expression (the original expression itself remains available as the single-location case).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:55.907180Z",
+      "user_text": "In E1, substitute n * L for L",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:55.909592Z",
+      "user_text": null,
+      "visible_action": "L → L n in E1",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E1",
+        "lhs": "L",
+        "rhs": "n * L"
+      },
+      "backend": "maxima",
+      "rendered_command": "rhs(block([SS], block([L], ratsimp(subst(L=n * L,SS=z * sigma * sqrt(L))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "substitute_into"
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:55.910305Z",
+      "user_text": "Take the ratio of the pooled safety stock to the total safety stock of the $n$ separate locations ($n$ times the original expression), to confirm the risk-pooling effect (the square-root law $1/\\sqrt n$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:55.910341Z",
+      "user_text": "ratio = E2 / (n * E1)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:55.912154Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:55.912951Z",
+      "user_text": "$E3=\\sqrt{Ln}/(\\sqrt{L}\\,n)$ is algebraically $1/\\sqrt{n}$, but Maxima's general `simplify` does not combine the two separate radicals on its own. Apply the dedicated radical-simplification operation to reduce it to the familiar closed form.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:55.912992Z",
+      "user_text": "radical_simplify E3",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:55.913565Z",
+      "user_text": "radical_simplify E3",
+      "visible_action": "LLM interpretation: radical_simplify",
+      "operation": "radical_simplify",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:55.915077Z",
+      "user_text": null,
+      "visible_action": "simplify radicals [E3]",
+      "operation": "radical_simplify",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": "maxima",
+      "rendered_command": "radcan(ratio=sqrt(L * n) * (sqrt(L) * n)^-1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E3"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S13",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:55.839659Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "SS": {
+      "quantity": {
+        "name": "SS",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E2",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "ratio": {
+      "quantity": {
+        "name": "ratio",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E3",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "SS": "E2",
+    "ratio": "E3",
+    "\\frac{1}{\\sqrt{n}}": "E4",
+    "((1)/(sqrt(n)))": "E4"
+  },
+  "expr_counter": 4,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 13,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

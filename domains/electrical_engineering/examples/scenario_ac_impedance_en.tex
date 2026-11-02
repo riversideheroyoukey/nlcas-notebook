@@ -1,0 +1,71 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ac\_impedance}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+To work with a series RLC circuit's impedance, prepare the resistance R, inductance L, angular frequency w (omega), and capacitance C as real scalar parameters.
+
+Define R, L, w, C as scalars
+
+\[
+  R, L, w, C
+\]
+
+The impedance of a resistor R, an inductor L, and a capacitor C connected in series is the complex quantity Z = R + j*omega*L + 1/(j*omega*C), where j is the imaginary unit (in this electrical\_engineering domain, following engineering convention, j denotes the imaginary unit and i denotes current).
+
+$Z = R + j w L + 1/(j w C)$
+
+\begin{equation}
+  Z = R + j w L + 1/(j w C)
+  \label{eq:E1}
+\end{equation}
+
+Extract the real part of the impedance Z (the resistive component).
+
+Find the realpart of E1
+
+\begin{equation}
+  R
+  \label{eq:E2}
+\end{equation}
+
+Extract the imaginary part of the impedance Z (the reactive component), representing the phase shift between current and voltage caused by the energy-storing elements L and C.
+
+Find the imagpart of E1
+
+\begin{equation}
+  L w-\frac{1}{C w}
+  \label{eq:E3}
+\end{equation}
+
+Resonance is the condition where the reactance (the imaginary part) vanishes. Form the equation that sets this reactance to zero.
+
+$E3 = 0$
+
+\begin{equation}
+  L w-1/(C w) = 0
+  \label{eq:E4}
+\end{equation}
+
+Solving this equation for the angular frequency w gives the resonant angular frequency. Of the two roots that differ in sign, the physically meaningful one is the positive root omega\_0 = 1/sqrt(LC).
+
+Solve E4 for w
+
+\begin{equation}
+  w = -\sqrt{\frac{1}{C L}}
+  \label{eq:E5}
+\end{equation}
+
+\begin{equation}
+  w = \sqrt{\frac{1}{C L}}
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

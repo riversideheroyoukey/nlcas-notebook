@@ -1,0 +1,18 @@
+## OCR Domain Hint: Magnetic Resonance (NMR / ESR)
+
+Symbol recognition priorities:
+- Sx, Sy, Sz / Ix, Iy, Iz → spin operators S_x…, nuclear spin I_x…
+- S or I with + / − superscript → raising/lowering \hat{S}^+, \hat{S}^-
+- γ (gamma) → gyromagnetic ratio \gamma
+- B with subscript 0 / 1 → static / RF field B_0, B_1
+- ω with subscript 0 → Larmor frequency \omega_0; ω_1 → Rabi frequency
+- Ω (capital omega) → resonance offset / detuning \Omega
+- T with subscript 1 / 2 → relaxation times T_1, T_2
+- δ (delta) → chemical shift \delta; σ with site subscript → shielding \sigma_i
+- J (italic, coupling context) → scalar coupling J
+- A (coupling context, ESR) → hyperfine coupling A
+- g (italic, ESR context) → g-factor g; μ_B → Bohr magneton \mu_B; μ_N → \mu_N
+- M, M_x, M_y, M_z → magnetization vector; M_0 → equilibrium magnetization
+- ρ (rho) → density matrix \rho
+- Square brackets [Si, Sj] → commutator of spin operators
+- ħ → reduced Planck constant \hbar (often set to 1)

@@ -1,0 +1,7 @@
+{
+  "label_en": "Differential Geometry",
+  "category": "mathematics",
+  "label_ja": "微分幾何",
+  "status": "future",
+  "status_note": "Partially supported. Specialized tensor/operator operations not yet connected to CAS."
+}

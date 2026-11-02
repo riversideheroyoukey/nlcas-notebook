@@ -1,0 +1,50 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_mm1\_queue}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+到着率 $\lambda$・サービス率 $\mu$ の M/M/1 待ち行列を扱う。利用率 $\rho=\lambda/\mu$（窓口がふさがっている割合）を定義する。
+
+$\rho = \lambda/\mu$
+
+\begin{equation}
+  \rho = \lambda/\mu
+  \label{eq:E1}
+\end{equation}
+
+平均系内人数 $L=\rho/(1-\rho)$ を定義する。
+
+$L = \rho/(1-\rho)$
+
+\begin{equation}
+  L = \rho/(1-\rho)
+  \label{eq:E2}
+\end{equation}
+
+$\rho$ を $\lambda/\mu$ に置き換え、$L$ を $\lambda,\mu$ だけで表す式にする。
+
+E2 の $\rho$ に $\lambda/\mu$ を代入して
+
+\begin{equation}
+  L = -\frac{\lambda}{\lambda-\mu}
+  \label{eq:E3}
+\end{equation}
+
+Little の法則 $L=\lambda W$ を適用するため、両辺を到着率 $\lambda$ で割り、平均滞在時間 $W=L/\lambda$ を得る。
+
+E3 の両辺を $\lambda$ で割って
+
+\begin{equation}
+  \frac{L}{\lambda} = -\frac{1}{\lambda-\mu}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

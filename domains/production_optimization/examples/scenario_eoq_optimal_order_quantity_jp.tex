@@ -1,0 +1,55 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_eoq\_optimal\_order\_quantity}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+年間需要 $D$、1回あたり発注費用 $K$、単位あたり保管費用 $h$、発注量 $Q$ のとき、総費用 $C(Q)=KD/Q+hQ/2$ を定義する（発注費用「発注回数 $D/Q$ $\times$発注費用 $K$」と保管費用「平均在庫量 $Q/2$ $\times$保管費用 $h$」の和）。
+
+$C = K D / Q + h Q / 2$
+
+\begin{equation}
+  C = K D / Q + h Q / 2
+  \label{eq:E1}
+\end{equation}
+
+総費用を最小にする発注量を求めるため、$C$ を発注量 $Q$ で全微分する。
+
+E1 を Q で全微分して
+
+\begin{equation}
+  \frac{dC}{dQ} = \frac{h}{2}-\frac{D K}{Q^2}
+  \label{eq:E2}
+\end{equation}
+
+微分した式をゼロと置いて $Q$ について解き、費用を最小にする発注量の候補を求める。
+
+E2 を Q について解いて
+
+\begin{equation}
+  Q = -\sqrt{2} \sqrt{\frac{D K}{h}}
+  \label{eq:E3}
+\end{equation}
+
+\begin{equation}
+  Q = \sqrt{2} \sqrt{\frac{D K}{h}}
+  \label{eq:E4}
+\end{equation}
+
+得られた解のうち経済的に意味のある正の発注量 $Q^*$ を、総費用の式 $C(Q)$ に代入し、最小総費用を求める。
+
+E1 に E4 を代入して
+
+\begin{equation}
+  C = {{\sqrt{2} D K}\over{\sqrt{\frac{D K}{h}}}}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

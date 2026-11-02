@@ -1,0 +1,14 @@
+## OCR Domain Hint: Quantum Optics
+
+Symbol recognition priorities:
+- † (dagger) after letter → creation operator a^{\dagger}
+- Overbar on α → coherent state amplitude \bar{\alpha}
+- σ with +/- superscript → \sigma^+, \sigma^-
+- σz → \sigma_z (Pauli z-matrix / qubit energy operator)
+- ω with subscript c → cavity frequency \omega_c
+- κ (kappa) → cavity decay \kappa
+- γ (gamma) → spontaneous emission \gamma
+- g (italic) in coupling context → Jaynes-Cummings g
+- |n⟩ → Fock state \ket{n}
+- Square brackets [A, B] → commutator
+- ⟨...⟩ with 0 subscript → vacuum expectation value \langle \cdot \rangle_0

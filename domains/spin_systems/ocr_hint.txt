@@ -1,0 +1,14 @@
+## OCR Domain Hint: Spin Systems
+
+Symbol recognition priorities:
+- Sx, Sy, Sz → spin operators S_x, S_y, S_z
+- S with + or - superscript → raising/lowering \hat{S}^+, \hat{S}^-
+- σ with subscript x/y/z → Pauli matrices \sigma_x, \sigma_y, \sigma_z
+- J (italic, coupling context) → exchange constant J
+- ⟨i,j⟩ subscript on Σ → nearest-neighbour sum \sum_{\langle i,j \rangle}
+- ↑↓ alone or as subscripts → spin-up/down \uparrow, \downarrow
+- Δ (Delta) in XXZ context → anisotropy parameter \Delta
+- Γ (Gamma) in transverse field context → transverse field \Gamma
+- ε_{ijk} → Levi-Civita symbol \varepsilon_{ijk}
+- Square brackets [Si, Sj] → commutator of spin operators
+- |↑⟩, |↓⟩ → basis states \ket{\uparrow}, \ket{\downarrow}

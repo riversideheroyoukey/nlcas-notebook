@@ -1,0 +1,107 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_squeezed\_state}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+単一ボソンモードのスクイズド状態を扱う。$a$ は光子の消滅演算子、$b$ はスクイズ変換後のモード（特定の粒子種ではないので汎用ボソン演算子として宣言する）。$r$ はスクイズパラメータ。
+
+a を光子の消滅演算子として定義して
+
+\[
+  a
+\]
+
+b をボソン演算子として定義して
+
+\[
+  b
+\]
+
+r をスカラーパラメータとして定義して
+
+\[
+  r
+\]
+
+スクイズ演算子 $S(r)=\exp[\frac{r}{2}(a^2-a^{\dagger 2})]$ による Bogoliubov 変換 $b=S^\dagger a S$ を、消滅・生成の2成分そろえて登録する（ダガーは自動生成しない設計なので生成演算子側も明示的に書く）。
+
+$b(1) = cosh(r) a(1) - sinh(r) a'(1)$
+
+\begin{equation}
+  b(1) = \cosh(r) a(1) - \sinh(r) a^{\dagger}(1)
+  \label{eq:E1}
+\end{equation}
+
+$b'(1) = cosh(r) a'(1) - sinh(r) a(1)$
+
+\begin{equation}
+  b^{\dagger}(1) = \cosh(r) a^{\dagger}(1) - \sinh(r) a(1)
+  \label{eq:E2}
+\end{equation}
+
+この変換が物理的に許されるか——正準交換関係 $[b,b^\dagger]=1$ が保たれるかを確かめる。
+
+E1 と E2 の交換子
+
+\begin{equation}
+  \left(\cosh^{2}\left( r \right) - \sinh^{2}\left( r \right)\right)
+  \label{eq:E3}
+\end{equation}
+
+元のモード $a, a^\dagger$ をスクイズ後のモード $b, b^\dagger$ で表す（逆変換）。
+
+E1, E2 を a(1), a'(1) について逆変換して
+
+\begin{equation}
+  a_{1} = \frac{b^{\dagger}_{1} \cdot \sinh\left( r \right) + b_{1} \cdot \cosh\left( r \right)}{\cosh^{2}\left( r \right) - \sinh^{2}\left( r \right)}
+  \label{eq:E4}
+\end{equation}
+
+\begin{equation}
+  a^{\dagger}_{1} = \frac{b^{\dagger}_{1} \cdot \cosh\left( r \right) + b_{1} \cdot \sinh\left( r \right)}{\cosh^{2}\left( r \right) - \sinh^{2}\left( r \right)}
+  \label{eq:E5}
+\end{equation}
+
+先ほどの交換子を双曲線関数の恒等式で簡約すると 1 になる。変換は正準性を保つ。
+
+E3 を簡約して
+
+\begin{equation}
+  1
+  \label{eq:E6}
+\end{equation}
+
+光子数演算子 $a^\dagger a$ を登録する。
+
+a'(1) a(1)
+
+\begin{equation}
+  a^{\dagger}(1) a(1)
+  \label{eq:E7}
+\end{equation}
+
+逆変換を代入して、数演算子をスクイズ後のモードで表す。
+
+E7 の a(1) に E4 を、a'(1) に E5 を代入する
+
+\begin{equation}
+  a^{\dagger}(1) a(1) = \frac{\sinh^{2}\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}}  + \frac{\cosh\left( r \right) \sinh\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}} {{b}_{1}^{\dagger}}^{2} + \left(\frac{\cosh^{2}\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}} + \frac{\sinh^{2}\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}}\right) {b}_{1}^{\dagger} {b}_{1} + \frac{\cosh\left( r \right) \sinh\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}} {{b}_{1}}^{2}
+  \label{eq:E8}
+\end{equation}
+
+スクイズ真空（$b$ の真空）での期待値を取る。真空なのに光子数が 0 でない——これがスクイージングの本質。
+
+\begin{equation}
+  a^{\dagger}(1) a(1) = \frac{\sinh^{2}\left( r \right)}{\left( \cosh^{2}\left( r \right) - \sinh^{2}\left( r \right) \right)^{2}}
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

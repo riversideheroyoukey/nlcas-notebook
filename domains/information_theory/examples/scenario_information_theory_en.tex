@@ -1,0 +1,103 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_information\_theory}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Write the Shannon entropy $H=-\sum_x p(x)\log_2 p(x)$ for a fair die ($p=1/6$, six faces) as the definition's own sum, in bits. No dedicated operation is used.
+
+$H = -\sum_{x=1}^{6} \frac{1}{6}\log_2 \frac{1}{6}$
+
+\begin{equation}
+  H = -\sum_{x=1}^{6} \frac{1}{6}\log_2 \frac{1}{6}
+  \label{eq:E1}
+\end{equation}
+
+The right-hand side evaluates to $\log 6/\log 2 = \log_2 6 \approx 2.585$ bits — information theory's default unit, so this is the form the definition should be written in. Until 2026-08-16 the based spelling was silent-wrong: it became `log(2)*6`, the logarithm of 2 times 6.
+
+compute the right-hand side of E1
+
+\begin{equation}
+  -\sum_{x=1}^{6} \frac{1}{6}\log_2 \frac{1}{6} = \frac{\log 6}{\log 2}
+  \label{eq:E2}
+\end{equation}
+
+Next the entropy of a Bernoulli distribution, $H_b(p)$. From here the general operations compose naturally.
+
+$H_b = -p\log p - (1-p)\log(1-p)$
+
+\begin{equation}
+  H_b = -p\log p - (1-p)\log(1-p)
+  \label{eq:E3}
+\end{equation}
+
+Differentiate with respect to $p$ to look for the condition that maximises the entropy.
+
+differentiate E3 with respect to p
+
+\begin{equation}
+  \frac{dH_b}{dp} = \log \left(1-p\right)-\log p
+  \label{eq:E4}
+\end{equation}
+
+Set the derivative to zero and solve for $p$. The CAS returns $\log p=\log(1-p)$ — it does not take the injectivity-of-log step, so $p=1/2$ is read off by the researcher. Not filling that in is the correct behaviour.
+
+solve E4 for p
+
+\begin{equation}
+  \log p = \log \left(1-p\right)
+  \label{eq:E5}
+\end{equation}
+
+Write the Kullback–Leibler divergence between two Bernoulli distributions straight from the definition. The point is that the summand's $\log\frac{p}{q}$ can simply be typed.
+
+$D = p\log \frac{p}{q} + (1-p)\log \frac{1-p}{1-q}$
+
+\begin{equation}
+  D = p\log \frac{p}{q} + (1-p)\log \frac{1-p}{1-q}
+  \label{eq:E6}
+\end{equation}
+
+Substitute $p$ for $q$. The basic KL property $D(p\Vert p)=0$ comes out as a computation, not as a displayed definition.
+
+substitute p for q in E6
+
+\begin{equation}
+  D = 0
+  \label{eq:E7}
+\end{equation}
+
+Write the mutual information as the definition's own double sum.
+
+$I = \sum_{x=1}^{2}\sum_{y=1}^{2} p_{xy}(x,y)\log \frac{p_{xy}(x,y)}{p_x(x) p_y(y)}$
+
+\begin{equation}
+  I = \sum_{x=1}^{2}\sum_{y=1}^{2} p_{xy}(x,y)\log \frac{p_{xy}(x,y)}{p_x(x) p_y(y)}
+  \label{eq:E8}
+\end{equation}
+
+Write the independent case, i.e. with $p_{xy}(x,y)=p_x(x)p_y(y)$ substituted in.
+
+$I_0 = \sum_{x=1}^{2}\sum_{y=1}^{2} p_x(x) p_y(y)\log \frac{p_x(x) p_y(y)}{p_x(x) p_y(y)}$
+
+\begin{equation}
+  I_0 = \sum_{x=1}^{2}\sum_{y=1}^{2} p_x(x) p_y(y)\log \frac{p_x(x) p_y(y)}{p_x(x) p_y(y)}
+  \label{eq:E9}
+\end{equation}
+
+Evaluating the right-hand side gives 0: independence makes the mutual information vanish, verified by computation.
+
+compute the right-hand side of E9
+
+\begin{equation}
+  \sum_{x=1}^{2}\sum_{y=1}^{2} p_x(x) p_y(y)\log \frac{p_x(x) p_y(y)}{p_x(x) p_y(y)} = 0
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

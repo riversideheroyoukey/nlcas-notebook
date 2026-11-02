@@ -1,0 +1,16 @@
+## OCR Domain Hint: Quantum Mechanics
+
+Symbol recognition priorities:
+- ℏ (h-bar) → \hbar, NOT h
+- Ψ (capital psi) → \Psi (wavefunction)
+- ψ (lowercase psi) → \psi
+- Hat over letter (Â) → operator \hat{A}
+- ⟨ψ| and |φ⟩ → bra \langle \psi | and ket | \varphi \rangle
+- ⟨ψ|A|φ⟩ → matrix element \langle \psi | \hat{A} | \varphi \rangle
+- [A, B] → commutator \left[ \hat{A}, \hat{B} \right]
+- σ with subscript x/y/z → Pauli matrices \sigma_x, \sigma_y, \sigma_z
+- ∇² → \nabla^2 (kinetic energy operator term)
+
+Common expression patterns:
+- iℏ ∂ψ/∂t = Ĥψ → time-dependent Schrödinger equation
+- Ĥψ = Eψ → time-independent Schrödinger equation

@@ -1,0 +1,27 @@
+{
+  "vlm_target": "ollama_qwen3_vl",
+  "refiner_target": "none",
+  "language": "en",
+  "supervisor_target": "ollama_qwen25_coder_32b",
+  "supervisor_scope": "local",
+  "adviser_target": "ollama_gpt_oss_20b",
+  "adviser_scope": "local",
+  "coder_target": "ollama_qwen25_coder_32b",
+  "advise_narrative_max_items": 15,
+  "plan_narrative_max_items": 5,
+  "numeric_timeout_s": 60.0,
+  "_local_llm_server_comment": "Local OpenAI-compatible inference server the app auto-starts. Switching provider (Ollama -> vLLM / LocalAI / etc.) is a config change only: edit command/port/env here and the matching models/*/endpoint.json base_url. Set auto_start=false to manage the server yourself (e.g. a system service).",
+  "local_llm_server": {
+    "auto_start": true,
+    "command": [
+      "ollama",
+      "serve"
+    ],
+    "port": 11434,
+    "env": {
+      "OLLAMA_KEEP_ALIVE": "-1",
+      "OLLAMA_MAX_LOADED_MODELS": "1"
+    },
+    "startup_wait_seconds": 3
+  }
+}

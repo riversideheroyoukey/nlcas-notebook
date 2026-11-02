@@ -1,0 +1,190 @@
+:root {
+    --bg-color: #f8f9fa;
+    --panel-bg: #ffffff;
+    --accent-color: #007bff;
+    --success-color: #28a745;
+    --text-color: #343a40;
+    --border-color: #dee2e6;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    background: #212529;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pipeline-controls { display: flex; gap: 15px; align-items: center; }
+/* One type for every labelled control, the same rule as the notebook page's
+ * (notebook_main.css).  Before this: the toolbar took the browser default,
+ * `.primary-btn` and `✓ 挿入` were bold, and the panel actions were 0.8rem —
+ * four sizes and two weights, none of them chosen.  The palette keys below keep
+ * 0.95rem: there the size is doing a job (they are math glyphs, read at a
+ * glance), not inherited by accident. */
+select, button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+select { background: #495057; color: white; }
+
+/* Equal-height toolbar.  Identical padding still gave 25.5px (`Clear`, `Run`,
+ * `Exit`) / 27px (the two selects) / 27.5px (`🧽 Eraser`): with
+ * `line-height: normal` the content box follows the font the browser falls back
+ * to for each label's glyphs, and an emoji resolves to a font with much taller
+ * metrics than the text beside it.  Fix it by taking the height off the font —
+ * a fixed box with the label centred — not by trimming padding per button,
+ * which the next emoji label would undo.  (Same rule as the notebook page's
+ * control rows; see notebook_main.css.) */
+.pipeline-controls select,
+.pipeline-controls button {
+    box-sizing: border-box;
+    height: 28px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The coloured actions of a panel header (Typeset / + Notebook / Edit on
+ * Canvas).  They were styled inline and drifted apart — 4px 12px at 0.8rem for
+ * the first two, 6px 12px at the inherited size for the third, which made
+ * `Edit on Canvas` visibly the largest button on the page.  Only the colour is
+ * per-button now; the geometry is here, once. */
+.panel-action {
+    box-sizing: border-box;
+    height: 26px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: var(--success-color);
+    color: white;
+    cursor: pointer;
+}
+
+main {
+    height: calc(100vh - 60px); /* ヘッダー分を引いた全高 */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* キャンバスを包むコンテナ */
+.canvas-container {
+    flex: 1 1 200px;    /* 余白があれば拡大、狭ければ縮小 */
+    min-height: 200px;  /* 描画できる最小高さ */
+    overflow: auto;
+    border: 2px solid var(--border-color);
+    background: #555;
+    display: block;
+    touch-action: none; /* prevent container scroll from eating stylus/pen events */
+}
+
+canvas {
+    background: white;
+    /* width/heightの100%設定を削除 */
+    /* JS側で設定した幅 (1200px等) で固定表示されるようになる */
+    cursor: crosshair;
+    touch-action: none;
+    flex-shrink: 0;
+    display: block;
+    margin: 0 auto; /* 中央に配置しつつ、はみ出したらスクロール */
+    will-change: transform; /* promote to GPU layer for lower compositing latency */
+}
+
+#latex-editor-panel {
+    flex-shrink: 0;
+}
+
+#result-area {
+    background: white;
+    flex: 0 0 auto;
+    min-height: 220px;         /* taller default so the result fits without scrolling */
+    max-height: 60vh;          /* taller cap so tall fractions/matrices fit */
+    overflow: auto;            /* scroll both axes when content exceeds the box */
+    resize: vertical;          /* let the user drag the bottom edge to enlarge */
+}
+
+#math {
+    --math-scale: 1;           /* adjusted by the A−/100%/A+ zoom buttons */
+    font-size: calc(1.5rem * var(--math-scale));
+    margin-bottom: 10px;
+    text-align: center;
+    overflow-x: auto;          /* wide expressions scroll instead of clipping */
+}
+
+/* 消しゴムのプレビュー円 */
+#eraser-cursor {
+    position: fixed;
+    pointer-events: none;
+    border: 1px solid rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: none;
+    z-index: 9999;
+}
+
+/* テンプレート・パレット (open_items I-1) */
+#tmpl-palette {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+}
+/* The palette keys sit in one long row, so an odd one out is obvious — the zoom
+ * readout `100%` was 22.4px against the others' 26.2px because it had been given
+ * a smaller font of its own.  It does not need one (measured: at the row's own
+ * size the key is 55px wide and nothing clips), so it lost the override and the
+ * row is one size.  The fixed box holds the row level regardless. */
+#tmpl-palette .tmpl-key {
+    box-sizing: border-box;
+    min-width: 32px;
+    height: 26px;
+    padding: 3px 7px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#tmpl-palette .tmpl-key:hover {
+    background: #eef4ff;
+    border-color: #007bff;
+}
+#tmpl-palette .tmpl-sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 2px 4px;
+    background: #ccc;
+}

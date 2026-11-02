@@ -1,0 +1,122 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ito\_black\_scholes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+幾何ブラウン運動 $dS=\mu S\,dt+\sigma S\,dW$ に従う資産の関数に伊藤の補題を適用する。まず対数 $f=\ln S$ を登録する。
+
+$f = \ln S$
+
+\begin{equation}
+  f = \ln S
+  \label{eq:E1}
+\end{equation}
+
+伊藤の公式に必要な3つの偏導関数を、一般操作でそれぞれ求める。まず $\partial f/\partial t$。$f$ に $t$ が陽に現れないので 0 になる。偏微分か全微分かは研究者が明示する（$S$ が $t$ に依存するため、この曖昧さは実在する）。
+
+E1 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial f}{\partial t} = 0
+  \label{eq:E2}
+\end{equation}
+
+次に $\partial f/\partial S$。
+
+E1 を S で偏微分して
+
+\begin{equation}
+  \frac{\partial f}{\partial S} = \frac{1}{S}
+  \label{eq:E3}
+\end{equation}
+
+伊藤の補題に固有の2階項 $\partial^2 f/\partial S^2$。これが古典的な連鎖律との差を生む。
+
+E1 を S で2階偏微分して
+
+\begin{equation}
+  \frac{\partial^{2} f}{\partial S^{2}} = -\frac{1}{S^2}
+  \label{eq:E4}
+\end{equation}
+
+伊藤の公式 $df=(\partial_t f+\mu S\partial_S f+\frac12\sigma^2S^2\partial_S^2 f)dt+\sigma S\partial_S f\,dW$ を、式番号参照で組み立てる。公式そのものは金融の内容であり、研究者が書く。
+
+$df = (E2 + \mu S E3 + \frac{1}{2}\sigma^2 S^2 E4) dt + \sigma S E3 dW$
+
+\begin{equation}
+  df=dt \left(\mu-\frac{\sigma^2}{2}\right)+dW \sigma
+  \label{eq:E5}
+\end{equation}
+
+別の関数 $g=S^2$ でも同じ手順を踏み、同じ公式が別の入力でも働くことを確かめる。
+
+$g = S^2$
+
+\begin{equation}
+  g = S^2
+  \label{eq:E6}
+\end{equation}
+
+$\partial g/\partial t$。
+
+E6 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial g}{\partial t} = 0
+  \label{eq:E7}
+\end{equation}
+
+$\partial g/\partial S$。
+
+E6 を S で偏微分して
+
+\begin{equation}
+  \frac{\partial g}{\partial S} = 2 S
+  \label{eq:E8}
+\end{equation}
+
+$\partial^2 g/\partial S^2$。定数 2 になる。
+
+E6 を S で2階偏微分して
+
+\begin{equation}
+  \frac{\partial^{2} g}{\partial S^{2}} = 2
+  \label{eq:E9}
+\end{equation}
+
+同じ伊藤の公式を $g$ について組み立てる。段 5 と同じ形で、参照する式番号だけが変わる。
+
+$dg = (E7 + \mu S E8 + \frac{1}{2}\sigma^2 S^2 E9) dt + \sigma S E8 dW$
+
+\begin{equation}
+  dg=dt \left(S^2 \sigma^2+2 S^2 \mu\right)+2 S^2 dW \sigma
+  \label{eq:E10}
+\end{equation}
+
+原資産の SDE 記法そのものは、専用操作を必要とせず通常の式として登録できる（$dt$・$dW$ は普通の記号）。
+
+$dS = \mu S dt + \sigma S dW$
+
+\begin{equation}
+  dS = \mu S dt + \sigma S dW
+  \label{eq:E11}
+\end{equation}
+
+Black–Scholes 方程式も同様に通常の方程式として書ける。これを記号的に解いて閉じた形の価格式を出すことは、このシナリオの範囲外。
+
+$\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0$
+
+\begin{equation}
+  \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0
+  \label{eq:E12}
+\end{equation}
+
+\end{document}

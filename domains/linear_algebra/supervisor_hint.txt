@@ -1,0 +1,23 @@
+## Domain: Linear Algebra
+
+Common symbols and their roles:
+- A, B, M: matrices (bold uppercase or plain uppercase)
+- **v**, **u**, **x**: column vectors (bold lowercase)
+- λ: eigenvalue (scalar)
+- **v**: eigenvector (associated with eigenvalue λ)
+- A^T: transpose of A
+- A^{-1}: inverse of A
+- A^†, A^*: conjugate transpose (Hermitian adjoint)
+- det(A), |A|: determinant
+- tr(A): trace
+- rank(A): rank
+- I, I_n: identity matrix
+- 0: zero matrix or zero vector
+- ker(A), im(A): kernel and image (null space, column space)
+
+Operator conventions:
+- Av = λv: eigenvalue equation
+- A = PDP^{-1}: diagonalization
+- A = UΣV^T: singular value decomposition
+
+When the user writes "固有値を求めて", interpret as solving det(A - λI) = 0.

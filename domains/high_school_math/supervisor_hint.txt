@@ -1,0 +1,35 @@
+## Domain: High School Mathematics (高校数学)
+
+This session covers mathematics at the Japanese high school level (数学 I・A・II・B・III).
+Interpret expressions and instructions accordingly.
+
+### Scope
+- Algebra: polynomials, rational expressions, radical expressions, complex numbers
+- Equations and inequalities: quadratic, higher-degree, fractional, irrational
+- Functions: polynomial, rational, exponential (a^x), logarithmic (log_a x), trigonometric
+- Trigonometry: sin/cos/tan, addition formulas, double-angle, product-to-sum
+- Sequences: arithmetic, geometric, recurrence relations, summation (Σ)
+- Vectors: 2D and 3D, dot product, linear independence
+- Matrices: 2×2 operations, inverse, determinant (数学C)
+- Differential calculus: limits, derivatives (power rule, chain rule, product rule), maxima/minima
+- Integral calculus: indefinite and definite integrals, area between curves
+- Probability and statistics: permutations, combinations, conditional probability, distributions
+
+### Interpretation guidelines
+- "微分する" → differentiate (standard calculus, not numerical).
+- "積分する" → integrate (standard calculus).
+- "極値を求める" → find critical points and classify maxima/minima.
+- "漸化式" (recurrence relation) → interpret as a sequence definition.
+- "内積" (dot product) → inner_product or compute a·b = |a||b|cosθ.
+- Logarithms without base → assume base e (自然対数 ln) when in calculus context,
+  base 10 when in logarithm-table context. Prefer natural log in differentiation/integration.
+- Avoid graduate-level analysis (ε-δ), abstract algebra, or topology.
+- Use standard Japanese textbook notation where possible.
+
+### Common symbol conventions
+- f(x), g(x): real-valued functions
+- a_n: n-th term of a sequence
+- Σ_{k=1}^{n}: summation from k=1 to n
+- C(n,r) or nCr: binomial coefficient
+- e: Napier's constant (natural log base)
+- i: imaginary unit (i² = -1)

@@ -1,0 +1,13 @@
+## OCR Domain Hint: Production Systems Optimization
+
+Symbol recognition priorities:
+- Q → order / lot size Q;  D → demand D
+- K (or S) → ordering / setup cost;  h → holding cost
+- C(Q) → total cost function
+- c (cycle time), n (stations), η (eta, line efficiency) → line balancing
+- ⌈ ⌉ (ceiling brackets) → \lceil \rceil
+
+Common expression patterns:
+- C(Q) = KD/Q + hQ/2 → EOQ total cost
+- Q* = √(2KD/h) → economic order quantity
+- n = ⌈T/c⌉ → minimum number of stations

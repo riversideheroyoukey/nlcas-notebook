@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>手書き入力</title>
+    <link rel="stylesheet" href="/static/lib/katex/katex.min.css">
+    <script src="/static/lib/katex/katex.min.js"></script>
+    <script src="/static/lib/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="pipeline-controls">
+            <select id="engine-select"></select>
+            <select id="refiner-select"></select>
+            <button id="mode-btn" data-i18n="ui.hwpage_eraser">🧽 消しゴム</button>
+            <button id="clear-btn" data-i18n="ui.hwpage_clear">消去</button>
+            <button id="recognize-btn" class="primary-btn" data-i18n="ui.hwpage_run">認識</button>
+            <button id="insert-btn" style="display:none; background:#17a2b8; color:white; cursor:pointer; border-radius:4px; padding:5px 12px; border:none;" data-i18n="ui.hwpage_insert">✓ 挿入</button>
+            <button id="shutdown-btn" data-i18n="ui.hwpage_exit">終了</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="canvas-container">
+            <canvas id="draw-canvas" width="2400" height="600"></canvas>
+        </div>
+
+        <div id="latex-editor-panel" style="padding: 10px 15px; background: #eee; border-bottom: 2px solid #ccc;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <label style="font-size: 0.8rem; font-weight: bold; color: #444;" data-i18n="ui.hwpage_latex_editor">LaTeX エディタ</label>
+                <div style="display: flex; gap: 6px;">
+                    <button id="typeset-btn" class="panel-action" style="background: #28a745;" data-i18n="ui.hwpage_typeset">組版</button>
+                    <button id="add-to-notebook-btn" class="panel-action" style="background: #6f42c1;" data-i18n-title="ui.hwpage_add_notebook_title" title="ノートに式を登録する" data-i18n="ui.hwpage_add_notebook">＋ ノートへ</button>
+                </div>
+            </div>
+
+            <textarea id="latex-input" spellcheck="false" style="width: 100%; height: 60px; font-family: 'Consolas', monospace; font-size: 1.1rem; padding: 10px; border: 1px solid #999; border-radius: 4px; resize: vertical; box-sizing: border-box;"></textarea>
+
+            <!-- Template palette (open_items I-1): insert LaTeX skeletons into the
+                 editor; empty {} are placeholders, Tab cycles to the next one.
+                 The LaTeX Result display-zoom buttons are appended to the end of
+                 this palette row by main.js. -->
+            <div id="tmpl-palette"></div>
+            <!-- Display zoom for the rendered result; moved into #tmpl-palette by JS. -->
+            <span id="math-display-zoom" style="display:inline-flex; gap:2px; align-items:center; margin-top:8px;">
+                <button id="math-zoom-out"   class="tmpl-key" type="button" data-i18n-title="ui.hwpage_zoom_out_title" title="表示を縮小">A−</button>
+                <button id="math-zoom-reset" class="tmpl-key" type="button" data-i18n-title="ui.hwpage_zoom_reset_title" title="表示倍率（クリックで等倍）">100%</button>
+                <button id="math-zoom-in"    class="tmpl-key" type="button" data-i18n-title="ui.hwpage_zoom_in_title" title="表示を拡大">A+</button>
+            </span>
+        </div>
+        
+        <div id="result-area">
+            <div id="math-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 0 15px;">
+                <span style="color: #666; font-size: 0.8rem; font-weight: bold;" data-i18n="ui.hwpage_latex_result">LaTeX 結果</span>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label id="zoom-label" style="display:none; font-size: 0.7rem; color: #666;"><span data-i18n="ui.hwpage_size">サイズ:</span>
+                        <input type="range" id="math-zoom" min="1.0" max="20.0" step="0.5" value="10.0">
+                    </label>
+                    <button id="edit-on-canvas-btn" class="panel-action" style="display:none; background:#007bff;" data-i18n="ui.hwpage_edit_canvas">✍️ キャンバスで編集</button>
+                </div>
+            </div>
+            <div id="math"></div>
+            <div id="result-area-content"></div>
+        </div>
+
+        <!-- Notebook expressions panel (inside main so it's within the scrollable flow) -->
+        <div id="notebook-panel" style="flex-shrink: 0; padding: 10px 15px; background: #f8f4ff; border-top: 2px solid #6f42c1; display: none; overflow-y: auto; max-height: 200px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <strong style="font-size: 0.85rem; color: #6f42c1;" data-i18n="ui.hwpage_notebook">ノート</strong>
+                <button id="notebook-clear-btn" style="background: none; border: 1px solid #ccc; padding: 2px 8px; border-radius: 4px; cursor: pointer; color: #888;" data-i18n="ui.hwpage_clear_session">セッションを消去</button>
+            </div>
+            <div id="notebook-expressions" style="font-family: 'Consolas', monospace; font-size: 0.85rem; line-height: 1.8;"></div>
+        </div>
+    </main>
+
+    <div id="eraser-cursor"></div>
+    <script src="ui_i18n.js?v=2"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

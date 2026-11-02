@@ -1,0 +1,15 @@
+## OCR Domain Hint: Mathematical Economics
+
+Symbol recognition priorities:
+- U(x₁, x₂) or U(x) → utility function U
+- ℒ or L (script/calligraphic) → Lagrangian \mathcal{L}
+- λ next to constraint → Lagrange multiplier \lambda
+- p·x or Σ pᵢxᵢ → budget constraint (dot product)
+- MRS, MRT → marginal rate of substitution/transformation
+- ∂U/∂xᵢ → marginal utility
+- ≥, ≤ in constraint context → inequality constraint
+
+Common expression patterns:
+- max U(x) s.t. p·x = m → consumer optimization
+- ∂ℒ/∂xᵢ = 0 → first-order optimality conditions
+- ∂U/∂x₁ / ∂U/∂x₂ = p₁/p₂ → MRS = price ratio at optimum

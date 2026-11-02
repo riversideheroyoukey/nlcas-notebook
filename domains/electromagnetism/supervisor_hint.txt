@@ -1,0 +1,25 @@
+## Domain: Electromagnetism
+
+Common symbols and their roles:
+- E, **E**: electric field vector — function of (x,y,z,t)
+- B, **B**: magnetic flux density — function of (x,y,z,t)
+- D, **D**: electric displacement field
+- H, **H**: magnetic field intensity
+- ρ: charge density (scalar) — NOT fluid density
+- J, **J**: current density vector
+- φ, V: scalar electric potential
+- A, **A**: magnetic vector potential
+- ε₀: permittivity of free space (constant)
+- μ₀: permeability of free space (constant)
+- c = 1/√(ε₀μ₀): speed of light (constant)
+
+Typical dependency patterns:
+- Field quantities E, B, D, H, J depend on (x, y, z, t)
+- Potentials φ, A depend on (x, y, z, t)
+- Charge/current sources ρ, J depend on (x, y, z, t)
+
+Operator conventions:
+- ∇ · E: divergence of E
+- ∇ × B: curl of B
+- ∇φ: gradient of scalar potential
+- ∇²: Laplacian operator

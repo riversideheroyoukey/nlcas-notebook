@@ -1,0 +1,1390 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_47925c96",
+    "title": "scenario_squeezed_state",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:59:04.933635Z",
+    "active_branch_id": "main",
+    "domains": [
+      "quantum_optics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_ee292d",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "b(1) = \\cosh(r) * a(1) - \\sinh(r) * a^{\\dagger}(1)",
+      "canonical": "b(1) = cosh(r) * a(1) - sinh(r) * a'(1)",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "b(1) = cosh(r) * a(1) - sinh(r) * a'(1)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_136203",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "b^{\\dagger}(1) = \\cosh(r) * a^{\\dagger}(1) - \\sinh(r) * a(1)",
+      "canonical": "b'(1) = cosh(r) * a'(1) - sinh(r) * a(1)",
+      "created_by_step": "S15",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "b'(1) = cosh(r) * a'(1) - sinh(r) * a(1)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_4a91f1",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\left(\\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right)\\right)",
+      "canonical": "_nb_E3",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(cosh(r)^2 - (sinh(r)^2))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "b(1) = cosh(r) * a(1) - sinh(r) * a'(1)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_715602",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "a_{1} = \\frac{b^{\\dagger}_{1} \\cdot \\sinh\\left( r \\right) + b_{1} \\cdot \\cosh\\left( r \\right)}{\\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right)}",
+      "canonical": "(b'(1)*sinh(r) + b(1)*cosh(r)) / (cosh(r)^2 - (sinh(r)^2))",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(b'(1)*sinh(r) + b(1)*cosh(r)) / (cosh(r)^2 - (sinh(r)^2))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_05eeb1",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "a^{\\dagger}_{1} = \\frac{b^{\\dagger}_{1} \\cdot \\cosh\\left( r \\right) + b_{1} \\cdot \\sinh\\left( r \\right)}{\\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right)}",
+      "canonical": "(b'(1)*cosh(r) + b(1)*sinh(r)) / (cosh(r)^2 - (sinh(r)^2))",
+      "created_by_step": "S24",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(b'(1)*cosh(r) + b(1)*sinh(r)) / (cosh(r)^2 - (sinh(r)^2))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_1711da",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "1",
+      "canonical": "_nb_E6",
+      "created_by_step": "S28",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "b(1) = cosh(r) * a(1) - sinh(r) * a'(1)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_34c222",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "a^{\\dagger}(1) a(1)",
+      "canonical": "a'(1)*a(1)",
+      "created_by_step": "S31",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "a'(1)*a(1)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_b7040c",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "a^{\\dagger}(1) a(1) = \\frac{\\sinh^{2}\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}}  + \\frac{\\cosh\\left( r \\right) \\sinh\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}} {{b}_{1}^{\\dagger}}^{2} + \\left(\\frac{\\cosh^{2}\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}} + \\frac{\\sinh^{2}\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}}\\right) {b}_{1}^{\\dagger} {b}_{1} + \\frac{\\cosh\\left( r \\right) \\sinh\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}} {{b}_{1}}^{2}",
+      "canonical": "_nb_E8",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(sinh(r)^2) / ((cosh(r)^2 - (sinh(r)^2))^2) + (cosh(r)*sinh(r)) / ((cosh(r)^2 - (sinh(r)^2))^2) b†(1)² + ((cosh(r)^2) / ((cosh(r)^2 - (sinh(r)^2))^2) + (sinh(r)^2) / ((cosh(r)^2 - (sinh(r)^2))^2)) b†(1) b(1) + (cosh(r)*sinh(r)) / ((cosh(r)^2 - (sinh(r)^2))^2) b(1)²",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_53c0b6",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "a^{\\dagger}(1) a(1) = \\frac{\\sinh^{2}\\left( r \\right)}{\\left( \\cosh^{2}\\left( r \\right) - \\sinh^{2}\\left( r \\right) \\right)^{2}}",
+      "canonical": "_nb_E9",
+      "created_by_step": "S37",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(sinh(r)^2) / ((cosh(r)^2 - (sinh(r)^2))^2)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:59:05.787799Z",
+      "user_text": "単一ボソンモードのスクイズド状態を扱う。$a$ は光子の消滅演算子、$b$ はスクイズ変換後のモード（特定の粒子種ではないので汎用ボソン演算子として宣言する）。$r$ はスクイズパラメータ。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:05.788017Z",
+      "user_text": "a を光子の消滅演算子として定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:05.789253Z",
+      "user_text": "a を光子の消滅演算子として定義して",
+      "visible_action": "LLM解釈: define_boson_operator",
+      "operation": "define_boson_operator",
+      "operation_args": {
+        "name": "a",
+        "_op_expr_display": "a",
+        "_particle_name": "光子",
+        "_particle_key": "photon",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:06.006272Z",
+      "user_text": null,
+      "visible_action": "ボソン演算子を定義する",
+      "operation": "define_boson_operator",
+      "operation_args": {
+        "name": "a"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@boson_ops a; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:59:06.006541Z",
+      "user_text": "b をボソン演算子として定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:59:06.007191Z",
+      "user_text": "b をボソン演算子として定義して",
+      "visible_action": "LLM解釈: define_boson_operator",
+      "operation": "define_boson_operator",
+      "operation_args": {
+        "name": "b",
+        "_op_expr_display": "b",
+        "_op_kind": "boson"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:59:06.008209Z",
+      "user_text": null,
+      "visible_action": "ボソン演算子を定義する",
+      "operation": "define_boson_operator",
+      "operation_args": {
+        "name": "b"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@boson_ops b; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:59:06.008323Z",
+      "user_text": "r をスカラーパラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:59:06.008963Z",
+      "user_text": "r をスカラーパラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "r",
+        "_all_names": [
+          "r"
+        ],
+        "_raw_names": [
+          "r"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:59:06.507784Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "r"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables r",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:59:06.508722Z",
+      "user_text": "スクイズ演算子 $S(r)=\\exp[\\frac{r}{2}(a^2-a^{\\dagger 2})]$ による Bogoliubov 変換 $b=S^\\dagger a S$ を、消滅・生成の2成分そろえて登録する（ダガーは自動生成しない設計なので生成演算子側も明示的に書く）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:59:06.508782Z",
+      "user_text": "b(1) = cosh(r) * a(1) - sinh(r) * a'(1)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:59:06.510177Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:59:06.510395Z",
+      "user_text": "b'(1) = cosh(r) * a'(1) - sinh(r) * a(1)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:59:06.511449Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S15"
+      ],
+      "timestamp": "2026-09-25T11:59:06.511637Z",
+      "user_text": "この変換が物理的に許されるか——正準交換関係 $[b,b^\\dagger]=1$ が保たれるかを確かめる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:59:06.511675Z",
+      "user_text": "E1 と E2 の交換子",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:59:06.512116Z",
+      "user_text": "E1 と E2 の交換子",
+      "visible_action": "LLM解釈: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E2"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:59:09.495088Z",
+      "user_text": null,
+      "visible_action": "[E1, E2] を交換子を計算する",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E2"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E3 = (_nb_eval_site_deltas(normal_form(comm(cosh(r) * a(1) - sinh(r) * a'(1), cosh(r) * a'(1) - sinh(r) * a(1)))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E2"
+      ],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:59:09.495649Z",
+      "user_text": "元のモード $a, a^\\dagger$ をスクイズ後のモード $b, b^\\dagger$ で表す（逆変換）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:59:09.495708Z",
+      "user_text": "E1, E2 を a(1), a'(1) について逆変換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:59:14.139290Z",
+      "user_text": null,
+      "visible_action": "逆変換を作る",
+      "operation": "build_inverse_transform",
+      "operation_args": {
+        "equations": "E1, E2",
+        "vars": "a(1), a'(1)",
+        "new_basis": "b(1), b'(1)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E4 = (let\n    @variables nbA_b_1 nbA_bD_1 nbA_a_1 nbA_aD_1\n    _sols = Symbolics.simplify.(Symbolics.solve_for([nbA_b_1 ~ nbA_cosh_r * nbA_a_1 - nbA_sinh_r * nbA_aD_1, nbA_bD_1 ~ nbA_cosh_r * nbA_aD_1 - nbA_sinh_r * nbA_a_1], [nbA_a_1, nbA_aD_1]))\n    replace(join([\"a(1)\", \"a'(1)\"] .* \" = \" .* string.(_sols), \", \"), \"nbA_b_1\" => \"b(1)\", \"nbA_cosh_r\" => \"cosh(r)\", \"nbA_a_1\" => \"a(1)\", \"nbA_sinh_r\" => \"sinh(r)\", \"nbA_aD_1\" => \"a'(1)\", \"nbA_bD_1\" => \"b'(1)\")\nend)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4",
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:59:14.140820Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:59:14.141648Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:59:14.142014Z",
+      "user_text": "先ほどの交換子を双曲線関数の恒等式で簡約すると 1 になる。変換は正準性を保つ。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:59:14.142066Z",
+      "user_text": "E3 を簡約して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:59:14.142654Z",
+      "user_text": "E3 を簡約して",
+      "visible_action": "LLM解釈: simplify",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:59:14.254467Z",
+      "user_text": null,
+      "visible_action": "E3 を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E6 = (simplify(_nb_E3))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E3"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:59:14.254817Z",
+      "user_text": "光子数演算子 $a^\\dagger a$ を登録する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:59:14.254874Z",
+      "user_text": "a'(1) a(1)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:59:14.255640Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:59:14.255699Z",
+      "user_text": "逆変換を代入して、数演算子をスクイズ後のモードで表す。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:59:14.255737Z",
+      "user_text": "E7 の a(1) に E4 を、a'(1) に E5 を代入する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:59:14.256223Z",
+      "user_text": "E7 の a(1) に E4 を、a'(1) に E5 を代入する",
+      "visible_action": "LLM解釈: operator_substitute",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E7",
+        "op_rules": [
+          {
+            "op_name": "a",
+            "formal_index": "1",
+            "rhs": "E4"
+          },
+          {
+            "op_name": "a'",
+            "formal_index": "1",
+            "rhs": "E5"
+          }
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:59:14.832167Z",
+      "user_text": null,
+      "visible_action": "E7 を演算子代入",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E7",
+        "op_rules": [
+          {
+            "op_name": "a",
+            "formal_index": "1",
+            "rhs": "E4"
+          },
+          {
+            "op_name": "a'",
+            "formal_index": "1",
+            "rhs": "E5"
+          }
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E8 = (_nb_eval_site_deltas(normal_form((cosh(r)^2 - sinh(r)^2)^-1 * (sinh(r) * b(1) + cosh(r) * adjoint(b(1))) * (b'(1) * sinh(r) + b(1) * cosh(r)) * (cosh(r)^2 - sinh(r)^2)^-1)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:59:14.833633Z",
+      "user_text": "スクイズ真空（$b$ の真空）での期待値を取る。真空なのに光子数が 0 でない——これがスクイージングの本質。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:59:14.911558Z",
+      "user_text": null,
+      "visible_action": "E8 の真空期待値を計算する",
+      "operation": "vacuum_expectation",
+      "operation_args": {
+        "expr": "E8"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E9 = (_nb_eval_site_deltas(_nb_vac_expect(normal_form(_nb_E8))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E8"
+      ],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S37",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:59:04.933645Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "a": {
+      "quantity": {
+        "name": "a",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "b": {
+      "quantity": {
+        "name": "b",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r": {
+      "quantity": {
+        "name": "r",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "a'": {
+      "quantity": {
+        "name": "a",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "b'": {
+      "quantity": {
+        "name": "b",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "a": [
+      -2,
+      2
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "b(1)": "E1",
+    "b^{\\dagger}(1)": "E2",
+    "b'(1)": "E2",
+    "a(1)": "E4",
+    "a'(1)": "E5",
+    "a^{\\dagger}(1) a(1)": "E9",
+    "a'(1)*a(1)": "E9"
+  },
+  "expr_counter": 9,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 37,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

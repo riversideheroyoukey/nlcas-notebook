@@ -1,0 +1,7 @@
+{
+  "label_en": "Quantum Optics",
+  "category": "second_quantization",
+  "label_ja": "量子光学",
+  "status": "active",
+  "status_note": "Basic tier active (2026-08-04, J-2 criterion): the representative workflow — a single-mode squeeze (Bogoliubov) transformation through the general L-1 operations, canonical commutator, and the squeezed-vacuum photon number — runs on general operations plus the domain hint (practice loop S-l). Optional extras not yet connected: Jaynes-Cummings dynamics, Lindblad/open systems (F-11), coherent-state displacement."
+}

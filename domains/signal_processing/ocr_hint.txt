@@ -1,0 +1,16 @@
+## OCR Domain Hint: Signal Processing
+
+Symbol recognition priorities:
+- X(ω) or X(jω) → Fourier transform \hat{X}(\omega) or X(j\omega)
+- X(s) → Laplace transform X(s)
+- X(z) → Z-transform X(z)
+- * between two functions → convolution \ast, NOT multiplication
+- δ(t) → Dirac delta \delta(t)
+- δ[n] → Kronecker delta \delta[n]
+- x[n] (with square brackets) → discrete-time signal x[n]
+- ω₀, f₀ → fundamental frequency \omega_0, f_0
+- H(e^{jω}) → discrete-time frequency response
+
+Common expression patterns:
+- X(ω) = ∫_{-∞}^{∞} x(t) e^{-jωt} dt → Fourier transform definition
+- y(t) = x(t) * h(t) → convolution

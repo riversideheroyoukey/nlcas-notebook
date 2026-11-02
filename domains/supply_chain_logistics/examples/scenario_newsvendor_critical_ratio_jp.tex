@@ -1,0 +1,49 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_newsvendor\_critical\_ratio}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+需要 $D$ が区間 $[a,b]$ の一様分布に従うとする（$a,b$ は需要の下限・上限）。発注量 $Q$ に対し、需要が $Q$ を下回れば余剰在庫が生じ（単位あたり過大在庫費用 $c_o$）、需要が $Q$ を上回れば品切れが生じる（単位あたり過小在庫費用 $c_u$）。$c_u,c_o$ を実数パラメータとして準備する。$D$ 自体はこれ以降の式には記号として現れない——$D$ は確率変数であり、次のステップで期待費用 $C(Q)$ の閉形式を得るために一様密度 $1/(b-a)$ で積分消去される。得られる $C(Q)$ は $Q,a,b,c_u,c_o$ のみの関数となる。
+
+$c_u$, $c_o$ を実数とする
+
+\[
+  c_u, c_o
+\]
+
+この設定で、発注量 $Q$ の関数としての期待総費用 $C(Q)=E_D[\text{過大在庫費用}+\text{過小在庫費用}]$ を、過大在庫と過小在庫それぞれの期待値の和として定義する——これは $D$ の一様密度についてあらかじめ積分した後の閉形式である（$\int_a^Q c_o(Q-D)\frac1{b-a}\,dD+\int_Q^b c_u(D-Q)\frac1{b-a}\,dD$ を手計算で評価した結果に相当）。そのため $D$ はここに現れず、その分布のパラメータ $a,b$ のみが現れる。
+
+$C = c_o (Q - a)^2 / (2 (b - a)) + c_u (b - Q)^2 / (2 (b - a))$
+
+\begin{equation}
+  C = c_o (Q - a)^2 / (2 (b - a)) + c_u (b - Q)^2 / (2 (b - a))
+  \label{eq:E1}
+\end{equation}
+
+期待総費用を最小にする発注量を求めるため、$C$ を発注量 $Q$ で全微分する。
+
+E1 を Q で全微分して
+
+\begin{equation}
+  \frac{dC}{dQ} = \frac{\left(Q-a\right) c_{o}}{b-a}-\frac{c_{u} \left(b-Q\right)}{b-a}
+  \label{eq:E2}
+\end{equation}
+
+微分した式をゼロと置いて $Q$ について解き、期待総費用を最小にする最適発注量 $Q^*$ を求める。
+
+E2 を Q について解いて
+
+\begin{equation}
+  Q = \frac{a c_{o}+c_{u} b}{c_{o}+c_{u}}
+  \label{eq:E3}
+\end{equation}
+
+\end{document}

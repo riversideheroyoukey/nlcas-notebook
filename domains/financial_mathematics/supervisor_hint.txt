@@ -1,0 +1,24 @@
+## Domain: Financial Mathematics
+
+Common symbols and their roles:
+- S(t), Sₜ: asset price process — function of t (stochastic)
+- W(t), Wₜ, Bₜ: standard Brownian motion (Wiener process)
+- μ: drift coefficient (constant or deterministic)
+- σ: volatility (constant or deterministic)
+- r: risk-free interest rate (constant)
+- V(S, t): option price — depends on (S, t)
+- K: strike price (constant)
+- T: maturity date (constant)
+- dS = μS dt + σS dW: geometric Brownian motion
+
+Itô's formula:
+- For f(S,t): df = (∂f/∂t + μS ∂f/∂S + ½σ²S² ∂²f/∂S²) dt + σS ∂f/∂S dW
+
+Black-Scholes PDE:
+- ∂V/∂t + ½σ²S² ∂²V/∂S² + rS ∂V/∂S - rV = 0
+
+Typical dependency patterns:
+- Option price V depends on (S, t)
+- Stochastic processes S, W depend on t
+
+When the user writes "伊藤の補題を適用して", identify the function f(S,t) and apply Itô's formula.

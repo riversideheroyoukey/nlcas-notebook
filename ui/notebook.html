@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Research Notebook</title>
+    <link rel="stylesheet" href="/static/lib/katex/katex.min.css">
+    <script src="/static/lib/katex/katex.min.js"></script>
+    <link rel="stylesheet" href="notebook_main.css?v=10">
+</head>
+<body>
+    <header>
+        <span class="header-title">Research Notebook</span>
+        <div class="header-controls">
+            <span id="autosave-indicator" style="font-size:.75rem;color:#888;opacity:0;transition:opacity 1s;white-space:nowrap;"></span>
+            <span id="active-branch-label" style="font-size:.75rem;color:#666;white-space:nowrap;"></span>
+            <select id="branch-switcher" title="branch"></select>
+            <button id="new-session-btn" data-i18n="ui.new_session_btn">＋ 新規</button>
+            <button id="status-btn"      data-i18n="ui.status_btn">📊 ステータス</button>
+            <button id="numeric-graph-btn" data-i18n="ui.numeric_graph_btn">🕸 数値グラフ</button>
+            <button id="plan-compare-btn" data-i18n="ui.plan_compare_btn">🔀 Plan比較</button>
+            <button id="summary-btn"     data-i18n="ui.summary_btn">📋 サマリ</button>
+            <button id="save-btn"         data-i18n="ui.save_btn">💾 保存</button>
+            <button id="export-latex-btn" data-i18n="ui.export_latex_btn">⬇ LaTeX</button>
+            <button id="load-btn"         data-i18n="ui.load_btn">📂 読み込み</button>
+            <button id="shutdown-btn" style="background:#dc3545; color:white;">Exit</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="timeline"></div>
+
+        <!-- Supplementary CAS operation buttons (hidden until expression selected) -->
+        <div id="op-buttons" style="display:none;">
+            <span id="op-label" data-i18n="ui.op_label">操作：</span>
+            <button class="op-btn" data-op="expand"    data-needs-param="false" data-i18n="ui.op_expand">展開</button>
+            <button class="op-btn" data-op="factor"    data-needs-param="false" data-i18n="ui.op_factor">因数分解</button>
+            <button class="op-btn" data-op="ratsimp"   data-needs-param="false" data-i18n="ui.op_ratsimp">有理式簡約</button>
+            <button class="op-btn needs-param" data-op="diff"      data-needs-param="true"  data-i18n="ui.op_diff">微分</button>
+            <button class="op-btn needs-param" data-op="integrate" data-needs-param="true"  data-i18n="ui.op_integrate">積分</button>
+            <button class="op-btn needs-param" data-op="subst"     data-needs-param="true"  data-i18n="ui.op_subst">代入</button>
+            <!-- C-Ext Phase 4: Backend-agnostic operations -->
+            <button id="re-evaluate-btn"   class="op-btn" data-i18n="ui.op_re_evaluate"     style="display:none;">再評価</button>
+            <button id="wick-contract-btn" class="op-btn" data-i18n="ui.op_wick_contract"   style="display:none;">Wick収縮</button>
+            <button id="operator-taylor-btn" class="op-btn needs-param" data-needs-param="true" data-op="operator_taylor_expand" data-i18n="ui.op_operator_taylor" style="display:none;">演算子展開</button>
+            <button class="op-btn needs-param" data-op="extract_order"   data-needs-param="true" data-i18n="ui.op_extract_order">次数抽出</button>
+            <button class="op-btn needs-param" data-op="truncate_series" data-needs-param="true" data-i18n="ui.op_truncate_series">打ち切り</button>
+            <span class="op-separator"></span>
+            <button id="numeric-fork-btn" class="op-btn-numeric" data-i18n="ui.op_numeric_fork">🔢 数値計算へ</button>
+            <button id="numeric-chat-btn" class="op-btn-numeric" data-i18n="ui.op_numeric_chat">💬 対話で仕様を確定</button>
+            <button id="handoff-btn" class="op-btn-numeric" data-i18n="ui.op_scalar_handoff" style="display:none;">🔀 Maxima セッションへ渡す</button>
+            <button id="advise-btn" class="op-btn-advise" data-i18n="ui.advise_btn">💡 考察</button>
+        </div>
+
+        <!-- Text + inline-math input area -->
+        <div id="input-area">
+            <div id="input-box"
+                 contenteditable="true"
+                 spellcheck="false"
+                 data-i18n-ph="ui.input_placeholder"
+                 data-placeholder="数式や指示を入力（Enter で送信、Shift+Enter で改行）"></div>
+            <div id="input-controls">
+                <button id="hw-btn"     data-i18n="ui.hw_btn">✍️ 手書き入力</button>
+                <button id="note-btn"   data-i18n="ui.note_btn">📝 メモ</button>
+                <button id="submit-btn" class="primary-btn" data-i18n="ui.submit_btn">送信</button>
+                <button id="cancel-btn" data-i18n="ui.cancel_processing_btn" style="display:none; background:#e53e3e; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-size:0.85rem;">⏹ 停止</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Handwriting modal (loaded as iframe, kept alive once opened) -->
+    <div id="hw-modal" style="display:none;">
+        <div id="hw-modal-overlay"></div>
+        <div id="hw-modal-content">
+            <div id="hw-modal-header">
+                <span data-i18n="ui.hw_modal_header">✍️ 手書き入力</span>
+                <button id="hw-cancel-btn" data-i18n="ui.cancel_close_btn">✕ キャンセル</button>
+            </div>
+            <iframe id="hw-iframe" src="/index.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Status dialog modal -->
+    <div id="status-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:520px; max-width:90vw; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.status_modal_title">📊 ステータス</strong>
+                <button id="status-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <table id="status-table" style="border-collapse:collapse; width:100%; font-size:.9em;">
+            </table>
+        </div>
+    </div>
+
+    <!-- Save dialog modal -->
+    <div id="save-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:420px; display:flex; flex-direction:column; gap:14px;">
+            <!-- Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.save_modal_title">💾 セッションを保存</strong>
+                <button id="save-modal-cancel" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <!-- Overwrite current file (shown only when previously saved) -->
+            <button id="save-modal-overwrite" class="primary-btn" style="display:none; width:100%;"></button>
+            <!-- Divider (shown only when overwrite row is visible) -->
+            <div id="save-modal-divider" style="display:none; align-items:center; gap:8px; font-size:.8em; color:#aaa;">
+                <hr style="flex:1; border:none; border-top:1px solid #eee;">
+                <span data-i18n="ui.save_or_new">または新規保存</span>
+                <hr style="flex:1; border:none; border-top:1px solid #eee;">
+            </div>
+            <!-- Directory browser -->
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                    <label data-i18n="ui.save_dir_label" style="font-size:.85em; color:#555;">保存先フォルダ</label>
+                    <button id="save-modal-mkdir" style="background:none; border:1px solid #ccc; cursor:pointer; padding:2px 8px; border-radius:3px; color:#555;" data-i18n="ui.save_new_folder_btn">＋ 新規</button>
+                </div>
+                <div id="save-modal-path-bar" style="font-size:.78em; color:#888; margin-bottom:4px; padding:2px 4px; font-family:monospace;">sessions/</div>
+                <div id="save-modal-dir-list" style="border:1px solid #e8e8e8; border-radius:4px; min-height:32px; max-height:130px; overflow-y:auto;"></div>
+            </div>
+            <!-- Filename input + Save button -->
+            <div>
+                <label data-i18n="ui.save_filename_label" style="display:block; font-size:.85em; color:#555; margin-bottom:4px;">ファイル名</label>
+                <div style="display:flex; gap:6px;">
+                    <input id="save-modal-filename" type="text"
+                           data-i18n-ph="ui.save_filename_ph"
+                           placeholder="ファイル名（省略可）"
+                           style="flex:1; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:.9em;">
+                    <button id="save-modal-new" class="primary-btn" style="white-space:nowrap;" data-i18n="ui.save_new_btn">保存</button>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div style="display:flex; justify-content:flex-end;">
+                <button id="save-modal-skip" style="background:none; border:1px solid #ccc; cursor:pointer; padding:6px 14px; border-radius:4px; color:#666;" data-i18n="ui.skip_save_btn">保存せずに続ける</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fork modal (file-level branch: save up to chosen step as new file) -->
+    <div id="fork-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; min-width:340px; max-width:460px; display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.fork_modal_title">💾 このステップまでを別ファイルとして保存</strong>
+                <button id="fork-modal-cancel" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+                <label data-i18n="ui.fork_label" style="font-size:.9em;">ファイル名（省略可）</label>
+                <input id="fork-modal-label" type="text" placeholder="e.g. approach_B"
+                       style="padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:.95em;">
+            </div>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button id="fork-modal-cancel2" data-i18n="ui.cancel_btn" style="background:none; border:1px solid #ccc; cursor:pointer; padding:6px 16px; border-radius:4px;">キャンセル</button>
+                <button id="fork-modal-ok" class="primary-btn" data-i18n="ui.fork_ok_btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live branch modal (in-session fork: create a branch that coexists with others in this session) -->
+    <div id="live-branch-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; min-width:340px; max-width:460px; display:flex; flex-direction:column; gap:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.live_branch_modal_title">🌿 このステップから分岐する</strong>
+                <button id="live-branch-modal-cancel" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+                <label data-i18n="ui.branch_label_placeholder" style="font-size:.9em;">branch名（省略可）</label>
+                <input id="live-branch-modal-label" type="text" placeholder="e.g. approach_B"
+                       style="padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:.95em;">
+            </div>
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button id="live-branch-modal-cancel2" data-i18n="ui.cancel_btn" style="background:none; border:1px solid #ccc; cursor:pointer; padding:6px 16px; border-radius:4px;">キャンセル</button>
+                <button id="live-branch-modal-ok" class="primary-btn" data-i18n="ui.branch_fork_ok_btn">分岐する</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New session modal -->
+    <div id="new-session-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:flex-start; justify-content:center; padding-top:5vh; overflow-y:auto;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:440px; max-height:88vh; display:flex; flex-direction:column; gap:14px; box-sizing:border-box; flex-shrink:0;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-shrink:0;">
+                <strong data-i18n="ui.new_session_title">新規セッション</strong>
+                <button id="new-session-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div style="flex-shrink:0;">
+                <label data-i18n="ui.session_title_label" style="display:block; font-size:.85em; color:#555; margin-bottom:4px;">タイトル（省略可）</label>
+                <input id="new-session-title" type="text" placeholder="Notebook"
+                       style="width:100%; box-sizing:border-box; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:.9em;">
+            </div>
+            <div style="display:flex; gap:12px; flex-shrink:0;">
+                <div style="flex:0 0 auto;">
+                    <label data-i18n="ui.language_label" style="display:block; font-size:.85em; color:#555; margin-bottom:4px;">言語</label>
+                    <select id="new-session-language" style="padding:5px 8px; border:1px solid #ccc; border-radius:4px; font-size:.9em;">
+                        <option value="en">English</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </div>
+                <div style="flex:1; min-width:0;">
+                    <label data-i18n="ui.supervisor_label" style="display:block; font-size:.85em; color:#555; margin-bottom:4px;">Supervisor</label>
+                    <select id="new-session-supervisor" style="padding:5px 8px; border:1px solid #ccc; border-radius:4px; font-size:.9em; width:100%;">
+                        <option value="">(loading…)</option>
+                    </select>
+                </div>
+            </div>
+            <div style="flex-shrink:0;" id="coord-system-row">
+                <label data-i18n="ui.coord_system_label" style="display:block; font-size:.85em; color:#555; margin-bottom:4px;">座標系（Maxima セッション用）</label>
+                <select id="new-session-coord-system" style="padding:5px 8px; border:1px solid #ccc; border-radius:4px; font-size:.9em; width:100%;">
+                    <option value="cartesian"  data-i18n="ui.coord_cartesian">デカルト座標 (x, y, z)</option>
+                    <option value="spherical"  data-i18n="ui.coord_spherical">球座標 (r, θ, φ)</option>
+                    <option value="cylindrical" data-i18n="ui.coord_cylindrical">円柱座標 (r, φ, z)</option>
+                </select>
+            </div>
+            <div style="display:flex; flex-direction:column; min-height:0; flex:1;">
+                <label data-i18n="ui.domains_label" style="display:block; font-size:.85em; color:#555; margin-bottom:6px; flex-shrink:0;">研究分野（複数選択可）</label>
+                <div id="new-session-domains" style="display:flex; flex-direction:column; gap:5px; overflow-y:auto; flex:1; min-height:0; padding-right:2px;" data-i18n="ui.domains_loading">読み込み中…</div>
+                <div data-i18n="ui.domains_hint" style="font-size:.8em; color:#999; margin-top:4px; flex-shrink:0;">未選択でも開始できます</div>
+            </div>
+            <div style="display:flex; gap:8px; justify-content:flex-end; flex-shrink:0;">
+                <button id="new-session-cancel" data-i18n="ui.cancel_btn" style="background:none; border:1px solid #ccc; cursor:pointer; padding:7px 16px; border-radius:4px; color:#555;">キャンセル</button>
+                <button id="new-session-ok" class="primary-btn" data-i18n="ui.new_session_ok_btn">開始</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load session modal -->
+    <div id="load-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:480px; max-height:75vh; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.load_modal_title">セッションを読み込む</strong>
+                <button id="load-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <!-- Directory browser -->
+            <div style="flex-shrink:0;">
+                <div id="load-modal-path-bar" style="font-size:.78em; color:#888; margin-bottom:4px; padding:2px 4px; font-family:monospace;">sessions/</div>
+                <div id="load-modal-dir-list" style="border:1px solid #e8e8e8; border-radius:4px; min-height:28px; max-height:100px; overflow-y:auto;"></div>
+            </div>
+            <!-- File list -->
+            <div id="session-list" style="overflow-y:auto; flex:1; display:flex; flex-direction:column; gap:6px;"></div>
+        </div>
+    </div>
+
+    <!-- Advise modal -->
+    <div id="advise-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:min(560px,90vw); display:flex; flex-direction:column; gap:14px; max-height:85vh; overflow-y:auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong id="advise-modal-title" data-i18n="ui.advise_modal_title">💡 考察</strong>
+                <button id="advise-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="advise-modal-expr" style="background:#f8f9fa; border-radius:4px; padding:8px 12px; text-align:center; min-height:2em; overflow-x:auto;"></div>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <select id="advise-modal-adviser"
+                        style="padding:5px 8px; border:1px solid #ccc; border-radius:4px; font-size:.85em; max-width:220px; flex-shrink:0;">
+                    <option value="" data-i18n="ui.llm_loading">（LLM 読み込み中…）</option>
+                </select>
+                <input id="advise-modal-question" type="text"
+                       data-i18n-ph="ui.question_ph"
+                       placeholder="質問（省略可）"
+                       style="flex:1; padding:6px 10px; border:1px solid #ccc; border-radius:4px; font-size:.9em;">
+                <button id="advise-modal-submit" class="primary-btn" data-i18n="ui.advise_submit_btn">考察する</button>
+            </div>
+            <div id="advise-modal-result" style="display:none;"></div>
+            <div id="advise-save-area" style="display:none; text-align:right; padding-top:4px;">
+                <button id="advise-save-btn" data-i18n="ui.save_as_memo_btn" style="background:none; border:1px solid #ccc; padding:5px 12px; border-radius:4px; cursor:pointer; font-size:.85em; color:#555;">📝 メモとして保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Numeric-layer fork modal (N-1): configure a parameter sweep, generate
+         deterministic code, review it, run in the sandbox, reflux the plot. -->
+
+    <!-- SCALAR-HANDOFF: show what would cross BEFORE committing (docs/34 §5).
+         A button cannot be read the way a typed sentence can, so the carried
+         declarations are shown first — that list is what decides whether the
+         target session can actually continue the calculation. -->
+    <div id="handoff-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:20px; width:min(560px,92vw); max-height:86vh; overflow:auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <strong id="handoff-modal-title" data-i18n="ui.handoff_modal_title">🔀 Maxima セッションへ渡す</strong>
+                <button id="handoff-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="handoff-modal-expr" style="background:#f8f9fa; border-radius:4px; padding:8px 12px; text-align:center; min-height:2em; overflow-x:auto;"></div>
+            <div id="handoff-modal-body" style="margin-top:12px; font-size:.92em;"></div>
+            <div style="margin-top:16px; text-align:right;">
+                <button id="handoff-cancel-btn" data-i18n="ui.cancel">キャンセル</button>
+                <button id="handoff-confirm-btn" data-i18n="ui.handoff_confirm">渡す</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="numeric-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:min(600px,92vw); max-height:88vh; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong id="numeric-modal-title" data-i18n="ui.numeric_modal_title">🔢 数値計算へフォーク</strong>
+                <button id="numeric-modal-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="numeric-modal-expr" style="background:#f8f9fa; border-radius:4px; padding:8px 12px; text-align:center; min-height:2em; overflow-x:auto;"></div>
+
+            <div class="numeric-modal-row">
+                <label data-i18n="ui.numeric_target_label">対象量（変数名）</label>
+                <input id="numeric-target" type="text" style="flex:1;">
+            </div>
+
+            <div class="numeric-modal-row">
+                <label data-i18n="ui.numeric_sweep_label">掃引する変数</label>
+                <select id="numeric-sweep-var"></select>
+                <label style="min-width:auto;" data-i18n="ui.numeric_sweep_min">最小</label>
+                <input id="numeric-sweep-min" type="number" value="0" style="width:70px;">
+                <label style="min-width:auto;" data-i18n="ui.numeric_sweep_max">最大</label>
+                <input id="numeric-sweep-max" type="number" value="10" style="width:70px;">
+                <label style="min-width:auto;" data-i18n="ui.numeric_sweep_points">点数</label>
+                <input id="numeric-sweep-points" type="number" value="200" min="2" style="width:70px;">
+            </div>
+
+            <div>
+                <div style="font-size:.82em; color:#555; margin-bottom:4px;" data-i18n="ui.numeric_fixed_label">固定値</div>
+                <div id="numeric-fixed-rows" style="display:flex; flex-direction:column; gap:6px;"></div>
+            </div>
+
+            <div id="numeric-modal-error" style="display:none; color:#b00020; font-size:.85em;"></div>
+
+            <div style="display:flex; gap:8px; justify-content:flex-end;">
+                <button id="numeric-generate-btn" class="primary-btn" data-i18n="ui.numeric_generate_btn">コード生成</button>
+            </div>
+
+            <!-- Code review + run (shown after generation) -->
+            <div id="numeric-code-area" style="display:none; flex-direction:column; gap:8px;">
+                <div style="font-size:.82em; color:#555;" data-i18n="ui.numeric_code_label">生成コード（レビュー可）</div>
+                <textarea id="numeric-code" readonly spellcheck="false"></textarea>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <label style="min-width:auto; font-size:.82em; color:#555;" data-i18n="ui.numeric_timeout_label">タイムアウト（秒）</label>
+                    <input id="numeric-timeout" type="number" value="60" min="1" style="width:70px;">
+                </div>
+                <div style="font-size:.78em; color:#888;" data-i18n="ui.numeric_timeout_note">タイムアウトが発生した場合、後片付けのため数秒〜十数秒ほど余分に時間がかかることがあります。</div>
+                <div style="display:flex; gap:8px; justify-content:flex-end;">
+                    <button id="numeric-run-btn" class="primary-btn" data-i18n="ui.numeric_run_btn">▶ 実行</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Numeric graph modal (docs/26 §6: the DAG derived from refs) -->
+    <div id="numeric-graph-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:min(860px,94vw); max-height:88vh; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.numeric_graph_title">🕸 数値計算グラフ</strong>
+                <button id="numeric-graph-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="numeric-graph-empty" style="display:none; color:#777; font-size:.9em;"
+                 data-i18n="ui.numeric_graph_empty">数値計算タスクはまだありません。</div>
+            <div id="numeric-graph-svg-wrap" style="overflow:auto;"></div>
+            <div id="numeric-graph-legend" style="font-size:.78em; color:#666;"></div>
+            <div id="numeric-branch-compare" style="display:none; border-top:1px solid #e2e8f0; padding-top:10px;">
+                <strong style="font-size:.9em;" data-i18n="ui.numeric_branch_compare_title">🔀 分岐比較（同じ計算×違う分岐）</strong>
+                <div id="numeric-branch-compare-body" style="overflow-x:auto; margin-top:8px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plan branch comparison modal (C-Ext-5 B-4, read-only) -->
+    <div id="plan-compare-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:min(860px,94vw); max-height:88vh; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.plan_compare_title">🔀 Plan比較</strong>
+                <button id="plan-compare-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="plan-compare-empty" style="display:none; color:#777; font-size:.9em;"
+                 data-i18n="ui.plan_compare_empty">比較可能なプラン実行はまだありません。</div>
+            <div id="plan-compare-body" style="overflow-x:auto;"></div>
+        </div>
+    </div>
+
+    <!-- Numeric ChatBot modal (docs/25, B-γ propose-then-refine dialogue) -->
+    <div id="numeric-chat-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:8px; padding:24px; width:min(680px,92vw); max-height:88vh; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong data-i18n="ui.numeric_chat_title">💬 対話で数値計算の仕様を確定</strong>
+                <button id="numeric-chat-close" style="background:none; border:none; font-size:1.2em; cursor:pointer;">✕</button>
+            </div>
+            <div id="numeric-chat-expr" style="background:#f8f9fa; border-radius:4px; padding:8px 12px; text-align:center; min-height:2em; overflow-x:auto;"></div>
+
+            <div id="numeric-chat-log" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+            <div id="numeric-chat-error" style="display:none; color:#b00020; font-size:.85em;"></div>
+
+            <!-- First-turn goal input (hidden after the first proposal) -->
+            <div id="numeric-chat-goal-row" class="numeric-modal-row">
+                <label data-i18n="ui.numeric_chat_goal_label">何を計算したいですか</label>
+                <input id="numeric-chat-goal" type="text" style="flex:1;"
+                       data-i18n-ph="ui.numeric_chat_goal_placeholder">
+                <button id="numeric-chat-propose-btn" class="primary-btn" data-i18n="ui.numeric_chat_propose_btn">提案してもらう</button>
+            </div>
+
+            <!-- Refine + approve row (shown once a spec is on the table) -->
+            <div id="numeric-chat-refine-row" style="display:none; flex-direction:column; gap:8px;">
+                <div class="numeric-modal-row">
+                    <label data-i18n="ui.numeric_chat_refine_label">修正の指示</label>
+                    <input id="numeric-chat-refine" type="text" style="flex:1;"
+                           data-i18n-ph="ui.numeric_chat_refine_placeholder">
+                    <button id="numeric-chat-refine-btn" data-i18n="ui.numeric_chat_refine_btn">この内容で修正</button>
+                </div>
+                <div style="display:flex; gap:8px; justify-content:flex-end;">
+                    <button id="numeric-chat-approve-btn" class="primary-btn" data-i18n="ui.numeric_chat_approve_btn">この仕様で承認してフォーク</button>
+                </div>
+            </div>
+
+            <!-- Code review + run (shown after fork; editable when the LLM path generated it) -->
+            <div id="numeric-chat-code-area" style="display:none; flex-direction:column; gap:8px;">
+                <div style="font-size:.82em; color:#555;" data-i18n="ui.numeric_code_label">生成コード（レビュー可）</div>
+                <textarea id="numeric-chat-code" spellcheck="false"></textarea>
+                <div id="numeric-chat-diffcheck-badge" style="display:none; font-size:.82em;"></div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <label style="min-width:auto; font-size:.82em; color:#555;" data-i18n="ui.numeric_timeout_label">タイムアウト（秒）</label>
+                    <input id="numeric-chat-timeout" type="number" value="60" min="1" style="width:70px;">
+                </div>
+                <div style="font-size:.78em; color:#888;" data-i18n="ui.numeric_timeout_note">タイムアウトが発生した場合、後片付けのため数秒〜十数秒ほど余分に時間がかかることがあります。</div>
+                <div style="display:flex; gap:8px; justify-content:flex-end;">
+                    <button id="numeric-chat-diffcheck-btn" style="display:none;" data-i18n="ui.numeric_chat_diffcheck_btn">差分検証</button>
+                    <button id="numeric-chat-approve-code-btn" style="display:none;" data-i18n="ui.numeric_chat_approve_code_btn">コードを承認</button>
+                    <button id="numeric-chat-run-btn" class="primary-btn" data-i18n="ui.numeric_run_btn">▶ 実行</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- i18n: defines _t() and applies [data-i18n]; classic script so it runs
+         before the deferred module below.  Shared with the handwriting page. -->
+    <script src="ui_i18n.js?v=2"></script>
+
+    <script type="module" src="notebook_main.js?v=17"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+## Domain: High School Physics (高校物理)
+
+This session covers physics at the Japanese high school level (物理基礎・物理).
+Interpret expressions and instructions using standard high school physics conventions.
+
+### Scope
+- Mechanics: kinematics (v = v₀ + at, x = v₀t + ½at²), Newton's laws,
+  momentum (p = mv), impulse, work-energy theorem, conservation laws
+- Circular motion: centripetal acceleration (a = v²/r), centripetal force
+- Simple harmonic motion: period (T = 2π√(m/k)), displacement x = A sin(ωt)
+- Gravitation: universal law F = GMm/r², orbital mechanics
+- Waves: superposition, standing waves, Doppler effect (f' = f(V±v_o)/(V∓v_s))
+- Sound and optics: reflection, refraction (Snell's law n₁sinθ₁ = n₂sinθ₂),
+  thin lens equation (1/f = 1/a + 1/b)
+- Electricity: Coulomb's law, electric field, potential, capacitance,
+  circuits (Kirchhoff's laws), electromagnetic induction (Faraday's law)
+- Modern physics: photoelectric effect (E = hf), de Broglie wavelength (λ = h/p)
+
+### Interpretation guidelines
+- "運動方程式を立てる" → write F = ma for the system.
+- "エネルギー保存" → apply conservation of mechanical energy or total energy.
+- "単振動" → simple harmonic motion; use ω = 2πf and T = 2π/ω.
+- "ドップラー効果" → apply Doppler formula; note sign convention depends on direction.
+- Derivatives and integrals may appear (v = dx/dt, a = dv/dt) but are secondary;
+  prefer kinematic equations when values are numerical.
+- Use SI units throughout. State units explicitly in results.
+- Do NOT use quantum field theory, relativistic mechanics (unless explicitly requested),
+  or tensor notation.
+
+### Common symbol conventions
+- x, s, d: displacement (m)
+- v, v₀: velocity, initial velocity (m/s)
+- a: acceleration (m/s²)
+- t: time (s)
+- F: force (N), m: mass (kg)
+- p = mv: momentum (kg·m/s)
+- E_k = ½mv²: kinetic energy (J), E_p = mgh: potential energy (J)
+- T: period (s), f: frequency (Hz), ω = 2πf: angular frequency (rad/s)
+- k: spring constant (N/m), μ: coefficient of friction
+- q or Q: electric charge (C), E: electric field (N/C or V/m)
+- V: electric potential (V), C: capacitance (F)
+- B: magnetic flux density (T), Φ: magnetic flux (Wb)
+- h: Planck constant (6.626×10⁻³⁴ J·s)
+- G: gravitational constant (6.674×10⁻¹¹ N·m²/kg²)

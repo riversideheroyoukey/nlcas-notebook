@@ -1,0 +1,72 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ac\_impedance}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+直列RLC回路のインピーダンスを扱うため、抵抗 R・インダクタンス L・角周波数 w（$\omega$）・キャパシタンス C を実数のスカラーパラメータとして準備する。
+
+R、L、w、C をスカラーとする
+
+\[
+  R, L, w, C
+\]
+
+抵抗R・インダクタL・キャパシタCを直列接続した回路のインピーダンスは、複素数 Z=R+j$\omega$L+1/(j$\omega$C) で与えられる（j は虚数単位。この electrical\_engineering ドメインでは工学の慣習に従い j を虚数単位、i を電流として扱う）。
+
+$Z = R + j w L + 1/(j w C)$
+
+\begin{equation}
+  Z = R + j w L + 1/(j w C)
+  \label{eq:E1}
+\end{equation}
+
+インピーダンス Z の実部（抵抗成分）を取り出す。
+
+E1 の実部を求めて
+
+\begin{equation}
+  R
+  \label{eq:E2}
+\end{equation}
+
+インピーダンス Z の虚部（リアクタンス成分）を取り出す。エネルギーを蓄えるL・Cによって生じる、電流と電圧の位相のずれの大きさを表す。
+
+E1 の虚部を求めて
+
+\begin{equation}
+  L w-\frac{1}{C w}
+  \label{eq:E3}
+\end{equation}
+
+共振とは、リアクタンス（虚部）がゼロになる状態を指す。ここでは虚部の値を0と置いた等式を作る。
+
+$E3 = 0$
+
+\begin{equation}
+  L w-1/(C w) = 0
+  \label{eq:E4}
+\end{equation}
+
+この等式を角周波数 w について解くと、共振の起きる角周波数が得られる。符号違いの2つの解のうち、物理的に意味を持つのは正の解 $\omega$0=1/$\surd$(LC) である。
+
+E4 を w について解いて
+
+\begin{equation}
+  w = -\sqrt{\frac{1}{C L}}
+  \label{eq:E5}
+\end{equation}
+
+\begin{equation}
+  w = \sqrt{\frac{1}{C L}}
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

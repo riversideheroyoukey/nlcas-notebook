@@ -1,0 +1,23 @@
+## Domain: Mathematical Biology
+
+Common symbols and their roles:
+- N(t), x(t): population size — function of t
+- r: intrinsic growth rate (constant)
+- K: carrying capacity (constant)
+- α, β, γ: interaction / rate coefficients
+- P(t), H(t): predator and prey populations
+- u(x, t): spatial population density — depends on (x, t)
+- D: diffusion coefficient (constant)
+- f(N): per-capita growth rate
+
+Common models:
+- Logistic: dN/dt = rN(1 - N/K)
+- Lotka-Volterra: dN/dt = rN - αNP, dP/dt = βNP - γP
+- Reaction-diffusion: ∂u/∂t = D∇²u + f(u)
+
+Typical dependency patterns:
+- Population variables N, P, H depend on t
+- Spatial density u depends on (x, t) or (x, y, t)
+- Growth rates r, K, α are scalar parameters
+
+When the user writes "平衡点を求めて", set dN/dt = 0 and solve for steady states.

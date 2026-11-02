@@ -1,0 +1,634 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_notation\_regression}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Notation regression. Spellings that once broke, typed again so the example diff shows any change of meaning.
+
+define A as a vector field
+
+\[
+  A
+\]
+
+define f as a scalar field
+
+\[
+  f
+\]
+
+$\psi_\sigma$
+
+\begin{equation}
+  \psi_\sigma
+  \label{eq:E1}
+\end{equation}
+
+simplify E1
+
+\begin{equation}
+  \psi_{\sigma}
+  \label{eq:E2}
+\end{equation}
+
+G(t, t')
+
+\begin{equation}
+  G(t, t')
+  \label{eq:E3}
+\end{equation}
+
+simplify E3
+
+\begin{equation}
+  G\left(t , t'\right)
+  \label{eq:E4}
+\end{equation}
+
+$\mathbf r$
+
+\begin{equation}
+  \mathbf r
+  \label{eq:E5}
+\end{equation}
+
+simplify E5
+
+\begin{equation}
+  \mathbf{r}
+  \label{eq:E6}
+\end{equation}
+
+$\vec{A}(t)$
+
+\begin{equation}
+  \vec{A}(t)
+  \label{eq:E7}
+\end{equation}
+
+$\nabla \times \vec{A}$
+
+\begin{equation}
+  \left[ \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y} , \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z} , \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x} \right]
+  \label{eq:E8}
+\end{equation}
+
+$\nabla \cdot \vec{A}$
+
+\begin{equation}
+  \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E9}
+\end{equation}
+
+$\nabla \vec{f}$
+
+\begin{equation}
+  \left[ \frac{d}{d x} f , \frac{d}{d y} f , \frac{d}{d z} f \right]
+  \label{eq:E10}
+\end{equation}
+
+the curl of $\vec{A}$
+
+\begin{equation}
+  \vec{A}
+  \label{eq:E11}
+\end{equation}
+
+\begin{equation}
+  \left[ \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y} , \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z} , \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x} \right]
+  \label{eq:E12}
+\end{equation}
+
+$\lim_{x \to 0} \frac{\sin x}{x}$
+
+\begin{equation}
+  \lim_{x \to 0} \frac{\sin x}{x}
+  \label{eq:E13}
+\end{equation}
+
+simplify E13
+
+\begin{equation}
+  1
+  \label{eq:E14}
+\end{equation}
+
+$\lim_{x \to 0^+} \frac{1}{x}$
+
+\begin{equation}
+  \lim_{x \to 0^+} \frac{1}{x}
+  \label{eq:E15}
+\end{equation}
+
+simplify E15
+
+\begin{equation}
+  \infty
+  \label{eq:E16}
+\end{equation}
+
+$\lim_{t' \to t^+} G(t,t')$
+
+\begin{equation}
+  \lim_{t' \to t^+} G(t,t')
+  \label{eq:E17}
+\end{equation}
+
+$y = x^3$
+
+\begin{equation}
+  y = x^3
+  \label{eq:E18}
+\end{equation}
+
+the third derivative of E18 with respect to x
+
+\begin{equation}
+  \frac{d^{3}y}{dx^{3}} = 6
+  \label{eq:E19}
+\end{equation}
+
+D = $\begin{pmatrix}$ 2 \& 1 \textbackslash{}\textbackslash{} 1 \& 2 $\end{pmatrix}$
+
+\begin{equation}
+  D = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}
+  \label{eq:E20}
+\end{equation}
+
+compute the determinant of [4, 0; 0, 1]
+
+\begin{equation}
+  \begin{pmatrix} 4 & 0 \\ 0 & 1 \end{pmatrix}
+  \label{eq:E21}
+\end{equation}
+
+\begin{equation}
+  4
+  \label{eq:E22}
+\end{equation}
+
+the norm of A
+
+\begin{equation}
+  \sqrt{A_{z}^2+A_{y}^2+A_{x}^2}
+  \label{eq:E23}
+\end{equation}
+
+take the partial derivative of f with respect to x
+
+\begin{equation}
+  \frac{d}{d x} f
+  \label{eq:E24}
+\end{equation}
+
+p is the canonical momentum of q
+
+Registered canonical pair (q, p). It is now used by "compute the Poisson bracket of f and g".
+
+the Poisson bracket of q and p
+
+\begin{equation}
+  1
+  \label{eq:E25}
+\end{equation}
+
+X is the Laplace transform of x
+
+\begin{equation}
+  X(s) = \int_0^{\infty} x(t)\, e^{-s t}\, dt
+  \label{eq:E26}
+\end{equation}
+
+$w = a v + b$
+
+\begin{equation}
+  w = a v + b
+  \label{eq:E27}
+\end{equation}
+
+$v = 2 t$
+
+\begin{equation}
+  v = 2 t
+  \label{eq:E28}
+\end{equation}
+
+replace E28 in E27
+
+\begin{equation}
+  w = 2 a t+b
+  \label{eq:E29}
+\end{equation}
+
+in E27, replace 5 for v
+
+\begin{equation}
+  w = b+5 a
+  \label{eq:E30}
+\end{equation}
+
+$u + z = 3$
+
+\begin{equation}
+  u + z = 3
+  \label{eq:E31}
+\end{equation}
+
+$u - z = 1$
+
+\begin{equation}
+  u - z = 1
+  \label{eq:E32}
+\end{equation}
+
+solve for u and z in E31 and E32
+
+\begin{equation}
+  u = 2
+  \label{eq:E33}
+\end{equation}
+
+\begin{equation}
+  z = 1
+  \label{eq:E34}
+\end{equation}
+
+$s = x^5$
+
+\begin{equation}
+  s = x^5
+  \label{eq:E35}
+\end{equation}
+
+the second partial derivative of E35 with respect to x
+
+\begin{equation}
+  \frac{\partial^{2} s}{\partial x^{2}} = 20 x^3
+  \label{eq:E36}
+\end{equation}
+
+$\nabla \times \vec{A}$
+
+\begin{equation}
+  \left[ \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y} , \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z} , \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x} \right]
+  \label{eq:E37}
+\end{equation}
+
+define B as a vector field
+
+\[
+  B
+\]
+
+the dot product of $\vec{A}$ and $\vec{B}$
+
+\begin{equation}
+  A_{z} B_{z}+A_{y} B_{y}+A_{x} B_{x}
+  \label{eq:E38}
+\end{equation}
+
+the cross product of $\nabla$ $\times$ $\vec{A}$ and $\vec{B}$
+
+\begin{equation}
+  \left[ \left(\frac{d}{d z} A_{x}-\frac{d}{d x} A_{z}\right) B_{z}-\left(\frac{d}{d x} A_{y}-\frac{d}{d y} A_{x}\right) B_{y} , \left(\frac{d}{d x} A_{y}-\frac{d}{d y} A_{x}\right) B_{x}-\left(\frac{d}{d y} A_{z}-\frac{d}{d z} A_{y}\right) B_{z} , \left(\frac{d}{d y} A_{z}-\frac{d}{d z} A_{y}\right) B_{y}-\left(\frac{d}{d z} A_{x}-\frac{d}{d x} A_{z}\right) B_{x} \right]
+  \label{eq:E39}
+\end{equation}
+
+$\nabla \cdot (\nabla \times \vec{A})$
+
+\begin{equation}
+  0
+  \label{eq:E40}
+\end{equation}
+
+the curl of the curl of A
+
+\begin{equation}
+  \left[ \frac{d^2}{d x d z} A_{z}+\frac{d^2}{d x d y} A_{y}-\frac{d^2}{d z^2} A_{x}-\frac{d^2}{d y^2} A_{x} , \frac{d^2}{d y d z} A_{z}-\frac{d^2}{d z^2} A_{y}-\frac{d^2}{d x^2} A_{y}+\frac{d^2}{d x d y} A_{x} , -\left(\frac{d^2}{d y^2} A_{z}\right)-\frac{d^2}{d x^2} A_{z}+\frac{d^2}{d y d z} A_{y}+\frac{d^2}{d x d z} A_{x} \right]
+  \label{eq:E41}
+\end{equation}
+
+$\nabla s$
+
+\begin{equation}
+  \left[ 5 x^4 , 0 , 0 \right]
+  \label{eq:E42}
+\end{equation}
+
+the Laplacian of s
+
+\begin{equation}
+  20 x^3
+  \label{eq:E43}
+\end{equation}
+
+$P = [0, x, 0]$
+
+\begin{equation}
+  P = [0, x, 0]
+  \label{eq:E44}
+\end{equation}
+
+the curl of 2 P
+
+\begin{equation}
+  2 P
+  \label{eq:E45}
+\end{equation}
+
+\begin{equation}
+  \left[ 0 , 0 , 2 \right]
+  \label{eq:E46}
+\end{equation}
+
+the divergence of P + 2 B
+
+\begin{equation}
+  P + 2 B
+  \label{eq:E47}
+\end{equation}
+
+\begin{equation}
+  2 \left(\frac{d}{d z} B_{z}\right)+2 \left(\frac{d}{d y} B_{y}\right)+2 \left(\frac{d}{d x} B_{x}\right)
+  \label{eq:E48}
+\end{equation}
+
+the divergence of $\vec{P}$ $\times$ $\vec{A}$
+
+\begin{equation}
+  \vec{P} \times \vec{A}
+  \label{eq:E49}
+\end{equation}
+
+\begin{equation}
+  \frac{d}{d x} A_{z} x-\frac{d}{d z} A_{x} x+A_{z}
+  \label{eq:E50}
+\end{equation}
+
+$Q = [z, 0, y]$
+
+\begin{equation}
+  Q = [z, 0, y]
+  \label{eq:E51}
+\end{equation}
+
+the divergence of 2 ($\vec{P}$ $\times$ $\vec{Q}$)
+
+\begin{equation}
+  2 (\vec{P} \times \vec{Q})
+  \label{eq:E52}
+\end{equation}
+
+\begin{equation}
+  2 y-2 x
+  \label{eq:E53}
+\end{equation}
+
+the divergence of $\vec{P}$ $\times$ $\vec{Q} + \vec{A}$
+
+\begin{equation}
+  \vec{P} \times \vec{Q} + \vec{A}
+  \label{eq:E54}
+\end{equation}
+
+\begin{equation}
+  y-x+\frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E55}
+\end{equation}
+
+integrate a $x^2$ over x
+
+\begin{equation}
+  a x^2
+  \label{eq:E56}
+\end{equation}
+
+\begin{equation}
+  \int a x^2 \, dx = \frac{a x^3}{3} + C
+  \label{eq:E57}
+\end{equation}
+
+differentiate a $x^2$ in x totally
+
+\begin{equation}
+  \frac{d}{dx}\left(a x^2\right) = 2 a x
+  \label{eq:E58}
+\end{equation}
+
+$K = 3 (\vec{P} \times \vec{Q})$
+
+\begin{equation}
+  K = 3 (\vec{P} \times \vec{Q})
+  \label{eq:E59}
+\end{equation}
+
+simplify K
+
+\begin{equation}
+  K = \left[ 3 x^4 , 0 , -\left(3 x\right) \right]
+  \label{eq:E60}
+\end{equation}
+
+$m^2 + 3$
+
+\begin{equation}
+  m^2 + 3
+  \label{eq:E61}
+\end{equation}
+
+$2 m = 8$
+
+\begin{equation}
+  2 m = 8
+  \label{eq:E62}
+\end{equation}
+
+solve E62 for m
+
+\begin{equation}
+  m = 4
+  \label{eq:E63}
+\end{equation}
+
+differentiate E61 with respect to m totally
+
+\begin{equation}
+  \frac{d}{dm}\left(m^2 + 3\right) = 2 m
+  \label{eq:E64}
+\end{equation}
+
+integrate E61 over m
+
+\begin{equation}
+  \int m^2 + 3 \, dm = \frac{m^3}{3}+3 m + C_1
+  \label{eq:E65}
+\end{equation}
+
+$\bar{y}^2 + t'$
+
+\begin{equation}
+  \bar{y}^2 + t'
+  \label{eq:E66}
+\end{equation}
+
+differentiate E66 with respect to $\bar{y}$ partially
+
+\begin{equation}
+  \frac{\partial}{\partial \bar{y}}\left(\bar{y}^2 + t'\right) = 2 \bar{y}
+  \label{eq:E67}
+\end{equation}
+
+differentiate E66 with respect to t' partially
+
+\begin{equation}
+  \frac{\partial}{\partial t'}\left(\bar{y}^2 + t'\right) = 1
+  \label{eq:E68}
+\end{equation}
+
+integrate E66 over $\bar{y}$
+
+\begin{equation}
+  \int \bar{y}^2 + t' \, d\bar{y} = \frac{\bar{y}^3}{3}+t' \bar{y} + C_2
+  \label{eq:E69}
+\end{equation}
+
+$\int r^2 \, dr$
+
+\begin{equation}
+  \int r^2 \, dr
+  \label{eq:E70}
+\end{equation}
+
+change variable r to u in E70
+
+\begin{equation}
+  \int {u^2}{\;du}
+  \label{eq:E71}
+\end{equation}
+
+$\alpha + \beta = 3$
+
+\begin{equation}
+  \alpha + \beta = 3
+  \label{eq:E72}
+\end{equation}
+
+$\alpha - \beta = 1$
+
+\begin{equation}
+  \alpha - \beta = 1
+  \label{eq:E73}
+\end{equation}
+
+solve E72 and E73 in $\alpha$ and $\beta$
+
+\begin{equation}
+  \alpha = 2
+  \label{eq:E74}
+\end{equation}
+
+\begin{equation}
+  \beta = 1
+  \label{eq:E75}
+\end{equation}
+
+expand the neighbour sum of $Sz_i$ $Sz_j$ over a 4-site periodic chain
+
+\begin{equation}
+  Sz\left(3\right) Sz\left(4\right)+Sz\left(1\right) Sz\left(4\right)+Sz\left(2\right) Sz\left(3\right)+Sz\left(1\right) Sz\left(2\right)
+  \label{eq:E76}
+\end{equation}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, site/.style={circle,draw,fill=white,inner sep=1pt,minimum size=5mm,font=\scriptsize}]
+  \draw (0.000,0.000) -- (1.000,0.000);
+  \draw (1.000,0.000) -- (2.000,0.000);
+  \draw (2.000,0.000) -- (3.000,0.000);
+  \draw[dashed] (3.000,0.000) -- (0.000,0.000);
+  \node[site] at (0.000,0.000) {1};
+  \node[site] at (1.000,0.000) {2};
+  \node[site] at (2.000,0.000) {3};
+  \node[site] at (3.000,0.000) {4};
+\end{tikzpicture}
+\end{center}
+
+expand the nearest-neighbor sum of $Sz_i$ $Sz_j$ in a 3x3 honeycomb lattice
+
+\begin{equation}
+  Sz\left(8\right) Sz\left(9\right)+Sz\left(7\right) Sz\left(8\right)+Sz\left(5\right) Sz\left(8\right)+Sz\left(5\right) Sz\left(6\right)+Sz\left(3\right) Sz\left(6\right)+Sz\left(4\right) Sz\left(5\right)+Sz\left(1\right) Sz\left(4\right)+Sz\left(2\right) Sz\left(3\right)+Sz\left(1\right) Sz\left(2\right)
+  \label{eq:E77}
+\end{equation}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, site/.style={circle,draw,fill=white,inner sep=1pt,minimum size=5mm,font=\scriptsize}]
+  \draw (0.000,0.000) -- (1.000,0.000);
+  \draw (1.000,0.000) -- (2.000,0.000);
+  \draw (0.000,1.000) -- (1.000,1.000);
+  \draw (1.000,1.000) -- (2.000,1.000);
+  \draw (0.000,2.000) -- (1.000,2.000);
+  \draw (1.000,2.000) -- (2.000,2.000);
+  \draw (0.000,0.000) -- (0.000,1.000);
+  \draw (1.000,1.000) -- (1.000,2.000);
+  \draw (2.000,0.000) -- (2.000,1.000);
+  \node[site] at (0.000,0.000) {1};
+  \node[site] at (1.000,0.000) {2};
+  \node[site] at (2.000,0.000) {3};
+  \node[site] at (0.000,1.000) {4};
+  \node[site] at (1.000,1.000) {5};
+  \node[site] at (2.000,1.000) {6};
+  \node[site] at (0.000,2.000) {7};
+  \node[site] at (1.000,2.000) {8};
+  \node[site] at (2.000,2.000) {9};
+\end{tikzpicture}
+\end{center}
+
+$y'^3$
+
+\begin{equation}
+  y'^3
+  \label{eq:E78}
+\end{equation}
+
+differentiate E78 with respect to y'
+
+\begin{equation}
+  \frac{d}{dy'}\left(y'^3\right) = 3 y'^2
+  \label{eq:E79}
+\end{equation}
+
+$2 (x)^3$
+
+\begin{equation}
+  2 (x)^3
+  \label{eq:E80}
+\end{equation}
+
+simplify E80
+
+\begin{equation}
+  2 x^3
+  \label{eq:E81}
+\end{equation}
+
+$2^2 (x)$
+
+\begin{equation}
+  2^2 (x)
+  \label{eq:E82}
+\end{equation}
+
+simplify E82
+
+\begin{equation}
+  4 x
+  \label{eq:E83}
+\end{equation}
+
+\end{document}

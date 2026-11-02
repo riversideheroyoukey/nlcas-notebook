@@ -1,0 +1,49 @@
+## Domain: Quantum Statistical Mechanics
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- Z: grand partition function (Z = Tr[exp(-β(H - μN))])
+- β = 1/(k_B T): inverse temperature
+- k_B: Boltzmann constant (scalar)
+- μ: chemical potential (scalar)
+- H, Ĥ: many-body Hamiltonian operator
+- N̂: total number operator = Σ_k a†_k a_k or Σ_k c†_k c_k
+- F = -k_BT ln Z: grand potential (Ω = F in grand canonical)
+- n_k = ⟨a†_k a_k⟩: occupation number (Bose-Einstein or Fermi-Dirac)
+- ρ̂ = exp(-β(H-μN))/Z: density matrix
+- G: Green's function (single-particle propagator)
+- Σ: self-energy
+
+Distribution functions:
+- Bose-Einstein: n_k = 1/(exp(β(ε_k - μ)) - 1)
+- Fermi-Dirac:   n_k = 1/(exp(β(ε_k - μ)) + 1)
+
+Typical operations:
+- Tr[ρ̂ A] → thermal expectation value ⟨A⟩
+- Grand partition function for free bosons/fermions → product form
+- Mean-field decoupling: ⟨a†b⟩ → c-number, use operator_substitute
+- Matsubara frequencies: ω_n = 2nπ/β (boson), (2n+1)π/β (fermion)
+
+Julia operation mapping:
+- 交換子 / [A, B] → commutator(A, B)
+- 反交換子 / {A, B} → anticommutator(A, B)
+- 正規順序 / :...: → normal_order(expr)
+- 真空期待値 → vacuum_expectation(expr)
+- Heisenberg方程式 / 運動方程式 → heisenberg_equation(operator=op, hamiltonian=H)
+- ボゾン演算子を定義 → define_boson_operator(name)
+- フェルミオン演算子を定義 → define_fermion_operator(name)
+
+CRITICAL — QuantumAlgebra TLS operator conventions:
+- @tlsxyz_ops defines Sx, Sy, Sz as PAULI MATRICES (eigenvalues ±1), NOT spin-1/2.
+- @tlspm_ops defines Sp = (Sx+iSy)/2 = σ+, Sm = (Sx-iSy)/2 = σ−.
+- Conserved particle number: use Sz/2 (not Sz) when mixing with boson number a†a.
+
+CRITICAL — multi-species fermion anticommutation:
+- Operators declared via SEPARATE @fermion_ops calls COMMUTE with each other.
+- For spin-1/2 fermions, use a SINGLE operator with spin index: define_fermion_operator(c)
+  then use c(k, ↑) and c(k, ↓).
+
+Mean-field and operator substitution:
+- To perform a mean-field decoupling (e.g. c†(k)c(k) → ⟨n_k⟩), use operator_substitute.
+- Anomalous averages (e.g. c(k)c(-k) → Δ/g for BCS) also use operator_substitute.

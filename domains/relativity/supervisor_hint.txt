@@ -1,0 +1,22 @@
+## Domain: Relativity (Special & General)
+
+Common symbols and their roles:
+- gμν: metric tensor (symmetric, rank-2)
+- ημν: Minkowski metric (flat spacetime, diagonal ±1)
+- Γ^ρ_μν: Christoffel symbols (connection coefficients)
+- R^ρ_σμν: Riemann curvature tensor
+- Rμν: Ricci tensor (contraction of Riemann)
+- R: Ricci scalar
+- Tμν: stress-energy tensor
+- x^μ = (ct, x, y, z): 4-position (contravariant)
+- p^μ: 4-momentum
+- c: speed of light (often set to 1)
+- G: gravitational constant
+
+Index conventions:
+- Greek indices (μ,ν,ρ,σ) run over 0,1,2,3 (spacetime)
+- Latin indices (i,j,k) run over 1,2,3 (spatial only)
+- Einstein summation: repeated upper+lower index implies sum
+- Raising/lowering indices uses gμν
+
+When the user writes "μν に関してトレースを取る", interpret as contraction g^μν T_μν.

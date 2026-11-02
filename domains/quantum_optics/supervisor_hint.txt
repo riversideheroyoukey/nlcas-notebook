@@ -1,0 +1,39 @@
+## Domain: Quantum Optics
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- a†, a: photon creation/annihilation operators (bosonic, [a, a†] = 1)
+- σ+, σ-, σz: two-level atom (qubit) ladder operators
+- n = a†a: photon number operator
+- g: light-matter coupling constant (Jaynes-Cummings)
+- ω, ωc, ω0: cavity frequency, atomic transition frequency
+- κ, γ: cavity decay rate, spontaneous emission rate
+- |n⟩: Fock (number) state with n photons
+- α: coherent state amplitude
+
+Typical Hamiltonians:
+- Jaynes-Cummings: H = ωc a†a + ω0 σz/2 + g(a†σ- + aσ+)
+- Kerr: H = χ(a†)²a²
+
+Julia operation mapping (use EXACTLY these operation names):
+- 交換子を計算して / [A, B] → commutator  (args: a, b)
+- 正規順序にして / 正規形にして → normal_order  (arg: expr)
+- 真空期待値 / ⟨0|...|0⟩ → vacuum_expectation  (arg: expr)
+- Heisenberg方程式 / 時間発展 / 運動方程式 → heisenberg_equation  (args: operator, hamiltonian)
+- 光子演算子を定義して → define_boson_operator  (arg: name)
+- スピン演算子（2準位）は define_fermion_operator で近似可
+
+CRITICAL — QuantumAlgebra TLS (two-level system) operator conventions:
+- @tlsxyz_ops defines Sx, Sy, Sz as PAULI MATRICES (eigenvalues ±1), NOT spin-1/2.
+- @tlspm_ops defines Sp = (Sx+iSy)/2 = σ+, Sm = (Sx-iSy)/2 = σ−.
+- Conserved excitation number in JC model: N_ex = a†a + Sz/2  (NOT a†a + Sz).
+  In Julia input: a'(1)*a(1) + Sz(1)*(1//2)
+- To verify [H, N_ex] = 0, always use Sz/2 for the spin contribution.
+
+Operators in QuantumAlgebra.jl:
+- QuantumAlgebra.jl pre-defines a(i)/a'(i) as bosonic and f(i)/f'(i) as fermionic
+  by library convention; the letter itself does not fix the statistics.
+- In quantum optics, photon/cavity modes are bosonic → use a(i)/a'(i) or @boson_ops.
+- Two-level atom (qubit) operators can be approximated with @fermion_ops if needed.
+- Use define_boson_operator to declare additional bosonic modes (cavity, mechanical, etc.).

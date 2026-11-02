@@ -1,0 +1,4386 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_edf7f105",
+    "title": "scenario_greens_function_from_hamiltonian",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:48.788603Z",
+    "active_branch_id": "main",
+    "domains": [
+      "quantum_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_12890b",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "psi_hat_sigma(vec(r))",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_0c3198",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\hat\\psi^\\dagger_\\sigma(\\mathbf{r})",
+      "canonical": "psi_hat^\\dagger_sigma(vec(r))",
+      "created_by_step": "S5",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_dagger_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat^\\dagger_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_c536be",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\} = \\delta_{\\sigma\\sigma'}\\delta(\\mathbf{r}-\\mathbf{r}')",
+      "canonical": "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\} = delta_{sigma,sigma'} delta(vec(r)-vec(r)')",
+      "created_by_step": "S8",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "sigma'",
+        "vec",
+        "r'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\} = delta_{sigma,sigma'} delta(vec(r)-vec(r)')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_6a3f0f",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\int d^3r\\, \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat T(\\mathbf{r}) \\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "\\int*d^3*r*psi_hat^\\dagger_sigma(vec(r))*T_hat(vec(r))*psi_hat_sigma(vec(r))",
+      "created_by_step": "S15",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_dagger_sigma",
+        "vec",
+        "T_hat",
+        "psi_hat_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*r*psi_hat^\\dagger_sigma(vec(r))*T_hat(vec(r))*psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_b865a4",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\hat V = \\frac{1}{2}\\int d^3r \\int d^3r' \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}') v(\\mathbf{r}-\\mathbf{r}') \\hat\\psi_{\\sigma'}(\\mathbf{r}') \\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "((1)/(2)) \\int*d^3*r \\int*d^3*r' psi_hat^\\dagger_sigma(vec(r))*psi_hat^\\dagger_sigma'(vec(r)')*v(vec(r)-vec(r)')*psi_hat_sigma'(vec(r)')*psi_hat_sigma(vec(r))",
+      "created_by_step": "S18",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "int",
+        "r'",
+        "psi_hat_dagger_sigma",
+        "vec",
+        "psi_hat_dagger_sigma'",
+        "psi_hat_sigma'",
+        "psi_hat_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "((1)/(2)) \\int*d^3*r \\int*d^3*r' psi_hat^\\dagger_sigma(vec(r))*psi_hat^\\dagger_sigma'(vec(r)')*v(vec(r)-vec(r)')*psi_hat_sigma'(vec(r)')*psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_ce1727",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\int d^3r\\, \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r}) = \\delta_{nm}\\delta_{\\sigma\\sigma'}",
+      "canonical": "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r)) = delta_nm*delta_{sigma,sigma'}",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r)) = delta_nm*delta_{sigma,sigma'}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_85df4d",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\varphi_{m,\\sigma'}(r_{x}, r_{y}, r_{z}) \\varphi^{\\ast}_{n,\\sigma}(r_{x}, r_{y}, r_{z})\\;dr_{z}}\\;dr_{y}}\\;dr_{x}}=\\delta_{m, n}  \\delta_{\\sigma, \\sigma'}",
+      "canonical": "'integrate('integrate('integrate(phi[m,sigma\\'](vec(r_x,r_y,r_z))\n                                  *conjugate(phi[n,sigma](vec(r_x,r_y,r_z))),\n                                 r_z,-inf,inf),r_y,-inf,inf),r_x,-inf,inf)\n  = kron_delta(m,n)*kron_delta(sigma,sigma\\')",
+      "created_by_step": "S24",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_269c85",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}') = \\delta(\\mathbf{r}-\\mathbf{r}')",
+      "canonical": "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)') = delta(vec(r)-vec(r)')",
+      "created_by_step": "S27",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "vec",
+        "r'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)') = delta(vec(r)-vec(r)')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_c7104d",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "\\hat\\psi_\\sigma(\\mathbf{r}) = \\sum_n \\varphi_{n\\sigma}(\\mathbf{r}) \\hat c_{n\\sigma}",
+      "canonical": "psi_hat_sigma(vec(r)) = \\sum_n*phi_{n,sigma}(vec(r))*c_hat_{n,sigma}",
+      "created_by_step": "S30",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "phi_n_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat_sigma(vec(r)) = \\sum_n*phi_{n,sigma}(vec(r))*c_hat_{n,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_2aecc6",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "\\hat\\rho_{n\\sigma,m\\sigma} = \\hat c^\\dagger_{n\\sigma} \\hat c_{m\\sigma}",
+      "canonical": "c_hat^\\dagger_{n,sigma} c_hat_{m,sigma}",
+      "created_by_step": "S33",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "c_hat^\\dagger_{n,sigma} c_hat_{m,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_ae3c54",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n m} T_{n\\sigma,m\\sigma} \\hat\\rho_{n\\sigma,m\\sigma}",
+      "canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "T_n_sigma_m_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_526be2",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "\\hat V = \\frac{1}{2}\\sum_{n m p q}\\sum_{\\sigma \\sigma'} V_{n\\sigma,m\\sigma',p\\sigma',q\\sigma} \\hat c^\\dagger_{n\\sigma} \\hat c^\\dagger_{m\\sigma'} \\hat c_{p\\sigma'} \\hat c_{q\\sigma}",
+      "canonical": "((1)/(2)) \\sum_{n,m,p,q} \\sum_{sigma,sigma'} V_{n,sigma,m,sigma',p,sigma',q,sigma} c_hat^\\dagger_{n,sigma} c_hat^\\dagger_{m,sigma'} c_hat_{p,sigma'} c_hat_{q,sigma}",
+      "created_by_step": "S38",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "V_n_sigma_m_sigma'_p_sigma'_q_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "((1)/(2)) \\sum_{n,m,p,q} \\sum_{sigma,sigma'} V_{n,sigma,m,sigma',p,sigma',q,sigma} c_hat^\\dagger_{n,sigma} c_hat^\\dagger_{m,sigma'} c_hat_{p,sigma'} c_hat_{q,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_024b0b",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "T_{n\\sigma,m\\sigma} = \\varepsilon_{n\\sigma} \\delta_{nm}",
+      "canonical": "epsilon_{n,sigma} delta_nm",
+      "created_by_step": "S41",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_n_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "epsilon_{n,sigma} delta_nm",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E14": {
+      "expr_uid": "expr_096123",
+      "display_id": "E14",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n}{\\varepsilon_{n,\\sigma} \\sum_{m}{\\delta_{m, n}  \\hat{\\rho}_{n,\\sigma,m,\\sigma}}}",
+      "canonical": "'sum(epsilon(n,sigma)*'sum(kron_delta(m,n)*rho_hat(n,sigma,m,sigma),m,\n                           nbSumLo5,nbSumHi5),n,nbSumLo4,nbSumHi4)",
+      "created_by_step": "S44",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'sum(epsilon(n,sigma)*'sum(kron_delta(m,n)*rho_hat(n,sigma,m,sigma),m,\n                           nbSumLo5,nbSumHi5),n,nbSumLo4,nbSumHi4)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "n",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E15": {
+      "expr_uid": "expr_7d3fdb",
+      "display_id": "E15",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n}{\\varepsilon_{n,\\sigma} \\hat{\\rho}_{n,\\sigma,n,\\sigma}}",
+      "canonical": "'sum(epsilon(n,sigma)*rho_hat(n,sigma,n,sigma),n,nbSumLo4,nbSumHi4)",
+      "created_by_step": "S48",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'sum(epsilon(n,sigma)*rho_hat(n,sigma,n,sigma),n,nbSumLo4,nbSumHi4)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "n",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E16": {
+      "expr_uid": "expr_d6c54a",
+      "display_id": "E16",
+      "branch_id": "main",
+      "latex": "\\hat c_{n\\sigma}(t) = e^{i\\hat H t/\\hbar} \\hat c_{n\\sigma} e^{-i\\hat H t/\\hbar}",
+      "canonical": "c_hat_{n,sigma}(t) = %e^(i*H_hat*t/hbar)*c_hat_{n,sigma} %e^(-i*H_hat*t/hbar)",
+      "created_by_step": "S51",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "H",
+        "hbar"
+      ],
+      "warnings": [],
+      "input_canonical": "c_hat_{n,sigma}(t) = %e^(i*H_hat*t/hbar)*c_hat_{n,sigma} %e^(-i*H_hat*t/hbar)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E17": {
+      "expr_uid": "expr_2c5e8b",
+      "display_id": "E17",
+      "branch_id": "main",
+      "latex": "G_{n\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c_{n\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "canonical": "G_{n,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat_{n,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "created_by_step": "S53",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "time_order",
+        "c_hat_n_sigma",
+        "c_hat_dagger_m_sigma'",
+        "t'",
+        "Phi_0"
+      ],
+      "warnings": [],
+      "input_canonical": "G_{n,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat_{n,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E18": {
+      "expr_uid": "expr_5d3fbf",
+      "display_id": "E18",
+      "branch_id": "main",
+      "latex": "G^0_{n\\sigma}(\\omega) = \\frac{1}{\\omega - \\varepsilon_{n\\sigma}/\\hbar + i\\eta\\,\\mathrm{sgn}(\\varepsilon_{n\\sigma}-\\varepsilon_F)}",
+      "canonical": "G_sup0_{n,sigma}(omega) = ((1)/(omega - epsilon_{n,sigma}/hbar + i*eta*sgn(epsilon_{n,sigma}-epsilon_F)))",
+      "created_by_step": "S56",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_n_sigma",
+        "hbar",
+        "sgn",
+        "epsilon_F"
+      ],
+      "warnings": [],
+      "input_canonical": "G_sup0_{n,sigma}(omega) = ((1)/(omega - epsilon_{n,sigma}/hbar + i*eta*sgn(epsilon_{n,sigma}-epsilon_F)))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E19": {
+      "expr_uid": "expr_d806ba",
+      "display_id": "E19",
+      "branch_id": "main",
+      "latex": "G_{n\\sigma,m\\sigma'}(\\omega) = G^0_{n\\sigma}(\\omega)\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\sum_{p \\sigma''} G^0_{n\\sigma}(\\omega) \\Sigma_{n\\sigma,p\\sigma''}(\\omega) G_{p\\sigma'',m\\sigma'}(\\omega)",
+      "canonical": "G_{n,sigma,m,sigma'}(omega) = G_sup0_{n,sigma}(omega)*delta_nm*delta_{sigma,sigma'} + \\sum_{p,sigma''} G_sup0_{n,sigma}(omega)*Sigma_{n,sigma,p,sigma''}(omega)*G_{p,sigma'',m,sigma'}(omega)",
+      "created_by_step": "S59",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_sup0_n_sigma",
+        "sigma'",
+        "Sigma_n_sigma_p_sigma''",
+        "G_p_sigma''_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_{n,sigma,m,sigma'}(omega) = G_sup0_{n,sigma}(omega)*delta_nm*delta_{sigma,sigma'} + \\sum_{p,sigma''} G_sup0_{n,sigma}(omega)*Sigma_{n,sigma,p,sigma''}(omega)*G_{p,sigma'',m,sigma'}(omega)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E20": {
+      "expr_uid": "expr_8e11e8",
+      "display_id": "E20",
+      "branch_id": "main",
+      "latex": "(1 - G^0 \\Sigma) G = G^0",
+      "canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "created_by_step": "S72",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E21": {
+      "expr_uid": "expr_b7bd29",
+      "display_id": "E21",
+      "branch_id": "main",
+      "latex": "G=\\left(1-G^{0}\\cdot \\Sigma\\right)^{-1}\\cdot G^{0}",
+      "canonical": "G = (1-G_sup0 . Sigma)^^(-1) . G_sup0",
+      "created_by_step": "S75",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "G = (1-G_sup0 . Sigma)^^(-1) . G_sup0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E22": {
+      "expr_uid": "expr_02dc5b",
+      "display_id": "E22",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t) = [\\hat c_{n\\sigma}(t), \\hat H]",
+      "canonical": "i*hbar*'diff(c_hat_{n,sigma}(t),t,1) = [c_hat_{n,sigma}(t), H_hat]",
+      "created_by_step": "S80",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "c_hat_n_sigma",
+        "H"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(c_hat_{n,sigma}(t),t,1) = [c_hat_{n,sigma}(t), H_hat]",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E23": {
+      "expr_uid": "expr_3b5b00",
+      "display_id": "E23",
+      "branch_id": "main",
+      "latex": "[\\hat c_{m\\sigma}, \\hat H] = -\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} - \\sum_{p q s}\\sum_{\\sigma''} V_{m\\sigma,p\\sigma'',q\\sigma'',s\\sigma} \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''} \\hat c_{s\\sigma}",
+      "canonical": "-epsilon_{m,sigma} c_hat_{m,sigma} - \\sum_{p,q,s} \\sum_sigma'' V_{m,sigma,p,sigma'',q,sigma'',s,sigma} c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''} c_hat_{s,sigma}",
+      "created_by_step": "S83",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_m_sigma",
+        "V_m_sigma_p_sigma''_q_sigma''_s_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "-epsilon_{m,sigma} c_hat_{m,sigma} - \\sum_{p,q,s} \\sum_sigma'' V_{m,sigma,p,sigma'',q,sigma'',s,sigma} c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''} c_hat_{s,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E24": {
+      "expr_uid": "expr_003f29",
+      "display_id": "E24",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G_{n\\sigma,m\\sigma'}(t,t') + \\sum_{p q s}\\sum_{\\sigma''} V_{n\\sigma,p\\sigma'',q\\sigma'',s\\sigma} G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')",
+      "canonical": "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_{n,sigma,m,sigma'}(t,t') + \\sum_{p,q,s} \\sum_sigma'' V_{n,sigma,p,sigma'',q,sigma'',s,sigma} G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')",
+      "created_by_step": "S87",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "t'",
+        "sigma'",
+        "epsilon_n_sigma",
+        "G_n_sigma_m_sigma'",
+        "V_n_sigma_p_sigma''_q_sigma''_s_sigma",
+        "G_psup2_p_sigma''_q_sigma''_s_sigma_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_{n,sigma,m,sigma'}(t,t') + \\sum_{p,q,s} \\sum_sigma'' V_{n,sigma,p,sigma'',q,sigma'',s,sigma} G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E25": {
+      "expr_uid": "expr_bb4078",
+      "display_id": "E25",
+      "branch_id": "main",
+      "latex": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c^\\dagger_{p\\sigma''}(t) \\hat c_{q\\sigma''}(t) \\hat c_{s\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat^\\dagger_{p,sigma''}(t)*c_hat_{q,sigma''}(t)*c_hat_{s,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "created_by_step": "S90",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "time_order",
+        "c_hat_dagger_p_sigma''",
+        "c_hat_q_sigma''",
+        "c_hat_s_sigma",
+        "c_hat_dagger_m_sigma'",
+        "t'",
+        "Phi_0"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat^\\dagger_{p,sigma''}(t)*c_hat_{q,sigma''}(t)*c_hat_{s,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E26": {
+      "expr_uid": "expr_baf264",
+      "display_id": "E26",
+      "branch_id": "main",
+      "latex": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') \\approx \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle G_{s\\sigma,m\\sigma'}(t,t') - \\delta_{\\sigma\\sigma''} \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{s\\sigma''}\\rangle G_{q\\sigma'',m\\sigma'}(t,t')",
+      "canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') ≈ expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})*G_{s,sigma,m,sigma'}(t,t') - delta_{sigma,sigma''} expectation(c_hat^\\dagger_{p,sigma''} c_hat_{s,sigma''})*G_{q,sigma'',m,sigma'}(t,t')",
+      "created_by_step": "S94",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psup2_p_sigma''_q_sigma''_s_sigma_m_sigma'",
+        "t'",
+        "G_s_sigma_m_sigma'",
+        "sigma''",
+        "G_q_sigma''_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') ≈ expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})*G_{s,sigma,m,sigma'}(t,t') - delta_{sigma,sigma''} expectation(c_hat^\\dagger_{p,sigma''} c_hat_{s,sigma''})*G_{q,sigma'',m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E27": {
+      "expr_uid": "expr_10dea3",
+      "display_id": "E27",
+      "branch_id": "main",
+      "latex": "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle = \\delta_{pq}\\langle \\hat n_{p\\sigma''}\\rangle",
+      "canonical": "delta_pq*expectation(n_hat_{p,sigma''})",
+      "created_by_step": "S97",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "delta_pq*expectation(n_hat_{p,sigma''})",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E28": {
+      "expr_uid": "expr_e5de5e",
+      "display_id": "E28",
+      "branch_id": "main",
+      "latex": "\\Sigma^{(HF)}_{n\\sigma,s\\sigma} = \\sum_{p \\sigma''}\\left[V_{n\\sigma,p\\sigma'',p\\sigma'',s\\sigma} - \\delta_{\\sigma\\sigma''}V_{n\\sigma,p\\sigma'',s\\sigma'',p\\sigma}\\right]\\langle \\hat n_{p\\sigma''} \\rangle",
+      "canonical": "Sigma_psupHF_{n,sigma,s,sigma} = \\sum_{p,sigma''}[V_{n,sigma,p,sigma'',p,sigma'',s,sigma} - delta_{sigma,sigma''}V_{n,sigma,p,sigma'',s,sigma'',p,sigma}] expectation(n_hat_{p,sigma''})",
+      "created_by_step": "S100",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "V_n_sigma_p_sigma''_p_sigma''_s_sigma",
+        "sigma''",
+        "V_n_sigma_p_sigma''_s_sigma''_p_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "Sigma_psupHF_{n,sigma,s,sigma} = \\sum_{p,sigma''}[V_{n,sigma,p,sigma'',p,sigma'',s,sigma} - delta_{sigma,sigma''}V_{n,sigma,p,sigma'',s,sigma'',p,sigma}] expectation(n_hat_{p,sigma''})",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E29": {
+      "expr_uid": "expr_7a8d19",
+      "display_id": "E29",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') + \\sum_{s} \\Sigma^{(HF)}_{n\\sigma,s\\sigma} G^{(HF)}_{s\\sigma,m\\sigma'}(t,t')",
+      "canonical": "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_psupHF_{n,sigma,m,sigma'}(t,t') + \\sum_s*Sigma_psupHF_{n,sigma,s,sigma} G_psupHF_{s,sigma,m,sigma'}(t,t')",
+      "created_by_step": "S103",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "t'",
+        "sigma'",
+        "epsilon_n_sigma",
+        "G_psupHF_n_sigma_m_sigma'",
+        "G_psupHF_s_sigma_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_psupHF_{n,sigma,m,sigma'}(t,t') + \\sum_s*Sigma_psupHF_{n,sigma,s,sigma} G_psupHF_{s,sigma,m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E30": {
+      "expr_uid": "expr_29db2a",
+      "display_id": "E30",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n\\sigma}(t-t') = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} G^{(HF)}_{n\\sigma}(\\omega) e^{-i\\omega (t-t')} d\\omega",
+      "canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "created_by_step": "S106",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psupHF_n_sigma",
+        "t'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E31": {
+      "expr_uid": "expr_10684a",
+      "display_id": "E31",
+      "branch_id": "main",
+      "latex": "\\frac{d}{d t} G^{(HF)}_{n,\\sigma}(t-t')=-\\left({{i \\int_{-\\infty }^{\\infty }{e^ {- \\left(i \\omega \\left(t-t'\\right)\\right) } \\omega G^{(HF)}_{n,\\sigma}(\\omega)\\;d\\omega}}\\over{2 \\pi}}\\right)",
+      "canonical": "'diff(G_psupHF[n,sigma](t-t\\'),t,1) = -((%i\n                                    *'integrate(\n                                     %e^-(%i*omega*(t-t\\'))\n                                      *omega*G_psupHF[n,sigma](omega),omega,\n                                     -inf,inf))\n                                    /(2*%pi))",
+      "created_by_step": "S110",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'diff(G_psupHF[n,sigma](t-t\\'),t,1) = -((%i\n                                    *'integrate(\n                                     %e^-(%i*omega*(t-t\\'))\n                                      *omega*G_psupHF[n,sigma](omega),omega,\n                                     -inf,inf))\n                                    /(2*%pi))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E32": {
+      "expr_uid": "expr_5caf44",
+      "display_id": "E32",
+      "branch_id": "main",
+      "latex": "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega) = 1 + \\Sigma^{(HF)}_{n\\sigma} G^{(HF)}_{n\\sigma}(\\omega)/\\hbar",
+      "canonical": "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega) = 1 + Sigma_psupHF_{n,sigma} G_psupHF_{n,sigma}(omega)/hbar",
+      "created_by_step": "S113",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psupHF_n_sigma",
+        "hbar"
+      ],
+      "warnings": [],
+      "input_canonical": "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega) = 1 + Sigma_psupHF_{n,sigma} G_psupHF_{n,sigma}(omega)/hbar",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E33": {
+      "expr_uid": "expr_338b23",
+      "display_id": "E33",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n,\\sigma}(\\omega) = \\frac{\\hbar}{\\hbar \\omega-\\varepsilon_{n,\\sigma}-\\Sigma^{(HF)}_{n,\\sigma}}",
+      "canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "created_by_step": "S117",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "Sigma_psupHF"
+      ],
+      "warnings": [],
+      "input_canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E34": {
+      "expr_uid": "expr_b0eb4d",
+      "display_id": "E34",
+      "branch_id": "main",
+      "latex": "\\Sigma^{(HF)}_{n\\sigma} = 0",
+      "canonical": "Sigma_psupHF_{n,sigma} = 0",
+      "created_by_step": "S121",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "Sigma_psupHF_{n,sigma} = 0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E35": {
+      "expr_uid": "expr_1f5490",
+      "display_id": "E35",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n,\\sigma}(\\omega) = \\frac{\\hbar}{\\hbar \\omega-\\varepsilon\\left(n , \\sigma\\right)}",
+      "canonical": "hbar/(hbar*omega-epsilon(n,sigma))",
+      "created_by_step": "S123",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "hbar/(hbar*omega-epsilon(n,sigma))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:48.857123Z",
+      "user_text": "スピン依存の場の演算子から始める。ハットは名前の装飾であり、$\\hat\\psi$ は $\\psi$ とは別の量である——だからそう書く。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:48.857318Z",
+      "user_text": "\\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:48.859030Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:57:48.859178Z",
+      "user_text": "\\hat\\psi^\\dagger_\\sigma(\\mathbf{r})",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:57:48.860230Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:48.860339Z",
+      "user_text": "等時刻の反交換関係。右辺の2つの $\\delta$ は**別物**で、スピンの $\\delta_{\\sigma\\sigma'}$ は Kronecker、位置の $\\delta(\\mathbf r-\\mathbf r')$ は Dirac である。添字か引数リストかで読み分けられる——物理はそう書き分けているので、推測は要らない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:57:48.860386Z",
+      "user_text": "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\} = \\delta_{\\sigma\\sigma'}\\delta(\\mathbf{r}-\\mathbf{r}')",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:57:48.863006Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:48.863692Z",
+      "user_text": "$\\hat H_0$ の添字 0 は**名前の一部**だと宣言しておく。宣言しなければ未宣言の添字は成分インデックスと読まれ（このノートの規則どおり）、あとで計算結果に $\\hat H(0)$ と出る。宣言はこの系のほとんどの読みの判別材料である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:48.863727Z",
+      "user_text": "\\hat H_0 をスカラーとする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:48.866070Z",
+      "user_text": "\\hat H_0 をスカラーとする",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "H_hat_0",
+        "_all_names": [
+          "H_hat_0"
+        ],
+        "_raw_names": [
+          "H_hat_0"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:48.867153Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "H_hat_0"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(H_hat_0, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:48.867524Z",
+      "user_text": "ハミルトニアンの1体項。$\\hat T$ は運動エネルギーと外場をまとめた1体演算子。$\\int d^3r$ は体積測度であって、1変数の積分ではない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:48.867574Z",
+      "user_text": "\\hat H_0 = \\int d^3r\\, \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat T(\\mathbf{r}) \\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:48.869859Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S15"
+      ],
+      "timestamp": "2026-09-25T11:57:48.870303Z",
+      "user_text": "2体項。$d^3r\\,d^3r'$ の6次元で、$\\mathbf r$ と $\\mathbf r'$ は**別の点**である——プライムが黙って捨てられていた頃、$v(\\mathbf r-\\mathbf r')$ は $v(0)$ になっていた。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:48.870353Z",
+      "user_text": "\\hat V = \\frac{1}{2}\\int d^3r \\int d^3r' \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}') v(\\mathbf{r}-\\mathbf{r}') \\hat\\psi_{\\sigma'}(\\mathbf{r}') \\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:48.874312Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:48.877175Z",
+      "user_text": "スピン依存の正規直交系。直交規格化は全空間積分で、基底が任意なので**評価するものではない**——積分そのものが条件である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:48.877220Z",
+      "user_text": "\\int d^3r\\, \\varphi^*_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r}) = \\delta_{nm}\\delta_{\\sigma\\sigma'}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:48.880126Z",
+      "user_text": null,
+      "visible_action": "E6 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:48.880820Z",
+      "user_text": "成分に開く。デカルト3成分の反復積分になり、範囲は書いていなくても全空間。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:48.880857Z",
+      "user_text": "成分に展開して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:48.887769Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "expand_components"
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:48.887844Z",
+      "user_text": "完全性。右辺は Dirac の $\\delta$ で、左辺の和は**モードとスピンの両方**を走る。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:48.887885Z",
+      "user_text": "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^*_{n\\sigma}(\\mathbf{r}') = \\delta(\\mathbf{r}-\\mathbf{r}')",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:48.890470Z",
+      "user_text": null,
+      "visible_action": "E8 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:48.891179Z",
+      "user_text": "場の演算子を正規直交系で展開する。ここから先の代数は、係数（スカラー）と演算子 $\\hat c_{n\\sigma}$ に分かれる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:48.891222Z",
+      "user_text": "\\hat\\psi_\\sigma(\\mathbf{r}) = \\sum_n \\varphi_{n\\sigma}(\\mathbf{r}) \\hat c_{n\\sigma}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:48.893404Z",
+      "user_text": null,
+      "visible_action": "E9 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:48.893884Z",
+      "user_text": "**ここから計算する。** 展開（E9）を $\\hat H$ に入れて、**新しい基底でのハミルトニアンを書く**。まず1体項。行列要素 $T_{n\\sigma,m\\sigma}$ は E6 と同じ形の全空間積分で、評価するものではない。演算子の対 $\\hat c^\\dagger_{n\\sigma}\\hat c_{m\\sigma}$ は**1つの名前**として運ぶ——Maxima には演算子代数が無いので、順序を要求しない形にしておく（演算子代数が要る計算は姉妹シナリオの Julia セッションでやる）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:48.893923Z",
+      "user_text": "\\hat\\rho_{n\\sigma,m\\sigma} = \\hat c^\\dagger_{n\\sigma} \\hat c_{m\\sigma}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:48.895295Z",
+      "user_text": null,
+      "visible_action": "E10 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:48.895804Z",
+      "user_text": "\\hat H_0 = \\sum_{n m} T_{n\\sigma,m\\sigma} \\hat\\rho_{n\\sigma,m\\sigma}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:48.897363Z",
+      "user_text": null,
+      "visible_action": "E11 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:57:48.897796Z",
+      "user_text": "2体項も同じ変換で移る。**スピンは2種類しかない**——場の演算子で書いた形が $\\sigma,\\sigma'$ の2つで、基底展開で増えるのは**モードだけ**だからである。したがって独立な添字は**4モード＋2スピンの6つ**。和の添字は**区切って書く**（`\\sum_{nmpq}` は「$nmpq$ という名の1添字」）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:57:48.897840Z",
+      "user_text": "\\hat V = \\frac{1}{2}\\sum_{n m p q}\\sum_{\\sigma \\sigma'} V_{n\\sigma,m\\sigma',p\\sigma',q\\sigma} \\hat c^\\dagger_{n\\sigma} \\hat c^\\dagger_{m\\sigma'} \\hat c_{p\\sigma'} \\hat c_{q\\sigma}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:57:48.901657Z",
+      "user_text": null,
+      "visible_action": "E12 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:57:48.902436Z",
+      "user_text": "ここまで基底は**任意**である。ここで**選ぶ**: 「当初導入した基底関数系が $\\hat H_0$ を対角化する」という仮定は、行列要素についての1本の式にすぎない。平面波に特殊化するのとは違い、一般性はほとんど失われない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:57:48.902473Z",
+      "user_text": "T_{n\\sigma,m\\sigma} = \\varepsilon_{n\\sigma} \\delta_{nm}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:57:48.903572Z",
+      "user_text": null,
+      "visible_action": "E13 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:57:48.904007Z",
+      "user_text": "0次項に代入する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:57:48.904039Z",
+      "user_text": "E11 に E13 を代入して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:57:48.914641Z",
+      "user_text": null,
+      "visible_action": "E11 の T_{n,sigma,m,sigma} → \\varepsilon_{n,sigma} delta_nm",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E11",
+        "lhs": "T_{n,sigma,m,sigma}",
+        "rhs": "epsilon_{n,sigma} delta_nm"
+      },
+      "backend": "maxima",
+      "rendered_command": "rhs(block([H_hat_0], block([T], ratsimp(subst(T(n, sigma, m, sigma)=epsilon(n, sigma) * kron_delta(n, m),H_hat_0=sum(sum(T(n, sigma, m, sigma) * rho_hat(n, sigma, m, sigma), m, nbSumLo5, nbSumHi5), n, nbSumLo4, nbSumHi4))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E11"
+      ],
+      "output_refs": [
+        "E14"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S44"
+      ],
+      "timestamp": "2026-09-25T11:57:48.916410Z",
+      "user_text": "整理すると**クロネッカーδが $m$ の和を潰し**、対角形が残る——**固有値 $\\varepsilon_{n\\sigma}$ はこの計算の結果として現れる**。手で書き写したのではない。$\\hat\\rho_{n\\sigma,n\\sigma}$ は数演算子である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:48.916447Z",
+      "user_text": "E14 を簡約して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:48.916925Z",
+      "user_text": "E14 を簡約して",
+      "visible_action": "LLM解釈: simplify",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E14"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:48.931496Z",
+      "user_text": null,
+      "visible_action": "E14 を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E14"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp('sum(epsilon(n, sigma) * rho_hat(n, sigma, n, sigma), n, nbSumLo4, nbSumHi4)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E14"
+      ],
+      "output_refs": [
+        "E15"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S49": {
+      "step_id": "S49",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:57:48.932429Z",
+      "user_text": "**0次項が対角になった。ここでグリーン関数を、この基底の生成消滅演算子で定義する。** 場の演算子で書いてから基底へ移す道もあるが、移すための代入が2回要るだけで、得るものがない——最初からこの基底で書けばよい。$T[\\cdots]$ は時間順序（素の $T$ は運動エネルギーとも読めるので括弧で書く）、両側が同じ状態なので $\\langle A\\rangle_{\\Phi_0}$ と同じ量である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S50": {
+      "step_id": "S50",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:57:48.932478Z",
+      "user_text": "\\hat c_{n\\sigma}(t) = e^{i\\hat H t/\\hbar} \\hat c_{n\\sigma} e^{-i\\hat H t/\\hbar}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S51": {
+      "step_id": "S51",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:57:48.934720Z",
+      "user_text": null,
+      "visible_action": "E16 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E16"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S52": {
+      "step_id": "S52",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S51"
+      ],
+      "timestamp": "2026-09-25T11:57:48.935270Z",
+      "user_text": "G_{n\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c_{n\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S53": {
+      "step_id": "S53",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S51"
+      ],
+      "timestamp": "2026-09-25T11:57:48.938240Z",
+      "user_text": null,
+      "visible_action": "E17 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E17"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S54": {
+      "step_id": "S54",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S53"
+      ],
+      "timestamp": "2026-09-25T11:57:48.938811Z",
+      "user_text": "自由伝播関数。$G^0$ の上付き 0 は**摂動次数のラベル**であって指数ではない。$i\\eta$ の符号は**フェルミ面を境に変わる**。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S55": {
+      "step_id": "S55",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S54"
+      ],
+      "timestamp": "2026-09-25T11:57:48.938854Z",
+      "user_text": "G^0_{n\\sigma}(\\omega) = \\frac{1}{\\omega - \\varepsilon_{n\\sigma}/\\hbar + i\\eta\\,\\mathrm{sgn}(\\varepsilon_{n\\sigma}-\\varepsilon_F)}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S56": {
+      "step_id": "S56",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S54"
+      ],
+      "timestamp": "2026-09-25T11:57:48.942529Z",
+      "user_text": null,
+      "visible_action": "E18 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E18"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S57": {
+      "step_id": "S57",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S56"
+      ],
+      "timestamp": "2026-09-25T11:57:48.943056Z",
+      "user_text": "Dyson 方程式を**成分で書く**——右辺第2項は基底の添字についての和で、$G$ が右辺にも現れる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S58": {
+      "step_id": "S58",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S57"
+      ],
+      "timestamp": "2026-09-25T11:57:48.943103Z",
+      "user_text": "G_{n\\sigma,m\\sigma'}(\\omega) = G^0_{n\\sigma}(\\omega)\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\sum_{p \\sigma''} G^0_{n\\sigma}(\\omega) \\Sigma_{n\\sigma,p\\sigma''}(\\omega) G_{p\\sigma'',m\\sigma'}(\\omega)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S59": {
+      "step_id": "S59",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S57"
+      ],
+      "timestamp": "2026-09-25T11:57:48.947457Z",
+      "user_text": null,
+      "visible_action": "E19 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E19"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S60": {
+      "step_id": "S60",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S59"
+      ],
+      "timestamp": "2026-09-25T11:57:48.948127Z",
+      "user_text": "添字を落として行列として書く。**$G$・$\\Sigma$・$G^0$ を行列と宣言する**と、積は行列積になり $^{-1}$ は**逆行列**になる。宣言しなければ $^{-1}$ は逆数、積は可換積で、どちらも別の量である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S61": {
+      "step_id": "S61",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:48.948160Z",
+      "user_text": "G を行列とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S62": {
+      "step_id": "S62",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:48.948720Z",
+      "user_text": "G を行列とする",
+      "visible_action": "LLM解釈: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G",
+        "_all_names": [
+          "G"
+        ],
+        "_raw_names": [
+          "G"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S63": {
+      "step_id": "S63",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:48.957216Z",
+      "user_text": null,
+      "visible_action": "行列を定義する",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(G, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S64": {
+      "step_id": "S64",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:48.957900Z",
+      "user_text": "\\Sigma を行列とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S65": {
+      "step_id": "S65",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:48.960036Z",
+      "user_text": "\\Sigma を行列とする",
+      "visible_action": "LLM解釈: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "Sigma",
+        "_all_names": [
+          "Sigma"
+        ],
+        "_raw_names": [
+          "Sigma"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S66": {
+      "step_id": "S66",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:48.968465Z",
+      "user_text": null,
+      "visible_action": "行列を定義する",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "Sigma"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(Sigma, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S67": {
+      "step_id": "S67",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:48.968788Z",
+      "user_text": "G^0 を行列とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S68": {
+      "step_id": "S68",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:48.970827Z",
+      "user_text": "G^0 を行列とする",
+      "visible_action": "LLM解釈: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G_sup0",
+        "_all_names": [
+          "G_sup0"
+        ],
+        "_raw_names": [
+          "G_sup0"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S69": {
+      "step_id": "S69",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:48.979198Z",
+      "user_text": null,
+      "visible_action": "行列を定義する",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G_sup0"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(G_sup0, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S70": {
+      "step_id": "S70",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S69"
+      ],
+      "timestamp": "2026-09-25T11:57:48.979497Z",
+      "user_text": "$G$ を左に括り出した形で書く。**$G = G^0 + G^0\\Sigma G$ とは書かない**——この形は H-1 の定義文になり、以後 $G$ という名前がその式に束縛されて、解きたい未知数でなくなるからである（実測: そう書くと次の計算の左辺が $G^0\\Sigma G+G^0$ に展開されて戻ってくる）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S71": {
+      "step_id": "S71",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:57:48.979534Z",
+      "user_text": "(1 - G^0 \\Sigma) G = G^0",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S72": {
+      "step_id": "S72",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:57:48.980692Z",
+      "user_text": null,
+      "visible_action": "E20 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E20"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S73": {
+      "step_id": "S73",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S72"
+      ],
+      "timestamp": "2026-09-25T11:57:48.981094Z",
+      "user_text": "**形式解を計算で出す。** 両辺に $(1-G^0\\Sigma)^{-1}$ を**左から**掛ける——非可換なので左右は別の式であり、どちらかは研究者が決める。左辺の $(1-G^0\\Sigma)^{-1}(1-G^0\\Sigma)$ が 1 に簡約されるところは CAS の仕事である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S74": {
+      "step_id": "S74",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S73"
+      ],
+      "timestamp": "2026-09-25T11:57:48.981131Z",
+      "user_text": "E20 の両辺に (1 - G^0 \\Sigma)^{-1} を左から掛けて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S75": {
+      "step_id": "S75",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S73"
+      ],
+      "timestamp": "2026-09-25T11:57:48.991077Z",
+      "user_text": null,
+      "visible_action": "E20 の両辺に乗じる",
+      "operation": "multiply_both_sides",
+      "operation_args": {
+        "expr": "E20",
+        "factor": "(1 - G_sup0*Sigma)^(-1)",
+        "side": "left"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(((1 - G_sup0 . Sigma)^^-1) . ((1 - G_sup0 . Sigma) . G=G_sup0))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E20"
+      ],
+      "output_refs": [
+        "E21"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "both_sides"
+    },
+    "S76": {
+      "step_id": "S76",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S75"
+      ],
+      "timestamp": "2026-09-25T11:57:48.991577Z",
+      "user_text": "ここまでが Dyson の道である。**$\\Sigma$ が何であるかを、Dyson 方程式は答えない。** もう一つの道——グリーン関数の**運動方程式**——では、$\\Sigma$ がハミルトニアンから出てくる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S77": {
+      "step_id": "S77",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S76"
+      ],
+      "timestamp": "2026-09-25T11:57:48.991586Z",
+      "user_text": "Heisenberg 描像の演算子。相互作用描像（E10）と違い、指数の肩に乗るのは**全**ハミルトニアン $\\hat H=\\hat H_0+\\hat V$ である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S78": {
+      "step_id": "S78",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S77"
+      ],
+      "timestamp": "2026-09-25T11:57:48.991591Z",
+      "user_text": "演算子の運動方程式。**微分されるのは $\\hat c$ であって $c$ ではない**——ハットは名前の装飾なので、装飾ごと微分の中に入る。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S79": {
+      "step_id": "S79",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:57:48.991626Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t) = [\\hat c_{n\\sigma}(t), \\hat H]",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S80": {
+      "step_id": "S80",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:57:48.994125Z",
+      "user_text": null,
+      "visible_action": "E22 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E22"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S81": {
+      "step_id": "S81",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S80"
+      ],
+      "timestamp": "2026-09-25T11:57:48.995032Z",
+      "user_text": "**この交換子は Maxima では計算できない**——演算子代数が無いからである（それがこのセッションで演算子の対を1つの名前で運んでいる理由でもある）。**この役割分担は 2026-07-30 に決めてある**: 「グリーン関数の代数は Maxima、演算子代数が要る局面だけ Julia」（docs/33 §7）。**同じ交換子を QuantumAlgebra で実際に計算した**のが姉妹シナリオ scenario_greens_function_eom_commutator で、$[\\hat H,\\hat c_{m\\sigma}]$ に対して $-\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} + \\sum V(\\ldots)$ を返す。以下はその結果を（符号の向きを $[\\hat c,\\hat H]$ に合わせて）書き写したものである。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S82": {
+      "step_id": "S82",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S81"
+      ],
+      "timestamp": "2026-09-25T11:57:48.995079Z",
+      "user_text": "[\\hat c_{m\\sigma}, \\hat H] = -\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} - \\sum_{p q s}\\sum_{\\sigma''} V_{m\\sigma,p\\sigma'',q\\sigma'',s\\sigma} \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''} \\hat c_{s\\sigma}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S83": {
+      "step_id": "S83",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S81"
+      ],
+      "timestamp": "2026-09-25T11:57:48.999112Z",
+      "user_text": null,
+      "visible_action": "E23 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E23"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S84": {
+      "step_id": "S84",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S83"
+      ],
+      "timestamp": "2026-09-25T11:57:49.000593Z",
+      "user_text": "グリーン関数を基底の添字で書く（E19 で計算した形の、係数を落とした芯）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S85": {
+      "step_id": "S85",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S84"
+      ],
+      "timestamp": "2026-09-25T11:57:49.000602Z",
+      "user_text": "グリーン関数の運動方程式。時間微分は**時間順序の階段関数にも当たり**、そこから等時刻の反交換関係——$\\hbar\\delta(t-t')$ の項——が出る。残りは演算子の運動方程式そのもので、2体項が**演算子4つ**の期待値を生む。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S86": {
+      "step_id": "S86",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S85"
+      ],
+      "timestamp": "2026-09-25T11:57:49.000652Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G_{n\\sigma,m\\sigma'}(t,t') + \\sum_{p q s}\\sum_{\\sigma''} V_{n\\sigma,p\\sigma'',q\\sigma'',s\\sigma} G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S87": {
+      "step_id": "S87",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S85"
+      ],
+      "timestamp": "2026-09-25T11:57:49.007710Z",
+      "user_text": null,
+      "visible_action": "E24 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E24"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S88": {
+      "step_id": "S88",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S87"
+      ],
+      "timestamp": "2026-09-25T11:57:49.008976Z",
+      "user_text": "その高次のグリーン関数の定義。上付きの $(2)$ は $G^0$ の $0$ と同じく**ラベル**であって指数ではない。演算子3つは時刻 $t$、最後の1つだけが $t'$ である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S89": {
+      "step_id": "S89",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S88"
+      ],
+      "timestamp": "2026-09-25T11:57:49.009033Z",
+      "user_text": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c^\\dagger_{p\\sigma''}(t) \\hat c_{q\\sigma''}(t) \\hat c_{s\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S90": {
+      "step_id": "S90",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S88"
+      ],
+      "timestamp": "2026-09-25T11:57:49.013482Z",
+      "user_text": null,
+      "visible_action": "E25 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E25"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S91": {
+      "step_id": "S91",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S90"
+      ],
+      "timestamp": "2026-09-25T11:57:49.014257Z",
+      "user_text": "**方程式は閉じていない。** 1体のグリーン関数の方程式に2体のものが現れ、2体のものの方程式には3体のものが現れる——階層は終わらない。**近似とは、この鎖をどこかで切ることである。**",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S92": {
+      "step_id": "S92",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S91"
+      ],
+      "timestamp": "2026-09-25T11:57:49.014268Z",
+      "user_text": "最低次の切り方（Hartree–Fock 分解）。4つの演算子を**2つずつの対に分け**、同時刻の対を期待値で置き換える。第2項が負なのはフェルミオンの入れ替えによる。**等号ではないので $\\approx$ と書く**——近似はこの1行だけで、以降は代数である。$\\approx$ は書けて表示されるが、計算しようとすると理由つきに断られる（CAS に「およそ等しい」は無い）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S93": {
+      "step_id": "S93",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S92"
+      ],
+      "timestamp": "2026-09-25T11:57:49.014316Z",
+      "user_text": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') \\approx \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle G_{s\\sigma,m\\sigma'}(t,t') - \\delta_{\\sigma\\sigma''} \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{s\\sigma''}\\rangle G_{q\\sigma'',m\\sigma'}(t,t')",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S94": {
+      "step_id": "S94",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S92"
+      ],
+      "timestamp": "2026-09-25T11:57:49.020606Z",
+      "user_text": null,
+      "visible_action": "E26 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E26"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S95": {
+      "step_id": "S95",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S94"
+      ],
+      "timestamp": "2026-09-25T11:57:49.021090Z",
+      "user_text": "基底は $\\hat H_0$ を対角化している（E15）ので、同時刻の期待値も対角である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S96": {
+      "step_id": "S96",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S95"
+      ],
+      "timestamp": "2026-09-25T11:57:49.021130Z",
+      "user_text": "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle = \\delta_{pq}\\langle \\hat n_{p\\sigma''}\\rangle",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S97": {
+      "step_id": "S97",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S95"
+      ],
+      "timestamp": "2026-09-25T11:57:49.022752Z",
+      "user_text": null,
+      "visible_action": "E27 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E27"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S98": {
+      "step_id": "S98",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S97"
+      ],
+      "timestamp": "2026-09-25T11:57:49.023408Z",
+      "user_text": "代入すると和が2つ畳まれ、残るのはモード $p$ とスピン $\\sigma''$ についての和だけになる。これが自己エネルギーである——**運動方程式が $\\Sigma$ を決めた。** 第1項は Dyson の側で1次の近似として置かれる Hartree 項で、第2項が交換（Fock）項：フェルミオンであることがここで初めて効く。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S99": {
+      "step_id": "S99",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S98"
+      ],
+      "timestamp": "2026-09-25T11:57:49.023453Z",
+      "user_text": "\\Sigma^{(HF)}_{n\\sigma,s\\sigma} = \\sum_{p \\sigma''}\\left[V_{n\\sigma,p\\sigma'',p\\sigma'',s\\sigma} - \\delta_{\\sigma\\sigma''}V_{n\\sigma,p\\sigma'',s\\sigma'',p\\sigma}\\right]\\langle \\hat n_{p\\sigma''} \\rangle",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S100": {
+      "step_id": "S100",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S98"
+      ],
+      "timestamp": "2026-09-25T11:57:49.027759Z",
+      "user_text": null,
+      "visible_action": "E28 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E28"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S101": {
+      "step_id": "S101",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S100"
+      ],
+      "timestamp": "2026-09-25T11:57:49.028421Z",
+      "user_text": "高次のグリーン関数が消え、方程式が**閉じた**。ただし**これはもう厳密な $G$ ではない**——分解を入れた後の量なので $G^{(HF)}$ と書き分ける。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S102": {
+      "step_id": "S102",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S101"
+      ],
+      "timestamp": "2026-09-25T11:57:49.028472Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') + \\sum_{s} \\Sigma^{(HF)}_{n\\sigma,s\\sigma} G^{(HF)}_{s\\sigma,m\\sigma'}(t,t')",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S103": {
+      "step_id": "S103",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S101"
+      ],
+      "timestamp": "2026-09-25T11:57:49.034550Z",
+      "user_text": null,
+      "visible_action": "E29 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E29"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S104": {
+      "step_id": "S104",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S103"
+      ],
+      "timestamp": "2026-09-25T11:57:49.035795Z",
+      "user_text": "**時間差についてフーリエ変換する。専用の操作は使わない**——逆変換の定義そのものを書き、両辺を $t$ で微分させる。$\\omega$ と $(t-t')$ の間の空白は積の印である（空白が無いと $\\omega$ を $(t-t')$ に適用した関数と読まれ、その読みは断られる）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S105": {
+      "step_id": "S105",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S104"
+      ],
+      "timestamp": "2026-09-25T11:57:49.035836Z",
+      "user_text": "G^{(HF)}_{n\\sigma}(t-t') = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} G^{(HF)}_{n\\sigma}(\\omega) e^{-i\\omega (t-t')} d\\omega",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S106": {
+      "step_id": "S106",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S104"
+      ],
+      "timestamp": "2026-09-25T11:57:49.038814Z",
+      "user_text": null,
+      "visible_action": "E30 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E30"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S107": {
+      "step_id": "S107",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S106"
+      ],
+      "timestamp": "2026-09-25T11:57:49.039974Z",
+      "user_text": "微分は積分記号の中に入り、$-i\\omega$ が降りてくる——これが $i\\hbar\\partial_t \\to \\hbar\\omega$ の中身である。$\\delta(t-t')$ も同じ変換で 1 になる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S108": {
+      "step_id": "S108",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.040008Z",
+      "user_text": "E30 の両辺を t で微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S109": {
+      "step_id": "S109",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.040616Z",
+      "user_text": "E30 の両辺を t で微分して",
+      "visible_action": "LLM解釈: differentiate",
+      "operation": "differentiate",
+      "operation_args": {
+        "var": "t",
+        "expr": "E30"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S110": {
+      "step_id": "S110",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.073573Z",
+      "user_text": null,
+      "visible_action": "E30 をt で偏微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "var": "t",
+        "expr": "E30",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(G_psupHF[n, sigma](t - t\\')=1 * (2 * %pi)^-1 * integrate(G_psupHF[n, sigma](omega) * %e^(-%i * omega * (t - t\\')), omega, -inf, inf),t,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E30"
+      ],
+      "output_refs": [
+        "E31"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S111": {
+      "step_id": "S111",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S110"
+      ],
+      "timestamp": "2026-09-25T11:57:49.076215Z",
+      "user_text": "周波数領域の方程式。$\\hat H_0$ も $\\Sigma^{(HF)}$ もこの基底で対角なので、対角成分だけを書く。**$\\hbar$ の位置に注意**——Dyson（E22）の $\\Sigma$ は角振動数の次元、ここの $\\Sigma^{(HF)}$ はエネルギーの次元で、両者は $\\hbar$ だけ違う。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S112": {
+      "step_id": "S112",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S111"
+      ],
+      "timestamp": "2026-09-25T11:57:49.076269Z",
+      "user_text": "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega) = 1 + \\Sigma^{(HF)}_{n\\sigma} G^{(HF)}_{n\\sigma}(\\omega)/\\hbar",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S113": {
+      "step_id": "S113",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S111"
+      ],
+      "timestamp": "2026-09-25T11:57:49.079498Z",
+      "user_text": null,
+      "visible_action": "E32 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E32"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S114": {
+      "step_id": "S114",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S113"
+      ],
+      "timestamp": "2026-09-25T11:57:49.080186Z",
+      "user_text": "$G^{(HF)}$ について解く。**解く変数は研究者の綴りのまま**——上付きラベルも添字も引数も付いたまま——指定する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S115": {
+      "step_id": "S115",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S114"
+      ],
+      "timestamp": "2026-09-25T11:57:49.080225Z",
+      "user_text": "E32 を G^{(HF)}_{n\\sigma}(\\omega) について解いて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S116": {
+      "step_id": "S116",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S114"
+      ],
+      "timestamp": "2026-09-25T11:57:49.100025Z",
+      "user_text": null,
+      "visible_action": "E32 の方程式を解く",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E32",
+        "var": "G^{(HF)}_{n\\sigma}(\\omega)"
+      },
+      "backend": "maxima",
+      "rendered_command": "solve((omega - epsilon(n, sigma) * hbar^-1) * G_psupHF[n, sigma](omega)=1 + Sigma_psupHF(n, sigma) * G_psupHF[n, sigma](omega) * hbar^-1, G_psupHF[n, sigma](omega))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E32"
+      ],
+      "output_refs": [
+        "E33"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S117": {
+      "step_id": "S117",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S116"
+      ],
+      "timestamp": "2026-09-25T11:57:49.102020Z",
+      "user_text": null,
+      "visible_action": "E33 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E33"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S118": {
+      "step_id": "S118",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S116"
+      ],
+      "timestamp": "2026-09-25T11:57:49.102422Z",
+      "user_text": "Hartree–Fock 近似のグリーン関数。極が $\\varepsilon_{n\\sigma}$ から $\\varepsilon_{n\\sigma}+\\Sigma^{(HF)}_{n\\sigma}$ へずれた——**相互作用が1粒子エネルギーをずらす**、というのがこの近似の内容である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S119": {
+      "step_id": "S119",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S118"
+      ],
+      "timestamp": "2026-09-25T11:57:49.102432Z",
+      "user_text": "最後に、自己エネルギーを 0 に戻してみる。近似の入れ方が正しければ、相互作用を切ったときに自由伝播関数（E21、$i\\eta$ を除く）へ戻らなければならない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S120": {
+      "step_id": "S120",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S119"
+      ],
+      "timestamp": "2026-09-25T11:57:49.102465Z",
+      "user_text": "\\Sigma^{(HF)}_{n\\sigma} = 0",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S121": {
+      "step_id": "S121",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S119"
+      ],
+      "timestamp": "2026-09-25T11:57:49.103529Z",
+      "user_text": null,
+      "visible_action": "E34 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E34"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S122": {
+      "step_id": "S122",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S121"
+      ],
+      "timestamp": "2026-09-25T11:57:49.103947Z",
+      "user_text": "E33 に E34 を代入して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S123": {
+      "step_id": "S123",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S121"
+      ],
+      "timestamp": "2026-09-25T11:57:49.124448Z",
+      "user_text": null,
+      "visible_action": "E33 の \\Sigma^{(HF)}_{n,sigma} → 0",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E33",
+        "lhs": "Sigma_psupHF_{n,sigma}",
+        "rhs": "0"
+      },
+      "backend": "maxima",
+      "rendered_command": "block([Sigma_psupHF], ratsimp(subst(Sigma_psupHF(n, sigma)=0,hbar * (hbar * omega - epsilon(n, sigma) - Sigma_psupHF(n, sigma))^-1)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E33"
+      ],
+      "output_refs": [
+        "E35"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S123",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:48.788616Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "H_hat_0": {
+      "quantity": {
+        "name": "H_hat_0",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_x": {
+      "quantity": {
+        "name": "r_x",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_y": {
+      "quantity": {
+        "name": "r_y",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_z": {
+      "quantity": {
+        "name": "r_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "G": {
+      "quantity": {
+        "name": "G",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E21",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Sigma": {
+      "quantity": {
+        "name": "Sigma",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "G_sup0": {
+      "quantity": {
+        "name": "G_sup0",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {
+    "phi": 2,
+    "c_hat": 2,
+    "c_hat_dagger": 2,
+    "T": 4,
+    "rho_hat": 4,
+    "V": 8,
+    "epsilon": 2,
+    "G": 4,
+    "Phi": 1,
+    "G_sup0": 2,
+    "Sigma": 4,
+    "G_psup2": 8,
+    "n_hat": 2,
+    "Sigma_psupHF": 2,
+    "G_psupHF": 2
+  },
+  "called_bases": [
+    "psi_hat_sigma",
+    "vec",
+    "psi_hat_dagger_sigma",
+    "psi_hat_dagger_sigma'",
+    "T_hat",
+    "v",
+    "psi_hat_sigma'",
+    "expectation",
+    "time_order",
+    "sgn",
+    "epsilon",
+    "Sigma_psupHF"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\}": "E3",
+    "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\}": "E3",
+    "\\hat H_0": "E15",
+    "H_hat_0": "E15",
+    "\\hat V": "E12",
+    "V_hat": "E12",
+    "\\int d^3r \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r})": "E6",
+    "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r))": "E6",
+    "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}')": "E8",
+    "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)')": "E8",
+    "\\hat\\psi_\\sigma(\\mathbf{r})": "E9",
+    "psi_hat_sigma(vec(r))": "E9",
+    "\\hat\\rho_{n\\sigma,m\\sigma}": "E10",
+    "rho_hat_{n,sigma,m,sigma}": "E10",
+    "T_{n\\sigma,m\\sigma}": "E13",
+    "T_{n,sigma,m,sigma}": "E13",
+    "\\hat c_{n\\sigma}(t)": "E16",
+    "c_hat_{n,sigma}(t)": "E16",
+    "G_{n\\sigma,m\\sigma'}(t,t')": "E17",
+    "G_{n,sigma,m,sigma'}(t,t')": "E17",
+    "G^0_{n\\sigma}(\\omega)": "E18",
+    "G_sup0_{n,sigma}(omega)": "E18",
+    "G_{n\\sigma,m\\sigma'}(\\omega)": "E19",
+    "G_{n,sigma,m,sigma'}(omega)": "E19",
+    "(1 - G^0 \\Sigma) G": "E20",
+    "(1 - G_sup0*Sigma)*G": "E20",
+    "G": "E21",
+    "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t)": "E22",
+    "i*hbar*'diff(c_hat_{n,sigma}(t),t,1)": "E22",
+    "[\\hat c_{m\\sigma}, \\hat H]": "E23",
+    "[c_hat_{m,sigma}, H_hat]": "E23",
+    "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t')": "E24",
+    "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1)": "E24",
+    "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')": "E25",
+    "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')": "E25",
+    "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle": "E27",
+    "expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})": "E27",
+    "\\Sigma^{(HF)}_{n\\sigma,s\\sigma}": "E28",
+    "Sigma_psupHF_{n,sigma,s,sigma}": "E28",
+    "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t')": "E29",
+    "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1)": "E29",
+    "G^{(HF)}_{n\\sigma}(t-t')": "E30",
+    "G_psupHF_{n,sigma}(t-t')": "E30",
+    "\\frac{d}{d t} G^{(HF)}_{n,\\sigma}(t-t')": "E31",
+    "'diff(G_psupHF_{n,sigma}(t-t'),t,1)": "E31",
+    "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega)": "E32",
+    "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega)": "E32",
+    "G_psupHF[n,sigma](omega)": "E33",
+    "\\Sigma^{(HF)}_{n\\sigma}": "E34",
+    "Sigma_psupHF_{n,sigma}": "E34",
+    "G^{(HF)}_{n,\\sigma}(\\omega)": "E35",
+    "G_psupHF_{n,sigma}(omega)": "E35"
+  },
+  "expr_counter": 35,
+  "internal_counter": 0,
+  "sum_bound_counter": 24,
+  "sum_bound_pairs": {
+    "E8": {
+      "n": [
+        "nbSumLo1",
+        "nbSumHi1"
+      ],
+      "sigma": [
+        "nbSumLo2",
+        "nbSumHi2"
+      ]
+    },
+    "E9": {
+      "n": [
+        "nbSumLo3",
+        "nbSumHi3"
+      ]
+    },
+    "E11": {
+      "n": [
+        "nbSumLo4",
+        "nbSumHi4"
+      ],
+      "m": [
+        "nbSumLo5",
+        "nbSumHi5"
+      ]
+    },
+    "E12": {
+      "n": [
+        "nbSumLo6",
+        "nbSumHi6"
+      ],
+      "m": [
+        "nbSumLo7",
+        "nbSumHi7"
+      ],
+      "p": [
+        "nbSumLo8",
+        "nbSumHi8"
+      ],
+      "q": [
+        "nbSumLo9",
+        "nbSumHi9"
+      ],
+      "sigma": [
+        "nbSumLo10",
+        "nbSumHi10"
+      ],
+      "sigma'": [
+        "nbSumLo11",
+        "nbSumHi11"
+      ]
+    },
+    "E19": {
+      "p": [
+        "nbSumLo12",
+        "nbSumHi12"
+      ],
+      "sigma''": [
+        "nbSumLo13",
+        "nbSumHi13"
+      ]
+    },
+    "E23": {
+      "p": [
+        "nbSumLo14",
+        "nbSumHi14"
+      ],
+      "q": [
+        "nbSumLo15",
+        "nbSumHi15"
+      ],
+      "s": [
+        "nbSumLo16",
+        "nbSumHi16"
+      ],
+      "sigma''": [
+        "nbSumLo17",
+        "nbSumHi17"
+      ]
+    },
+    "E24": {
+      "p": [
+        "nbSumLo18",
+        "nbSumHi18"
+      ],
+      "q": [
+        "nbSumLo19",
+        "nbSumHi19"
+      ],
+      "s": [
+        "nbSumLo20",
+        "nbSumHi20"
+      ],
+      "sigma''": [
+        "nbSumLo21",
+        "nbSumHi21"
+      ]
+    },
+    "E28": {
+      "p": [
+        "nbSumLo22",
+        "nbSumHi22"
+      ],
+      "sigma''": [
+        "nbSumLo23",
+        "nbSumHi23"
+      ]
+    },
+    "E29": {
+      "s": [
+        "nbSumLo24",
+        "nbSumHi24"
+      ]
+    }
+  },
+  "step_counter": 123,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

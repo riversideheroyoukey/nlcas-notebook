@@ -1,0 +1,16 @@
+## OCR Domain Hint: Electromagnetism
+
+Symbol recognition priorities:
+- Bold E, B, H, D, J, A → vector fields \mathbf{E}, \mathbf{B}, etc.
+- ∇× (nabla cross) → curl \nabla \times
+- ∇· (nabla dot) → divergence \nabla \cdot
+- ε₀ → \varepsilon_0 (NOT epsilon alone)
+- μ₀ → \mu_0
+- ρ in this context → charge density \rho, NOT fluid density
+- φ (phi, scalar) → electric potential \varphi or \phi
+- ∮ → surface/line integral \oint
+
+Common expression patterns:
+- ∇ × B = μ₀J + μ₀ε₀ ∂E/∂t → Maxwell–Ampère law
+- ∇ · E = ρ/ε₀ → Gauss's law
+- Double line integral with dS → surface integral \iint ... d\mathbf{S}

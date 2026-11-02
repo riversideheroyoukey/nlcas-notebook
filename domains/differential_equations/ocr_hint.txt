@@ -1,0 +1,16 @@
+## OCR Domain Hint: Differential Equations
+
+Symbol recognition priorities:
+- y', y'', f' → first/second derivative (prime notation) y', y''
+- ẏ, ÿ (overdot) → time derivative \dot{y}, \ddot{y}
+- ∂/∂t, ∂/∂x → partial derivatives \partial/\partial t
+- ∇² or Δ → Laplacian \nabla^2
+- G(x, ξ) with two arguments → Green's function G(x, \xi)
+- W[y₁, y₂] → Wronskian \mathcal{W}[y_1, y_2]
+- L[y] (operator acting on function) → differential operator L[y]
+- Boundary condition notation: y(0)=0, y'(L)=0
+
+Common expression patterns:
+- ay'' + by' + cy = f(x) → second-order linear ODE
+- ∂u/∂t = κ ∂²u/∂x² → heat equation
+- ∂²u/∂t² = c²∇²u → wave equation

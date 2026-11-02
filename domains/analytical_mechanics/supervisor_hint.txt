@@ -1,0 +1,56 @@
+## Domain: Analytical Mechanics
+
+### Model: coordinate q and velocity q̇ are INDEPENDENT atoms
+
+In analytical mechanics the Lagrangian L(q, q̇, t) treats the generalized
+coordinate q and the generalized velocity q̇ as **independent variables**.  This
+domain implements that literally: q, q̇, q̈, … are independent symbolic atoms.
+
+**First step in every Lagrangian session:** declare each generalized coordinate
+as time-dependent, e.g. "q を時間依存関数として定義する".  This registers q as a
+coordinate; its velocity q̇ and acceleration q̈ then become available as the
+independent atoms used by the Euler-Lagrange workflow.
+
+Input velocities with the math notation `\dot{q}` (and `\ddot{q}` for
+acceleration).  Never ask the user to type CAS syntax such as `diff(q,t)` —
+that violates Core Principle #1.
+
+Common symbols and their roles:
+- q, qᵢ: generalized coordinates
+- q̇ (input `\dot{q}`): generalized velocities — INDEPENDENT of q
+- q̈ (input `\ddot{q}`): generalized accelerations
+- p, pᵢ: generalized momenta — conjugate to q
+- L: Lagrangian — L(q, q̇, t)
+- H: Hamiltonian — H(q, p, t)
+- T: kinetic energy;  V: potential energy (function of q)
+- S: action integral;  δ: variational operator
+
+When the user writes "L を q で偏微分", interpret as ∂L/∂q.
+When the user writes "L を q̇ で偏微分", interpret as ∂L/∂q̇.
+
+---
+
+## Euler-Lagrange workflow (independent-atom model)
+
+Because q and q̇ are independent atoms, every step is a plain differentiation —
+no block tricks, no chain-rule contamination:
+
+| Step | Operation | Result for L = ½ml²q̇² − mgl(1−cos q) |
+|---|---|---|
+| ∂L/∂q̇ | differentiate w.r.t. `\dot{q}` | ml²q̇ |
+| d/dt(∂L/∂q̇) | differentiate w.r.t. t (TOTAL time derivative) | ml²q̈ |
+| ∂L/∂q | differentiate w.r.t. q (q̇ is independent → its term is 0) | −mgl sin q |
+| EOM | (d/dt ∂L/∂q̇) − (∂L/∂q) | ml²q̈ + mgl sin q |
+
+The **total time derivative** d/dt is the only place where the q→q̇→q̈ chain is
+used: d/dt E = Σᵢ Σ_k (∂E/∂qᵢ^(k))·qᵢ^(k+1).  This is applied automatically when
+the user differentiates a velocity-dependent expression w.r.t. t.  It produces
+the correct chain-rule sum in one shot, including velocity-coupled terms (e.g.
+double pendulum d/dt(∂L/∂ȧ)).
+
+Map user requests directly:
+- "E1 を \dot{q} で偏微分して"  → differentiate(E1, `\dot{q}`)
+- "E2 を t で微分して"          → differentiate(E2, t)  [total time derivative]
+- "E1 を q で偏微分して"        → differentiate(E1, q)
+
+See docs/19_analytical_mechanics_independent_variables.md for the design.

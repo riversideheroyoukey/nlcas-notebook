@@ -1,0 +1,49 @@
+## Domain: Atomic Physics & Spectroscopy
+
+Electronic structure of atoms and the spectra it produces: term symbols, fine and
+hyperfine structure, the Zeeman effect, and radiative transitions.  Uses the Maxima
+backend; the angular-momentum algebra itself (F-9) is computed exactly outside the
+CAS and its results come back as ordinary expressions that Maxima can then use.
+
+Common symbols and their roles:
+- L, S, J: orbital, spin and total electronic angular momentum (quantum numbers).
+- I: nuclear spin.  F = I + J: total atomic angular momentum (hyperfine).
+- m_J, m_F, M: magnetic (projection) quantum numbers.
+- n, l: principal and orbital quantum numbers of a one-electron state.
+- ^{2S+1}L_J: term symbol, e.g. ^2P_{3/2}, ^3P_0, ^1S_0.  L is a LETTER: S,P,D,F,G,…
+- g_J, g_F: Landé g factors.  g_L ≈ 1, g_S ≈ 2 (2.0023 with the QED correction).
+- μ_B: Bohr magneton.  μ_N: nuclear magneton.  a_0: Bohr radius.  α: fine-structure constant.
+- ζ(n,l) or ζ_{nl}: spin-orbit coupling constant.  A, B: magnetic-dipole and
+  electric-quadrupole hyperfine constants.
+- R_∞: Rydberg constant.  E_n: level energy.  ω_0, λ: transition frequency / wavelength.
+- T^{(k)}_q: spherical tensor operator of rank k.  k=1 is the electric dipole.
+- ⟨j'‖T^{(k)}‖j⟩: reduced matrix element (Wigner–Eckart).
+
+Typical structure:
+- Spin-orbit (fine structure): H_so = ζ L·S,  ⟨L·S⟩ = ½[J(J+1) − L(L+1) − S(S+1)].
+- Hyperfine (magnetic dipole): H_hf = A I·J,  ⟨I·J⟩ = ½[F(F+1) − I(I+1) − J(J+1)].
+  Both are the SAME identity — the Landé interval rule follows from it.
+- Zeeman (weak field): H_Z = g_J μ_B B m_J.  Strong field (Paschen–Back): L and S decouple.
+- Selection rules for an electric-dipole (k=1) transition: Δl = ±1, ΔJ = 0, ±1
+  (not 0→0), ΔM = 0, ±1 — all of them consequences of the Wigner–Eckart
+  coefficient vanishing, not separate rules to memorize.
+
+Operation mapping (natural language → operation):
+- 角運動量の合成 / 「L=1 と S=1/2 を合成して」 → couple: registers the allowed
+  total J AND the exact L·S identity (with J symbolic, ready to substitute).
+- クレブシュ・ゴルダン係数 / CG係数 → "j1=…, m1=…, j2=…, m2=…, J=…, M=… のCG係数"
+- 3j/6j/9j記号 → "6j記号 {1 2 3; 2 1 2}" (rows separated by ';')
+- 結合状態を非結合基底で展開 → "j1=…, j2=…, J=…, M=… を非結合基底で展開して"
+- ランデのg因子 → "^2P_{3/2} のランデのg因子" or "L=1, S=1/2, J=3/2 のg因子"
+- Wigner-Eckart / 遷移行列要素・選択則 → "j=…, m=…, k=1, q=…, j'=…, m'=… の
+  Wigner-Eckartの定理"; a vanishing coefficient IS the selection rule.
+- 微細構造・超微細構造の準位エネルギー → couple で L·S / I·J の恒等式を出し、
+  両辺に結合定数 ζ / A を掛け、J（または F）に値を代入する（一般操作の組み合わせ）。
+
+Notes:
+- The angular-momentum layer supplies EXACT values (√ kept symbolic: 1/√2, √6/3),
+  never decimals, and never invents a Hamiltonian: it gives ⟨L·S⟩ as a function of
+  the total J and leaves the coupling constant and the model to the researcher.
+- Half-integers are written "3/2" in instructions, not 1.5.
+- Term symbols: multiplicity 2S+1 as the superscript, J as the subscript —
+  ^2P_{3/2} means S=1/2, L=1, J=3/2.

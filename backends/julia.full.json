@@ -1,0 +1,255 @@
+{
+  "operations": {
+    "define_boson_operator": {
+      "template": "@boson_ops {name}; nothing",
+      "note": "Defines boson creation/annihilation operators name(i) and name'(i) in Main scope.",
+      "aliases": {
+        "ja": [
+          "ボゾン演算子",
+          "ボーズ演算子",
+          "ボソン演算子",
+          "ボゾン定義",
+          "フォノン演算子",
+          "フォトン演算子",
+          "光子演算子",
+          "格子振動演算子"
+        ],
+        "en": [
+          "define boson",
+          "boson operator",
+          "bose operator",
+          "bosonic operator",
+          "phonon operator",
+          "photon operator",
+          "boson",
+          "bose",
+          "bosonic",
+          "phonon",
+          "photon"
+        ]
+      }
+    },
+    "define_fermion_operator": {
+      "template": "@fermion_ops {name}; nothing",
+      "note": "Defines fermion operators name(i) and name'(i) in Main scope.",
+      "aliases": {
+        "ja": [
+          "フェルミ演算子",
+          "フェルミオン演算子",
+          "電子演算子",
+          "フェルミ定義"
+        ],
+        "en": [
+          "define fermion",
+          "fermion operator",
+          "fermionic operator",
+          "electron operator",
+          "fermion",
+          "fermionic",
+          "electron"
+        ]
+      }
+    },
+    "define_spin_operator": {
+      "template": "@tlsxyz_ops {name}; nothing",
+      "note": "Defines SU(2) spin operators Sx, Sy, Sz on a lattice site. S+/S- can be defined manually as Sx+i*Sy and Sx-i*Sy to avoid @tlsxyz/@tlspm mixing issues in normal_form."
+    },
+    "define_scalar_parameter": {
+      "template": "nothing",
+      "note": "Registers a symbol as a commuting scalar parameter (c-number) in the notebook context. No Julia declaration is needed; scalars commute with everything by default."
+    },
+    "define_vector": {
+      "template": "nothing",
+      "note": "Registers a symbol as a vector quantity in the notebook context."
+    },
+    "define_matrix": {
+      "template": "nothing",
+      "note": "Registers a symbol as a matrix quantity in the notebook context."
+    },
+    "define_tensor": {
+      "template": "nothing",
+      "note": "Registers a symbol as a tensor quantity in the notebook context."
+    },
+    "commutator": {
+      "template": "_nb_eval_site_deltas(normal_form(comm({a}, {b})))",
+      "note": "[A, B] = AB - BA, normal-ordered via CCR. _nb_eval_site_deltas evaluates δ(i,j)=0 for distinct concrete site labels."
+    },
+    "anticommutator": {
+      "template": "_nb_eval_site_deltas(normal_form(({a})*({b}) + ({b})*({a})))",
+      "note": "{A, B} = AB + BA, normal-ordered. _nb_eval_site_deltas evaluates δ(i,j)=0 for distinct concrete site labels."
+    },
+    "normal_order": {
+      "template": "_nb_eval_site_deltas(normal_form({expr}))",
+      "note": "Normal-orders a QuantumAlgebra expression. _nb_eval_site_deltas evaluates δ(i,j)=0 for distinct concrete site labels."
+    },
+    "vacuum_expectation": {
+      "template": "_nb_eval_site_deltas(_nb_vac_expect(normal_form({expr})))",
+      "note": "<0|expr|0>. Computed as the operator-free part of the normal-ordered QuExpr via _nb_vac_expect (QuantumAlgebra's vacExpVal throws on symbolic scalar coefficients). δ cleanup drops sign-partner/integer deltas. Non-QuExpr results pass through unchanged."
+    },
+    "heisenberg_equation": {
+      "template": "_nb_eval_site_deltas(normal_form(heisenberg_eom({operator}, {hamiltonian})))",
+      "note": "dA/dt = i[H, A] in natural units, reduced to normal form. _nb_eval_site_deltas evaluates δ(i,j)=0 for distinct concrete site labels."
+    },
+    "expand": {
+      "template": "expand({expr})",
+      "note": "Distributes products over sums."
+    },
+    "simplify": {
+      "template": "simplify({expr})",
+      "note": "Algebraic simplification (Symbolics.simplify also applies trig identities)."
+    },
+    "trig_simplify": {
+      "template": "simplify({expr})",
+      "note": "Symbolics.simplify applies sin^2+cos^2=1, so trig_simplify maps to the same call. Keeps the 三角簡約 keyword backend-agnostic. NOTE: weaker than Maxima trigsimp on nested 3-D cases (may leave sin^2+cos^2 of a second angle)."
+    },
+    "factor": {
+      "template": "simplify(expand({expr}))",
+      "note": "Symbolic factoring is not available in Symbolics.jl; falls back to simplify+expand."
+    },
+    "substitute": {
+      "template": "substitute({expr}, Dict({lhs} => {rhs}))",
+      "note": "Substitutes lhs -> rhs."
+    },
+    "differentiate": {
+      "template": "_nb_differentiate({expr}, {var}, {order})",
+      "defaults": {
+        "order": 1
+      },
+      "note": "Symbolic differentiation using Symbolics.jl; _nb_differentiate applies Differential(var) order times."
+    },
+    "integrate_indefinite": {
+      "template": "begin; _integ_, _err_, _solved_ = integrate({expr}, {var}); _integ_; end",
+      "note": "Indefinite integral via SymbolicNumericIntegration."
+    },
+    "integrate_definite": {
+      "template": "begin; _integ_, _err_, _solved_ = integrate({expr}, {var}); substitute(_integ_, Dict({var} => ({upper}))) - substitute(_integ_, Dict({var} => ({lower}))); end",
+      "note": "Definite integral via SymbolicNumericIntegration + endpoint substitution."
+    },
+    "taylor_expand": {
+      "template": "sum(Symbolics.taylor({expr}, {var}, i) for i in 0:{order})",
+      "note": "Taylor/Maclaurin series expansion to given order around var=point (point is currently ignored; use substitute after if needed)."
+    },
+    "numerical_eval": {
+      "template": "Float64({expr})",
+      "note": "Evaluates expression to a 64-bit float."
+    },
+    "numerical_eval_hp": {
+      "template": "big({expr})",
+      "note": "Evaluates expression to arbitrary-precision BigFloat/BigInt."
+    },
+    "to_latex": {
+      "template": "_nb_latex({expr})",
+      "note": "Returns the LaTeX string for the expression."
+    },
+    "multiply_expressions": {
+      "template": "({a}) * ({b})",
+      "note": "Non-commutative product; order matters for quantum operators."
+    },
+    "combine_expressions": {
+      "template": "({expr_a}) {op} ({expr_b})",
+      "note": "Combines two expressions with the given operator (+, -, *, /)."
+    },
+    "add_to_both_sides": {
+      "template": "({expr}) + ({term})",
+      "note": "Adds term to expression."
+    },
+    "subtract_from_both_sides": {
+      "template": "({expr}) - ({term})",
+      "note": "Subtracts term from expression."
+    },
+    "multiply_both_sides": {
+      "template": "({expr}) * ({factor})",
+      "note": "Multiplies expression by factor."
+    },
+    "divide_both_sides": {
+      "template": "({expr}) / ({factor})",
+      "note": "Divides expression by factor."
+    },
+    "real_part": {
+      "template": "real({expr})",
+      "note": "Real part of expression."
+    },
+    "imaginary_part": {
+      "template": "imag({expr})",
+      "note": "Imaginary part of expression."
+    },
+    "complex_conjugate": {
+      "template": "conj({expr})",
+      "note": "Complex conjugate."
+    },
+    "determinant": {
+      "template": "det({expr})",
+      "note": "Determinant of a matrix expression."
+    },
+    "trace": {
+      "template": "tr({expr})",
+      "note": "Trace of a matrix expression."
+    },
+    "transpose": {
+      "template": "transpose({expr})",
+      "note": "Transpose of a matrix expression."
+    },
+    "inverse_matrix": {
+      "template": "inv({expr})",
+      "note": "Inverse of a matrix expression."
+    },
+    "matrix_multiply": {
+      "template": "({a}) * ({b})",
+      "note": "Matrix product (Julia uses * for matrix multiplication)."
+    },
+    "eigenvalues": {
+      "template": "eigvals({expr})",
+      "note": "Eigenvalues of a matrix (LinearAlgebra.eigvals)."
+    },
+    "eigenvectors": {
+      "template": "eigvecs({expr})",
+      "note": "Eigenvectors of a matrix (LinearAlgebra.eigvecs)."
+    },
+    "diagonalize": {
+      "template": "eigvecs({expr})",
+      "note": "Modal matrix P (eigenvectors as columns); eigvecs already returns it."
+    },
+    "diagonal_matrix": {
+      "template": "diagm(eigvals({expr}))",
+      "note": "Diagonal matrix D of the eigenvalues."
+    },
+    "solve_equation": {
+      "template": "Symbolics.solve_for({lhs} ~ {rhs}, {var})",
+      "note": "single-equation solve. build_command intercept uses full eq string."
+    },
+    "operator_taylor_expand": {
+      "template": "_nb_operator_taylor_expand(\"{func}\", {op}, \"{var}\", {order})",
+      "note": "f(H) ≈ Σ a_k H^k. func=scalar function of var, op=operator QuExpr, var=dummy variable."
+    },
+    "extract_order": {
+      "template": "_nb_extract_order(string({expr}), \"{var}\", {order})",
+      "note": "Extract coefficient of var^order from polynomial expression."
+    },
+    "truncate_series": {
+      "template": "_nb_truncate_series(string({expr}), \"{var}\", {order})",
+      "note": "Keep only terms up to var^order, drop higher-order terms."
+    },
+    "solve_system": {
+      "template": "# solve_system handled by build_command intercept",
+      "note": "System solve via Symbolics.solve_for([...], [...]). build_command builds command."
+    },
+    "characteristic_polynomial": {
+      "template": "det({var}*I - {expr})",
+      "note": "Characteristic polynomial det(λI - A); I is LinearAlgebra UniformScaling (auto-sized)."
+    },
+    "change_integration_variables": {
+      "template": "",
+      "note": "Handler-built (JuliaBuildMixin): substitute(f, Dict(old=>transform)) * det(Symbolics.jacobian(transform, new_vars))."
+    },
+    "expand_neighbor_sum": {
+      "template": "",
+      "note": "Handler-built (JuliaBuildMixin): expands a nearest-neighbor bond sum on a 1D chain (open/periodic) into the explicit sum of per-site operator terms."
+    },
+    "multiply_both_sides_left": {
+      "template": "({factor}) * ({expr})"
+    },
+    "multiply_both_sides_right": {
+      "template": "({expr}) * ({factor})"
+    }
+  }
+}

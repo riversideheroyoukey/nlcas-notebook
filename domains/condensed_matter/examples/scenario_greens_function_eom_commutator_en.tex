@@ -1,0 +1,146 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_greens\_function\_eom\_commutator}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Declare the electron annihilation operator and the scalar coefficients. $\varepsilon$ is the mode energy, $V$ the two-body matrix element.
+
+define c as an electron annihilation operator
+
+\[
+  c
+\]
+
+define $\varepsilon$ as a scalar parameter
+
+\[
+  \epsilon
+\]
+
+define V as a scalar parameter
+
+\[
+  V
+\]
+
+The Hamiltonian. The one-body term is a sum over modes, the two-body term a sum over four indices with an indexed scalar coefficient (which lowers to QuantumAlgebra's `param`). These correspond to $\hat H_0$ (diagonal) and $\hat V$ in the sister scenario.
+
+$H = \sum_n \varepsilon_n c'(n) c(n) + \sum_{p q s n} V_{p,q,s,n} c'(p) c'(q) c(s) c(n)$
+
+\begin{equation}
+  H = \sum_n \varepsilon_n c^{\dagger}(n) c(n) + \sum_{p q s n} V_{p,q,s,n} c^{\dagger}(p) c^{\dagger}(q) c(s) c(n)
+  \label{eq:E1}
+\end{equation}
+
+\textbf{Compute the commutator.} By hand, the one-body term contracts through $\delta_{nm}$ and leaves $-\varepsilon_m c_m$ (the sum disappears); the two-body term gives two $c^\dagger c c$ terms.
+
+commutator of E1 and c(m)
+
+\begin{equation}
+  - \varepsilon_{m} {c}_{m} + \sum_{p,q,s} V_{p,m,q,s} {c}_{p}^{\dagger} {c}_{q} {c}_{s} - \sum_{p,q,s} V_{m,p,q,s} {c}_{p}^{\dagger} {c}_{q} {c}_{s}
+  \label{eq:E2}
+\end{equation}
+
+This is the right-hand side of the Green's function's equation of motion — the step that is written across into the sister scenario. The sign is for $[\hat H,\hat c]$; $[\hat c,\hat H]$ is its negative.
+
+\textbf{From here on the time-carrying operator itself is the object} (PAIR-REP, docs/34 §2). $\hat c(t)=e^{i\hat Ht}\hat ce^{-i\hat Ht}$ is not a new kind of quantity but the sum of nested commutators $\sum_n (it)^n/n!\,\mathrm{ad}_H^n(\hat c)$. With a diagonal $\hat H_0$, $[\hat H_0,\hat c_m]=-\varepsilon_m\hat c_m$ closes on ONE operator, so the sum resums into an exponential \textbf{exactly} — this is not a truncation.
+
+Take the one-body Hamiltonian alone (the interaction does not close the ad-chain; that is slice 2's territory).
+
+$H_0 = \sum_n \varepsilon_n c'(n) c(n)$
+
+\begin{equation}
+  H_0 = \sum_n \varepsilon_n c^{\dagger}(n) c(n)
+  \label{eq:E3}
+\end{equation}
+
+Evolve the annihilation operator. The coefficient $e^{-i\varepsilon_m t}$ is a SCALAR and cannot live in QuantumAlgebra (which decomposes a c-number into cos/sin), so the substance is the (coefficient, operator) PAIR and only the display looks like $\hat c_m(t)$.
+
+evolve c(m) under E3
+
+\begin{equation}
+  e^{- i \varepsilon_{m} t} c_{m}
+  \label{eq:E4}
+\end{equation}
+
+The creation operator too, at a different time $u$. The sign flips ($[\hat H_0,\hat c^\dagger_m]=+\varepsilon_m\hat c^\dagger_m$).
+
+evolve c'(m) in time u under E3
+
+\begin{equation}
+  e^{i \varepsilon_{m} u} c^{\dagger}_{m}
+  \label{eq:E5}
+\end{equation}
+
+\textbf{The different-time anticommutator.} This is what the representation is for: $\{\hat c_m(t),\hat c^\dagger_m(u)\}=f(t)\overline{f(u)}\{\hat c_m,\hat c^\dagger_m\}$ — coefficient product times equal-time algebra. Folding time into an index would have collapsed it to $\delta(t,u)$. The equal-time $\{\hat c,\hat c^\dagger\}=1$ cancels and what remains is a SCALAR with no operator in it: the time dependence of the free propagator.
+
+the anticommutator of E4 and E5
+
+\begin{equation}
+  1
+  \label{eq:E6}
+\end{equation}
+
+\begin{equation}
+  e^{i \varepsilon_{m} \left(- t + u\right)}
+  \label{eq:E7}
+\end{equation}
+
+The commutator keeps its operator ($1-2\hat n_m$), so its result is again a coefficient-times-operator pair.
+
+the commutator of E4 and E5
+
+\begin{equation}
+  1 - 2 {c}_{m}^{\dagger} {c}_{m}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  e^{i \varepsilon_{m} \left(- t + u\right)} \left(1 - 2 {c}_{m}^{\dagger} {c}_{m}\right)
+  \label{eq:E9}
+\end{equation}
+
+The anticommutator's result carries no operator, so \textbf{this is the session boundary}: once it is a scalar it can cross to Maxima (SCALAR-HANDOFF). The remaining algebra into $\omega$ space is that side's work.
+
+\textbf{A chain that does not close on ONE operator is still exact if it closes on finitely many.} Try the two-site model with hopping: $\mathrm{ad}$ closes on the two-dimensional span of $\hat c_1$ and $\hat c_2$, and the coefficients become a matrix exponential.
+
+$H_w = w (c'(1) c(2) + c'(2) c(1))$
+
+\begin{equation}
+  H_w = w (c^{\dagger}(1) c(2) + c^{\dagger}(2) c(1))
+  \label{eq:E10}
+\end{equation}
+
+Evolving the annihilation operator now MIXES two operators ($\cos$ and $-i\sin$). That is what differs from the diagonal case, which closes on one.
+
+evolve c(1) under E10
+
+\begin{equation}
+  \cos{\left(t w \right)} c_{1} -  i \sin{\left(t w \right)} c_{2}
+  \label{eq:E11}
+\end{equation}
+
+evolve c'(1) in time u under E10
+
+\begin{equation}
+  \cos{\left(u w \right)} c^{\dagger}_{1} + i \sin{\left(u w \right)} c^{\dagger}_{2}
+  \label{eq:E12}
+\end{equation}
+
+The different-time anticommutator. Two of the four combinations survive, $\cos\cos+\sin\sin$ is collected on the scalar side, and what comes out is a function of the TIME DIFFERENCE alone: $\cos(w(t-u))$ — the free propagator of the two-site model.
+
+the anticommutator of E11 and E12
+
+\begin{equation}
+  \cos{\left(w \left(t - u\right) \right)}
+  \label{eq:E13}
+\end{equation}
+
+\end{document}

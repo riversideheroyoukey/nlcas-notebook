@@ -1,0 +1,19 @@
+{
+  "name": "lmstudio_gpt_oss_20b",
+  "scope": "local",
+  "base_url": "http://localhost:1234/v1",
+  "model": "openai/gpt-oss-20b",
+  "api_key_env": null,
+  "timeout": 120,
+  "roles": {
+    "command_parser": {
+      "temperature": 0.0
+    },
+    "expression_extractor": {
+      "temperature": 0.0
+    },
+    "advisor": {
+      "temperature": 0.2
+    }
+  }
+}

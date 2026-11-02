@@ -1,0 +1,75 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_battle\_of\_the\_sexes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+古典的な2人ゲーム「夫婦の争い」。プレイヤー1（行）の利得行列 $A$、プレイヤー2（列）の利得行列 $B$ を登録する。行1・列1 がオペラ、行2・列2 がバレエ。
+
+$A = [2, 0; 0, 1]$
+
+\begin{equation}
+  A = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+$B = [1, 0; 0, 2]$
+
+\begin{equation}
+  B = \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
+  \label{eq:E2}
+\end{equation}
+
+純戦略ナッシュ均衡を求める。双行列を走査して各セルが行最大かつ列最大かを調べる探索で、一般操作の合成では書けない——本物の primitive なので残してある。
+
+E1 と E2 の純戦略ナッシュ均衡を求めて
+
+\begin{equation}
+  \left\{ \left( 1 , 1 \right) , \left( 2 , 2 \right) \right\}
+  \label{eq:E3}
+\end{equation}
+
+混合戦略均衡は無差別条件から求める。相手が確率 $q$ で列1（オペラ）を選ぶとき、プレイヤー1 の行1 と行2 の期待利得が等しい、という式を研究者が書く。$A$ の成分から組み立てるのはゲーム理論の内容であって、システムの仕事ではない。
+
+$2 q + 0 (1-q) = 0 q + 1 (1-q)$
+
+\begin{equation}
+  2 q + 0 (1-q) = 0 q + 1 (1-q)
+  \label{eq:E4}
+\end{equation}
+
+$q$ について解く。
+
+E4 を q について解いて
+
+\begin{equation}
+  q = \frac{1}{3}
+  \label{eq:E5}
+\end{equation}
+
+同様に、プレイヤー2 が列1 と列2 の間で無差別になる条件を $B$ の成分から書く。
+
+$1 p + 0 (1-p) = 0 p + 2 (1-p)$
+
+\begin{equation}
+  1 p + 0 (1-p) = 0 p + 2 (1-p)
+  \label{eq:E6}
+\end{equation}
+
+$p$ について解く。混合戦略均衡は $(p,q)=(2/3, 1/3)$ となる。
+
+E6 を p について解いて
+
+\begin{equation}
+  p = \frac{2}{3}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,218 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_hubbard\_dimer\_operator\_algebra}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+電子の消滅演算子と、跳び移り $w$・オンサイト斥力 $U$・時間 $t$ を宣言する。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+w をスカラーパラメータとして定義して
+
+\[
+  w
+\]
+
+U をスカラーパラメータとして定義して
+
+\[
+  U
+\]
+
+t をスカラーパラメータとして定義して
+
+\[
+  t
+\]
+
+\textbf{2サイト Hubbard 模型を、教科書どおりの和の記法で書く。} スピンの和 $\sum_\sigma$ は範囲が書かれていないので QuantumAlgebra の形式和にそのまま乗り、サイトの和 $\sum_{i=1}^{2}$ は\textbf{具体的な範囲があるので項に展開して}バックエンドへ渡される（QA の $\sum$ には範囲を置く場所が無い——だからといって範囲を黙って落とすのは、書いた式と違うものを計算することになる）。
+
+$H = -w \sum_{\sigma} (c^\dagger_{1\sigma} c_{2\sigma} + c^\dagger_{2\sigma} c_{1\sigma}) + U \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\uparrow} c^\dagger_{i\downarrow} c_{i\downarrow}$
+
+\begin{equation}
+  H = -w \sum_{\sigma} (c^\dagger_{1\sigma} c_{2\sigma} + c^\dagger_{2\sigma} c_{1\sigma}) + U \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\uparrow} c^\dagger_{i\downarrow} c_{i\downarrow}
+  \label{eq:E1}
+\end{equation}
+
+土台の反交換関係を、\textbf{括弧の記法そのまま}で聞く。同じサイト・同じスピンなら 1、サイトが違えば 0、\textbf{スピンが違っても 0}——最後の一つが、矢印を値として読めていないと $\delta_{\uparrow\downarrow}$ のまま残る。
+
+$\{c_{1\uparrow}, c^\dagger_{1\uparrow}\}$
+
+\begin{equation}
+  1
+  \label{eq:E2}
+\end{equation}
+
+$\{c_{1\uparrow}, c^\dagger_{2\uparrow}\}$
+
+\begin{equation}
+  0
+  \label{eq:E3}
+\end{equation}
+
+$\{c_{1\uparrow}, c^\dagger_{1\downarrow}\}$
+
+\begin{equation}
+  0
+  \label{eq:E4}
+\end{equation}
+
+\textbf{粒子数の保存。} 全粒子数 $\hat N=\sum_{i\sigma}\hat c^\dagger_{i\sigma}\hat c_{i\sigma}$ を書いて、$[\hat H,\hat N]$ を計算させる。$\sum_\sigma$ は\textbf{宣言した粒子}（電子）の射影 $\pm1/2$ に展開される。跳び移り項も $U$ 項も $\hat N$ を変えないので 0 になるはずである。
+
+$N = \sum_{i=1}^{2} \sum_{\sigma} c^\dagger_{i\sigma} c_{i\sigma}$
+
+\begin{equation}
+  N = \sum_{i=1}^{2} \sum_{\sigma} c^\dagger_{i\sigma} c_{i\sigma}
+  \label{eq:E5}
+\end{equation}
+
+[E1, N]
+
+\begin{equation}
+  0
+  \label{eq:E6}
+\end{equation}
+
+\textbf{$S^z$ の保存。} $\hat S^z=\sum_{i\sigma}\sigma\,\hat n_{i\sigma}$ ——\textbf{教科書そのままの書き方}である。係数の位置の $\sigma$ には\textbf{値}（$\pm1/2$、厳密な有理数）が、添字の位置には\textbf{綴り}（矢印）が入る。ここも 0。
+
+$S_z = \sum_{i=1}^{2} \sum_{\sigma} \sigma c^\dagger_{i\sigma} c_{i\sigma}$
+
+\begin{equation}
+  S_z = \sum_{i=1}^{2} \sum_{\sigma} \sigma c^\dagger_{i\sigma} c_{i\sigma}
+  \label{eq:E7}
+\end{equation}
+
+[E1, $S_z$]
+
+\begin{equation}
+  0
+  \label{eq:E8}
+\end{equation}
+
+\textbf{SU(2) 代数を導出する。} 昇降演算子 $\hat S^\pm=\sum_i c^\dagger_{i\uparrow}c_{i\downarrow}$（および逆向き）を書き、$[\hat S^+,\hat S^-]$ を計算させる。$2\hat S^z$ になるはずだが、それを\textbf{仮定せずに計算する}のがここの主題である。
+
+$S_p = \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\downarrow}$
+
+\begin{equation}
+  S_p = \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\downarrow}
+  \label{eq:E9}
+\end{equation}
+
+$S_m = \sum_{i=1}^{2} c^\dagger_{i\downarrow} c_{i\uparrow}$
+
+\begin{equation}
+  S_m = \sum_{i=1}^{2} c^\dagger_{i\downarrow} c_{i\uparrow}
+  \label{eq:E10}
+\end{equation}
+
+[$S_p$, $S_m$]
+
+\begin{equation}
+  {c}_{1{\uparrow}}^{\dagger} {c}_{1{\uparrow}} - {c}_{1{\downarrow}}^{\dagger} {c}_{1{\downarrow}} + {c}_{2{\uparrow}}^{\dagger} {c}_{2{\uparrow}} - {c}_{2{\downarrow}}^{\dagger} {c}_{2{\downarrow}}
+  \label{eq:E11}
+\end{equation}
+
+$2\hat S^z$ を書いて引かせ、恒等式であることを CAS に確かめさせる（0 になる）。
+
+$T = 2 \sum_{i=1}^{2} \sum_{\sigma} \sigma c^\dagger_{i\sigma} c_{i\sigma}$
+
+\begin{equation}
+  T = 2 \sum_{i=1}^{2} \sum_{\sigma} \sigma c^\dagger_{i\sigma} c_{i\sigma}
+  \label{eq:E12}
+\end{equation}
+
+E11 から E12 を引く
+
+\begin{equation}
+  {c}_{1{\uparrow}}^{\dagger} {c}_{1{\uparrow}} - {c}_{1{\downarrow}}^{\dagger} {c}_{1{\downarrow}} + {c}_{2{\uparrow}}^{\dagger} {c}_{2{\uparrow}} - {c}_{2{\downarrow}}^{\dagger} {c}_{2{\downarrow}} - T = 0
+  \label{eq:E13}
+\end{equation}
+
+\textbf{$\hat H$ の SU(2) 対称性。} $[\hat H,\hat S^+]=0$。$U$ 項は $\hat n_\uparrow\hat n_\downarrow$ でスピンを反転させても不変、跳び移りはスピンを保つ。
+
+[E1, $S_p$]
+
+\begin{equation}
+  0
+  \label{eq:E14}
+\end{equation}
+
+\textbf{保存しないものを見る。} 二重占有 $\hat D=\sum_i\hat n_{i\uparrow}\hat n_{i\downarrow}$ は保存量ではない。交換子には\textbf{跳び移り $w$ の項だけ}が残り、$U$ は消える——二重占有を作り／壊すのは跳び移りだけだからである。
+
+$D = \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\uparrow} c^\dagger_{i\downarrow} c_{i\downarrow}$
+
+\begin{equation}
+  D = \sum_{i=1}^{2} c^\dagger_{i\uparrow} c_{i\uparrow} c^\dagger_{i\downarrow} c_{i\downarrow}
+  \label{eq:E15}
+\end{equation}
+
+[E1, D]
+
+\begin{equation}
+  - w {c}_{1{\uparrow}}^{\dagger} {c}_{1{\downarrow}}^{\dagger} {c}_{1{\uparrow}} {c}_{2{\downarrow}} + w {c}_{1{\uparrow}}^{\dagger} {c}_{1{\downarrow}}^{\dagger} {c}_{1{\downarrow}} {c}_{2{\uparrow}} + w {c}_{1{\uparrow}}^{\dagger} {c}_{2{\downarrow}}^{\dagger} {c}_{1{\uparrow}} {c}_{1{\downarrow}} + w {c}_{1{\uparrow}}^{\dagger} {c}_{2{\downarrow}}^{\dagger} {c}_{2{\uparrow}} {c}_{2{\downarrow}} - w {c}_{1{\downarrow}}^{\dagger} {c}_{2{\uparrow}}^{\dagger} {c}_{1{\uparrow}} {c}_{1{\downarrow}} - w {c}_{1{\downarrow}}^{\dagger} {c}_{2{\uparrow}}^{\dagger} {c}_{2{\uparrow}} {c}_{2{\downarrow}} - w {c}_{2{\uparrow}}^{\dagger} {c}_{2{\downarrow}}^{\dagger} {c}_{1{\uparrow}} {c}_{2{\downarrow}} + w {c}_{2{\uparrow}}^{\dagger} {c}_{2{\downarrow}}^{\dagger} {c}_{1{\downarrow}} {c}_{2{\uparrow}}
+  \label{eq:E16}
+\end{equation}
+
+\textbf{運動方程式の右辺。} $i\hbar\,\partial_t\hat c_{1\uparrow}=[\hat c_{1\uparrow},\hat H]$ の芯である。跳び移りが隣のサイトへ、$U$ が反対スピンの数演算子を連れてくる。
+
+$[E1, c_{1\uparrow}]$
+
+\begin{equation}
+  w {c}_{2{\uparrow}} + U {c}_{1{\downarrow}}^{\dagger} {c}_{1{\uparrow}} {c}_{1{\downarrow}}
+  \label{eq:E17}
+\end{equation}
+
+\textbf{入れ子の交換子も、書いたとおりに読まれる。} $[\hat c_{1\uparrow},[\hat c^\dagger_{1\uparrow},\hat c_{1\uparrow}]]=2\hat c_{1\uparrow}$。カンマがどこで区切るかは括弧の深さで決まるので、内側の括弧はオペランドの一部である。
+
+$[c_{1\uparrow}, [c^\dagger_{1\uparrow}, c_{1\uparrow}]]$
+
+\begin{equation}
+  2 {c}_{1{\uparrow}}
+  \label{eq:E18}
+\end{equation}
+
+\textbf{Pauli の恒等式。} $\hat n^2$ を正規順序化させると $\hat n$ になる（同じ状態に2つ入れられない）。これも書き写しではなく代数の結果である。
+
+$c^\dagger_{1\uparrow}$ $c_{1\uparrow}$ $c^\dagger_{1\uparrow}$ $c_{1\uparrow}$ を正規順序にして
+
+\begin{equation}
+  c^\dagger_{1\uparrow} c_{1\uparrow} c^\dagger_{1\uparrow} c_{1\uparrow}
+  \label{eq:E19}
+\end{equation}
+
+\begin{equation}
+  {c}_{1{\uparrow}}^{\dagger} {c}_{1{\uparrow}}
+  \label{eq:E20}
+\end{equation}
+
+\textbf{原子極限の厳密な時間発展}（PAIR-REP、docs/34 §2）。跳び移りを切って $U$ 項だけ残すと、$\mathrm{ad}_H$ の連鎖が有限個の演算子で閉じるので、$\hat c_{1\uparrow}(t)$ が\textbf{打ち切りなしで}出る。
+
+$H_U = U c^\dagger_{1\uparrow} c_{1\uparrow} c^\dagger_{1\downarrow} c_{1\downarrow}$
+
+\begin{equation}
+  H_U = U c^\dagger_{1\uparrow} c_{1\uparrow} c^\dagger_{1\downarrow} c_{1\downarrow}
+  \label{eq:E21}
+\end{equation}
+
+係数 $1-e^{-iUt}$ はスカラーで、QuantumAlgebra には置けない（c 数を cos/sin に分解する）——実体は「(係数, 演算子) の対」で、表示だけが $\hat c_{1\uparrow}(t)$ の書き方に見える。Hubbard 原子の厳密解そのものである。
+
+$c_{1\uparrow}$ を $H_U$ のもとで時間発展させて
+
+\begin{equation}
+  c_{1\uparrow} + \left(1 - e^{- i U t}\right) c^{\dagger}_{1\downarrow} c_{1\uparrow} c_{1\downarrow}
+  \label{eq:E22}
+\end{equation}
+
+\end{document}

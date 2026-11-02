@@ -1,0 +1,57 @@
+# Research Notebook — Windows (Docker Desktop) deployment.
+#
+# Differs from docker-compose.yml (Linux) in two ways Windows/Docker Desktop needs:
+#
+#   1. No `network_mode: host` — Docker Desktop's host networking is an opt-in beta
+#      feature (not on by default), so this uses ordinary bridge networking with an
+#      explicit port mapping instead.
+#   2. Ollama on the Windows host is reached via `host.docker.internal`, which
+#      Docker Desktop resolves to the host automatically (no `extra_hosts` needed,
+#      unlike native Linux Docker Engine). But the model configs under models/ are
+#      checked in with `base_url: http://localhost:11434/...` (correct for the
+#      native macOS/Linux setup, where the app and Ollama run on the same host) —
+#      that hostname does NOT reach the Windows host from inside a container. This
+#      compose file bind-mounts host.docker.internal-rewritten copies from
+#      models.windows/ over just the files that matter for the DEFAULT roles
+#      (supervisor/coder = qwen2.5-coder:32b, its alternate gpt-oss:20b, and the
+#      qwen3-vl OCR engine — see docs/developer_manuals/16_llm_model_setup.md for
+#      the full role table). If you re-target a role to a different local Ollama
+#      profile, add the matching override file under models.windows/ and mount it
+#      the same way.
+#
+# Prerequisite: Ollama running on Windows (native or via WSL2) with the role models
+# pulled — see docs/setup_guide_en.md §4.
+#
+# Numeric layer (N-1): runs inside this container via a dedicated
+# low-privilege user + Landlock (network-only) — no cap_add needed at all.
+# bwrap is tried first (works on bare-metal Linux) but fails inside this
+# specific container image (verified on Linux Docker; likely the same under
+# Docker Desktop's WSL2 backend since it's the same Docker/containerd family,
+# untested here), so the fallback is what actually runs. NOT a real sandbox
+# like macOS/bare-metal — accepted as better-than-nothing isolation. See the
+# Dockerfile
+# comment + open_items.md G-2 for the full investigation.
+#
+# Usage:  docker compose -f docker-compose.windows.yml up --build
+#         → http://localhost:8000/notebook.html
+
+services:
+  notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: research-notebook:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+      - MPLBACKEND=Agg
+    volumes:
+      # Persist saved sessions on the host (the sessions/ workspace).
+      - ./sessions:/app/sessions
+      # host.docker.internal-rewritten model endpoint configs (see note above).
+      - ./models.windows/ollama_qwen25_coder_32b/endpoint.json:/app/models/ollama_qwen25_coder_32b/endpoint.json:ro
+      - ./models.windows/ollama_gpt_oss_20b/endpoint.json:/app/models/ollama_gpt_oss_20b/endpoint.json:ro
+      - ./models.windows/ollama_qwen3_vl/endpoint.json:/app/models/ollama_qwen3_vl/endpoint.json:ro
+      - ./models.windows/engines/ollama_qwen3_vl/config.json:/app/models/engines/ollama_qwen3_vl/config.json:ro
+    restart: unless-stopped

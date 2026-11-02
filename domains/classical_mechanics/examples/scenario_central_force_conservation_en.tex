@@ -1,0 +1,92 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_central\_force\_conservation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider a point mass $m$ moving in a central-force potential in polar coordinates $(r,\theta)$. $k$ is a parameter giving the strength of the Kepler potential $U=-k/r$.
+
+Define r as a time-dependent function
+
+$\checkmark$ Declared r as time-dependent (time variable: t)
+
+Define theta as a time-dependent function
+
+$\checkmark$ Declared theta as time-dependent (time variable: t)
+
+Define m, k as scalars
+
+\[
+  m, k
+\]
+
+Define the angular momentum $L_z=mr^2\dot\theta$ (mass times the square of the radius times the angular velocity).
+
+$L_z = m r^2 \dot{\theta}$
+
+\begin{equation}
+  L_z = m r^2 \dot{\theta}
+  \label{eq:E1}
+\end{equation}
+
+To check whether the angular momentum is conserved, take the total time derivative of $L_z$ (the total derivative includes the chain rule, accounting for the time dependence of both $r$ and $\theta$).
+
+Take the total derivative of E1 with respect to t
+
+\begin{equation}
+  \frac{dL_z}{dt} = m r^2 \left(\frac{d^2}{d t^2} \theta\right)+2 m r \dot{r} \left(\frac{d}{d t} \theta\right)
+  \label{eq:E2}
+\end{equation}
+
+Substitute the equation of motion $\ddot\theta=-2\dot r\dot\theta/r$ into $dL_z/dt$. If the result is zero, the angular momentum is a conserved quantity.
+
+In E2, substitute -2 $\dot{r}$ $\dot{\theta} / r$ for $\ddot{\theta}$
+
+\begin{equation}
+  \frac{dL_z}{dt} = 0
+  \label{eq:E3}
+\end{equation}
+
+Define the energy $E=\frac12 m(\dot r^2+r^2\dot\theta^2)-k/r$ (the sum of the kinetic energy and the Kepler potential).
+
+$E_tot = (1/2) m (\dot{r}^2 + r^2 \dot{\theta}^2) - k / r$
+
+\begin{equation}
+  E_tot = (1/2) m (\dot{r}^2 + r^2 \dot{\theta}^2) - k / r
+  \label{eq:E4}
+\end{equation}
+
+To check whether the energy is conserved, take the total time derivative of $E$.
+
+Take the total derivative of E4 with respect to t
+
+\begin{equation}
+  \frac{dE_tot}{dt} = \frac{m \left(2 r^2 \left(\frac{d}{d t} \theta\right) \left(\frac{d^2}{d t^2} \theta\right)+2 r \dot{r} \left(\frac{d}{d t} \theta\right)^2+2 \dot{r} \ddot{r}\right)}{2}+\frac{k \dot{r}}{r^2}
+  \label{eq:E5}
+\end{equation}
+
+Substitute the equation of motion $\ddot\theta=-2\dot r\dot\theta/r$.
+
+In E5, substitute -2 $\dot{r}$ $\dot{\theta} / r$ for $\ddot{\theta}$
+
+\begin{equation}
+  \frac{dE_tot}{dt} = -\frac{m r^3 \dot{r} \left(\frac{d}{d t} \theta\right)^2-m r^2 \dot{r} \ddot{r}-k \dot{r}}{r^2}
+  \label{eq:E6}
+\end{equation}
+
+Substitute the other equation of motion $\ddot r=r\dot\theta^2-k/(mr^2)$ as well. If the result of substituting both is zero, the energy is a conserved quantity.
+
+In E6, substitute r $\dot{\theta}^2 - k$ / (m $r^2$) for $\ddot{r}$
+
+\begin{equation}
+  \frac{dE_tot}{dt} = 0
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

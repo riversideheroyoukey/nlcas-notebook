@@ -1,0 +1,79 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_kspace\_kinetic\_term}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+凝縮系でいちばん普通に書かれる運動項 $\xi_k c^\dagger_k c_k$ を書けることを確認する。$\xi_k$ は「$k$ における運動エネルギー」という一つの量なので、添字は名前の一部として宣言する（成分インデックスではない）。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+$\xi_{k}$ をスカラーパラメータとして定義して
+
+\[
+  \xi_{k}
+\]
+
+Delta をスカラーパラメータとして定義して
+
+\[
+  \Delta
+\]
+
+運動項を書く。添字つきのスカラーが QA 演算子に掛かる形が、そのまま CAS を通る。
+
+$\xi_{k}$ c'(k) c(k)
+
+\begin{equation}
+  \xi_{k} c^{\dagger}(k) c(k)
+  \label{eq:E1}
+\end{equation}
+
+正規順序に置く。既に正規順序なので式は変わらないが、表示が利用者自身の添字 $\xi_k$ のままであることを確認する（CAS 構文 `xi(k)` が漏れない）。
+
+E1 を正規順序にする
+
+\begin{equation}
+  \xi_{k} {c}_{k}^{\dagger} {c}_{k}
+  \label{eq:E2}
+\end{equation}
+
+今度はわざと逆順の $c_k c^\dagger_k$ を含むハミルトニアンを書く。ペア項も添えて、あとで交換子を取る。
+
+$H = \xi_{k} c(k) c'(k) + \Delta c'(k) c'(-k)$
+
+\begin{equation}
+  H = \xi_{k} c(k) c^{\dagger}(k) + \Delta c^{\dagger}(k) c^{\dagger}(-k)
+  \label{eq:E3}
+\end{equation}
+
+正規順序に直す。反交換関係 $c c^\dagger = 1 - c^\dagger c$ が効いて、定数項 $\xi_k$ が現れる——添字つきスカラーが反交換関係を通り抜けている証拠。
+
+E3 を正規順序にする
+
+\begin{equation}
+  H = \xi_{k} -  \xi_{k} c^{\dagger}_{k} c_{k} + \Delta c^{\dagger}_{k} c^{\dagger}_{-k}
+  \label{eq:E4}
+\end{equation}
+
+運動方程式の骨である交換子 $[H, c_k]$ を取る。手計算では $[c^\dagger_k c_k, c_k]=-c_k$、$[c^\dagger_k c^\dagger_{-k}, c_k]=-c^\dagger_{-k}$ なので $\xi_k c_k - \Delta c^\dagger_{-k}$ になるはず。
+
+E3 と c(k) の交換子
+
+\begin{equation}
+  - \Delta c^{\dagger}_{-k} + \xi_{k} c_{k}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

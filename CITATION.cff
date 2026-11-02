@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use NLCAS Notebook, please cite this software. The related APIEMS2026 paper is identified in README.md."
+type: software
+title: "NLCAS Notebook"
+authors:
+  - family-names: Kawabe
+    given-names: Hiroyuki
+abstract: "A research notebook for natural-language computer algebra, numerical workflows, and provenance-aware manuscript output."
+keywords:
+  - computer algebra
+  - natural language
+  - research notebook
+  - operations research
+repository-code: "https://github.com/riversideheroyoukey/nlcas-notebook"

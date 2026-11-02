@@ -1,0 +1,7 @@
+{
+  "label_en": "Quantum Chemistry (Second Quantization)",
+  "category": "second_quantization",
+  "label_ja": "量子化学（第２量子化）",
+  "status": "future",
+  "status_note": "Partially supported. Specialized operations not yet connected to CAS."
+}

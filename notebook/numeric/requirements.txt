@@ -1,0 +1,20 @@
+# Dedicated interpreter for the numeric layer (N-1) — install into
+# .venv-numeric, NEVER into the app's own .venv (CLAUDE.md: numeric layer is
+# a separate venv so the sandboxed interpreter and the app process never
+# share a dependency tree).
+#
+#   python3 -m venv .venv-numeric
+#   source .venv-numeric/bin/activate
+#   pip install -r notebook/numeric/requirements.txt
+#
+# Versions are floors, not pins: templates.py only uses the stable
+# core API (np.linspace/broadcast_to/argmin/argmax, matplotlib.pyplot
+# subplots/plot/savefig with the Agg backend, scipy.optimize
+# minimize_scalar) — verified against numpy 2.5.0 / matplotlib 3.11.0 /
+# scipy 1.18.0.
+numpy>=2.0
+matplotlib>=3.8
+# G2 (docs/26 §10): the minimize_1d deterministic template uses
+# scipy.optimize.minimize_scalar — added exactly when a phase-2 template
+# required it, per the docs/22 §7 reservation.
+scipy>=1.14

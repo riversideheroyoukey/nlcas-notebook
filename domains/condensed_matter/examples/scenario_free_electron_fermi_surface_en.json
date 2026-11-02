@@ -1,0 +1,1181 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_42b7287f",
+    "title": "scenario_free_electron_fermi_surface",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:28.859831Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_9dd233",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\hbar^2 k^2 / (2 m) - \\mu",
+      "canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "created_by_step": "S7",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_eebb2a",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\frac{ - 2 m \\mu + k^{2} \\hbar^{2}}{2 m}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S10",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(-2m*mu + (hbar^2)*(k^2)) / (2m)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_fda47e",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\hbar^2 k^2 / (2 m) - \\mu = 0",
+      "canonical": "hbar^2 * k^2 / (2 * m) - mu = 0",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu = 0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_cf93be",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "k = \\sqrt{2}*\\sqrt{m*\\mu}/\\hbar",
+      "canonical": "sqrt(2)*sqrt(m*mu)/hbar",
+      "created_by_step": "S17",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sqrt(2)*sqrt(m*mu)/hbar",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_4f579d",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\xi_k = \\left( - \\mu + \\frac{\\left( \\frac{\\sqrt{2 m \\mu}}{\\hbar} \\right)^{2} \\hbar^{2}}{2 m}\\right)",
+      "canonical": "_nb_E5",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(-mu + ((hbar^2)*((sqrt(2m*mu) / hbar)^2)) / (2m))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_8c45d8",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\xi_k = 0",
+      "canonical": "_nb_E6",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_904a97",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\frac{d^{2}}{dk^{2}}\\left(\\xi_k\\right) = \\frac{\\hbar^{2}}{m}",
+      "canonical": "_nb_E7",
+      "created_by_step": "S26",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(hbar^2) / m",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar^2 * k^2 / (2 * m) - mu",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_432321",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "m_star = m",
+      "canonical": "m",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:29.720205Z",
+      "user_text": "Consider the free-electron-model dispersion. Prepare the wavevector $k$, electron mass $m$, chemical potential $\\mu$, and reduced Planck constant $\\hbar$ as scalar parameters.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:29.720434Z",
+      "user_text": "Define k, m, \\mu, \\hbar as scalars",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:29.722130Z",
+      "user_text": "Define k, m, \\mu, \\hbar as scalars",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "k",
+        "_all_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ],
+        "_raw_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:30.430987Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "k",
+        "registered_names": [
+          "k",
+          "m",
+          "mu",
+          "hbar"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables k",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:30.431437Z",
+      "user_text": "Define the free-electron energy dispersion $\\xi_k=\\hbar^2k^2/(2m)-\\mu$ (energy measured relative to the chemical potential).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:30.431494Z",
+      "user_text": "\\xi_k = \\hbar^2 * k^2 / (2 * m) - \\mu",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:30.432623Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:30.432982Z",
+      "user_text": "Simplify the right-hand side into a tidier form (no physical change).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:30.433019Z",
+      "user_text": "Simplify the right-hand side of E1",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:35.067272Z",
+      "user_text": null,
+      "visible_action": "simplify the RHS of E1",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (simplify(hbar^2 * k^2 * (2 * m)^-1 - mu))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:35.068049Z",
+      "user_text": "Fix the Fermi-surface condition $\\xi_k=0$ (the energy coincides with the Fermi level) as an equation, by setting the right-hand side to 0.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:35.068107Z",
+      "user_text": "Set the right-hand side of E1 to 0",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:35.068773Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "rhs_set"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:35.069143Z",
+      "user_text": "Solve this equation for the wavevector $k$ to obtain the Fermi wavevector $k_F$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:35.069178Z",
+      "user_text": "Solve E3 for k",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:35.370562Z",
+      "user_text": null,
+      "visible_action": "solve equation [E3]",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E3",
+        "var": "k"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E4 = (_nb_solve_equation(\"hbar^2 * k^2 * (2 * m)^-1 - mu\", \"0\", \"k\"))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E3"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:35.371237Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:35.371606Z",
+      "user_text": "Substitute the Fermi wavevector just found back into the original expression for $\\xi_k$, to confirm that the energy is identically zero on the Fermi surface.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:35.371660Z",
+      "user_text": "Substitute E4 into E1",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:37.243986Z",
+      "user_text": null,
+      "visible_action": "k → sqrt(2)*sqrt(m*\\mu)/\\hbar in E1",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E1",
+        "lhs": "k",
+        "rhs": "sqrt(2)*sqrt(m*mu)/hbar"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E5 = (let _nb_src=normal_form(hbar^2 * k^2 * (2 * m)^-1 - mu)\n  _nb_sub = Dict(eval(Meta.parse(\"k\")) => eval(Meta.parse(\"sqrt(2*m*mu)/hbar\")))\n  if _nb_src isa _QA.QuExpr\n    _nb_nt = Dict{_QA.QuTerm, Number}()\n    for (_nb_op, _nb_c) in _nb_src.terms\n      _nb_new_c = _nb_c isa Symbolics.Num ? Symbolics.substitute(_nb_c, _nb_sub) : _nb_c\n      _nb_nt[_nb_op] = get(_nb_nt, _nb_op, 0) + _nb_new_c\n    end\n    normal_form(_QA.QuExpr(_nb_nt))\n  else\n    Symbolics.substitute(_nb_src, _nb_sub)\n  end\nend)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:37.245691Z",
+      "user_text": "Simplify the substitution result to make the zero explicit.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:37.245748Z",
+      "user_text": "Simplify the right-hand side of E5",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:37.363427Z",
+      "user_text": null,
+      "visible_action": "simplify the RHS of E5",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E5"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E6 = (simplify(_nb_E5))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:37.364099Z",
+      "user_text": "To find the effective mass $m^*$, take the second derivative of the dispersion $\\xi_k$ with respect to the wavevector $k$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:37.364160Z",
+      "user_text": "Differentiate E1 twice with respect to k",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:37.467971Z",
+      "user_text": null,
+      "visible_action": "Differentiate w.r.t. k [E1]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "k",
+        "order": "2"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E7 = (_nb_differentiate(hbar^2 * k^2 * (2 * m)^-1 - mu, k, 2))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:37.468782Z",
+      "user_text": "From the second derivative just obtained, define the effective mass $m^*=\\hbar^2/(d^2\\xi_k/dk^2)$ (for the free-electron model this should equal $m$, the bare mass).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:37.468839Z",
+      "user_text": "m_star = \\hbar^2 / E7",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:37.470811Z",
+      "user_text": null,
+      "visible_action": "Register E8",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S29",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:28.859843Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "k": {
+      "quantity": {
+        "name": "k",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E4",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "mu": {
+      "quantity": {
+        "name": "mu",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "hbar": {
+      "quantity": {
+        "name": "hbar",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "xi_k": {
+      "quantity": {
+        "name": "xi_k",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E6",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m_star": {
+      "quantity": {
+        "name": "m_star",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E8",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\xi_k": "E6",
+    "xi_k": "E6",
+    "\\hbar^2 k^2 / (2 m) - \\mu": "E3",
+    "hbar^2*k^2 / (2*m) - mu": "E3",
+    "k": "E4",
+    "\\frac{d^{2}}{dk^{2}}\\left(\\xi_k\\right)": "E7",
+    "((d^2)/(dk^2))*(xi_k)": "E7",
+    "m_star": "E8"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 29,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

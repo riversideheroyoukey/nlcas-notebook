@@ -1,0 +1,80 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_lp\_vertex\_optimization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Prepare the coefficients $a_1,b_1,c_1,d_1,a_2,b_2,c_2,d_2$ of the two-variable linear program $\max z=c_1x+c_2y$ (subject to $a_1x+b_1y\le d_1,\ a_2x+b_2y\le d_2$) as real numbers.
+
+Declare $a_1$, $b_1$, $c_1$, $d_1$, $a_2$, $b_2$, $c_2$, $d_2$ as real.
+
+\[
+  a_1, b_1, c_1, d_1, a_2, b_2, c_2, d_2
+\]
+
+Define the objective function $z=c_1x+c_2y$.
+
+$z = c_1 x + c_2 y$
+
+\begin{equation}
+  z = c_1 x + c_2 y
+  \label{eq:E1}
+\end{equation}
+
+The optimum is attained at a vertex of the feasible region (a point where some constraint holds with equality). Register the first binding constraint $a_1x+b_1y=d_1$ as an equation.
+
+$a_1 x + b_1 y - d_1 = 0$
+
+\begin{equation}
+  a_1 x + b_1 y - d_1 = 0
+  \label{eq:E2}
+\end{equation}
+
+Register the second binding constraint $a_2x+b_2y=d_2$.
+
+$a_2 x + b_2 y - d_2 = 0$
+
+\begin{equation}
+  a_2 x + b_2 y - d_2 = 0
+  \label{eq:E3}
+\end{equation}
+
+Solve the two constraints as a simultaneous system for $x,y$ to find their intersection (the vertex coordinates $x^*,y^*$).
+
+Solve E2 and E3 for x and y
+
+\begin{equation}
+  x = -\frac{b_{2} d_{1}-b_{1} d_{2}}{a_{2} b_{1}-a_{1} b_{2}}
+  \label{eq:E4}
+\end{equation}
+
+\begin{equation}
+  y = \frac{a_{2} d_{1}-a_{1} d_{2}}{a_{2} b_{1}-a_{1} b_{2}}
+  \label{eq:E5}
+\end{equation}
+
+Substitute the $x^*$ just found into the objective function $z$ (leaving an intermediate form still containing $y$).
+
+Substitute E4 into E1
+
+\begin{equation}
+  z = \frac{\left(a_{1} b_{2}-a_{2} b_{1}\right) c_{2} y-b_{1} c_{1} d_{2}+b_{2} c_{1} d_{1}}{a_{1} b_{2}-a_{2} b_{1}}
+  \label{eq:E6}
+\end{equation}
+
+Substitute $y^*$ as well, obtaining the value of the objective function at the vertex, $z^*=c_1x^*+c_2y^*$.
+
+Substitute E5 into E6
+
+\begin{equation}
+  z = \frac{\left(a_{1} c_{2}-b_{1} c_{1}\right) d_{2}+\left(b_{2} c_{1}-a_{2} c_{2}\right) d_{1}}{a_{1} b_{2}-a_{2} b_{1}}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

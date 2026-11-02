@@ -1,0 +1,75 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_spinful\_matrix\_elements}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+場の演算子を\textbf{スピン依存の基底}で展開する: $\hat\psi_\sigma(\mathbf x)=\sum_m \varphi_{m\sigma}(\mathbf x)\hat c_{m\sigma}$。このとき係数は全空間積分で「定義」される。基底が任意なので評価しようがなく、積分そのものが定義である——ノートに求められるのは計算できることではなく、定義として置けて後で使えることだ。
+
+まず直交規格化。$\int d^3x$ は体積測度で、1変数の積分ではない。
+
+$\int d^3x \varphi^{\ast}_{m,s}(x) \varphi_{n,t}(x)$
+
+\begin{equation}
+  \int d^3x \varphi^{\ast}_{m,s}(x) \varphi_{n,t}(x)
+  \label{eq:E1}
+\end{equation}
+
+成分に開く。デカルト3成分の反復積分になり、範囲は書いていなくても全空間。スピン $s$・$t$ はモードと区切られたまま運ばれる（区切りが無いと「ms という名の1添字」になり、表示が再入力できなくなる）。
+
+成分に展開して
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E2}
+\end{equation}
+
+1体行列要素の定義。$T$ は運動＋外場をまとめた1体演算子。被積分関数の $\varphi_{m,s}$ も3引数に開く必要がある——開かなければ Maxima は各成分について定数と読み、$x_x x_y x_z \cdot \varphi$ を返す。
+
+$h_{m,s,n,t} = \int d^3x \varphi^{\ast}_{m,s}(x) T(x) \varphi_{n,t}(x)$
+
+\begin{equation}
+  h_{m,s,n,t} = \int d^3x \varphi^{\ast}_{m,s}(x) T(x) \varphi_{n,t}(x)
+  \label{eq:E3}
+\end{equation}
+
+成分に展開して
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{T\left(x_{x} , x_{y} , x_{z}\right) \varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E4}
+\end{equation}
+
+評価を指示してみる。\textbf{変わらないのが正解}——基底が任意なので評価対象ではなく、この積分は定義として残る。展開が評価を兼ねていたらここで落ちる（実測: 任意基底の行列要素を全空間で評価させた Maxima は `ok=False` の空応答を返す）。
+
+E4 を評価して
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{T\left(x_{x} , x_{y} , x_{z}\right) \varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E5}
+\end{equation}
+
+2体行列要素。$d^3x\,d^3y$ の\textbf{6次元}で、スピンは4つ（$s,t,u,w$）。$x$ と $y$ が別々の3成分に開き、混ざらないことを見る。
+
+$V_{m,s,n,t,p,u,q,w} = \int d^3x \int d^3y \varphi^{\ast}_{m,s}(x) \varphi^{\ast}_{n,t}(y) v(x,y) \varphi_{p,u}(y) \varphi_{q,w}(x)$
+
+\begin{equation}
+  V_{m,s,n,t,p,u,q,w} = \int d^3x \int d^3y \varphi^{\ast}_{m,s}(x) \varphi^{\ast}_{n,t}(y) v(x,y) \varphi_{p,u}(y) \varphi_{q,w}(x)
+  \label{eq:E6}
+\end{equation}
+
+成分に展開して
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{q,w}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z}) \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{v\left(x_{x} , x_{y} , x_{z} , y_{x} , y_{y} , y_{z}\right) \varphi_{p,u}(y_{x},y_{y},y_{z}) \varphi^{\ast}_{n,t}(y_{x},y_{y},y_{z})\;dy_{z}}\;dy_{y}}\;dy_{x}}\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

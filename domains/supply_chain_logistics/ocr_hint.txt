@@ -1,0 +1,12 @@
+## OCR Domain Hint: Supply Chain & Logistics
+
+Symbol recognition priorities:
+- Q → order quantity;  D → demand;  F(·) → demand CDF
+- cu, co (subscripted c) → underage / overage cost
+- σ (sigma) → demand std;  L → lead time;  z → safety factor
+- SS → safety stock;  S → order-up-to level;  μ → mean demand
+
+Common expression patterns:
+- cu/(cu+co) → critical ratio (newsvendor)
+- F(Q) = cu/(cu+co) → newsvendor optimality
+- SS = zσ√L,  S = μL + zσ√L → safety stock / base-stock

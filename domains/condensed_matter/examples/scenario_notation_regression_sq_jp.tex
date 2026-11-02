@@ -1,0 +1,119 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_notation\_regression\_sq}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+記法の回帰確認（第２量子化）。プライムの読みと、オペランドの綴り3種。
+
+c を電子の消滅演算子とする
+
+\[
+  c
+\]
+
+a を光子の消滅演算子とする
+
+\[
+  a
+\]
+
+a'(k)
+
+\begin{equation}
+  a^{\dagger}(k)
+  \label{eq:E1}
+\end{equation}
+
+G(t, t')
+
+\begin{equation}
+  G(t, t')
+  \label{eq:E2}
+\end{equation}
+
+$\sigma'$
+
+\begin{equation}
+  \sigma'
+  \label{eq:E3}
+\end{equation}
+
+$H = a'(k) a(k)$
+
+\begin{equation}
+  H = a^{\dagger}(k) a(k)
+  \label{eq:E4}
+\end{equation}
+
+c(k,u) を E4 のもとで時間発展させて
+
+\begin{equation}
+  c_{ku}
+  \label{eq:E5}
+\end{equation}
+
+c(1, u) を E4 のもとで時間発展させて
+
+\begin{equation}
+  c_{1u}
+  \label{eq:E6}
+\end{equation}
+
+E4 のもとで $c_{1\uparrow}$ を時間発展させて
+
+\begin{equation}
+  c_{1\uparrow}
+  \label{eq:E7}
+\end{equation}
+
+$P = \sum_\sigma a^\dagger_{1\sigma} a_{2\sigma}$
+
+\begin{equation}
+  P = \sum_\sigma a^\dagger_{1\sigma} a_{2\sigma}
+  \label{eq:E8}
+\end{equation}
+
+$Q = \sum_\sigma a^\dagger_{1\sigma} a_{1\sigma}$
+
+\begin{equation}
+  Q = \sum_\sigma a^\dagger_{1\sigma} a_{1\sigma}
+  \label{eq:E9}
+\end{equation}
+
+P と Q の交換子を求めて
+
+\begin{equation}
+  - {a}_{1{,+}}^{\dagger} {a}_{2{,+}} - {a}_{1{,-}}^{\dagger} {a}_{2{,-}}
+  \label{eq:E10}
+\end{equation}
+
+$a_{1,+}$ と $a^\dagger_{1,+}$ の交換子を求めて
+
+\begin{equation}
+  1
+  \label{eq:E11}
+\end{equation}
+
+$a_{1+}$ と $a^\dagger_{1-}$ の交換子を求めて
+
+\begin{equation}
+  0
+  \label{eq:E12}
+\end{equation}
+
+$\lim_{x \to 0} \frac{\sin x}{x}$
+
+\begin{equation}
+  \lim_{x \to 0} \frac{\sin x}{x}
+  \label{eq:E13}
+\end{equation}
+
+\end{document}

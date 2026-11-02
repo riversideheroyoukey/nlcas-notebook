@@ -1,0 +1,150 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ideal\_gas}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider a monatomic ideal gas of $N$ particles. Prepare the particle count $N$, volume $V$, temperature $T$, particle mass $m$, Planck constant $h$, and Boltzmann constant $k_B$ as positive real parameters.
+
+Define N, V, T, m, h, $k_B$ as positive real parameters
+
+\[
+  N, V, T, m, h, k_B
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle N > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle V > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle T > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle m > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle h > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle k_B > 0$\par
+
+Define the thermal de Broglie wavelength $\lambda=\sqrt{h^2/(2\pi mk_BT)}$ (the length scale at which quantum effects become important).
+
+$\lambda = \sqrt{h^2 / (2 \pi m k_B T)}$
+
+\begin{equation}
+  \lambda = \sqrt{h^2 / (2 \pi m k_B T)}
+  \label{eq:E1}
+\end{equation}
+
+Define the single-particle partition function $Z_1=V/\lambda^3$ (the volume divided by the cube of the thermal de Broglie wavelength, corresponding to the number of quantum states a particle can occupy).
+
+$Z_1 = V / E1^3$
+
+\begin{equation}
+  Z_1 = {{2^{\frac{3}{2}} \pi^{\frac{3}{2}} T^{\frac{3}{2}} V k_{B}^{\frac{3}{2}} m^{\frac{3}{2}}}\over{h^3}}
+  \label{eq:E2}
+\end{equation}
+
+Define the $N$-particle partition function $Z_N=Z_1^N/N!$. Dividing by $N!$ is the Gibbs correction for overcounting due to permutations of indistinguishable particles.
+
+$Z_N = E2^N / N!$
+
+\begin{equation}
+  Z_N = {{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}
+  \label{eq:E3}
+\end{equation}
+
+Define the Helmholtz free energy $F=-k_BT\ln Z_N$.
+
+$F = -k_B T \log(E3)$
+
+\begin{equation}
+  F = -T k_{B} \log \left({{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}\right)
+  \label{eq:E4}
+\end{equation}
+
+Substitute the definitions of $Z_N$, $Z_1$, and $\lambda$ registered so far and expand $F$ into a closed-form expression in $N,V,T,m,h,k_B$ alone.
+
+Expand F
+
+\begin{equation}
+  F = -T k_{B} \log \left({{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}\right)
+  \label{eq:E5}
+\end{equation}
+
+To find the pressure $P=-(\partial F/\partial V)_T$, first take the partial derivative of $F$ with respect to the volume $V$.
+
+Take the partial derivative of F with respect to V
+
+\begin{equation}
+  \frac{\partial F}{\partial V} = -\frac{N T k_{B}}{V}
+  \label{eq:E6}
+\end{equation}
+
+Flip the sign and register the result as the pressure $P$.
+
+$P = -E6$
+
+\begin{equation}
+  P = \frac{N T k_{B}}{V}
+  \label{eq:E7}
+\end{equation}
+
+Simplify the resulting expression.
+
+Simplify the right-hand side of E7
+
+\begin{equation}
+  P = \frac{N T k_{B}}{V}
+  \label{eq:E8}
+\end{equation}
+
+To find the internal energy $U=-T^2\partial(F/T)/\partial T$ (the Gibbs-Helmholtz relation), first form $F/T$ as a new expression.
+
+$FoverT = F / T$
+
+\begin{equation}
+  FoverT = F / T
+  \label{eq:E9}
+\end{equation}
+
+Take the partial derivative of $F/T$ with respect to the temperature $T$.
+
+Take the partial derivative of FoverT with respect to T
+
+\begin{equation}
+  \frac{\partial FoverT}{\partial T} = -\frac{3 N k_{B}}{2 T}
+  \label{eq:E10}
+\end{equation}
+
+Multiply by $-T^2$ and register the result as the internal energy $U$.
+
+$U = -T^2 E10$
+
+\begin{equation}
+  U = \frac{3 N T k_{B}}{2}
+  \label{eq:E11}
+\end{equation}
+
+Simplify the resulting expression.
+
+Simplify the right-hand side of E11
+
+\begin{equation}
+  U = \frac{3 N T k_{B}}{2}
+  \label{eq:E12}
+\end{equation}
+
+To find the constant-volume heat capacity $C_V=(\partial U/\partial T)_V$, take the partial derivative of the internal energy $U$ with respect to the temperature $T$.
+
+Take the partial derivative of U with respect to T
+
+\begin{equation}
+  \frac{\partial U}{\partial T} = \frac{3 N k_{B}}{2}
+  \label{eq:E13}
+\end{equation}
+
+\end{document}

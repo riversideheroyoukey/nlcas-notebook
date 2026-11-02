@@ -1,0 +1,251 @@
+{
+  "_comment": "NMR/NQR で使う核種と、その核スピン $I$ を **2I（分子）** で持つ表。**粒子表（particles.json）とは軸が違う**ので別のファイルである: あちらの同一性は「粒子の種類」（電子・陽子・光子）で、こちらは**同位体**。$^{13}$C のスピン 1/2 は「炭素」からは出ない——$^{12}$C は 0、$^{13}$C は 1/2、$^{14}$C は 0。分子で持つ理由は particles.json と同じ（半整数を float にしない、F-9 の Surd 規則）。**統計は保存しない**——質量数 A の偶奇から厳密に決まるので、持つと食い違う余地を作るだけ。綴りは (A, 元素記号) から機械的に作る（spin_value_set.nuclide_spellings）のでここには置かない。$^{1}$H は陽子そのものだが、こちらにも置く: NMR の文脈では核種として書かれる。",
+  "nuclides": [
+    {
+      "key": "1H",
+      "mass_number": 1,
+      "element": "H",
+      "two_s": 1
+    },
+    {
+      "key": "2H",
+      "mass_number": 2,
+      "element": "H",
+      "two_s": 2
+    },
+    {
+      "key": "3He",
+      "mass_number": 3,
+      "element": "He",
+      "two_s": 1
+    },
+    {
+      "key": "6Li",
+      "mass_number": 6,
+      "element": "Li",
+      "two_s": 2
+    },
+    {
+      "key": "7Li",
+      "mass_number": 7,
+      "element": "Li",
+      "two_s": 3
+    },
+    {
+      "key": "10B",
+      "mass_number": 10,
+      "element": "B",
+      "two_s": 6
+    },
+    {
+      "key": "11B",
+      "mass_number": 11,
+      "element": "B",
+      "two_s": 3
+    },
+    {
+      "key": "12C",
+      "mass_number": 12,
+      "element": "C",
+      "two_s": 0
+    },
+    {
+      "key": "13C",
+      "mass_number": 13,
+      "element": "C",
+      "two_s": 1
+    },
+    {
+      "key": "14N",
+      "mass_number": 14,
+      "element": "N",
+      "two_s": 2
+    },
+    {
+      "key": "15N",
+      "mass_number": 15,
+      "element": "N",
+      "two_s": 1
+    },
+    {
+      "key": "16O",
+      "mass_number": 16,
+      "element": "O",
+      "two_s": 0
+    },
+    {
+      "key": "17O",
+      "mass_number": 17,
+      "element": "O",
+      "two_s": 5
+    },
+    {
+      "key": "19F",
+      "mass_number": 19,
+      "element": "F",
+      "two_s": 1
+    },
+    {
+      "key": "23Na",
+      "mass_number": 23,
+      "element": "Na",
+      "two_s": 3
+    },
+    {
+      "key": "25Mg",
+      "mass_number": 25,
+      "element": "Mg",
+      "two_s": 5
+    },
+    {
+      "key": "27Al",
+      "mass_number": 27,
+      "element": "Al",
+      "two_s": 5
+    },
+    {
+      "key": "29Si",
+      "mass_number": 29,
+      "element": "Si",
+      "two_s": 1
+    },
+    {
+      "key": "31P",
+      "mass_number": 31,
+      "element": "P",
+      "two_s": 1
+    },
+    {
+      "key": "33S",
+      "mass_number": 33,
+      "element": "S",
+      "two_s": 3
+    },
+    {
+      "key": "35Cl",
+      "mass_number": 35,
+      "element": "Cl",
+      "two_s": 3
+    },
+    {
+      "key": "37Cl",
+      "mass_number": 37,
+      "element": "Cl",
+      "two_s": 3
+    },
+    {
+      "key": "39K",
+      "mass_number": 39,
+      "element": "K",
+      "two_s": 3
+    },
+    {
+      "key": "43Ca",
+      "mass_number": 43,
+      "element": "Ca",
+      "two_s": 7
+    },
+    {
+      "key": "51V",
+      "mass_number": 51,
+      "element": "V",
+      "two_s": 7
+    },
+    {
+      "key": "55Mn",
+      "mass_number": 55,
+      "element": "Mn",
+      "two_s": 5
+    },
+    {
+      "key": "57Fe",
+      "mass_number": 57,
+      "element": "Fe",
+      "two_s": 1
+    },
+    {
+      "key": "59Co",
+      "mass_number": 59,
+      "element": "Co",
+      "two_s": 7
+    },
+    {
+      "key": "63Cu",
+      "mass_number": 63,
+      "element": "Cu",
+      "two_s": 3
+    },
+    {
+      "key": "65Cu",
+      "mass_number": 65,
+      "element": "Cu",
+      "two_s": 3
+    },
+    {
+      "key": "77Se",
+      "mass_number": 77,
+      "element": "Se",
+      "two_s": 1
+    },
+    {
+      "key": "89Y",
+      "mass_number": 89,
+      "element": "Y",
+      "two_s": 1
+    },
+    {
+      "key": "113Cd",
+      "mass_number": 113,
+      "element": "Cd",
+      "two_s": 1
+    },
+    {
+      "key": "119Sn",
+      "mass_number": 119,
+      "element": "Sn",
+      "two_s": 1
+    },
+    {
+      "key": "125Te",
+      "mass_number": 125,
+      "element": "Te",
+      "two_s": 1
+    },
+    {
+      "key": "127I",
+      "mass_number": 127,
+      "element": "I",
+      "two_s": 5
+    },
+    {
+      "key": "129Xe",
+      "mass_number": 129,
+      "element": "Xe",
+      "two_s": 1
+    },
+    {
+      "key": "133Cs",
+      "mass_number": 133,
+      "element": "Cs",
+      "two_s": 7
+    },
+    {
+      "key": "195Pt",
+      "mass_number": 195,
+      "element": "Pt",
+      "two_s": 1
+    },
+    {
+      "key": "199Hg",
+      "mass_number": 199,
+      "element": "Hg",
+      "two_s": 1
+    },
+    {
+      "key": "207Pb",
+      "mass_number": 207,
+      "element": "Pb",
+      "two_s": 1
+    }
+  ]
+}

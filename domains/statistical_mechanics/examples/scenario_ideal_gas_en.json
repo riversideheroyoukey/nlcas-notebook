@@ -1,0 +1,2252 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_0331ecfc",
+    "title": "scenario_ideal_gas",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:10.576342Z",
+    "active_branch_id": "main",
+    "domains": [
+      "statistical_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_9ec107",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\lambda = \\sqrt{h^2 / (2 \\pi m k_B T)}",
+      "canonical": "sqrt(h^2 / (2 * %pi * m * k_B * T))",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sqrt(h^2 / (2 * %pi * m * k_B * T))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_a4f4e9",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "Z_1 = {{2^{\\frac{3}{2}} \\pi^{\\frac{3}{2}} T^{\\frac{3}{2}} V k_{B}^{\\frac{3}{2}} m^{\\frac{3}{2}}}\\over{h^3}}",
+      "canonical": "(2^(3/2)*%pi^(3/2)*T^(3/2)*V*k_B^(3/2)*m^(3/2))/h^3",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(2^(3/2)*%pi^(3/2)*T^(3/2)*V*k_B^(3/2)*m^(3/2))/h^3",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_b9932a",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "Z_N = {{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}",
+      "canonical": "(2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n /(N!*h^(3*N))",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "factorial"
+      ],
+      "warnings": [],
+      "input_canonical": "(2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n /(N!*h^(3*N))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_74b357",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "F = -T k_{B} \\log \\left({{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}\\right)",
+      "canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "factorial"
+      ],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_6ab892",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "F = -T k_{B} \\log \\left({{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}\\right)",
+      "canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "created_by_step": "S26",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_ea6e85",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial F}{\\partial V} = -\\frac{N T k_{B}}{V}",
+      "canonical": "-((N*T*k_B)/V)",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": "F",
+      "derivative_vars": [
+        "V"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "-((N*T*k_B)/V)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_a9901c",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "P = \\frac{N T k_{B}}{V}",
+      "canonical": "(N*T*k_B)/V",
+      "created_by_step": "S32",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(N*T*k_B)/V",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_a8d594",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "P = \\frac{N T k_{B}}{V}",
+      "canonical": "(N*T*k_B)/V",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(N*T*k_B)/V",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(N*T*k_B)/V",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_3f1139",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "FoverT = F / T",
+      "canonical": "F / T",
+      "created_by_step": "S38",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "F / T",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_aba272",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial FoverT}{\\partial T} = -\\frac{3 N k_{B}}{2 T}",
+      "canonical": "-((3*N*k_B)/(2*T))",
+      "created_by_step": "S41",
+      "simplification_log": [],
+      "quantity_name": "FoverT",
+      "derivative_vars": [
+        "T"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "-((3*N*k_B)/(2*T))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "F / T",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_ca712e",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "U = \\frac{3 N T k_{B}}{2}",
+      "canonical": "(3*N*T*k_B)/2",
+      "created_by_step": "S44",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_c32c21",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "U = \\frac{3 N T k_{B}}{2}",
+      "canonical": "(3*N*T*k_B)/2",
+      "created_by_step": "S47",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(3*N*T*k_B)/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_5d3aea",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial U}{\\partial T} = \\frac{3 N k_{B}}{2}",
+      "canonical": "(3*N*k_B)/2",
+      "created_by_step": "S50",
+      "simplification_log": [],
+      "quantity_name": "U",
+      "derivative_vars": [
+        "T"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "(3*N*k_B)/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {
+    "ASM1": {
+      "assumption_id": "ASM1",
+      "display": "N > 0",
+      "canonical": "N > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM2": {
+      "assumption_id": "ASM2",
+      "display": "V > 0",
+      "canonical": "V > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM3": {
+      "assumption_id": "ASM3",
+      "display": "T > 0",
+      "canonical": "T > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM4": {
+      "assumption_id": "ASM4",
+      "display": "m > 0",
+      "canonical": "m > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM5": {
+      "assumption_id": "ASM5",
+      "display": "h > 0",
+      "canonical": "h > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM6": {
+      "assumption_id": "ASM6",
+      "display": "k_B > 0",
+      "canonical": "k_B > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    }
+  },
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:10.642380Z",
+      "user_text": "Consider a monatomic ideal gas of $N$ particles. Prepare the particle count $N$, volume $V$, temperature $T$, particle mass $m$, Planck constant $h$, and Boltzmann constant $k_B$ as positive real parameters.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.642573Z",
+      "user_text": "Define N, V, T, m, h, k_B as positive real parameters",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.644248Z",
+      "user_text": "Define N, V, T, m, h, k_B as positive real parameters",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "N",
+        "_all_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k"
+        ],
+        "_raw_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k_B"
+        ],
+        "domain": "real",
+        "sign": "positive",
+        "candidates": [
+          {
+            "operation": "define_scalar_parameter",
+            "args": {
+              "name": "N",
+              "_all_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k"
+              ],
+              "_raw_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "domain": "real",
+              "sign": "positive"
+            },
+            "display_ja": "B is a component index (k at B)",
+            "display_en": "B is a component index (k at B)"
+          },
+          {
+            "operation": "define_scalar_parameter",
+            "args": {
+              "name": "N",
+              "_all_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "_raw_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "domain": "real",
+              "sign": "positive"
+            },
+            "display_ja": "B is part of the name (k_B is a distinct quantity)",
+            "display_en": "B is part of the name (k_B is a distinct quantity)"
+          }
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.645106Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "N",
+        "domain": "real",
+        "sign": "positive",
+        "registered_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k_B"
+        ]
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(N, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:10.645375Z",
+      "user_text": null,
+      "visible_action": "Assume N > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM1",
+        "canonical": "N > 0",
+        "display": "N > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(N > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:58:10.645815Z",
+      "user_text": null,
+      "visible_action": "Assume V > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM2",
+        "canonical": "V > 0",
+        "display": "V > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(V > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:10.646207Z",
+      "user_text": null,
+      "visible_action": "Assume T > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM3",
+        "canonical": "T > 0",
+        "display": "T > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(T > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:10.646602Z",
+      "user_text": null,
+      "visible_action": "Assume m > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM4",
+        "canonical": "m > 0",
+        "display": "m > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(m > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:58:10.647023Z",
+      "user_text": null,
+      "visible_action": "Assume h > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM5",
+        "canonical": "h > 0",
+        "display": "h > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(h > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:10.647443Z",
+      "user_text": null,
+      "visible_action": "Assume k_B > 0",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM6",
+        "canonical": "k_B > 0",
+        "display": "k_B > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(k_B > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:10.647760Z",
+      "user_text": "Define the thermal de Broglie wavelength $\\lambda=\\sqrt{h^2/(2\\pi mk_BT)}$ (the length scale at which quantum effects become important).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:58:10.647805Z",
+      "user_text": "\\lambda = \\sqrt{h^2 / (2 * \\pi * m * k_B * T)}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:58:10.649269Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:10.663478Z",
+      "user_text": "Define the single-particle partition function $Z_1=V/\\lambda^3$ (the volume divided by the cube of the thermal de Broglie wavelength, corresponding to the number of quantum states a particle can occupy).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:10.663515Z",
+      "user_text": "Z_1 = V / E1^3",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:10.666197Z",
+      "user_text": null,
+      "visible_action": "Register E2",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:10.667625Z",
+      "user_text": "Define the $N$-particle partition function $Z_N=Z_1^N/N!$. Dividing by $N!$ is the Gibbs correction for overcounting due to permutations of indistinguishable particles.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:10.667661Z",
+      "user_text": "Z_N = E2^N / N!",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:10.670874Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:10.672709Z",
+      "user_text": "Define the Helmholtz free energy $F=-k_BT\\ln Z_N$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:10.672741Z",
+      "user_text": "F = -k_B * T * \\log(E3)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:10.677070Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:58:10.679090Z",
+      "user_text": "Substitute the definitions of $Z_N$, $Z_1$, and $\\lambda$ registered so far and expand $F$ into a closed-form expression in $N,V,T,m,h,k_B$ alone.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.679122Z",
+      "user_text": "Expand F",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.679581Z",
+      "user_text": "Expand F",
+      "visible_action": "LLM interpretation: expand",
+      "operation": "expand",
+      "operation_args": {
+        "expr": "E4"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.683228Z",
+      "user_text": null,
+      "visible_action": "expand [E4]",
+      "operation": "expand",
+      "operation_args": {
+        "expr": "E4"
+      },
+      "backend": "maxima",
+      "rendered_command": "expand(-T * k_B * log(2^(3 * N * 2^-1) * %pi^(3 * N * 2^-1) * T^(3 * N * 2^-1) * V^N * k_B^(3 * N * 2^-1) * m^(3 * N * 2^-1) * (factorial(N) * h^(3 * N))^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E4"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:58:10.684596Z",
+      "user_text": "To find the pressure $P=-(\\partial F/\\partial V)_T$, first take the partial derivative of $F$ with respect to the volume $V$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:10.684635Z",
+      "user_text": "Take the partial derivative of F with respect to V",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:10.689544Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. V [E5]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E5",
+        "var": "V",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(-T * k_B * log(2^(3 * N * 2^-1) * %pi^(3 * N * 2^-1) * T^(3 * N * 2^-1) * V^N * k_B^(3 * N * 2^-1) * m^(3 * N * 2^-1) * (factorial(N) * h^(3 * N))^-1),V,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:58:10.690331Z",
+      "user_text": "Flip the sign and register the result as the pressure $P$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:58:10.690365Z",
+      "user_text": "P = -E6",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:58:10.691825Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:58:10.692592Z",
+      "user_text": "Simplify the resulting expression.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:10.692633Z",
+      "user_text": "Simplify the right-hand side of E7",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:10.703722Z",
+      "user_text": null,
+      "visible_action": "simplify the RHS of E7",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E7"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp(N * T * k_B * V^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:58:10.704252Z",
+      "user_text": "To find the internal energy $U=-T^2\\partial(F/T)/\\partial T$ (the Gibbs-Helmholtz relation), first form $F/T$ as a new expression.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:58:10.704289Z",
+      "user_text": "FoverT = F / T",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:58:10.704858Z",
+      "user_text": null,
+      "visible_action": "Register E9",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:58:10.706297Z",
+      "user_text": "Take the partial derivative of $F/T$ with respect to the temperature $T$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:10.706342Z",
+      "user_text": "Take the partial derivative of FoverT with respect to T",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:10.710852Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. T [E9]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E9",
+        "var": "T",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(F * T^-1,T,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E9"
+      ],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:58:10.711720Z",
+      "user_text": "Multiply by $-T^2$ and register the result as the internal energy $U$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:58:10.711756Z",
+      "user_text": "U = -T^2 * E10",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:58:10.713403Z",
+      "user_text": null,
+      "visible_action": "Register E11",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S44"
+      ],
+      "timestamp": "2026-09-25T11:58:10.714222Z",
+      "user_text": "Simplify the resulting expression.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:58:10.714266Z",
+      "user_text": "Simplify the right-hand side of E11",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:58:10.718850Z",
+      "user_text": null,
+      "visible_action": "simplify the RHS of E11",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E11"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp(3 * N * T * k_B * 2^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E11"
+      ],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S47"
+      ],
+      "timestamp": "2026-09-25T11:58:10.719306Z",
+      "user_text": "To find the constant-volume heat capacity $C_V=(\\partial U/\\partial T)_V$, take the partial derivative of the internal energy $U$ with respect to the temperature $T$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S49": {
+      "step_id": "S49",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:58:10.719345Z",
+      "user_text": "Take the partial derivative of U with respect to T",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S50": {
+      "step_id": "S50",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:58:10.724309Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. T [E12]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E12",
+        "var": "T",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(3 * N * T * k_B * 2^-1,T,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E12"
+      ],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S50",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:10.576349Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "N": {
+      "quantity": {
+        "name": "N",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "V": {
+      "quantity": {
+        "name": "V",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "T": {
+      "quantity": {
+        "name": "T",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "h": {
+      "quantity": {
+        "name": "h",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "k_B": {
+      "quantity": {
+        "name": "k_B",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "lambda": {
+      "quantity": {
+        "name": "lambda",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Z_1": {
+      "quantity": {
+        "name": "Z_1",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E2",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Z_N": {
+      "quantity": {
+        "name": "Z_N",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E3",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "F": {
+      "quantity": {
+        "name": "F",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "F_dV": {
+      "quantity": {
+        "name": "F_dV",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E6",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "P": {
+      "quantity": {
+        "name": "P",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E8",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "FoverT": {
+      "quantity": {
+        "name": "FoverT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E9",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "FoverT_dT": {
+      "quantity": {
+        "name": "FoverT_dT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E10",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "U": {
+      "quantity": {
+        "name": "U",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E12",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "U_dT": {
+      "quantity": {
+        "name": "U_dT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E13",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [
+    "factorial"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\lambda": "E1",
+    "lambda": "E1",
+    "Z_1": "E2",
+    "Z_N": "E3",
+    "F": "E5",
+    "\\frac{\\partial F}{\\partial V}": "E6",
+    "'diff(F,V,1)": "E6",
+    "P": "E8",
+    "FoverT": "E9",
+    "\\frac{\\partial FoverT}{\\partial T}": "E10",
+    "'diff(FoverT,T,1)": "E10",
+    "U": "E12",
+    "\\frac{\\partial U}{\\partial T}": "E13",
+    "'diff(U,T,1)": "E13"
+  },
+  "expr_counter": 13,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 50,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

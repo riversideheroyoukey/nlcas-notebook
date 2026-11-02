@@ -1,0 +1,99 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_two\_level\_perturbation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+2準位系の摂動論。$H=H_0+\lambda V$ で、$H_0$ の固有値が $E_a, E_b$、摂動 $V$ は非対角のみ。$\lambda$ は結合定数。
+
+Ea, Eb, V, $\lambda$ をスカラーパラメータとして定義して
+
+\[
+  Ea, Eb, V, \lambda
+\]
+
+ハミルトニアンを $2\times2$ 行列として登録する。
+
+$H = [Ea, \lambda V; \lambda V, Eb]$
+
+\begin{equation}
+  H = \begin{pmatrix} Ea & \lambda V \\ \lambda V & Eb \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+$2\times2$ なので固有値は厳密に求まる。摂動級数はこの閉じた形を $\lambda$ で展開したものにほかならず、専用の「摂動展開」操作は要らない。
+
+E1 の固有値を求めて
+
+\begin{equation}
+  \left\{ -\left(\frac{\sqrt{4 V^2 \lambda^2+Eb^2-2 Ea Eb+Ea^2}-Eb-Ea}{2}\right) , \frac{\sqrt{4 V^2 \lambda^2+Eb^2-2 Ea Eb+Ea^2}+Eb+Ea}{2} \right\}
+  \label{eq:E2}
+\end{equation}
+
+下側の枝を式として登録する。
+
+$(Ea + Eb - \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2$
+
+\begin{equation}
+  (Ea + Eb - \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2
+  \label{eq:E3}
+\end{equation}
+
+まず1次まで展開する。摂動が非対角のみ（$\langle n|V|n\rangle=0$）なので、1次補正は消えるはず。
+
+E3 を $\lambda$ について 0 のまわりで 1 次までテイラー展開して
+
+\begin{equation}
+  Ea
+  \label{eq:E4}
+\end{equation}
+
+2次まで展開する。教科書の $E^{(2)}_n=|\langle m|V|n\rangle|^2/(E_n-E_m)$ が出るはず。
+
+E3 を $\lambda$ について 0 のまわりで 2 次までテイラー展開して
+
+\begin{equation}
+  Ea-\frac{V^2 \lambda^2}{Eb-Ea}
+  \label{eq:E5}
+\end{equation}
+
+上側の枝も同様に登録して展開する。符号が逆になり、2準位が互いに離れる（準位反発）。
+
+$(Ea + Eb + \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2$
+
+\begin{equation}
+  (Ea + Eb + \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2
+  \label{eq:E6}
+\end{equation}
+
+E6 を $\lambda$ について 0 のまわりで 2 次までテイラー展開して
+
+\begin{equation}
+  \frac{V^2 \lambda^2}{Eb-Ea}+Eb
+  \label{eq:E7}
+\end{equation}
+
+検算。2つの準位の和はトレース $E_a+E_b$ に等しく、しかもこれは厳密に成り立つ。2次の寄与が打ち消し合えば級数が正しい。
+
+$E5 + E7$
+
+\begin{equation}
+  E5 + E7
+  \label{eq:E8}
+\end{equation}
+
+E8 を簡約して
+
+\begin{equation}
+  Eb+Ea
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

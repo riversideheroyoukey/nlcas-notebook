@@ -1,0 +1,1501 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_b80c223c",
+    "title": "scenario_forced_oscillator_laplace",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:19.623342Z",
+    "active_branch_id": "main",
+    "domains": [
+      "differential_equations"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_060ab4",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "X(s) = \\int_0^{\\infty} x(t)\\, e^{-s t}\\, dt",
+      "canonical": "'integrate(x*exp(-(s)*(t)),t,0,inf)",
+      "created_by_step": "S11",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_f14ea7",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\sin(\\omega t) e^{-s t}",
+      "canonical": "sin(omega*t)*%e^(-s*t)",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(omega*t)*%e^(-s*t)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_837069",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{\\infty} \\sin(\\omega t) e^{-s t} \\, dt = \\frac{\\omega}{s^2+\\omega^2}",
+      "canonical": "omega/(s^2+omega^2)",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "omega/(s^2+omega^2)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(omega*t)*%e^(-s*t)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_72aaa3",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "m \\left(-\\left(s x_{0}\\right)-v_{0}+X s^2\\right)+X k=\\frac{F_{0} \\omega}{s^2+\\omega^2}",
+      "canonical": "m*(s^2*X - s*x_0 - v_0) + k*X = F_0*(omega/(s^2+omega^2))",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m*(s^2*X - s*x_0 - v_0) + k*X = F_0*(omega/(s^2+omega^2))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_3e6d57",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "x_0 = 1",
+      "canonical": "x_0 = 1",
+      "created_by_step": "S28",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "x_0 = 1",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_9ba8f4",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "v_0 = 0",
+      "canonical": "v_0 = 0",
+      "created_by_step": "S30",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "v_0 = 0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_a4448d",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "X = \\frac{m s^3+m \\omega^2 s+F_{0} \\omega}{m s^4+\\left(m \\omega^2+k\\right) s^2+k \\omega^2}",
+      "canonical": "(m*s^3+m*omega^2*s+F_0*omega)/(m*s^4+(m*omega^2+k)*s^2+k*omega^2)",
+      "created_by_step": "S34",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(m*s^3+m*omega^2*s+F_0*omega)/(m*s^4+(m*omega^2+k)*s^2+k*omega^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_4a7e99",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "x(t) = {{{{F_{0} m^{\\frac{3}{2}} \\omega \\sin \\left(\\frac{\\sqrt{k} t}{\\sqrt{m}}\\right)}\\over{\\sqrt{k} \\left(m \\omega^2-k\\right)}}+m \\cos \\left(\\frac{\\sqrt{k} t}{\\sqrt{m}}\\right)}\\over{m}}-\\frac{F_{0} \\sin \\left(\\omega t\\right)}{m \\omega^2-k}",
+      "canonical": "((F_0*m^(3/2)*omega*sin((sqrt(k)*t)/sqrt(m)))/(sqrt(k)*(m*omega^2-k))\n +m*cos((sqrt(k)*t)/sqrt(m)))\n /m\n -(F_0*sin(omega*t))/(m*omega^2-k)",
+      "created_by_step": "S43",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "((F_0*m^(3/2)*omega*sin((sqrt(k)*t)/sqrt(m)))/(sqrt(k)*(m*omega^2-k))\n +m*cos((sqrt(k)*t)/sqrt(m)))\n /m\n -(F_0*sin(omega*t))/(m*omega^2-k)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(m*s^3+m*omega^2*s+F_0*omega)/(m*s^4+(m*omega^2+k)*s^2+k*omega^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {
+    "ASM1": {
+      "assumption_id": "ASM1",
+      "display": "s > 0",
+      "canonical": "s > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM2": {
+      "assumption_id": "ASM2",
+      "display": "\\omega > 0",
+      "canonical": "omega > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM3": {
+      "assumption_id": "ASM3",
+      "display": "m > 0",
+      "canonical": "m > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM4": {
+      "assumption_id": "ASM4",
+      "display": "k > 0",
+      "canonical": "k > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    }
+  },
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:19.688407Z",
+      "user_text": "外力を受ける無減衰調和振動子 $m\\ddot x + kx = F_0\\sin(\\omega t)$ の初期値問題を解く。まず外力振幅 $F_0$ を（成分インデックスではなく）名前として宣言する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.688595Z",
+      "user_text": "F_0 をスカラーとする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.689853Z",
+      "user_text": "F_0 をスカラーとする",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "F_0",
+        "_all_names": [
+          "F_0"
+        ],
+        "_raw_names": [
+          "F_0"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.690397Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "F_0"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(F_0, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.690747Z",
+      "user_text": "変位 $x$ を時間 $t$ の関数として宣言する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:19.690782Z",
+      "user_text": "x を時間依存関数として定義する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691318Z",
+      "user_text": "x を時間依存関数として定義する",
+      "visible_action": "LLM解釈: declare_time_dependent",
+      "operation": "declare_time_dependent",
+      "operation_args": {
+        "name": "x",
+        "_all_names": [
+          "x"
+        ],
+        "_raw_names": [
+          "x"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691684Z",
+      "user_text": "✓ x を時間依存として宣言しました（時間変数: t）",
+      "visible_action": "時間依存宣言",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691698Z",
+      "user_text": "$x$ のラプラス変換を $X$（s領域の量）と名付ける定義カードを作る。この対応は逆変換の結果ラベルが読む。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691730Z",
+      "user_text": "x のラプラス変換を X とおく",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691900Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "define_laplace"
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691953Z",
+      "user_text": "定義積分 $\\int_0^\\infty e^{-st}dt$ の収束条件を、見える段として置く。仮定が無いと CAS が符号を聞き返して段が失敗する（セッションは生きたまま）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:19.691981Z",
+      "user_text": "s > 0 と仮定する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:19.692406Z",
+      "user_text": null,
+      "visible_action": "s > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM1",
+        "canonical": "s > 0",
+        "display": "s > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(s > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "add_assumption"
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:19.692482Z",
+      "user_text": "\\omega > 0 と仮定する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:19.693021Z",
+      "user_text": null,
+      "visible_action": "\\omega > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM2",
+        "canonical": "omega > 0",
+        "display": "\\omega > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(omega > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "add_assumption"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:19.693070Z",
+      "user_text": "外力の像は明示関数なので定義積分そのものが計算できる。まず被積分関数 $\\sin(\\omega t)e^{-st}$ を登録する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:19.693109Z",
+      "user_text": "\\sin(\\omega t) e^{-s t}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:19.694153Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:19.694552Z",
+      "user_text": "定義に従って $0$ から $\\infty$ まで積分し、$\\mathcal L\\{\\sin(\\omega t)\\} = \\omega/(s^2+\\omega^2)$ を得る。組み込みの `laplace` は使わない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:19.694592Z",
+      "user_text": "E2 を t で 0 から \\infty まで定積分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:19.698750Z",
+      "user_text": null,
+      "visible_action": "E2 の定積分を求める",
+      "operation": "integrate_definite",
+      "operation_args": {
+        "expr": "E2",
+        "var": "t",
+        "lower": "0",
+        "upper": "inf"
+      },
+      "backend": "maxima",
+      "rendered_command": "integrate(sin(omega * t) * %e^(-s * t),t,0,inf)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2"
+      ],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "definite_integral"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:19.699546Z",
+      "user_text": "$s$ 領域の運動方程式を組み立てる。$\\ddot x$ の像 $s^2X - s x(0) - \\dot x(0)$ は部分積分が与える定理（$u=e^{-st}$ が構造で決まり選択が無い）なので研究者が書き、外力の像は上で計算した E 番号を参照して組み込む。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:19.699588Z",
+      "user_text": "m (s^2 X - s x_0 - v_0) + k X = F_0 E3",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:19.702089Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:19.703154Z",
+      "user_text": "初期条件を置く。伝達関数を得る RLC のようにゼロにするのではなく、静止状態から単位変位で放す $x(0)=1,\\ \\dot x(0)=0$ を入れる。H-1 の定義は登録時に CAS へ送られるので以降に効く。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:19.703190Z",
+      "user_text": "x_0 = 1",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:19.703672Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:19.706687Z",
+      "user_text": "v_0 = 0",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:19.707240Z",
+      "user_text": null,
+      "visible_action": "E6 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:19.710004Z",
+      "user_text": "$s$ 領域の方程式を $X$ について解き、閉じた形を得る。初期条件は既に効いている。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:19.710053Z",
+      "user_text": "E4 を X について解いて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:19.712803Z",
+      "user_text": null,
+      "visible_action": "E4 の方程式を解く",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E4",
+        "var": "X"
+      },
+      "backend": "maxima",
+      "rendered_command": "solve(m * (s^2 * X - s * x_0 - v_0) + k * X=F_0 * omega * (s^2 + omega^2)^-1, X)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E4"
+      ],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:19.715383Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:19.715729Z",
+      "user_text": "逆変換の前に、物理的に正である量の符号を明示的に仮定する。符号が未知だと CAS が対話質問を出して操作が中断する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:57:19.715768Z",
+      "user_text": "m > 0 と仮定する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:57:19.716229Z",
+      "user_text": null,
+      "visible_action": "m > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM3",
+        "canonical": "m > 0",
+        "display": "m > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(m > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "add_assumption"
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:19.716313Z",
+      "user_text": "k > 0 と仮定する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:19.716767Z",
+      "user_text": null,
+      "visible_action": "k > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM4",
+        "canonical": "k > 0",
+        "display": "k > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(k > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "add_assumption"
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:57:19.716822Z",
+      "user_text": "$s$ 領域の解を $t$ 領域へ戻し、往復を閉じる。固有振動数 $\\sqrt{k/m}$ の自由項と駆動振動数 $\\omega$ の強制項の和になる（$m\\omega^2 \\ne k$、すなわち非共鳴を前提とする）。$t=0$ で $x=1$ となり、置いた初期条件と合う。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S40"
+      ],
+      "timestamp": "2026-09-25T11:57:19.716853Z",
+      "user_text": "E7 を s から t へ逆ラプラス変換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S40"
+      ],
+      "timestamp": "2026-09-25T11:57:19.719580Z",
+      "user_text": "E7 を s から t へ逆ラプラス変換して",
+      "visible_action": "LLM解釈: inverse_laplace",
+      "operation": "inverse_laplace",
+      "operation_args": {
+        "expr": "E7",
+        "s": "s",
+        "t": "t"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S40"
+      ],
+      "timestamp": "2026-09-25T11:57:19.736730Z",
+      "user_text": null,
+      "visible_action": "E7 を逆ラプラス変換する",
+      "operation": "inverse_laplace",
+      "operation_args": {
+        "expr": "E7",
+        "s": "s",
+        "t": "t"
+      },
+      "backend": "maxima",
+      "rendered_command": "ilt((m * s^3 + m * omega^2 * s + F_0 * omega) * (m * s^4 + (m * omega^2 + k) * s^2 + k * omega^2)^-1,s,t)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S43",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:19.623350Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "F_0": {
+      "quantity": {
+        "name": "F_0",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "x": {
+      "quantity": {
+        "name": "x",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [
+          "t"
+        ],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": true,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "x_0": {
+      "quantity": {
+        "name": "x_0",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "v_0": {
+      "quantity": {
+        "name": "v_0",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E6",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "X": {
+      "quantity": {
+        "name": "X",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E7",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {
+    "x": 1,
+    "v": 1
+  },
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\int_{0}^{\\infty} \\sin(\\omega t) e^{-s t} dt": "E3",
+    "\\int_0^(inf)*sin(omega*t)*%e^(-s*t)*dt": "E3",
+    "m \\left(-\\left(s x_{0}\\right)-v_{0}+X s^2\\right)+X k": "E4",
+    "m*(-(s*x_0)-v_0+X*s^2)+X*k": "E4",
+    "x_0": "E5",
+    "v_0": "E6",
+    "X": "E7",
+    "x(t)": "E8"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 43,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

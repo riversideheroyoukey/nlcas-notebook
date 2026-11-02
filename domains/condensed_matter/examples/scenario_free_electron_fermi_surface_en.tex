@@ -1,0 +1,93 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_free\_electron\_fermi\_surface}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the free-electron-model dispersion. Prepare the wavevector $k$, electron mass $m$, chemical potential $\mu$, and reduced Planck constant $\hbar$ as scalar parameters.
+
+Define k, m, $\mu$, $\hbar$ as scalars
+
+\[
+  k, m, \mu, \hbar
+\]
+
+Define the free-electron energy dispersion $\xi_k=\hbar^2k^2/(2m)-\mu$ (energy measured relative to the chemical potential).
+
+$\xi_k = \hbar^2 k^2 / (2 m) - \mu$
+
+\begin{equation}
+  \xi_k = \hbar^2 k^2 / (2 m) - \mu
+  \label{eq:E1}
+\end{equation}
+
+Simplify the right-hand side into a tidier form (no physical change).
+
+Simplify the right-hand side of E1
+
+\begin{equation}
+  \xi_k = \frac{ - 2 m \mu + k^{2} \hbar^{2}}{2 m}
+  \label{eq:E2}
+\end{equation}
+
+Fix the Fermi-surface condition $\xi_k=0$ (the energy coincides with the Fermi level) as an equation, by setting the right-hand side to 0.
+
+Set the right-hand side of E1 to 0
+
+\begin{equation}
+  \hbar^2 k^2 / (2 m) - \mu = 0
+  \label{eq:E3}
+\end{equation}
+
+Solve this equation for the wavevector $k$ to obtain the Fermi wavevector $k_F$.
+
+Solve E3 for k
+
+\begin{equation}
+  k = \sqrt{2} \sqrt{m \mu}/\hbar
+  \label{eq:E4}
+\end{equation}
+
+Substitute the Fermi wavevector just found back into the original expression for $\xi_k$, to confirm that the energy is identically zero on the Fermi surface.
+
+Substitute E4 into E1
+
+\begin{equation}
+  \xi_k = \left( - \mu + \frac{\left( \frac{\sqrt{2 m \mu}}{\hbar} \right)^{2} \hbar^{2}}{2 m}\right)
+  \label{eq:E5}
+\end{equation}
+
+Simplify the substitution result to make the zero explicit.
+
+Simplify the right-hand side of E5
+
+\begin{equation}
+  \xi_k = 0
+  \label{eq:E6}
+\end{equation}
+
+To find the effective mass $m^*$, take the second derivative of the dispersion $\xi_k$ with respect to the wavevector $k$.
+
+Differentiate E1 twice with respect to k
+
+\begin{equation}
+  \frac{d^{2}}{dk^{2}}\left(\xi_k\right) = \frac{\hbar^{2}}{m}
+  \label{eq:E7}
+\end{equation}
+
+From the second derivative just obtained, define the effective mass $m^*=\hbar^2/(d^2\xi_k/dk^2)$ (for the free-electron model this should equal $m$, the bare mass).
+
+$m_star = \hbar^2 / E7$
+
+\begin{equation}
+  m_star = m
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

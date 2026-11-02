@@ -1,0 +1,21 @@
+## Domain: Statistical Mechanics & Thermodynamics
+
+Common symbols and their roles:
+- Z: partition function (canonical: Z = Σ exp(-βEₙ))
+- β = 1/(k_BT): inverse temperature
+- k_B: Boltzmann constant (scalar)
+- F = -k_BT ln Z: Helmholtz free energy
+- G: Gibbs free energy
+- S: entropy
+- μ: chemical potential
+- T: temperature (scalar, independent variable)
+- N: number of particles
+- V: volume
+- P: pressure
+
+Typical dependency patterns:
+- Thermodynamic potentials F, G, S depend on (T, V, N) or (T, P, N)
+- Partition function Z depends on (β, {parameters})
+- Correlation functions depend on distance r or time t
+
+When the user writes "T で微分", interpret as ∂/∂T (temperature derivative).

@@ -1,0 +1,144 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_coupled\_oscillations}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider two point masses of mass $m$ connected by two outer springs (constant $k$) and one coupling spring (constant $c$). Let $x,y$ be the displacements of the two masses.
+
+Define x as a time-dependent function
+
+$\checkmark$ Declared x as time-dependent (time variable: t)
+
+Define y as a time-dependent function
+
+$\checkmark$ Declared y as time-dependent (time variable: t)
+
+Define m, k, c as scalars
+
+\[
+  m, k, c
+\]
+
+Define the Lagrangian $L=$ kinetic energy $-$ potential energy. The potential terms are the outer-spring energies $\frac12kx^2,\ \frac12ky^2$ for each mass, plus the coupling-spring energy $\frac12c(x-y)^2$, proportional to the square of the displacement difference $(x-y)$.
+
+$Lag = (1/2) m \dot{x}^2 + (1/2) m \dot{y}^2 - (1/2) k x^2 - (1/2) k y^2 - (1/2) c (x - y)^2$
+
+\begin{equation}
+  Lag = (1/2) m \dot{x}^2 + (1/2) m \dot{y}^2 - (1/2) k x^2 - (1/2) k y^2 - (1/2) c (x - y)^2
+  \label{eq:E1}
+\end{equation}
+
+Following the Euler-Lagrange equation $\frac{d}{dt}\frac{\partial L}{\partial\dot x}-\frac{\partial L}{\partial x}=0$, derive the equation of motion for $x$: differentiate $L$ with respect to $\dot x$, take the total time derivative of that result, differentiate $L$ with respect to $x$, then take the difference of the two.
+
+Take the partial derivative of E1 with respect to $\dot{x}$
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{x}} = m \dot{x}
+  \label{eq:E2}
+\end{equation}
+
+Take the total derivative of E2 with respect to t
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{x}}\right) = m \ddot{x}
+  \label{eq:E3}
+\end{equation}
+
+Take the partial derivative of E1 with respect to x
+
+\begin{equation}
+  \frac{\partial Lag}{\partial x} = -\left(c \left(x-y\right)\right)-k x
+  \label{eq:E4}
+\end{equation}
+
+$EOMx = E3 - E4$
+
+\begin{equation}
+  EOMx = -\left(c y\right)+m \ddot{x}+\left(k+c\right) x
+  \label{eq:E5}
+\end{equation}
+
+Derive the equation of motion for $y$ by the same procedure.
+
+Take the partial derivative of E1 with respect to $\dot{y}$
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{y}} = m \dot{y}
+  \label{eq:E6}
+\end{equation}
+
+Take the total derivative of E6 with respect to t
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{y}}\right) = m \ddot{y}
+  \label{eq:E7}
+\end{equation}
+
+Take the partial derivative of E1 with respect to y
+
+\begin{equation}
+  \frac{\partial Lag}{\partial y} = c \left(x-y\right)-k y
+  \label{eq:E8}
+\end{equation}
+
+$EOMy = E7 - E8$
+
+\begin{equation}
+  EOMy = m \ddot{y}+\left(k+c\right) y-c x
+  \label{eq:E9}
+\end{equation}
+
+Taking the sum and difference of the two equations of motion decouples them into normal modes. The sum cancels the coupling constant $c$, giving the symmetric mode (lower frequency, $\omega_1^2=k/m$); the difference brings in $k+2c$, giving the antisymmetric mode (higher frequency, $\omega_2^2=(k+2c)/m$).
+
+$sym = E5 + E9$
+
+\begin{equation}
+  sym = m \ddot{y}+k y+m \ddot{x}+k x
+  \label{eq:E10}
+\end{equation}
+
+$anti = E5 - E9$
+
+\begin{equation}
+  anti = -\left(m \ddot{y}\right)+\left(-k-2 c\right) y+m \ddot{x}+\left(k+2 c\right) x
+  \label{eq:E11}
+\end{equation}
+
+Define the normal-coordinate transformation $Q_1=x+y$ (the symmetric-mode coordinate) and $Q_2=x-y$ (the antisymmetric-mode coordinate).
+
+$Q_1 = x_1 + x_2$
+
+\begin{equation}
+  Q_1 = x_1 + x_2
+  \label{eq:E12}
+\end{equation}
+
+$Q_2 = x_1 - x_2$
+
+\begin{equation}
+  Q_2 = x_1 - x_2
+  \label{eq:E13}
+\end{equation}
+
+Invert this transformation to express the original displacements $x,y$ (written as $x_1,x_2$ here) in terms of the normal coordinates $Q_1,Q_2$.
+
+Invert E12, E13 for $x_1$, $x_2$
+
+\begin{equation}
+  x_{1} = \frac{Q_{2}+Q_{1}}{2}
+  \label{eq:E14}
+\end{equation}
+
+\begin{equation}
+  x_{2} = \frac{Q_{1}-Q_{2}}{2}
+  \label{eq:E15}
+\end{equation}
+
+\end{document}

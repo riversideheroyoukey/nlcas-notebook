@@ -1,0 +1,16 @@
+## OCR Domain Hint: Probability & Statistics
+
+Symbol recognition priorities:
+- E[...] or E(...) → expectation \mathbb{E}[...]
+- P(...) → probability \mathbb{P}(...)
+- P(A|B) (vertical bar inside) → conditional probability P(A \mid B)
+- Var[X] or Var(X) → variance \text{Var}[X]
+- σ² → variance; σ → standard deviation
+- N(μ, σ²) → normal distribution \mathcal{N}(\mu, \sigma^2)
+- ρ in statistics context → correlation \rho, NOT density
+- Φ (capital phi) → standard normal CDF \Phi
+- ~ (tilde) between variable and distribution → "distributed as" \sim
+
+Common expression patterns:
+- E[X] = ∫ x f(x) dx → expectation integral
+- P(A ∩ B) = P(A|B)P(B) → chain rule of probability

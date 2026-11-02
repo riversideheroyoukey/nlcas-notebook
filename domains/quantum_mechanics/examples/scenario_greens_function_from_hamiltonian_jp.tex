@@ -1,0 +1,359 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_greens\_function\_from\_hamiltonian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+スピン依存の場の演算子から始める。ハットは名前の装飾であり、$\hat\psi$ は $\psi$ とは別の量である——だからそう書く。
+
+$\hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E1}
+\end{equation}
+
+$\hat\psi^\dagger_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat\psi^\dagger_\sigma(\mathbf{r})
+  \label{eq:E2}
+\end{equation}
+
+等時刻の反交換関係。右辺の2つの $\delta$ は\textbf{別物}で、スピンの $\delta_{\sigma\sigma'}$ は Kronecker、位置の $\delta(\mathbf r-\mathbf r')$ は Dirac である。添字か引数リストかで読み分けられる——物理はそう書き分けているので、推測は要らない。
+
+$\{\hat\psi_\sigma(\mathbf{r}), \hat\psi^\dagger_{\sigma'}(\mathbf{r}')\} = \delta_{\sigma\sigma'}\delta(\mathbf{r}-\mathbf{r}')$
+
+\begin{equation}
+  \{\hat\psi_\sigma(\mathbf{r}), \hat\psi^\dagger_{\sigma'}(\mathbf{r}')\} = \delta_{\sigma\sigma'}\delta(\mathbf{r}-\mathbf{r}')
+  \label{eq:E3}
+\end{equation}
+
+$\hat H_0$ の添字 0 は\textbf{名前の一部}だと宣言しておく。宣言しなければ未宣言の添字は成分インデックスと読まれ（このノートの規則どおり）、あとで計算結果に $\hat H(0)$ と出る。宣言はこの系のほとんどの読みの判別材料である。
+
+$\hat H_0$ をスカラーとする
+
+\[
+  \hat{H}_{0}
+\]
+
+ハミルトニアンの1体項。$\hat T$ は運動エネルギーと外場をまとめた1体演算子。$\int d^3r$ は体積測度であって、1変数の積分ではない。
+
+$\hat H_0 = \int d^3r\, \hat\psi^\dagger_\sigma(\mathbf{r}) \hat T(\mathbf{r}) \hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat H_0 = \int d^3r\, \hat\psi^\dagger_\sigma(\mathbf{r}) \hat T(\mathbf{r}) \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E4}
+\end{equation}
+
+2体項。$d^3r\,d^3r'$ の6次元で、$\mathbf r$ と $\mathbf r'$ は\textbf{別の点}である——プライムが黙って捨てられていた頃、$v(\mathbf r-\mathbf r')$ は $v(0)$ になっていた。
+
+$\hat V = \frac{1}{2}\int d^3r \int d^3r' \hat\psi^\dagger_\sigma(\mathbf{r}) \hat\psi^\dagger_{\sigma'}(\mathbf{r}') v(\mathbf{r}-\mathbf{r}') \hat\psi_{\sigma'}(\mathbf{r}') \hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat V = \frac{1}{2}\int d^3r \int d^3r' \hat\psi^\dagger_\sigma(\mathbf{r}) \hat\psi^\dagger_{\sigma'}(\mathbf{r}') v(\mathbf{r}-\mathbf{r}') \hat\psi_{\sigma'}(\mathbf{r}') \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E5}
+\end{equation}
+
+スピン依存の正規直交系。直交規格化は全空間積分で、基底が任意なので\textbf{評価するものではない}——積分そのものが条件である。
+
+$\int d^3r\, \varphi^{\ast}_{n\sigma}(\mathbf{r}) \varphi_{m\sigma'}(\mathbf{r}) = \delta_{nm}\delta_{\sigma\sigma'}$
+
+\begin{equation}
+  \int d^3r\, \varphi^{\ast}_{n\sigma}(\mathbf{r}) \varphi_{m\sigma'}(\mathbf{r}) = \delta_{nm}\delta_{\sigma\sigma'}
+  \label{eq:E6}
+\end{equation}
+
+成分に開く。デカルト3成分の反復積分になり、範囲は書いていなくても全空間。
+
+成分に展開して
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{m,\sigma'}(r_{x}, r_{y}, r_{z}) \varphi^{\ast}_{n,\sigma}(r_{x}, r_{y}, r_{z})\;dr_{z}}\;dr_{y}}\;dr_{x}}=\delta_{m, n}  \delta_{\sigma, \sigma'}
+  \label{eq:E7}
+\end{equation}
+
+完全性。右辺は Dirac の $\delta$ で、左辺の和は\textbf{モードとスピンの両方}を走る。
+
+$\sum_{n\sigma} \varphi_{n\sigma}(\mathbf{r}) \varphi^{\ast}_{n\sigma}(\mathbf{r}') = \delta(\mathbf{r}-\mathbf{r}')$
+
+\begin{equation}
+  \sum_{n\sigma} \varphi_{n\sigma}(\mathbf{r}) \varphi^{\ast}_{n\sigma}(\mathbf{r}') = \delta(\mathbf{r}-\mathbf{r}')
+  \label{eq:E8}
+\end{equation}
+
+場の演算子を正規直交系で展開する。ここから先の代数は、係数（スカラー）と演算子 $\hat c_{n\sigma}$ に分かれる。
+
+$\hat\psi_\sigma(\mathbf{r}) = \sum_n \varphi_{n\sigma}(\mathbf{r}) \hat c_{n\sigma}$
+
+\begin{equation}
+  \hat\psi_\sigma(\mathbf{r}) = \sum_n \varphi_{n\sigma}(\mathbf{r}) \hat c_{n\sigma}
+  \label{eq:E9}
+\end{equation}
+
+\textbf{ここから計算する。} 展開（E9）を $\hat H$ に入れて、\textbf{新しい基底でのハミルトニアンを書く}。まず1体項。行列要素 $T_{n\sigma,m\sigma}$ は E6 と同じ形の全空間積分で、評価するものではない。演算子の対 $\hat c^\dagger_{n\sigma}\hat c_{m\sigma}$ は\textbf{1つの名前}として運ぶ——Maxima には演算子代数が無いので、順序を要求しない形にしておく（演算子代数が要る計算は姉妹シナリオの Julia セッションでやる）。
+
+$\hat\rho_{n\sigma,m\sigma} = \hat c^\dagger_{n\sigma} \hat c_{m\sigma}$
+
+\begin{equation}
+  \hat\rho_{n\sigma,m\sigma} = \hat c^\dagger_{n\sigma} \hat c_{m\sigma}
+  \label{eq:E10}
+\end{equation}
+
+$\hat H_0 = \sum_{n m} T_{n\sigma,m\sigma} \hat\rho_{n\sigma,m\sigma}$
+
+\begin{equation}
+  \hat H_0 = \sum_{n m} T_{n\sigma,m\sigma} \hat\rho_{n\sigma,m\sigma}
+  \label{eq:E11}
+\end{equation}
+
+2体項も同じ変換で移る。\textbf{スピンは2種類しかない}——場の演算子で書いた形が $\sigma,\sigma'$ の2つで、基底展開で増えるのは\textbf{モードだけ}だからである。したがって独立な添字は\textbf{4モード＋2スピンの6つ}。和の添字は\textbf{区切って書く}（`\textbackslash{}sum\_\{nmpq\}` は「$nmpq$ という名の1添字」）。
+
+$\hat V = \frac{1}{2}\sum_{n m p q}\sum_{\sigma \sigma'} V_{n\sigma,m\sigma',p\sigma',q\sigma} \hat c^\dagger_{n\sigma} \hat c^\dagger_{m\sigma'} \hat c_{p\sigma'} \hat c_{q\sigma}$
+
+\begin{equation}
+  \hat V = \frac{1}{2}\sum_{n m p q}\sum_{\sigma \sigma'} V_{n\sigma,m\sigma',p\sigma',q\sigma} \hat c^\dagger_{n\sigma} \hat c^\dagger_{m\sigma'} \hat c_{p\sigma'} \hat c_{q\sigma}
+  \label{eq:E12}
+\end{equation}
+
+ここまで基底は\textbf{任意}である。ここで\textbf{選ぶ}: 「当初導入した基底関数系が $\hat H_0$ を対角化する」という仮定は、行列要素についての1本の式にすぎない。平面波に特殊化するのとは違い、一般性はほとんど失われない。
+
+$T_{n\sigma,m\sigma} = \varepsilon_{n\sigma} \delta_{nm}$
+
+\begin{equation}
+  T_{n\sigma,m\sigma} = \varepsilon_{n\sigma} \delta_{nm}
+  \label{eq:E13}
+\end{equation}
+
+0次項に代入する。
+
+E11 に E13 を代入して
+
+\begin{equation}
+  \hat H_0 = \sum_{n}{\varepsilon_{n,\sigma} \sum_{m}{\delta_{m, n}  \hat{\rho}_{n,\sigma,m,\sigma}}}
+  \label{eq:E14}
+\end{equation}
+
+整理すると\textbf{クロネッカー$\delta$が $m$ の和を潰し}、対角形が残る——\textbf{固有値 $\varepsilon_{n\sigma}$ はこの計算の結果として現れる}。手で書き写したのではない。$\hat\rho_{n\sigma,n\sigma}$ は数演算子である。
+
+E14 を簡約して
+
+\begin{equation}
+  \hat H_0 = \sum_{n}{\varepsilon_{n,\sigma} \hat{\rho}_{n,\sigma,n,\sigma}}
+  \label{eq:E15}
+\end{equation}
+
+\textbf{0次項が対角になった。ここでグリーン関数を、この基底の生成消滅演算子で定義する。} 場の演算子で書いてから基底へ移す道もあるが、移すための代入が2回要るだけで、得るものがない——最初からこの基底で書けばよい。$T[\cdots]$ は時間順序（素の $T$ は運動エネルギーとも読めるので括弧で書く）、両側が同じ状態なので $\langle A\rangle_{\Phi_0}$ と同じ量である。
+
+$\hat c_{n\sigma}(t) = e^{i\hat H t/\hbar} \hat c_{n\sigma} e^{-i\hat H t/\hbar}$
+
+\begin{equation}
+  \hat c_{n\sigma}(t) = e^{i\hat H t/\hbar} \hat c_{n\sigma} e^{-i\hat H t/\hbar}
+  \label{eq:E16}
+\end{equation}
+
+$G_{n\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c_{n\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle$
+
+\begin{equation}
+  G_{n\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c_{n\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle
+  \label{eq:E17}
+\end{equation}
+
+自由伝播関数。$G^0$ の上付き 0 は\textbf{摂動次数のラベル}であって指数ではない。$i\eta$ の符号は\textbf{フェルミ面を境に変わる}。
+
+$G^0_{n\sigma}(\omega) = \frac{1}{\omega - \varepsilon_{n\sigma}/\hbar + i\eta\,\mathrm{sgn}(\varepsilon_{n\sigma}-\varepsilon_F)}$
+
+\begin{equation}
+  G^0_{n\sigma}(\omega) = \frac{1}{\omega - \varepsilon_{n\sigma}/\hbar + i\eta\,\mathrm{sgn}(\varepsilon_{n\sigma}-\varepsilon_F)}
+  \label{eq:E18}
+\end{equation}
+
+Dyson 方程式を\textbf{成分で書く}——右辺第2項は基底の添字についての和で、$G$ が右辺にも現れる。
+
+$G_{n\sigma,m\sigma'}(\omega) = G^0_{n\sigma}(\omega)\delta_{nm}\delta_{\sigma\sigma'} + \sum_{p \sigma''} G^0_{n\sigma}(\omega) \Sigma_{n\sigma,p\sigma''}(\omega) G_{p\sigma'',m\sigma'}(\omega)$
+
+\begin{equation}
+  G_{n\sigma,m\sigma'}(\omega) = G^0_{n\sigma}(\omega)\delta_{nm}\delta_{\sigma\sigma'} + \sum_{p \sigma''} G^0_{n\sigma}(\omega) \Sigma_{n\sigma,p\sigma''}(\omega) G_{p\sigma'',m\sigma'}(\omega)
+  \label{eq:E19}
+\end{equation}
+
+添字を落として行列として書く。\textbf{$G$・$\Sigma$・$G^0$ を行列と宣言する}と、積は行列積になり $^{-1}$ は\textbf{逆行列}になる。宣言しなければ $^{-1}$ は逆数、積は可換積で、どちらも別の量である。
+
+G を行列とする
+
+\[
+  G
+\]
+
+$\Sigma$ を行列とする
+
+\[
+  \Sigma
+\]
+
+$G^0$ を行列とする
+
+\[
+  G^{0}
+\]
+
+$G$ を左に括り出した形で書く。\textbf{$G = G^0 + G^0\Sigma G$ とは書かない}——この形は H-1 の定義文になり、以後 $G$ という名前がその式に束縛されて、解きたい未知数でなくなるからである（実測: そう書くと次の計算の左辺が $G^0\Sigma G+G^0$ に展開されて戻ってくる）。
+
+$(1 - G^0 \Sigma) G = G^0$
+
+\begin{equation}
+  (1 - G^0 \Sigma) G = G^0
+  \label{eq:E20}
+\end{equation}
+
+\textbf{形式解を計算で出す。} 両辺に $(1-G^0\Sigma)^{-1}$ を\textbf{左から}掛ける——非可換なので左右は別の式であり、どちらかは研究者が決める。左辺の $(1-G^0\Sigma)^{-1}(1-G^0\Sigma)$ が 1 に簡約されるところは CAS の仕事である。
+
+E20 の両辺に (1 - $G^0$ $\Sigma$)\^{}\{-1\} を左から掛けて
+
+\begin{equation}
+  G=\left(1-G^{0}\cdot \Sigma\right)^{-1}\cdot G^{0}
+  \label{eq:E21}
+\end{equation}
+
+ここまでが Dyson の道である。\textbf{$\Sigma$ が何であるかを、Dyson 方程式は答えない。} もう一つの道——グリーン関数の\textbf{運動方程式}——では、$\Sigma$ がハミルトニアンから出てくる。
+
+Heisenberg 描像の演算子。相互作用描像（E10）と違い、指数の肩に乗るのは\textbf{全}ハミルトニアン $\hat H=\hat H_0+\hat V$ である。
+
+演算子の運動方程式。\textbf{微分されるのは $\hat c$ であって $c$ ではない}——ハットは名前の装飾なので、装飾ごと微分の中に入る。
+
+$i\hbar \frac{\partial}{\partial t} \hat c_{n\sigma}(t) = [\hat c_{n\sigma}(t), \hat H]$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} \hat c_{n\sigma}(t) = [\hat c_{n\sigma}(t), \hat H]
+  \label{eq:E22}
+\end{equation}
+
+\textbf{この交換子は Maxima では計算できない}——演算子代数が無いからである（それがこのセッションで演算子の対を1つの名前で運んでいる理由でもある）。\textbf{この役割分担は 2026-07-30 に決めてある}: 「グリーン関数の代数は Maxima、演算子代数が要る局面だけ Julia」（docs/33 §7）。\textbf{同じ交換子を QuantumAlgebra で実際に計算した}のが姉妹シナリオ scenario\_greens\_function\_eom\_commutator で、$[\hat H,\hat c_{m\sigma}]$ に対して $-\varepsilon_{m\sigma}\hat c_{m\sigma} + \sum V(\ldots)$ を返す。以下はその結果を（符号の向きを $[\hat c,\hat H]$ に合わせて）書き写したものである。
+
+$[\hat c_{m\sigma}, \hat H] = -\varepsilon_{m\sigma}\hat c_{m\sigma} - \sum_{p q s}\sum_{\sigma''} V_{m\sigma,p\sigma'',q\sigma'',s\sigma} \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''} \hat c_{s\sigma}$
+
+\begin{equation}
+  [\hat c_{m\sigma}, \hat H] = -\varepsilon_{m\sigma}\hat c_{m\sigma} - \sum_{p q s}\sum_{\sigma''} V_{m\sigma,p\sigma'',q\sigma'',s\sigma} \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''} \hat c_{s\sigma}
+  \label{eq:E23}
+\end{equation}
+
+グリーン関数を基底の添字で書く（E19 で計算した形の、係数を落とした芯）。
+
+グリーン関数の運動方程式。時間微分は\textbf{時間順序の階段関数にも当たり}、そこから等時刻の反交換関係——$\hbar\delta(t-t')$ の項——が出る。残りは演算子の運動方程式そのもので、2体項が\textbf{演算子4つ}の期待値を生む。
+
+$i\hbar \frac{\partial}{\partial t} G_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G_{n\sigma,m\sigma'}(t,t') + \sum_{p q s}\sum_{\sigma''} V_{n\sigma,p\sigma'',q\sigma'',s\sigma} G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t')$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} G_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G_{n\sigma,m\sigma'}(t,t') + \sum_{p q s}\sum_{\sigma''} V_{n\sigma,p\sigma'',q\sigma'',s\sigma} G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t')
+  \label{eq:E24}
+\end{equation}
+
+その高次のグリーン関数の定義。上付きの $(2)$ は $G^0$ の $0$ と同じく\textbf{ラベル}であって指数ではない。演算子3つは時刻 $t$、最後の1つだけが $t'$ である。
+
+$G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c^\dagger_{p\sigma''}(t) \hat c_{q\sigma''}(t) \hat c_{s\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle$
+
+\begin{equation}
+  G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c^\dagger_{p\sigma''}(t) \hat c_{q\sigma''}(t) \hat c_{s\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle
+  \label{eq:E25}
+\end{equation}
+
+\textbf{方程式は閉じていない。} 1体のグリーン関数の方程式に2体のものが現れ、2体のものの方程式には3体のものが現れる——階層は終わらない。\textbf{近似とは、この鎖をどこかで切ることである。}
+
+最低次の切り方（Hartree–Fock 分解）。4つの演算子を\textbf{2つずつの対に分け}、同時刻の対を期待値で置き換える。第2項が負なのはフェルミオンの入れ替えによる。\textbf{等号ではないので $\approx$ と書く}——近似はこの1行だけで、以降は代数である。$\approx$ は書けて表示されるが、計算しようとすると理由つきに断られる（CAS に「およそ等しい」は無い）。
+
+$G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') \approx \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle G_{s\sigma,m\sigma'}(t,t') - \delta_{\sigma\sigma''} \langle \hat c^\dagger_{p\sigma''} \hat c_{s\sigma''}\rangle G_{q\sigma'',m\sigma'}(t,t')$
+
+\begin{equation}
+  G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') \approx \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle G_{s\sigma,m\sigma'}(t,t') - \delta_{\sigma\sigma''} \langle \hat c^\dagger_{p\sigma''} \hat c_{s\sigma''}\rangle G_{q\sigma'',m\sigma'}(t,t')
+  \label{eq:E26}
+\end{equation}
+
+基底は $\hat H_0$ を対角化している（E15）ので、同時刻の期待値も対角である。
+
+$\langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle = \delta_{pq}\langle \hat n_{p\sigma''}\rangle$
+
+\begin{equation}
+  \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle = \delta_{pq}\langle \hat n_{p\sigma''}\rangle
+  \label{eq:E27}
+\end{equation}
+
+代入すると和が2つ畳まれ、残るのはモード $p$ とスピン $\sigma''$ についての和だけになる。これが自己エネルギーである——\textbf{運動方程式が $\Sigma$ を決めた。} 第1項は Dyson の側で1次の近似として置かれる Hartree 項で、第2項が交換（Fock）項：フェルミオンであることがここで初めて効く。
+
+$\Sigma^{(HF)}_{n\sigma,s\sigma} = \sum_{p \sigma''}\left[V_{n\sigma,p\sigma'',p\sigma'',s\sigma} - \delta_{\sigma\sigma''}V_{n\sigma,p\sigma'',s\sigma'',p\sigma}\right]\langle \hat n_{p\sigma''} \rangle$
+
+\begin{equation}
+  \Sigma^{(HF)}_{n\sigma,s\sigma} = \sum_{p \sigma''}\left[V_{n\sigma,p\sigma'',p\sigma'',s\sigma} - \delta_{\sigma\sigma''}V_{n\sigma,p\sigma'',s\sigma'',p\sigma}\right]\langle \hat n_{p\sigma''} \rangle
+  \label{eq:E28}
+\end{equation}
+
+高次のグリーン関数が消え、方程式が\textbf{閉じた}。ただし\textbf{これはもう厳密な $G$ ではない}——分解を入れた後の量なので $G^{(HF)}$ と書き分ける。
+
+$i\hbar \frac{\partial}{\partial t} G^{(HF)}_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G^{(HF)}_{n\sigma,m\sigma'}(t,t') + \sum_{s} \Sigma^{(HF)}_{n\sigma,s\sigma} G^{(HF)}_{s\sigma,m\sigma'}(t,t')$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} G^{(HF)}_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G^{(HF)}_{n\sigma,m\sigma'}(t,t') + \sum_{s} \Sigma^{(HF)}_{n\sigma,s\sigma} G^{(HF)}_{s\sigma,m\sigma'}(t,t')
+  \label{eq:E29}
+\end{equation}
+
+\textbf{時間差についてフーリエ変換する。専用の操作は使わない}——逆変換の定義そのものを書き、両辺を $t$ で微分させる。$\omega$ と $(t-t')$ の間の空白は積の印である（空白が無いと $\omega$ を $(t-t')$ に適用した関数と読まれ、その読みは断られる）。
+
+$G^{(HF)}_{n\sigma}(t-t') = \frac{1}{2\pi}\int_{-\infty}^{\infty} G^{(HF)}_{n\sigma}(\omega) e^{-i\omega (t-t')} d\omega$
+
+\begin{equation}
+  G^{(HF)}_{n\sigma}(t-t') = \frac{1}{2\pi}\int_{-\infty}^{\infty} G^{(HF)}_{n\sigma}(\omega) e^{-i\omega (t-t')} d\omega
+  \label{eq:E30}
+\end{equation}
+
+微分は積分記号の中に入り、$-i\omega$ が降りてくる——これが $i\hbar\partial_t \to \hbar\omega$ の中身である。$\delta(t-t')$ も同じ変換で 1 になる。
+
+E30 の両辺を t で微分して
+
+\begin{equation}
+  \frac{d}{d t} G^{(HF)}_{n,\sigma}(t-t')=-\left({{i \int_{-\infty }^{\infty }{e^ {- \left(i \omega \left(t-t'\right)\right) } \omega G^{(HF)}_{n,\sigma}(\omega)\;d\omega}}\over{2 \pi}}\right)
+  \label{eq:E31}
+\end{equation}
+
+周波数領域の方程式。$\hat H_0$ も $\Sigma^{(HF)}$ もこの基底で対角なので、対角成分だけを書く。\textbf{$\hbar$ の位置に注意}——Dyson（E22）の $\Sigma$ は角振動数の次元、ここの $\Sigma^{(HF)}$ はエネルギーの次元で、両者は $\hbar$ だけ違う。
+
+$(\omega - \varepsilon_{n\sigma}/\hbar) G^{(HF)}_{n\sigma}(\omega) = 1 + \Sigma^{(HF)}_{n\sigma} G^{(HF)}_{n\sigma}(\omega)/\hbar$
+
+\begin{equation}
+  (\omega - \varepsilon_{n\sigma}/\hbar) G^{(HF)}_{n\sigma}(\omega) = 1 + \Sigma^{(HF)}_{n\sigma} G^{(HF)}_{n\sigma}(\omega)/\hbar
+  \label{eq:E32}
+\end{equation}
+
+$G^{(HF)}$ について解く。\textbf{解く変数は研究者の綴りのまま}——上付きラベルも添字も引数も付いたまま——指定する。
+
+E32 を $G^{(HF)}_{n\sigma}$($\omega$) について解いて
+
+\begin{equation}
+  G^{(HF)}_{n,\sigma}(\omega) = \frac{\hbar}{\hbar \omega-\varepsilon_{n,\sigma}-\Sigma^{(HF)}_{n,\sigma}}
+  \label{eq:E33}
+\end{equation}
+
+Hartree–Fock 近似のグリーン関数。極が $\varepsilon_{n\sigma}$ から $\varepsilon_{n\sigma}+\Sigma^{(HF)}_{n\sigma}$ へずれた——\textbf{相互作用が1粒子エネルギーをずらす}、というのがこの近似の内容である。
+
+最後に、自己エネルギーを 0 に戻してみる。近似の入れ方が正しければ、相互作用を切ったときに自由伝播関数（E21、$i\eta$ を除く）へ戻らなければならない。
+
+$\Sigma^{(HF)}_{n\sigma} = 0$
+
+\begin{equation}
+  \Sigma^{(HF)}_{n\sigma} = 0
+  \label{eq:E34}
+\end{equation}
+
+E33 に E34 を代入して
+
+\begin{equation}
+  G^{(HF)}_{n,\sigma}(\omega) = \frac{\hbar}{\hbar \omega-\varepsilon\left(n , \sigma\right)}
+  \label{eq:E35}
+\end{equation}
+
+\end{document}

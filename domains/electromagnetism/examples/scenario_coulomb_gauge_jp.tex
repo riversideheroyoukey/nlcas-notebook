@@ -1,0 +1,306 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_coulomb\_gauge}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+スカラーポテンシャル $\phi$（空間 $x,y,z$ と時間 $t$ に依存）と、ベクトルポテンシャル $\mathbf A$（成分 $A_x,A_y,A_z$、これも時間に依存）を宣言する。この2つから電場 $\mathbf E$・磁場 $\mathbf B$ を組み立てる。
+
+phi を時間依存のスカラー場として定義する
+
+\[
+  \phi
+\]
+
+A をベクトル場として定義する
+
+\[
+  A
+\]
+
+$A_x$ を時間依存関数として定義する
+
+$\checkmark$ A\_x を時間依存として宣言しました（時間変数: t）
+
+$A_y$ を時間依存関数として定義する
+
+$\checkmark$ A\_y を時間依存として宣言しました（時間変数: t）
+
+$A_z$ を時間依存関数として定義する
+
+$\checkmark$ A\_z を時間依存として宣言しました（時間変数: t）
+
+後で偏微分の計算に使うため、$\phi,A_x,A_y,A_z$ それぞれの値に別名（phi0, Ax0, Ay0, Az0）をつけて式番号として登録しておく。
+
+$\phi_{0} = \phi$
+
+\begin{equation}
+  \phi_{0} = \phi
+  \label{eq:E1}
+\end{equation}
+
+$Ax0 = A_x$
+
+\begin{equation}
+  Ax0 = A_x
+  \label{eq:E2}
+\end{equation}
+
+$Ay0 = A_y$
+
+\begin{equation}
+  Ay0 = A_y
+  \label{eq:E3}
+\end{equation}
+
+$Az0 = A_z$
+
+\begin{equation}
+  Az0 = A_z
+  \label{eq:E4}
+\end{equation}
+
+電場の定義 $\mathbf E=-\nabla\phi-\partial\mathbf A/\partial t$ の1項目 $\nabla\phi$ に使うため、$\phi$ の空間偏微分 $\partial\phi/\partial x,\partial\phi/\partial y,\partial\phi/\partial z$ を求める。
+
+E1 を x で偏微分して
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial x} = \frac{d}{d x} \phi
+  \label{eq:E5}
+\end{equation}
+
+E1 を y で偏微分して
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial y} = \frac{d}{d y} \phi
+  \label{eq:E6}
+\end{equation}
+
+E1 を z で偏微分して
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial z} = \frac{d}{d z} \phi
+  \label{eq:E7}
+\end{equation}
+
+電場の定義の2項目 $\partial\mathbf A/\partial t$ に使うため、$\mathbf A$ の各成分の時間微分 $\partial A_x/\partial t,\partial A_y/\partial t,\partial A_z/\partial t$ を求める。
+
+E2 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial Ax0}{\partial t} = \frac{d}{d t} A_{x}
+  \label{eq:E8}
+\end{equation}
+
+E3 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial Ay0}{\partial t} = \frac{d}{d t} A_{y}
+  \label{eq:E9}
+\end{equation}
+
+E4 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial Az0}{\partial t} = \frac{d}{d t} A_{z}
+  \label{eq:E10}
+\end{equation}
+
+上で求めた偏微分を組み合わせ、電場 $\mathbf E=-\nabla\phi-\partial\mathbf A/\partial t$ の各成分を組み立てる。
+
+$E_x = -E5 - E8$
+
+\begin{equation}
+  E_x = -\left(\frac{d}{d x} \phi\right)-\frac{d}{d t} A_{x}
+  \label{eq:E11}
+\end{equation}
+
+$E_y = -E6 - E9$
+
+\begin{equation}
+  E_y = -\left(\frac{d}{d y} \phi\right)-\frac{d}{d t} A_{y}
+  \label{eq:E12}
+\end{equation}
+
+$E_z = -E7 - E10$
+
+\begin{equation}
+  E_z = -\left(\frac{d}{d z} \phi\right)-\frac{d}{d t} A_{z}
+  \label{eq:E13}
+\end{equation}
+
+磁場 $\mathbf B=\nabla\times\mathbf A$ を、$\nabla\times$ 演算子を $\mathbf A$ に直接適用して1ステップで求める（3成分がまとめて返る）。
+
+$\nabla \times A$
+
+\begin{equation}
+  \left[ \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y} , \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z} , \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x} \right]
+  \label{eq:E14}
+\end{equation}
+
+B をベクトル場として定義する
+
+\[
+  B
+\]
+
+得られた curl の3成分を、ベクトル場 $\mathbf B$ の $x,y,z$ 成分としてそれぞれ束縛する。
+
+$B_x = E14[1]$
+
+\begin{equation}
+  B_x = \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y}
+  \label{eq:E15}
+\end{equation}
+
+$B_y = E14[2]$
+
+\begin{equation}
+  B_y = \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z}
+  \label{eq:E16}
+\end{equation}
+
+$B_z = E14[3]$
+
+\begin{equation}
+  B_z = \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x}
+  \label{eq:E17}
+\end{equation}
+
+$\mathbf B=\nabla\times\mathbf A$ から常に成り立つはずの恒等式 $\nabla\cdot\mathbf B=0$（磁荷が存在しないこと）を、$\mathbf B$ の発散を計算して確認する。
+
+$\nabla \cdot B$
+
+\begin{equation}
+  0
+  \label{eq:E18}
+\end{equation}
+
+クーロンゲージ条件 $\nabla\cdot\mathbf A=0$ を確認するため、まず $\mathbf A$ の発散を計算する。
+
+$\nabla \cdot A$
+
+\begin{equation}
+  \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E19}
+\end{equation}
+
+この発散の値に gauge という名前をつける。
+
+$gauge = E19$
+
+\begin{equation}
+  gauge = \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E20}
+\end{equation}
+
+クーロンゲージでは $\nabla\cdot\mathbf A=0$ という条件を課す。gauge の値を 0 と置いた方程式として確定する。
+
+E20 の右辺を 0 とする
+
+\begin{equation}
+  \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x} = 0
+  \label{eq:E21}
+\end{equation}
+
+後でこのゲージ条件を解くために、$A_z$ の空間微分 $\partial A_z/\partial z$ を個別に用意し、名前をつける。
+
+Az0 を z で偏微分して
+
+\begin{equation}
+  \frac{\partial Az0}{\partial z} = \frac{d}{d z} A_{z}
+  \label{eq:E22}
+\end{equation}
+
+$Az_z = E22$
+
+\begin{equation}
+  Az_z = \frac{d}{d z} A_{z}
+  \label{eq:E23}
+\end{equation}
+
+ゲージ条件の式を $\partial A_z/\partial z$ について解き、$\partial A_x/\partial x,\partial A_y/\partial y$ で表す。
+
+E21 を $Az_z$ について解いて
+
+\begin{equation}
+  \frac{d}{d z} A_{z} = -\left(\frac{d}{d y} A_{y}\right)-\frac{d}{d x} A_{x}
+  \label{eq:E24}
+\end{equation}
+
+電場の発散 $\nabla\cdot\mathbf E$ を組み立てるため、$\mathbf E$ の各成分を対応する座標で偏微分する。
+
+E11 を x で偏微分して
+
+\begin{equation}
+  \frac{\partial E_x}{\partial x} = -\left(\frac{d^2}{d x^2} \phi\right)-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E25}
+\end{equation}
+
+E12 を y で偏微分して
+
+\begin{equation}
+  \frac{\partial E_y}{\partial y} = -\left(\frac{d^2}{d y^2} \phi\right)-\frac{d^2}{d t d y} A_{y}
+  \label{eq:E26}
+\end{equation}
+
+E13 を z で偏微分して
+
+\begin{equation}
+  \frac{\partial E_z}{\partial z} = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d t d z} A_{z}
+  \label{eq:E27}
+\end{equation}
+
+上の3つの偏微分の和として、電場の発散 $\nabla\cdot\mathbf E$ を組み立てる。
+
+$divE = E25 + E26 + E27$
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi-\frac{d^2}{d t d z} A_{z}-\frac{d^2}{d t d y} A_{y}-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E28}
+\end{equation}
+
+組み立てた $\nabla\cdot\mathbf E$ の式を整理する。
+
+E28 の右辺を整理して
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi-\frac{d^2}{d t d z} A_{z}-\frac{d^2}{d t d y} A_{y}-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E29}
+\end{equation}
+
+ゲージ条件 $\nabla\cdot\mathbf A=0$ の時間微分を計算する（恒等的にゼロのはずであることを確認するため）。
+
+E20 を t で偏微分して
+
+\begin{equation}
+  \frac{\partial gauge}{\partial t} = \frac{d^2}{d t d z} A_{z}+\frac{d^2}{d t d y} A_{y}+\frac{d^2}{d t d x} A_{x}
+  \label{eq:E30}
+\end{equation}
+
+この時間微分の値を 0 と置いた方程式として確定する。
+
+E30 の右辺を 0 とする
+
+\begin{equation}
+  \frac{d^2}{d t d z} A_{z}+\frac{d^2}{d t d y} A_{y}+\frac{d^2}{d t d x} A_{x} = 0
+  \label{eq:E31}
+\end{equation}
+
+ゲージ条件の時間微分＝0 を $\nabla\cdot\mathbf E$ の展開式へ代入すると、対応する3項が消えて $\nabla\cdot\mathbf E=-\nabla^2\phi$（Poisson 方程式）が得られる。
+
+E29 に E31 を代入して
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi
+  \label{eq:E32}
+\end{equation}
+
+\end{document}

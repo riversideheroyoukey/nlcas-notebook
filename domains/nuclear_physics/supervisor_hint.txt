@@ -1,0 +1,40 @@
+## Domain: Nuclear Physics
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- a†, a: nucleon creation/annihilation operators (fermionic)
+- τ, τz: isospin operators (proton/neutron index)
+- j, m: total angular momentum and its z-component (quantum numbers)
+- Jlm: angular momentum coupling (shell model)
+- Δ: pairing gap (BCS/BdG)
+- u, v: BCS coherence factors (u² + v² = 1)
+- α†, α: quasiparticle operators (Bogoliubov transformation)
+- E: quasiparticle energy E = √(ε² + Δ²)
+- G: pairing interaction strength
+
+Typical Hamiltonians:
+- Shell model: H = Σ εj a†jm ajm + V_res (residual interaction)
+- BCS pairing: H = Σ εk c†k ck - G Σ c†k↑ c†-k↓ c-k'↓ ck'↑
+
+Julia operation mapping:
+- 交換子 / 反交換子 → comm(A, B) or anticommutator template
+- 正規順序 → normal_form(expr)
+- 真空期待値 / ⟨HF|...|HF⟩ → vacExpVal(expr)
+- Heisenberg運動方程式 → heisenberg_eom(op, H)
+- 核子演算子を定義 → @fermion_ops name
+- ボゾン集団励起（フォノン）→ @boson_ops name
+
+Angular-momentum coupling (F-9) — available in THIS session too, and in a Maxima
+session, because it is computed exactly in Python and never touches a backend:
+- クレブシュ・ゴルダン係数 →「j1=…, m1=…, j2=…, m2=…, J=…, M=… のCG係数」
+- 3j/6j/9j 記号 →「6j記号 {1 2 3; 2 1 2}」（行は ';' 区切り）。殻模型の再結合
+  （Racah 代数）で使う 6j/9j はここで厳密値（√を保った形）が得られる。
+- 角運動量の合成 →「j1=3/2 と j2=1/2 を合成して」で許される J と j1·j2 の恒等式
+- 結合状態を非結合基底で展開 →「… を非結合基底で展開して」
+- Wigner-Eckart の定理 / 選択則 →「j=…, m=…, k=…, q=…, j'=…, m'=… の Wigner-Eckart」
+アイソスピン結合も同じ SU(2) 代数なので、τ の合成に CG 係数をそのまま使える。
+
+Pre-defined operators in QuantumAlgebra.jl:
+- f(i), f'(i): fermion annihilation/creation (use i for (j,m,τ) multi-index)
+- a(i), a'(i): boson (for collective phonon modes)

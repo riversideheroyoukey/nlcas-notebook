@@ -1,0 +1,17 @@
+## OCR Domain Hint: Econometrics
+
+Symbol recognition priorities:
+- β with hat (β̂) → OLS estimator \hat{\beta}
+- ε or e (small, in regression context) → error term \varepsilon
+- X (uppercase, in regression) → design matrix \mathbf{X}
+- X' or X^T → transpose of design matrix
+- (X'X)^{-1} → inverse of moment matrix
+- Σ (uppercase sigma, as matrix) → covariance matrix \Sigma
+- R² → coefficient of determination R^2
+- σ² → error variance \sigma^2
+- t_{n-k} → t-distribution with n-k degrees of freedom
+
+Common expression patterns:
+- y = Xβ + ε → linear regression model
+- β̂ = (X'X)^{-1}X'y → OLS estimator formula
+- Var(β̂) = σ²(X'X)^{-1} → variance of OLS estimator

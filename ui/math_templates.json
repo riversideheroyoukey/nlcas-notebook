@@ -1,0 +1,65 @@
+{
+  "_comment": "Single source of truth for the template-input palette (open_items I-1). Integrated into the handwriting screen's LaTeX Editor (ui/index.html / ui/main.js) and validated by tests/test_template_input.py. 'latex' fields are skeletons inserted at the caret in #latex-input; empty {} are placeholders the caret jumps into (Tab cycles). Group 'id' is an internal identifier (NOT user-visible) used only to lay out palette rows with dividers, so no i18n is required — every visible glyph is a language-neutral math symbol. Matrix uses the project's [a,b;c,d] literal convention (the Maxima converter does NOT accept \\begin{pmatrix}).",
+  "groups": [
+    {
+      "id": "structure",
+      "items": [
+        { "label": "□⁄□", "latex": "\\frac{}{}" },
+        { "label": "√□",        "latex": "\\sqrt{}" },
+        { "label": "ⁿ√□",  "latex": "\\sqrt[]{}" },
+        { "label": "□ⁿ",        "latex": "^{}" },
+        { "label": "□ₙ",        "latex": "_{}" },
+        { "label": "Σ",              "latex": "\\sum_{}^{}" },
+        { "label": "∫",              "latex": "\\int_{}^{}" },
+        { "label": "lim",            "latex": "\\lim_{ \\to }" },
+        { "label": "∂⁄∂",  "latex": "\\frac{\\partial }{\\partial }" },
+        { "label": "(□)",            "latex": "\\left( \\right)" },
+        { "label": "|□|",            "latex": "\\left| \\right|" },
+        { "label": "[ ; ]", "latex": "[ , ; , ]" }
+      ]
+    },
+    {
+      "id": "greek",
+      "items": [
+        { "label": "α", "latex": "\\alpha " },
+        { "label": "β", "latex": "\\beta " },
+        { "label": "γ", "latex": "\\gamma " },
+        { "label": "δ", "latex": "\\delta " },
+        { "label": "ε", "latex": "\\epsilon " },
+        { "label": "θ", "latex": "\\theta " },
+        { "label": "λ", "latex": "\\lambda " },
+        { "label": "μ", "latex": "\\mu " },
+        { "label": "π", "latex": "\\pi " },
+        { "label": "ρ", "latex": "\\rho " },
+        { "label": "σ", "latex": "\\sigma " },
+        { "label": "ω", "latex": "\\omega " },
+        { "label": "Δ", "latex": "\\Delta " },
+        { "label": "Ω", "latex": "\\Omega " }
+      ]
+    },
+    {
+      "id": "operator",
+      "items": [
+        { "label": "·",      "latex": "\\cdot " },
+        { "label": "×",      "latex": "\\times " },
+        { "label": "≤",      "latex": "\\le " },
+        { "label": "≥",      "latex": "\\ge " },
+        { "label": "≠",      "latex": "\\ne " },
+        { "label": "→",      "latex": "\\to " },
+        { "label": "∞",      "latex": "\\infty " },
+        { "label": "∇",      "latex": "\\nabla " }
+      ]
+    }
+  ],
+  "test_examples": [
+    { "latex": "\\frac{a}{b}",                 "expect_contains": "/" },
+    { "latex": "\\sqrt{x}",                    "expect_contains": "sqrt" },
+    { "latex": "\\sqrt[3]{x}",                 "expect_contains": "1/" },
+    { "latex": "x^{2}",                        "expect_contains": "x^2" },
+    { "latex": "a_{n}",                        "expect_contains": "a_n" },
+    { "latex": "\\frac{\\partial f}{\\partial x}", "expect_contains": "partial" },
+    { "latex": "[a, b; c, d]",                 "expect_contains": ";" },
+    { "latex": "\\lim_{x \\to 0} f",           "expect_contains": "lim" },
+    { "latex": "\\left( a + b \\right)",       "expect_contains": "a" }
+  ]
+}

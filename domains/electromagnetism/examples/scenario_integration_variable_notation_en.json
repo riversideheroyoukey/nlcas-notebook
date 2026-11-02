@@ -1,0 +1,818 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_db656989",
+    "title": "scenario_integration_variable_notation",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:11.097421Z",
+    "active_branch_id": "main",
+    "domains": [
+      "electromagnetism"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_1d187f",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "canonical": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_latex": "x^2 + y^2",
+        "integrand_canonical": "x^2 + y^2",
+        "bounds": [],
+        "region": {
+          "kind": "disk",
+          "radius": "1"
+        }
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_4fc62e",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "canonical": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "created_by_step": "S6",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_canonical": "r^3",
+        "integrand_latex": "r^3",
+        "bounds": [
+          [
+            "theta",
+            "0",
+            "2*%pi"
+          ],
+          [
+            "r",
+            "0",
+            "1"
+          ]
+        ],
+        "region": null
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_41c0b9",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S9",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_32c8d2",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "canonical": "\\iint_{x^2+y^2 \\le 1} (x^2 + y^2) \\, dx \\, dy",
+      "created_by_step": "S12",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_latex": "x^2 + y^2",
+        "integrand_canonical": "x^2 + y^2",
+        "bounds": [],
+        "region": {
+          "kind": "disk",
+          "radius": "1"
+        }
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_051f4e",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "canonical": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta",
+      "created_by_step": "S14",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": {
+        "integrand_canonical": "r^3",
+        "integrand_latex": "r^3",
+        "bounds": [
+          [
+            "theta",
+            "0",
+            "2*%pi"
+          ],
+          [
+            "r",
+            "0",
+            "1"
+          ]
+        ],
+        "region": null
+      },
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_8fc1e7",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{2\\pi} \\int_{0}^{1} r^3 \\, dr \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_c4358e",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\sin(\\theta)^2",
+      "canonical": "sin(theta)^2",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(theta)^2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_f0a7a9",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "\\int_{0}^{\\pi} \\sin(\\theta)^2 \\, d\\theta = \\frac{\\pi}{2}",
+      "canonical": "%pi/2",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "%pi/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sin(theta)^2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:11.163673Z",
+      "user_text": "Register $\\iint(x^2+y^2)\\,dx\\,dy$ over the unit disc $x^2+y^2\\le1$. The CAS is not called yet — this is a range-bearing, display-only object.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:11.163871Z",
+      "user_text": "definite-integrate x^2 + y^2 over the region x^2 + y^2 <= 1",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:11.164753Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "integral_input"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:58:11.164815Z",
+      "user_text": "Change to polar coordinates, writing the angle as the Greek letter typed straight from the keyboard — that is also what the notebook displays, so being able to type it back is the natural thing. The Jacobian $|J|=r$ multiplies the integrand and the new bounds are derived automatically.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:11.164855Z",
+      "user_text": "change of variables in E1 from x,y to r,θ via x=r*cos(θ), y=r*sin(θ)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:11.183060Z",
+      "user_text": null,
+      "visible_action": "Register E2",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "change_vars"
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:11.183175Z",
+      "user_text": "Evaluate the transformed integral.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:11.183223Z",
+      "user_text": "evaluate this integral",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:11.184334Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_integral"
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:11.184399Z",
+      "user_text": "Now the same calculation in TeX spelling, to confirm that typing the displayed form back in gives the same answer.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:11.184439Z",
+      "user_text": "definite-integrate x^2 + y^2 over the region x^2 + y^2 <= 1",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:11.184865Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "integral_input"
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:11.184944Z",
+      "user_text": "change of variables in E4 from x,y to r,\\theta via x=r*\\cos(\\theta), y=r*\\sin(\\theta)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:11.188474Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "change_vars"
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:11.188565Z",
+      "user_text": "evaluate this integral",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:11.189625Z",
+      "user_text": null,
+      "visible_action": "Register E6",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_integral"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:11.189684Z",
+      "user_text": "The same for a single-variable definite integral, with both the variable and the bound written as Greek letters.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:11.189718Z",
+      "user_text": "sin(θ)^2",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:11.190692Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:11.190807Z",
+      "user_text": "integrate E7 with respect to θ from 0 to π",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:11.192960Z",
+      "user_text": null,
+      "visible_action": "integrate definite [E7]",
+      "operation": "integrate_definite",
+      "operation_args": {
+        "expr": "E7",
+        "var": "theta",
+        "lower": "0",
+        "upper": "%pi"
+      },
+      "backend": "maxima",
+      "rendered_command": "integrate(sin(theta)^2,theta,0,%pi)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "definite_integral"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S21",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:11.097428Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {},
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\int_{0}^{\\pi} \\sin(\\theta)^2 d\\theta": "E8",
+    "\\int_0^(%pi)*sin(theta)^2*d*theta": "E8"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 21,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

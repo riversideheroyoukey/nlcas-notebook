@@ -1,0 +1,14 @@
+## OCR Domain Hint: Quantum Chemistry (Second Quantization)
+
+Symbol recognition priorities:
+- † (dagger) after letter → creation operator a^{\dagger}_p
+- p, q, r, s as subscripts in orbital context → orbital indices p, q, r, s
+- h with two subscripts (pq) → one-electron integral h_{pq}
+- g with four subscripts (pqrs) → two-electron integral g_{pqrs}
+- Σ with orbital subscript → sum over orbitals \sum_{pq}
+- |HF⟩ or |Φ_0⟩ → Hartree-Fock reference \ket{\mathrm{HF}}
+- ε with subscript p → orbital energy \varepsilon_p
+- T (hat or italic, followed by subscript 1 or 2) → cluster operator \hat{T}_1, \hat{T}_2
+- Curly brackets {A, B} → anticommutator
+- Square brackets [A, B] → commutator
+- ⟨...|...|...⟩ → matrix element \langle \cdot | \cdot | \cdot \rangle

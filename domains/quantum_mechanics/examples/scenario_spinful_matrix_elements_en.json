@@ -1,0 +1,916 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_ab3db647",
+    "title": "scenario_spinful_matrix_elements",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:58.959698Z",
+    "active_branch_id": "main",
+    "domains": [
+      "quantum_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_aa0581",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\int d^3x \\varphi^{\\ast}_{m,s}(x) \\varphi_{n,t}(x)",
+      "canonical": "\\int*d^3*x*phi^*_{m,s}(x)*phi_{n,t}(x)",
+      "created_by_step": "S4",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "phi_m_s",
+        "phi_n_t"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*x*phi^*_{m,s}(x)*phi_{n,t}(x)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_765bac",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\varphi_{n,t}(x_{x},x_{y},x_{z}) \\varphi^{\\ast}_{m,s}(x_{x},x_{y},x_{z})\\;dx_{z}}\\;dx_{y}}\\;dx_{x}}",
+      "canonical": "'integrate('integrate('integrate(phi[n,t](x_x,x_y,x_z)\n                                  *conjugate(phi[m,s](x_x,x_y,x_z)),x_z,-inf,\n                                 inf),x_y,-inf,inf),x_x,-inf,inf)",
+      "created_by_step": "S7",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_c7ff06",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "h_{m,s,n,t} = \\int d^3x \\varphi^{\\ast}_{m,s}(x) T(x) \\varphi_{n,t}(x)",
+      "canonical": "\\int*d^3*x*phi^*_{m,s}(x)*T(x)*phi_{n,t}(x)",
+      "created_by_step": "S10",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "phi_m_s",
+        "T",
+        "phi_n_t"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*x*phi^*_{m,s}(x)*T(x)*phi_{n,t}(x)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_67133c",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{T\\left(x_{x} , x_{y} , x_{z}\\right) \\varphi_{n,t}(x_{x},x_{y},x_{z}) \\varphi^{\\ast}_{m,s}(x_{x},x_{y},x_{z})\\;dx_{z}}\\;dx_{y}}\\;dx_{x}}",
+      "canonical": "'integrate('integrate('integrate(T(x_x,x_y,x_z)*phi[n,t](x_x,x_y,x_z)\n                                               *conjugate(\n                                                phi[m,s](x_x,x_y,x_z)),x_z,\n                                 -inf,inf),x_y,-inf,inf),x_x,-inf,inf)",
+      "created_by_step": "S12",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_55da7d",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{T\\left(x_{x} , x_{y} , x_{z}\\right) \\varphi_{n,t}(x_{x},x_{y},x_{z}) \\varphi^{\\ast}_{m,s}(x_{x},x_{y},x_{z})\\;dx_{z}}\\;dx_{y}}\\;dx_{x}}",
+      "canonical": "'integrate('integrate('integrate(T(x_x,x_y,x_z)*phi[n,t](x_x,x_y,x_z)\n                                               *conjugate(\n                                                phi[m,s](x_x,x_y,x_z)),x_z,\n                                 -inf,inf),x_y,-inf,inf),x_x,-inf,inf)",
+      "created_by_step": "S15",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_80544c",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "V_{m,s,n,t,p,u,q,w} = \\int d^3x \\int d^3y \\varphi^{\\ast}_{m,s}(x) \\varphi^{\\ast}_{n,t}(y) v(x,y) \\varphi_{p,u}(y) \\varphi_{q,w}(x)",
+      "canonical": "\\int*d^3*x \\int*d^3*y*phi^*_{m,s}(x)*phi^*_{n,t}(y)*v(x,y)*phi_{p,u}(y)*phi_{q,w}(x)",
+      "created_by_step": "S18",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "phi_m_s",
+        "phi_n_t",
+        "phi_p_u",
+        "phi_q_w"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*x \\int*d^3*y*phi^*_{m,s}(x)*phi^*_{n,t}(y)*v(x,y)*phi_{p,u}(y)*phi_{q,w}(x)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_c1e5ea",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\varphi_{q,w}(x_{x},x_{y},x_{z}) \\varphi^{\\ast}_{m,s}(x_{x},x_{y},x_{z}) \\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{v\\left(x_{x} , x_{y} , x_{z} , y_{x} , y_{y} , y_{z}\\right) \\varphi_{p,u}(y_{x},y_{y},y_{z}) \\varphi^{\\ast}_{n,t}(y_{x},y_{y},y_{z})\\;dy_{z}}\\;dy_{y}}\\;dy_{x}}\\;dx_{z}}\\;dx_{y}}\\;dx_{x}}",
+      "canonical": "'integrate('integrate('integrate(phi[q,w](x_x,x_y,x_z)\n                                  *conjugate(phi[m,s](x_x,x_y,x_z))\n                                  *'integrate(\n                                   'integrate(\n                                    'integrate(\n                                     v(x_x,x_y,x_z,y_x,y_y,y_z)\n                                      *phi[p,u](y_x,y_y,y_z)\n                                      *conjugate(phi[n,t](y_x,y_y,y_z)),y_z,\n                                     -inf,inf),y_y,-inf,inf),y_x,-inf,inf),\n                                 x_z,-inf,inf),x_y,-inf,inf),x_x,-inf,inf)",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:59.025878Z",
+      "user_text": "Expand a field operator in a **spin-dependent basis**: $\\hat\\psi_\\sigma(\\mathbf x)=\\sum_m \\varphi_{m\\sigma}(\\mathbf x)\\hat c_{m\\sigma}$. The coefficients are then all-space integrals BY DEFINITION. The basis is arbitrary, so there is nothing to carry out — the integral IS the definition. What the notebook has to offer is not \"it computes\" but \"it can be written down and used afterwards\".",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:59.025934Z",
+      "user_text": "Orthonormality first. $\\int d^3x$ is a volume measure, not a one-variable integral.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S2"
+      ],
+      "timestamp": "2026-09-25T11:58:59.026076Z",
+      "user_text": "\\int d^3x \\varphi^*_{m,s}(x) \\varphi_{n,t}(x)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S2"
+      ],
+      "timestamp": "2026-09-25T11:58:59.028294Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:59.028464Z",
+      "user_text": "Open it into components. A threefold iterated integral, over all space even though no range was written. Spin ($s$, $t$) rides along separated from the mode — without the separator it becomes \"one index called ms\", and the display can no longer be typed back in.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:58:59.028498Z",
+      "user_text": "expand into components",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:58:59.032284Z",
+      "user_text": null,
+      "visible_action": "Register E2",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "expand_components"
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:59.032362Z",
+      "user_text": "The one-body matrix element. $T$ is the one-body operator (kinetic plus external potential). The $\\varphi_{m,s}$ in the integrand has to open into three arguments too — unopened, Maxima reads it as a constant in each component and returns $x_x x_y x_z \\cdot \\varphi$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:58:59.032398Z",
+      "user_text": "h_{m,s,n,t} = \\int d^3x \\varphi^*_{m,s}(x) T(x) \\varphi_{n,t}(x)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:58:59.033902Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:59.034266Z",
+      "user_text": "expand into components",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:59.038386Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "expand_components"
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:59.038448Z",
+      "user_text": "Now ask for it to be evaluated. **Unchanged is the right answer** — the basis is arbitrary, so this integral is a definition and stays one. An expansion that also evaluated would fall over here (measured: Maxima returns `ok=False` with an empty answer for an arbitrary-basis matrix element over all space).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:59.038479Z",
+      "user_text": "evaluate E4",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:59.039974Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_integral"
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S15"
+      ],
+      "timestamp": "2026-09-25T11:58:59.040027Z",
+      "user_text": "The two-body matrix element: **six-dimensional** ($d^3x\\,d^3y$), with four spins ($s,t,u,w$). Watch $x$ and $y$ open into separate triples without mixing.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:59.040064Z",
+      "user_text": "V_{m,s,n,t,p,u,q,w} = \\int d^3x \\int d^3y \\varphi^*_{m,s}(x) \\varphi^*_{n,t}(y) v(x,y) \\varphi_{p,u}(y) \\varphi_{q,w}(x)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:59.042464Z",
+      "user_text": null,
+      "visible_action": "Register E6",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:58:59.042965Z",
+      "user_text": "expand into components",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:58:59.050429Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "expand_components"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S20",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:58.959705Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "x_x": {
+      "quantity": {
+        "name": "x_x",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "x_y": {
+      "quantity": {
+        "name": "x_y",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "x_z": {
+      "quantity": {
+        "name": "x_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "y_x": {
+      "quantity": {
+        "name": "y_x",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "y_y": {
+      "quantity": {
+        "name": "y_y",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "y_z": {
+      "quantity": {
+        "name": "y_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {
+    "phi": 2
+  },
+  "called_bases": [
+    "T",
+    "v"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "h_{m,s,n,t}": "E3",
+    "V_{m,s,n,t,p,u,q,w}": "E6"
+  },
+  "expr_counter": 7,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 20,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

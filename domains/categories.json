@@ -1,0 +1,51 @@
+[
+  {
+    "key": "physics",
+    "label_ja": "物理学",
+    "label_en": "Physics",
+    "order": 1
+  },
+  {
+    "key": "mathematics",
+    "label_ja": "数学",
+    "label_en": "Mathematics",
+    "order": 2
+  },
+  {
+    "key": "engineering",
+    "label_ja": "工学・応用",
+    "label_en": "Engineering & Applied",
+    "order": 3
+  },
+  {
+    "key": "operations",
+    "label_ja": "経営工学・OR",
+    "label_en": "Operations & Management Science",
+    "order": 6
+  },
+  {
+    "key": "economics",
+    "label_ja": "経済学・金融",
+    "label_en": "Economics & Finance",
+    "order": 4
+  },
+  {
+    "key": "biology",
+    "label_ja": "生命科学",
+    "label_en": "Life Sciences",
+    "order": 5
+  },
+  {
+    "key": "education",
+    "label_ja": "初等・中等教育",
+    "label_en": "Secondary Education",
+    "order": 99
+  },
+  {
+    "key": "second_quantization",
+    "label_ja": "第２量子化",
+    "label_en": "Second Quantization",
+    "order": 7,
+    "default_backend": "julia_full"
+  }
+]

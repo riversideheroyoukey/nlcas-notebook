@@ -1,0 +1,111 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_rlc\_transfer\_function}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider a series RLC circuit (charge $q(t)$, input voltage $v(t)$). Prepare $q,v$ as time-dependent functions.
+
+Define q as a time-dependent function
+
+$\checkmark$ Declared q as time-dependent (time variable: t)
+
+Define v as a time-dependent function
+
+$\checkmark$ Declared v as time-dependent (time variable: t)
+
+Name the Laplace transform of $q$ as $Q$ (an s-domain quantity), via a definition card.
+
+Let Q be the Laplace transform of q
+
+\begin{equation}
+  Q(s) = \int_0^{\infty} q(t)\, e^{-s t}\, dt
+  \label{eq:E1}
+\end{equation}
+
+Likewise name the Laplace transform of $v$ as $V$.
+
+Let V be the Laplace transform of v
+
+\begin{equation}
+  V(s) = \int_0^{\infty} v(t)\, e^{-s t}\, dt
+  \label{eq:E2}
+\end{equation}
+
+Write the Laplace transform rules for the derivatives. Integration by parts here fixes $u=e^{-st}$ by the structure of the transform, so there is no choice to make: this is a theorem, and the researcher writes it. First $\mathcal L\{\dot q\} = sQ - q(0)$.
+
+$s Q - q_0$
+
+\begin{equation}
+  s Q - q_0
+  \label{eq:E3}
+\end{equation}
+
+Then $\mathcal L\{\ddot q\} = s^2 Q - s q(0) - \dot q(0)$.
+
+$s^2 Q - s q_0 - u_0$
+
+\begin{equation}
+  s^2 Q - s q_0 - u_0
+  \label{eq:E4}
+\end{equation}
+
+Assemble the s-domain form of the circuit equation $L\ddot q+R\dot q+q/C=v$ (inductance $L$, resistance $R$, capacitance $C$), referring to the two rules above by their E-ids.
+
+$L E4 + R E3 + Q/C = V$
+
+\begin{equation}
+  L \left(-u_{0}+Q s^2-q_{0} s\right)+R \left(Q s-q_{0}\right)+\frac{Q}{C}=V
+  \label{eq:E5}
+\end{equation}
+
+The transfer function is defined under zero initial conditions, so state $q(0)=0$ and $\dot q(0)=0$. An H-1 definition is sent to the CAS when registered, so these are in force from here on.
+
+$q_0 = 0$
+
+\begin{equation}
+  q_0 = 0
+  \label{eq:E6}
+\end{equation}
+
+$u_0 = 0$
+
+\begin{equation}
+  u_0 = 0
+  \label{eq:E7}
+\end{equation}
+
+Define the transfer function $H=Q/V$ (the s-domain ratio of output to input).
+
+$H = Q/V$
+
+\begin{equation}
+  H = Q/V
+  \label{eq:E8}
+\end{equation}
+
+Solve the s-domain equation for $Q$. The zero initial conditions are already in force.
+
+Solve E5 for Q
+
+\begin{equation}
+  Q = \frac{C V}{C L s^2+C R s+1}
+  \label{eq:E9}
+\end{equation}
+
+Substitute the resulting expression for $Q$ into the definition of $H$ to get the closed form of the transfer function.
+
+Substitute E9 into E8
+
+\begin{equation}
+  H = \frac{C}{C L s^2+C R s+1}
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

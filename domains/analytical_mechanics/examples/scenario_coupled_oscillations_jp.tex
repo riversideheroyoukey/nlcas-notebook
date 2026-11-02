@@ -1,0 +1,145 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_coupled\_oscillations}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+両端の外側バネ（定数 $k$）と1つの結合バネ（定数 $c$）でつながれた、質量 $m$ の2質点系を扱う。2質点の変位をそれぞれ $x,y$ とする。
+
+x を時間依存関数として定義する
+
+$\checkmark$ x を時間依存として宣言しました（時間変数: t）
+
+y を時間依存関数として定義する
+
+$\checkmark$ y を時間依存として宣言しました（時間変数: t）
+
+m と k と c をスカラーとする
+
+\[
+  m, k, c
+\]
+
+ラグランジアン $L=$運動エネルギー$-$ポテンシャルエネルギーを定義する。ポテンシャル項は、各質点の外側バネによる $\frac12kx^2,\ \frac12ky^2$ と、変位差 $(x-y)$ に比例する結合バネのエネルギー $\frac12c(x-y)^2$ からなる。
+
+$Lag = (1/2) m \dot{x}^2 + (1/2) m \dot{y}^2 - (1/2) k x^2 - (1/2) k y^2 - (1/2) c (x - y)^2$
+
+\begin{equation}
+  Lag = (1/2) m \dot{x}^2 + (1/2) m \dot{y}^2 - (1/2) k x^2 - (1/2) k y^2 - (1/2) c (x - y)^2
+  \label{eq:E1}
+\end{equation}
+
+オイラー・ラグランジュ方程式 $\frac{d}{dt}\frac{\partial L}{\partial\dot x}-\frac{\partial L}{\partial x}=0$ に従い、$x$ の運動方程式を導く：$L$ を $\dot x$ で偏微分 $\to$ その結果を $t$ で全微分 $\to$ $L$ を $x$ で偏微分 $\to$ 両者の差を取る、という手順。
+
+E1 を $\dot{x}$ で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{x}} = m \dot{x}
+  \label{eq:E2}
+\end{equation}
+
+E2 を t で全微分して
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{x}}\right) = m \ddot{x}
+  \label{eq:E3}
+\end{equation}
+
+E1 を x で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial x} = -\left(c \left(x-y\right)\right)-k x
+  \label{eq:E4}
+\end{equation}
+
+$EOMx = E3 - E4$
+
+\begin{equation}
+  EOMx = -\left(c y\right)+m \ddot{x}+\left(k+c\right) x
+  \label{eq:E5}
+\end{equation}
+
+同じ手順で $y$ の運動方程式を導く。
+
+E1 を $\dot{y}$ で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{y}} = m \dot{y}
+  \label{eq:E6}
+\end{equation}
+
+E6 を t で全微分して
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{y}}\right) = m \ddot{y}
+  \label{eq:E7}
+\end{equation}
+
+E1 を y で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial y} = c \left(x-y\right)-k y
+  \label{eq:E8}
+\end{equation}
+
+$EOMy = E7 - E8$
+
+\begin{equation}
+  EOMy = m \ddot{y}+\left(k+c\right) y-c x
+  \label{eq:E9}
+\end{equation}
+
+2つの運動方程式の和と差を取ることで連立方程式を分離する（基準モード分解）。和では結合定数 $c$ が相殺して対称モード（低周波、$\omega_1^2=k/m$）、差では $k+2c$ が現れる反対称モード（高周波、$\omega_2^2=(k+2c)/m$）が得られる。
+
+$sym = E5 + E9$
+
+\begin{equation}
+  sym = m \ddot{y}+k y+m \ddot{x}+k x
+  \label{eq:E10}
+\end{equation}
+
+$anti = E5 - E9$
+
+\begin{equation}
+  anti = -\left(m \ddot{y}\right)+\left(-k-2 c\right) y+m \ddot{x}+\left(k+2 c\right) x
+  \label{eq:E11}
+\end{equation}
+
+基準座標 $Q_1=x+y$（対称モード座標）、$Q_2=x-y$（反対称モード座標）への変換を定義する。
+
+$Q_1 = x_1 + x_2$
+
+\begin{equation}
+  Q_1 = x_1 + x_2
+  \label{eq:E12}
+\end{equation}
+
+$Q_2 = x_1 - x_2$
+
+\begin{equation}
+  Q_2 = x_1 - x_2
+  \label{eq:E13}
+\end{equation}
+
+この変換を逆に解き、基準座標 $Q_1,Q_2$ から元の変位 $x,y$（式中では $x_1,x_2$）を表す式を得る。
+
+E12, E13 を $x_1$, $x_2$ について逆変換して
+
+\begin{equation}
+  x_{1} = \frac{Q_{2}+Q_{1}}{2}
+  \label{eq:E14}
+\end{equation}
+
+\begin{equation}
+  x_{2} = \frac{Q_{1}-Q_{2}}{2}
+  \label{eq:E15}
+\end{equation}
+
+\end{document}

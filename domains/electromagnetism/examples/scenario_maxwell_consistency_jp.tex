@@ -1,0 +1,180 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_maxwell\_consistency}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+電磁場を扱う。電場 $\mathbf E$ と磁場 $\mathbf B$ をベクトル場として準備する（成分は抽象のままで登録し、後で具体的な式を割り当てる）。
+
+E をベクトル場として定義する
+
+\[
+  E
+\]
+
+B をベクトル場として定義する
+
+\[
+  B
+\]
+
+$+x$ 方向に進む直線偏波の平面波として、電場の各成分（振幅1、波数 $k$、角振動数 $\omega$）を割り当てる。
+
+$E_x = 0$
+
+\begin{equation}
+  E_x = 0
+  \label{eq:E1}
+\end{equation}
+
+$E_y = cos(k x - w t)$
+
+\begin{equation}
+  E_y = \cos(k x - w t)
+  \label{eq:E2}
+\end{equation}
+
+$E_z = 0$
+
+\begin{equation}
+  E_z = 0
+  \label{eq:E3}
+\end{equation}
+
+対応する磁場の各成分を割り当てる。
+
+$B_x = 0$
+
+\begin{equation}
+  B_x = 0
+  \label{eq:E4}
+\end{equation}
+
+$B_y = 0$
+
+\begin{equation}
+  B_y = 0
+  \label{eq:E5}
+\end{equation}
+
+$B_z = cos(k x - w t)/c$
+
+\begin{equation}
+  B_z = \cos(k x - w t)/c
+  \label{eq:E6}
+\end{equation}
+
+電場の発散 $\nabla\cdot\mathbf E$ を計算する。真空中（電荷なし）では恒等的にゼロになるはずである（Gaussの法則）。
+
+$\nabla \cdot E$
+
+\begin{equation}
+  0
+  \label{eq:E7}
+\end{equation}
+
+磁場の発散 $\nabla\cdot\mathbf B$ を計算する。磁荷が存在しないため恒等的にゼロになるはずである。
+
+$\nabla \cdot B$
+
+\begin{equation}
+  0
+  \label{eq:E8}
+\end{equation}
+
+電場の回転 $\nabla\times\mathbf E$ を計算する（Faradayの法則の左辺）。
+
+$\nabla \times E$
+
+\begin{equation}
+  \left[ 0 , 0 , -\left(k \sin \left(k x-t w\right)\right) \right]
+  \label{eq:E9}
+\end{equation}
+
+磁場の回転 $\nabla\times\mathbf B$ を計算する（Ampèreの法則の左辺）。
+
+$\nabla \times B$
+
+\begin{equation}
+  \left[ 0 , \frac{k \sin \left(k x-t w\right)}{c} , 0 \right]
+  \label{eq:E10}
+\end{equation}
+
+$\partial/\partial t$ はベクトル演算子として直接扱えないため、成分ごとに時間偏微分する。ここではゼロでない成分 $B_z$ を $t$ で偏微分する。
+
+$B_z$ を t で偏微分して
+
+\begin{equation}
+  \frac{\partial}{\partial t} B_z(x,y,z) = \frac{w \sin \left(k x-t w\right)}{c}
+  \label{eq:E11}
+\end{equation}
+
+求めた偏微分の結果を、新しいベクトル場として組み立てる。ここで `dBdt` という名前を付けるが、これは $d\mathbf B/dt$ を表すために選んだ単なる識別子であり（CASの予約語や特別な構文ではない、他の名前でも同様に動く）、成分ごとに割り当て直す。
+
+dBdt をベクトル場として定義する
+
+\[
+  dBdt
+\]
+
+$dBdt_x = 0$
+
+\begin{equation}
+  dBdt_x = 0
+  \label{eq:E12}
+\end{equation}
+
+$dBdt_y = 0$
+
+\begin{equation}
+  dBdt_y = 0
+  \label{eq:E13}
+\end{equation}
+
+$dBdt_z = w sin(k x - w t)/c$
+
+\begin{equation}
+  dBdt_z = w \sin(k x - w t)/c
+  \label{eq:E14}
+\end{equation}
+
+組み立てた $d\mathbf B/dt$ が後続の計算（発散など）に使えることを、その発散を計算して確認する。
+
+$\nabla \cdot dBdt$
+
+\begin{equation}
+  0
+  \label{eq:E15}
+\end{equation}
+
+Faradayの法則 $\nabla\times\mathbf E=-\partial\mathbf B/\partial t$ の $z$ 成分どうしを等式として登録する（両辺の $z$ 成分を比較する）。
+
+$-k sin(k x - w t) = -w sin(k x - w t)/c$
+
+\begin{equation}
+  -k \sin(k x - w t) = -w \sin(k x - w t)/c
+  \label{eq:E16}
+\end{equation}
+
+この等式を角振動数 $\omega$ について解き、整合条件（分散関係）$\omega=ck$ を導く。
+
+E16 を w について解いて
+
+\begin{equation}
+  w = \frac{k x}{t}
+  \label{eq:E17}
+\end{equation}
+
+\begin{equation}
+  w = c k
+  \label{eq:E18}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,2252 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_52fb2bc3",
+    "title": "scenario_ideal_gas",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:10.401156Z",
+    "active_branch_id": "main",
+    "domains": [
+      "statistical_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_d4b74b",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\lambda = \\sqrt{h^2 / (2 \\pi m k_B T)}",
+      "canonical": "sqrt(h^2 / (2 * %pi * m * k_B * T))",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "sqrt(h^2 / (2 * %pi * m * k_B * T))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_3d4fe2",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "Z_1 = {{2^{\\frac{3}{2}} \\pi^{\\frac{3}{2}} T^{\\frac{3}{2}} V k_{B}^{\\frac{3}{2}} m^{\\frac{3}{2}}}\\over{h^3}}",
+      "canonical": "(2^(3/2)*%pi^(3/2)*T^(3/2)*V*k_B^(3/2)*m^(3/2))/h^3",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(2^(3/2)*%pi^(3/2)*T^(3/2)*V*k_B^(3/2)*m^(3/2))/h^3",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_bd4dd2",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "Z_N = {{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}",
+      "canonical": "(2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n /(N!*h^(3*N))",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "factorial"
+      ],
+      "warnings": [],
+      "input_canonical": "(2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n /(N!*h^(3*N))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_113e52",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "F = -T k_{B} \\log \\left({{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}\\right)",
+      "canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "factorial"
+      ],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_d88d36",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "F = -T k_{B} \\log \\left({{2^{\\frac{3 N}{2}} \\pi^{\\frac{3 N}{2}} T^{\\frac{3 N}{2}} V^{N} k_{B}^{\\frac{3 N}{2}} m^{\\frac{3 N}{2}}}\\over{N! h^{3 N}}}\\right)",
+      "canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "created_by_step": "S26",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_3d0963",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial F}{\\partial V} = -\\frac{N T k_{B}}{V}",
+      "canonical": "-((N*T*k_B)/V)",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": "F",
+      "derivative_vars": [
+        "V"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "-((N*T*k_B)/V)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "-(T*k_B\n   *log((2^((3*N)/2)*%pi^((3*N)/2)*T^((3*N)/2)*V^N*k_B^((3*N)/2)*m^((3*N)/2))\n         /(N!*h^(3*N))))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_131f18",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "P = \\frac{N T k_{B}}{V}",
+      "canonical": "(N*T*k_B)/V",
+      "created_by_step": "S32",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(N*T*k_B)/V",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_e975df",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "P = \\frac{N T k_{B}}{V}",
+      "canonical": "(N*T*k_B)/V",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(N*T*k_B)/V",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(N*T*k_B)/V",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_f07fcc",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "FoverT = F / T",
+      "canonical": "F / T",
+      "created_by_step": "S38",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "F / T",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_3fcadb",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial FoverT}{\\partial T} = -\\frac{3 N k_{B}}{2 T}",
+      "canonical": "-((3*N*k_B)/(2*T))",
+      "created_by_step": "S41",
+      "simplification_log": [],
+      "quantity_name": "FoverT",
+      "derivative_vars": [
+        "T"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "-((3*N*k_B)/(2*T))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "F / T",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_98afa9",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "U = \\frac{3 N T k_{B}}{2}",
+      "canonical": "(3*N*T*k_B)/2",
+      "created_by_step": "S44",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_6c0f70",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "U = \\frac{3 N T k_{B}}{2}",
+      "canonical": "(3*N*T*k_B)/2",
+      "created_by_step": "S47",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(3*N*T*k_B)/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_ba3746",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial U}{\\partial T} = \\frac{3 N k_{B}}{2}",
+      "canonical": "(3*N*k_B)/2",
+      "created_by_step": "S50",
+      "simplification_log": [],
+      "quantity_name": "U",
+      "derivative_vars": [
+        "T"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "(3*N*k_B)/2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(3*N*T*k_B)/2",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {
+    "ASM1": {
+      "assumption_id": "ASM1",
+      "display": "N > 0",
+      "canonical": "N > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM2": {
+      "assumption_id": "ASM2",
+      "display": "V > 0",
+      "canonical": "V > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM3": {
+      "assumption_id": "ASM3",
+      "display": "T > 0",
+      "canonical": "T > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM4": {
+      "assumption_id": "ASM4",
+      "display": "m > 0",
+      "canonical": "m > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM5": {
+      "assumption_id": "ASM5",
+      "display": "h > 0",
+      "canonical": "h > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    },
+    "ASM6": {
+      "assumption_id": "ASM6",
+      "display": "k_B > 0",
+      "canonical": "k_B > 0",
+      "scope": "branch",
+      "branch_id": "main"
+    }
+  },
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:10.466493Z",
+      "user_text": "$N$ 粒子の単原子理想気体を扱う。粒子数 $N$、体積 $V$、温度 $T$、粒子の質量 $m$、プランク定数 $h$、ボルツマン定数 $k_B$ を正の実数パラメータとして準備する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.466717Z",
+      "user_text": "N, V, T, m, h, k_B を正の実数パラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.468101Z",
+      "user_text": "N, V, T, m, h, k_B を正の実数パラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "N",
+        "_all_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k"
+        ],
+        "_raw_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k_B"
+        ],
+        "domain": "real",
+        "sign": "positive",
+        "candidates": [
+          {
+            "operation": "define_scalar_parameter",
+            "args": {
+              "name": "N",
+              "_all_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k"
+              ],
+              "_raw_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "domain": "real",
+              "sign": "positive"
+            },
+            "display_ja": "B は成分インデックス（k の B 成分）",
+            "display_en": "B is a component index (k at B)"
+          },
+          {
+            "operation": "define_scalar_parameter",
+            "args": {
+              "name": "N",
+              "_all_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "_raw_names": [
+                "N",
+                "V",
+                "T",
+                "m",
+                "h",
+                "k_B"
+              ],
+              "domain": "real",
+              "sign": "positive"
+            },
+            "display_ja": "B は名前の一部（k_B という固有の量）",
+            "display_en": "B is part of the name (k_B is a distinct quantity)"
+          }
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:10.468941Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "N",
+        "domain": "real",
+        "sign": "positive",
+        "registered_names": [
+          "N",
+          "V",
+          "T",
+          "m",
+          "h",
+          "k_B"
+        ]
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(N, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:10.469205Z",
+      "user_text": null,
+      "visible_action": "N > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM1",
+        "canonical": "N > 0",
+        "display": "N > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(N > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:58:10.469637Z",
+      "user_text": null,
+      "visible_action": "V > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM2",
+        "canonical": "V > 0",
+        "display": "V > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(V > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:10.470075Z",
+      "user_text": null,
+      "visible_action": "T > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM3",
+        "canonical": "T > 0",
+        "display": "T > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(T > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:10.470478Z",
+      "user_text": null,
+      "visible_action": "m > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM4",
+        "canonical": "m > 0",
+        "display": "m > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(m > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:58:10.470884Z",
+      "user_text": null,
+      "visible_action": "h > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM5",
+        "canonical": "h > 0",
+        "display": "h > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(h > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "assumption_add",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:10.471302Z",
+      "user_text": null,
+      "visible_action": "k_B > 0 を仮定する",
+      "operation": null,
+      "operation_args": {
+        "assumption_id": "ASM6",
+        "canonical": "k_B > 0",
+        "display": "k_B > 0"
+      },
+      "backend": null,
+      "rendered_command": "assume(k_B > 0)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:10.471892Z",
+      "user_text": "熱的ド・ブロイ波長 $\\lambda=\\sqrt{h^2/(2\\pi mk_BT)}$（量子効果が効き始める長さスケール）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:58:10.471935Z",
+      "user_text": "\\lambda = \\sqrt{h^2 / (2 * \\pi * m * k_B * T)}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:58:10.473561Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:10.490146Z",
+      "user_text": "1粒子分配関数 $Z_1=V/\\lambda^3$ を定義する（体積を熱的ド・ブロイ波長の3乗で割ったもので、粒子が占めうる量子状態の数に対応する）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:10.490194Z",
+      "user_text": "Z_1 = V / E1^3",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:10.493248Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:10.496832Z",
+      "user_text": "$N$ 粒子系の分配関数 $Z_N=Z_1^N/N!$ を定義する。$N!$ で割るのは、区別できない粒子の入れ替えによる数え過ぎを補正する Gibbs の補正項。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:10.496875Z",
+      "user_text": "Z_N = E2^N / N!",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:10.500436Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:10.504394Z",
+      "user_text": "ヘルムホルツ自由エネルギー $F=-k_BT\\ln Z_N$ を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:10.504444Z",
+      "user_text": "F = -k_B * T * \\log(E3)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:10.509015Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:58:10.513094Z",
+      "user_text": "これまでに登録した $Z_N,Z_1,\\lambda$ の定義を代入し、$F$ を展開して $N,V,T,m,h,k_B$ だけで表される閉じた式にする。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.513137Z",
+      "user_text": "F を展開して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.513640Z",
+      "user_text": "F を展開して",
+      "visible_action": "LLM解釈: expand",
+      "operation": "expand",
+      "operation_args": {
+        "expr": "E4"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:10.517316Z",
+      "user_text": null,
+      "visible_action": "E4 を展開する",
+      "operation": "expand",
+      "operation_args": {
+        "expr": "E4"
+      },
+      "backend": "maxima",
+      "rendered_command": "expand(-T * k_B * log(2^(3 * N * 2^-1) * %pi^(3 * N * 2^-1) * T^(3 * N * 2^-1) * V^N * k_B^(3 * N * 2^-1) * m^(3 * N * 2^-1) * (factorial(N) * h^(3 * N))^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E4"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:58:10.518811Z",
+      "user_text": "圧力 $P=-(\\partial F/\\partial V)_T$ を求めるため、まず $F$ を体積 $V$ で偏微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:10.518846Z",
+      "user_text": "F を V で偏微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:10.523564Z",
+      "user_text": null,
+      "visible_action": "E5 をV で偏微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E5",
+        "var": "V",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(-T * k_B * log(2^(3 * N * 2^-1) * %pi^(3 * N * 2^-1) * T^(3 * N * 2^-1) * V^N * k_B^(3 * N * 2^-1) * m^(3 * N * 2^-1) * (factorial(N) * h^(3 * N))^-1),V,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:58:10.524344Z",
+      "user_text": "符号を反転し、圧力 $P$ として登録する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:58:10.524378Z",
+      "user_text": "P = -E6",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:58:10.526051Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:58:10.530870Z",
+      "user_text": "得られた式を整理する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:10.530911Z",
+      "user_text": "E7 の右辺を整理して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:10.541924Z",
+      "user_text": null,
+      "visible_action": "E7 の右辺を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E7"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp(N * T * k_B * V^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:58:10.542632Z",
+      "user_text": "内部エネルギー $U=-T^2\\partial(F/T)/\\partial T$（Gibbs–Helmholtz の関係）を求めるため、まず $F/T$ を新しい式として作る。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:58:10.542672Z",
+      "user_text": "FoverT = F / T",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:58:10.543289Z",
+      "user_text": null,
+      "visible_action": "E9 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:58:10.546858Z",
+      "user_text": "$F/T$ を温度 $T$ で偏微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:10.546902Z",
+      "user_text": "FoverT を T で偏微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:10.551192Z",
+      "user_text": null,
+      "visible_action": "E9 をT で偏微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E9",
+        "var": "T",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(F * T^-1,T,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E9"
+      ],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:58:10.552163Z",
+      "user_text": "$-T^2$ を掛けて内部エネルギー $U$ として登録する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:58:10.552197Z",
+      "user_text": "U = -T^2 * E10",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:58:10.554061Z",
+      "user_text": null,
+      "visible_action": "E11 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S44"
+      ],
+      "timestamp": "2026-09-25T11:58:10.559059Z",
+      "user_text": "得られた式を整理する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:58:10.559100Z",
+      "user_text": "E11 の右辺を整理して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:58:10.563624Z",
+      "user_text": null,
+      "visible_action": "E11 の右辺を簡約する",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E11"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp(3 * N * T * k_B * 2^-1))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E11"
+      ],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "evaluate_rhs"
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S47"
+      ],
+      "timestamp": "2026-09-25T11:58:10.564089Z",
+      "user_text": "定積熱容量 $C_V=(\\partial U/\\partial T)_V$ を求めるため、内部エネルギー $U$ を温度 $T$ で偏微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S49": {
+      "step_id": "S49",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:58:10.564126Z",
+      "user_text": "U を T で偏微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S50": {
+      "step_id": "S50",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:58:10.568872Z",
+      "user_text": null,
+      "visible_action": "E12 をT で偏微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E12",
+        "var": "T",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(3 * N * T * k_B * 2^-1,T,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E12"
+      ],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S50",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:10.401162Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "N": {
+      "quantity": {
+        "name": "N",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "V": {
+      "quantity": {
+        "name": "V",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "T": {
+      "quantity": {
+        "name": "T",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "h": {
+      "quantity": {
+        "name": "h",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "k_B": {
+      "quantity": {
+        "name": "k_B",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": "real",
+        "sign": "positive",
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "lambda": {
+      "quantity": {
+        "name": "lambda",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Z_1": {
+      "quantity": {
+        "name": "Z_1",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E2",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Z_N": {
+      "quantity": {
+        "name": "Z_N",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E3",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "F": {
+      "quantity": {
+        "name": "F",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "F_dV": {
+      "quantity": {
+        "name": "F_dV",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E6",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "P": {
+      "quantity": {
+        "name": "P",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E8",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "FoverT": {
+      "quantity": {
+        "name": "FoverT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E9",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "FoverT_dT": {
+      "quantity": {
+        "name": "FoverT_dT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E10",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "U": {
+      "quantity": {
+        "name": "U",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E12",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "U_dT": {
+      "quantity": {
+        "name": "U_dT",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E13",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [
+    "factorial"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\lambda": "E1",
+    "lambda": "E1",
+    "Z_1": "E2",
+    "Z_N": "E3",
+    "F": "E5",
+    "\\frac{\\partial F}{\\partial V}": "E6",
+    "'diff(F,V,1)": "E6",
+    "P": "E8",
+    "FoverT": "E9",
+    "\\frac{\\partial FoverT}{\\partial T}": "E10",
+    "'diff(FoverT,T,1)": "E10",
+    "U": "E12",
+    "\\frac{\\partial U}{\\partial T}": "E13",
+    "'diff(U,T,1)": "E13"
+  },
+  "expr_counter": 13,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 50,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

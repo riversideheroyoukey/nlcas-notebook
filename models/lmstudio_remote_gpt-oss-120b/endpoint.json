@@ -1,0 +1,18 @@
+{
+  "name": "lmstudio_remote_gpt-oss-120b",
+  "scope": "local",
+  "base_url": "http://127.0.0.1:1234/v1",
+  "model": "openai/gpt-oss-120b",
+  "api_key_env": null,
+  "timeout": 180,
+  "roles": {
+    "advisor": {
+      "temperature": 0.3,
+      "max_tokens": 1024
+    },
+    "coder": {
+      "temperature": 0.2,
+      "max_tokens": 4096
+    }
+  }
+}

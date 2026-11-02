@@ -1,0 +1,92 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_jaynes\_cummings}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the Jaynes-Cummings model (a photon interacting with a two-level molecule). Prepare the photon frequency $\omega$, the molecular transition frequency $\omega_0$, and the light-matter coupling constant $g$ as real parameters.
+
+Define omega as a real parameter
+
+\[
+  \omega
+\]
+
+Define $\omega_0$ as a real parameter
+
+\[
+  \omega_{0}
+\]
+
+Define g as a real parameter
+
+\[
+  g
+\]
+
+Prepare the photon annihilation/creation operators $a,a^\dagger$ as boson operators, and the molecule's two-level (spin-1/2) operator $S$ as a spin operator.
+
+a as the creation operator for photon
+
+\[
+  a
+\]
+
+S as the spin operator
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+Register the Jaynes-Cummings Hamiltonian $H=\omega a^\dagger a+\omega_0S_z+g(aS^++a^\dagger S^-)$, entered with $S^\pm=S_x\pm iS_y$ expanded out. The first term is the photon energy, the second the molecular excitation energy, and the third the light-matter interaction from photon absorption/emission.
+
+$\omega a'(1) a(1) + \omega_0 Sz(1) + g (a(1) (Sx(1) + i Sy(1)) + a'(1) (Sx(1) - i Sy(1)))$
+
+\begin{equation}
+  \omega a^{\dagger}(1) a(1) + \omega_0 Sz(1) + g (a(1) (Sx(1) + i Sy(1)) + a^{\dagger}(1) (Sx(1) - i Sy(1)))
+  \label{eq:E1}
+\end{equation}
+
+Compute the Heisenberg equation of motion for the photon operator $a$.
+
+Heisenberg equation of E1 for a(1)
+
+\begin{equation}
+  \frac{d a(1)}{d t} = - g \mathit{i} Sx_1 - g Sy_1 - \omega \mathit{i} {a}_{1}
+  \label{eq:E2}
+\end{equation}
+
+Compute the Heisenberg equation of motion for the molecular operator $S_x$.
+
+Heisenberg equation of E1 for Sx(1)
+
+\begin{equation}
+  \frac{d Sx(1)}{d t} = - 2 \omega_{0} Sy_1 - 2 g \mathit{i} {a}_{1}^{\dagger} Sz_1 + 2 g \mathit{i} Sz_1 {a}_{1}
+  \label{eq:E3}
+\end{equation}
+
+Define the excitation-number operator $N_{\rm ex}=a^\dagger a+S_z/2$ (the sum of the photon number and the molecule's spin $z$-component).
+
+a'(1)*a(1) + Sz(1)/2
+
+\begin{equation}
+  a^{\dagger}(1) a(1) + Sz(1)/2
+  \label{eq:E4}
+\end{equation}
+
+Compute the commutator of the Hamiltonian $H$ and the excitation-number operator $N_{\rm ex}$. Physically, each of $H$'s three terms individually conserves the total excitation number: the photon-energy and molecule-energy terms are diagonal in the excitation-number basis, and the interaction term $g(aS^++a^\dagger S^-)$ only ever converts one photon into one molecular excitation or vice versa (photon absorption/emission), never changing $a^\dagger a+S_z$'s total. This is why the CAS-computed commutator collapses to exactly 0 rather than some residual expression — a genuinely computed cancellation, not a fixed answer. (The CAS applies operator identities and returns the final simplified value directly; it does not expose the intermediate term-by-term expansion as a separate visible step.)
+
+[E1, E4]
+
+\begin{equation}
+  0
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

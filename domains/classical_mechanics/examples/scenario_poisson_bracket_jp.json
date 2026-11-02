@@ -1,0 +1,772 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_23dd2afe",
+    "title": "scenario_poisson_bracket",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:55.585339Z",
+    "active_branch_id": "main",
+    "domains": [
+      "classical_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_02ab23",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "1",
+      "canonical": "1",
+      "created_by_step": "S9",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_db8053",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "H = p_r^2/(2 m) + p_{\\theta}^2/(2 m r^2) + U(r)",
+      "canonical": "p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)",
+      "created_by_step": "S12",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "p_r",
+        "p_theta",
+        "U"
+      ],
+      "warnings": [],
+      "input_canonical": "p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_f64a1a",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "L_z = p_{\\theta}",
+      "canonical": "p_theta",
+      "created_by_step": "S15",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "p_theta"
+      ],
+      "warnings": [],
+      "input_canonical": "p_theta",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_db90ae",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "0",
+      "created_by_step": "S18",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_e4ac86",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "-\\frac{p_{r}}{m}",
+      "canonical": "-(p_r/m)",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-(p_r/m)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:55.650727Z",
+      "user_text": "ポアソン括弧を計算するには、どの座標とどの運動量が共役（正準対）かをあらかじめ宣言しておく必要がある。動径座標 $r$ の共役運動量 $p_r$ を宣言する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:55.650928Z",
+      "user_text": "p_r を r の共役運動量とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651301Z",
+      "user_text": "正準座標対 (r, p_r) を登録しました。以後「f と g のポアソン括弧を求めて」で利用できます。",
+      "visible_action": "正準対の宣言",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "poisson"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651322Z",
+      "user_text": "角度座標 $\\theta$ の共役運動量 $p_\\theta$ を宣言する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651359Z",
+      "user_text": "p_theta を theta の共役運動量とする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651529Z",
+      "user_text": "正準座標対 (theta, p_theta) を登録しました。以後「f と g のポアソン括弧を求めて」で利用できます。",
+      "visible_action": "正準対の宣言",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "poisson"
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651548Z",
+      "user_text": "基本的なポアソン括弧 $\\{r,p_r\\}$ を求める。正準対どうしなので正準交換関係 $\\{q,p\\}=1$ により1になるはずである。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:55.651587Z",
+      "user_text": "r と p_r のポアソン括弧を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:55.652600Z",
+      "user_text": null,
+      "visible_action": "r のポアソン括弧を計算する",
+      "operation": "poisson_bracket",
+      "operation_args": {
+        "a": "r",
+        "b": "p_r"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(diff((r),r)*diff((p_r),p_r) - diff((r),p_r)*diff((p_r),r) + diff((r),theta)*diff((p_r),p_theta) - diff((r),p_theta)*diff((p_r),theta))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "poisson"
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:55.652855Z",
+      "user_text": "中心力ハミルトニアン $H=p_r^2/(2m)+p_\\theta^2/(2mr^2)+U(r)$（動径・角度方向の運動エネルギーとポテンシャル $U(r)$ の和）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:55.652892Z",
+      "user_text": "H = p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:55.654787Z",
+      "user_text": null,
+      "visible_action": "E2 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:58:55.655953Z",
+      "user_text": "角運動量 $L_z=p_\\theta$（角度の共役運動量そのもの）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:55.656002Z",
+      "user_text": "L_z = p_theta",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:55.656548Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S15"
+      ],
+      "timestamp": "2026-09-25T11:58:55.659378Z",
+      "user_text": "ハミルトニアン $H$ と角運動量 $L_z$ のポアソン括弧を求める。$H$ が角度 $\\theta$ に依らない（回転対称）ので、これがゼロになれば $L_z$ は保存量であることが確認できる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:55.659422Z",
+      "user_text": "H と L_z のポアソン括弧を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:55.661290Z",
+      "user_text": null,
+      "visible_action": "E2 のポアソン括弧を計算する",
+      "operation": "poisson_bracket",
+      "operation_args": {
+        "a": "E2",
+        "b": "E3"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),r)*diff((p_theta),p_r) - diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),p_r)*diff((p_theta),r) + diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),theta)*diff((p_theta),p_theta) - diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),p_theta)*diff((p_theta),theta))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2",
+        "E3"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "poisson"
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:58:55.661801Z",
+      "user_text": "ハミルトンの運動方程式 $\\dot q=\\{q,H\\}$ を用いて動径座標 $r$ の時間発展を求めるため、$H$ と $r$ のポアソン括弧を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:55.661840Z",
+      "user_text": "H と r のポアソン括弧を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:55.663684Z",
+      "user_text": null,
+      "visible_action": "E2 のポアソン括弧を計算する",
+      "operation": "poisson_bracket",
+      "operation_args": {
+        "a": "E2",
+        "b": "r"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),r)*diff((r),p_r) - diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),p_r)*diff((r),r) + diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),theta)*diff((r),p_theta) - diff((p_r^2/(2*m) + p_theta^2/(2*m*r^2) + U(r)),p_theta)*diff((r),theta))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "poisson"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S21",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:55.585347Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "H": {
+      "quantity": {
+        "name": "H",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E2",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "L_z": {
+      "quantity": {
+        "name": "L_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E3",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [
+    [
+      "r",
+      "p_r"
+    ],
+    [
+      "theta",
+      "p_theta"
+    ]
+  ],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {
+    "p": 1
+  },
+  "called_bases": [
+    "U"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "H": "E2",
+    "L_z": "E3"
+  },
+  "expr_counter": 5,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 21,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

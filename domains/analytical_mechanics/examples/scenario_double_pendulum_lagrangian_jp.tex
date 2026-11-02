@@ -1,0 +1,75 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_double\_pendulum\_lagrangian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+二重振り子を扱う。添字つき記号を避けるため、角度 $\theta_1,\theta_2$ を $a,b$、質量 $m_1,m_2$ を $M,m$、振り子の長さ $l_1,l_2$ を $p,q$、重力加速度を $g$ という記号に置き換える。$a,b$ は時間に依存する角度。
+
+a を時間依存関数として定義する
+
+$\checkmark$ a を時間依存として宣言しました（時間変数: t）
+
+b を時間依存関数として定義する
+
+$\checkmark$ b を時間依存として宣言しました（時間変数: t）
+
+M と m と p と q と g をスカラーとして定義する
+
+\[
+  M, m, p, q, g
+\]
+
+二重振り子のラグランジアン $L=$運動エネルギー$+$ポテンシャルエネルギーを定義する。運動エネルギー項には振り子1・2それぞれの回転エネルギーに加え、両者の角速度の積 $\dot a\dot b\cos(a-b)$ に比例する速度結合項が現れる。
+
+$Lag = (1/2) (M + m) p^2 \dot{a}^2 + (1/2) m q^2 \dot{b}^2 + m p q \dot{a} \dot{b} \cos(a - b) + (M + m) g p \cos(a) + m g q \cos(b)$
+
+\begin{equation}
+  Lag = (1/2) (M + m) p^2 \dot{a}^2 + (1/2) m q^2 \dot{b}^2 + m p q \dot{a} \dot{b} \cos(a - b) + (M + m) g p \cos(a) + m g q \cos(b)
+  \label{eq:E1}
+\end{equation}
+
+一般化運動量 $\partial L/\partial\dot\theta_1$ を求めるため、$L$ を $\dot a$（$\dot\theta_1$）で偏微分する。速度結合項から $\dot b$（$\dot\theta_2$）を含む項が現れる。
+
+E1 を $\dot{a}$ で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{a}} = \cos \left(b-a\right) \dot{b} m p q+\dot{a} \left(m+M\right) p^2
+  \label{eq:E2}
+\end{equation}
+
+求めた一般化運動量を時間で全微分し、$\frac{d}{dt}(\partial L/\partial\dot\theta_1)$ を求める。
+
+E2 を t で全微分して
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{a}}\right) = \left(-\left(\sin \left(b-a\right) \dot{b}^2\right)+\dot{a} \sin \left(b-a\right) \dot{b}+\cos \left(b-a\right) \ddot{b}\right) m p q+\left(\ddot{a} m+M \ddot{a}\right) p^2
+  \label{eq:E3}
+\end{equation}
+
+オイラー・ラグランジュ方程式のもう一方の項 $\partial L/\partial\theta_1$ を求めるため、$L$ を $a$（$\theta_1$）で偏微分する。
+
+E1 を a で偏微分して
+
+\begin{equation}
+  \frac{\partial Lag}{\partial a} = \dot{a} \sin \left(b-a\right) \dot{b} m p q-\sin a g \left(m+M\right) p
+  \label{eq:E4}
+\end{equation}
+
+$\frac{d}{dt}(\partial L/\partial\dot\theta_1)$ から $\partial L/\partial\theta_1$ を引き、$\theta_1$ の運動方程式を組み立てる。
+
+$EOMa = E3 - E4$
+
+\begin{equation}
+  EOMa = \left(\cos \left(b-a\right) \ddot{b}-\sin \left(b-a\right) \dot{b}^2\right) m p q+\left(\ddot{a} m+M \ddot{a}\right) p^2+\left(\sin a g m+M \sin a g\right) p
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

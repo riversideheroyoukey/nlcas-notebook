@@ -1,0 +1,1215 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_a31eb92c",
+    "title": "scenario_central_force_conservation",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:17.790228Z",
+    "active_branch_id": "main",
+    "domains": [
+      "classical_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_a47925",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "L_z = m r^2 \\dot{\\theta}",
+      "canonical": "m*r^2*theta_dot",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m*r^2*theta_dot",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_a86c84",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\frac{dL_z}{dt} = m r^2 \\left(\\frac{d^2}{d t^2} \\theta\\right)+2 m r \\dot{r} \\left(\\frac{d}{d t} \\theta\\right)",
+      "canonical": "m*r^2*'diff(theta,t,2)+2*m*r*'diff(r,t,1)*'diff(theta,t,1)",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": "L_z",
+      "derivative_vars": [
+        "t"
+      ],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "m*r^2*'diff(theta,t,2)+2*m*r*'diff(r,t,1)*'diff(theta,t,1)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m*r^2*theta_dot",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_4ff3f5",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\frac{dL_z}{dt} = 0",
+      "canonical": "0",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "m*r^2*theta_dot",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_4873e5",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "E_tot = (1/2) m (\\dot{r}^2 + r^2 \\dot{\\theta}^2) - k / r",
+      "canonical": "(1/2)*m*(r_dot^2 + r^2*theta_dot^2) - k / r",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*m*(r_dot^2 + r^2*theta_dot^2) - k / r",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_fb1cc5",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\frac{dE_tot}{dt} = \\frac{m \\left(2 r^2 \\left(\\frac{d}{d t} \\theta\\right) \\left(\\frac{d^2}{d t^2} \\theta\\right)+2 r \\dot{r} \\left(\\frac{d}{d t} \\theta\\right)^2+2 \\dot{r} \\ddot{r}\\right)}{2}+\\frac{k \\dot{r}}{r^2}",
+      "canonical": "(m*(2*r^2*'diff(theta,t,1)*'diff(theta,t,2)\n   +2*r*'diff(r,t,1)*('diff(theta,t,1))^2+2*'diff(r,t,1)*'diff(r,t,2)))\n /2\n +(k*'diff(r,t,1))/r^2",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": "E_tot",
+      "derivative_vars": [
+        "t"
+      ],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(m*(2*r^2*'diff(theta,t,1)*'diff(theta,t,2)\n   +2*r*'diff(r,t,1)*('diff(theta,t,1))^2+2*'diff(r,t,1)*'diff(r,t,2)))\n /2\n +(k*'diff(r,t,1))/r^2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*m*(r_dot^2 + r^2*theta_dot^2) - k / r",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_4ae8b5",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\frac{dE_tot}{dt} = -\\frac{m r^3 \\dot{r} \\left(\\frac{d}{d t} \\theta\\right)^2-m r^2 \\dot{r} \\ddot{r}-k \\dot{r}}{r^2}",
+      "canonical": "-((m*r^3*'diff(r,t,1)*('diff(theta,t,1))^2\n -m*r^2*'diff(r,t,1)*'diff(r,t,2)-k*'diff(r,t,1))\n /r^2)",
+      "created_by_step": "S28",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-((m*r^3*'diff(r,t,1)*('diff(theta,t,1))^2\n -m*r^2*'diff(r,t,1)*'diff(r,t,2)-k*'diff(r,t,1))\n /r^2)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*m*(r_dot^2 + r^2*theta_dot^2) - k / r",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_35c7e2",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\frac{dE_tot}{dt} = 0",
+      "canonical": "0",
+      "created_by_step": "S31",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*m*(r_dot^2 + r^2*theta_dot^2) - k / r",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:17.857208Z",
+      "user_text": "極座標 $(r,\\theta)$ で中心力ポテンシャル中を運動する質量 $m$ の質点を扱う。$k$ はケプラーポテンシャル $U=-k/r$ の強さを表すパラメータ。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:17.857401Z",
+      "user_text": "r を時間依存関数として定義する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:17.858637Z",
+      "user_text": "r を時間依存関数として定義する",
+      "visible_action": "LLM解釈: declare_time_dependent",
+      "operation": "declare_time_dependent",
+      "operation_args": {
+        "name": "r",
+        "_all_names": [
+          "r"
+        ],
+        "_raw_names": [
+          "r"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:17.859060Z",
+      "user_text": "✓ r を時間依存として宣言しました（時間変数: t）",
+      "visible_action": "時間依存宣言",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:17.859105Z",
+      "user_text": "theta を時間依存関数として定義する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:17.859714Z",
+      "user_text": "theta を時間依存関数として定義する",
+      "visible_action": "LLM解釈: declare_time_dependent",
+      "operation": "declare_time_dependent",
+      "operation_args": {
+        "name": "theta",
+        "_all_names": [
+          "theta"
+        ],
+        "_raw_names": [
+          "theta"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:17.860044Z",
+      "user_text": "✓ theta を時間依存として宣言しました（時間変数: t）",
+      "visible_action": "時間依存宣言",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:17.860084Z",
+      "user_text": "m と k をスカラーとする",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:17.860742Z",
+      "user_text": "m と k をスカラーとする",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "m",
+        "_all_names": [
+          "m",
+          "k"
+        ],
+        "_raw_names": [
+          "m",
+          "k"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:17.861304Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "m",
+        "registered_names": [
+          "m",
+          "k"
+        ]
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(m, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:17.862001Z",
+      "user_text": "角運動量 $L_z=mr^2\\dot\\theta$（質量×動径の2乗×角速度）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:17.862042Z",
+      "user_text": "L_z = m r^2 \\dot{theta}",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:17.863132Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:17.866097Z",
+      "user_text": "角運動量が保存量かどうかを調べるため、$L_z$ を時間 $t$ で全微分する（全微分は連鎖律を含み、$r,\\theta$ の時間変化も考慮する）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:17.866148Z",
+      "user_text": "E1 を t で全微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:17.868068Z",
+      "user_text": null,
+      "visible_action": "E1 をt で全微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "t",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(m * r^2 * 'diff(theta,t,1),t,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:17.869656Z",
+      "user_text": "運動方程式 $\\ddot\\theta=-2\\dot r\\dot\\theta/r$ を $dL_z/dt$ に代入する。結果がゼロになれば角運動量は保存量である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:17.869697Z",
+      "user_text": "E2 の \\ddot{theta} を -2 \\dot{r} \\dot{theta} / r に置換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:17.873365Z",
+      "user_text": null,
+      "visible_action": "E2 の \\ddot{\\theta} → -\\frac{2 \\dot{r} \\dot{\\theta}}{r}",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E2",
+        "lhs": "theta_ddot",
+        "rhs": "-2*r_dot*theta_dot / r"
+      },
+      "backend": "maxima",
+      "rendered_command": "block([theta_ddot], ratsimp(subst(theta_ddot=-2 * 'diff(r,t,1) * 'diff(theta,t,1) * r^-1,subst('diff(theta,t,2)=-2 * 'diff(r,t,1) * 'diff(theta,t,1) * r^-1,m * r^2 * 'diff(theta,t,2) + 2 * m * r * 'diff(r,t,1) * 'diff(theta,t,1)))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2"
+      ],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "substitute"
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:17.874349Z",
+      "user_text": "エネルギー $E=\\frac12 m(\\dot r^2+r^2\\dot\\theta^2)-k/r$（運動エネルギーとケプラーポテンシャルの和）を定義する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:17.874392Z",
+      "user_text": "E_tot = (1/2) m (\\dot{r}^2 + r^2 \\dot{theta}^2) - k / r",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:17.876066Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:17.879337Z",
+      "user_text": "エネルギーが保存量かどうかを調べるため、$E$ を時間 $t$ で全微分する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:17.879380Z",
+      "user_text": "E4 を t で全微分して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:17.882055Z",
+      "user_text": null,
+      "visible_action": "E4 をt で全微分する",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E4",
+        "var": "t",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(1 * 2^-1 * m * ('diff(r,t,1)^2 + r^2 * 'diff(theta,t,1)^2) - k * r^-1,t,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E4"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:17.883890Z",
+      "user_text": "運動方程式 $\\ddot\\theta=-2\\dot r\\dot\\theta/r$ を代入する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:17.883929Z",
+      "user_text": "E5 の \\ddot{theta} を -2 \\dot{r} \\dot{theta} / r に置換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:17.889576Z",
+      "user_text": null,
+      "visible_action": "E5 の \\ddot{\\theta} → -\\frac{2 \\dot{r} \\dot{\\theta}}{r}",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E5",
+        "lhs": "theta_ddot",
+        "rhs": "-2*r_dot*theta_dot / r"
+      },
+      "backend": "maxima",
+      "rendered_command": "block([theta_ddot], ratsimp(subst(theta_ddot=-2 * 'diff(r,t,1) * 'diff(theta,t,1) * r^-1,subst('diff(theta,t,2)=-2 * 'diff(r,t,1) * 'diff(theta,t,1) * r^-1,m * (2 * r^2 * 'diff(theta,t,1) * 'diff(theta,t,2) + 2 * r * 'diff(r,t,1) * 'diff(theta,t,1)^2 + 2 * 'diff(r,t,1) * 'diff(r,t,2)) * 2^-1 + k * 'diff(r,t,1) * (r^2)^-1))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "substitute"
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:17.891268Z",
+      "user_text": "もう一方の運動方程式 $\\ddot r=r\\dot\\theta^2-k/(mr^2)$ も代入する。両方代入した結果がゼロになれば、エネルギーは保存量である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:17.891311Z",
+      "user_text": "E6 の \\ddot{r} を r \\dot{theta}^2 - k / (m r^2) に置換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:17.897446Z",
+      "user_text": null,
+      "visible_action": "E6 の \\ddot{r} → r \\dot{\\theta}^2-\\frac{k}{m r^2}",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E6",
+        "lhs": "r_ddot",
+        "rhs": "r*theta_dot^2 - k / (m*r^2)"
+      },
+      "backend": "maxima",
+      "rendered_command": "block([r_ddot], ratsimp(subst(r_ddot=r * 'diff(theta,t,1)^2 - k * (m * r^2)^-1,subst('diff(r,t,2)=r * 'diff(theta,t,1)^2 - k * (m * r^2)^-1,-(m * r^3 * 'diff(r,t,1) * 'diff(theta,t,1)^2 - m * r^2 * 'diff(r,t,1) * 'diff(r,t,2) - k * 'diff(r,t,1)) * (r^2)^-1))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E6"
+      ],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "substitute"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S31",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:17.790240Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "r": {
+      "quantity": {
+        "name": "r",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [
+          "t"
+        ],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": true,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "theta": {
+      "quantity": {
+        "name": "theta",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [
+          "t"
+        ],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": true,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "k": {
+      "quantity": {
+        "name": "k",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "L_z": {
+      "quantity": {
+        "name": "L_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "E_tot": {
+      "quantity": {
+        "name": "E_tot",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E4",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "L_z": "E1",
+    "\\frac{dL_z}{dt}": "E3",
+    "'diff(L_z,t,1)": "E3",
+    "E_tot": "E4",
+    "\\frac{dE_tot}{dt}": "E7",
+    "'diff(E_tot,t,1)": "E7"
+  },
+  "expr_counter": 7,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 31,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

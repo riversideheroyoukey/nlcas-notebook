@@ -1,0 +1,147 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_greens\_function\_eom\_commutator}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+電子の消滅演算子と、係数のスカラーパラメータを宣言する。$\varepsilon$ はモードのエネルギー、$V$ は2体相互作用の行列要素。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+$\varepsilon$ をスカラーパラメータとして定義して
+
+\[
+  \epsilon
+\]
+
+V をスカラーパラメータとして定義して
+
+\[
+  V
+\]
+
+ハミルトニアン。1体項はモードについての和、2体項は4つの添字についての和で、係数は添字付きのスカラーである（QuantumAlgebra の `param` に落ちる）。姉妹シナリオの $\hat H_0$（対角形）と $\hat V$ に対応する。
+
+$H = \sum_n \varepsilon_n c'(n) c(n) + \sum_{p q s n} V_{p,q,s,n} c'(p) c'(q) c(s) c(n)$
+
+\begin{equation}
+  H = \sum_n \varepsilon_n c^{\dagger}(n) c(n) + \sum_{p q s n} V_{p,q,s,n} c^{\dagger}(p) c^{\dagger}(q) c(s) c(n)
+  \label{eq:E1}
+\end{equation}
+
+\textbf{交換子を計算する。} 手計算では、1体項からは $\delta_{nm}$ の縮約で $-\varepsilon_m c_m$ が残り（和は消える）、2体項からは $c^\dagger c c$ の形が2項出る。
+
+E1 と c(m) の交換子
+
+\begin{equation}
+  - \varepsilon_{m} {c}_{m} + \sum_{p,q,s} V_{p,m,q,s} {c}_{p}^{\dagger} {c}_{q} {c}_{s} - \sum_{p,q,s} V_{m,p,q,s} {c}_{p}^{\dagger} {c}_{q} {c}_{s}
+  \label{eq:E2}
+\end{equation}
+
+これがグリーン関数の運動方程式の右辺——姉妹シナリオへ書き写す段である。符号は $[\hat H,\hat c]$ の向きで、$[\hat c,\hat H]$ はその反転になる。
+
+\textbf{ここから先は、時間の付いた演算子そのものを扱う}（PAIR-REP、docs/34 §2）。$\hat c(t)=e^{i\hat Ht}\hat ce^{-i\hat Ht}$ は新しい種類の量ではなく、入れ子交換子の和 $\sum_n (it)^n/n!\,\mathrm{ad}_H^n(\hat c)$ である。$\hat H_0$ が対角なら $[\hat H_0,\hat c_m]=-\varepsilon_m\hat c_m$ で\textbf{1つの演算子に閉じる}ので、和は指数関数に\textbf{厳密に}再総和される——打ち切りではない。
+
+まず1体項だけのハミルトニアンを立てる（相互作用は $\mathrm{ad}$ の連鎖を閉じないので、そこは第2スライスの領分）。
+
+$H_0 = \sum_n \varepsilon_n c'(n) c(n)$
+
+\begin{equation}
+  H_0 = \sum_n \varepsilon_n c^{\dagger}(n) c(n)
+  \label{eq:E3}
+\end{equation}
+
+消滅演算子を時間発展させる。係数 $e^{-i\varepsilon_m t}$ は\textbf{スカラー}で、QuantumAlgebra には置けない（c 数を cos/sin に分解してしまう）——だから実体は「(係数, 演算子) の対」で、表示だけが $\hat c_m(t)$ の書き方に見える。
+
+c(m) を E3 のもとで時間発展させて
+
+\begin{equation}
+  e^{- i \varepsilon_{m} t} c_{m}
+  \label{eq:E4}
+\end{equation}
+
+生成演算子も、別の時刻 $u$ で。符号が逆になる（$[\hat H_0,\hat c^\dagger_m]=+\varepsilon_m\hat c^\dagger_m$）。
+
+c'(m) を E3 で時刻 u まで時間発展させて
+
+\begin{equation}
+  e^{i \varepsilon_{m} u} c^{\dagger}_{m}
+  \label{eq:E5}
+\end{equation}
+
+\textbf{異時刻の反交換関係。} ここがこの表現の見どころで、$\{\hat c_m(t),\hat c^\dagger_m(u)\}=f(t)\overline{f(u)}\{\hat c_m,\hat c^\dagger_m\}$——\textbf{係数の積 $\times$ 等時刻代数}として出る。時間を添字に畳む案なら $\delta(t,u)$ に潰れていたところである。等時刻の $\{\hat c,\hat c^\dagger\}=1$ が消えて、残るのは\textbf{演算子を含まないスカラー}、すなわち自由伝播関数の時間依存そのものになる。
+
+E4 と E5 の反交換関係
+
+\begin{equation}
+  1
+  \label{eq:E6}
+\end{equation}
+
+\begin{equation}
+  e^{i \varepsilon_{m} \left(- t + u\right)}
+  \label{eq:E7}
+\end{equation}
+
+交換子のほうは演算子が残る（$1-2\hat n_m$）ので、結果はふたたび「係数$\times$演算子」の対である。
+
+E4 と E5 の交換子
+
+\begin{equation}
+  1 - 2 {c}_{m}^{\dagger} {c}_{m}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  e^{i \varepsilon_{m} \left(- t + u\right)} \left(1 - 2 {c}_{m}^{\dagger} {c}_{m}\right)
+  \label{eq:E9}
+\end{equation}
+
+反交換子の結果は演算子を含まないので、\textbf{ここがセッションの境界}である——スカラーになった時点で Maxima 側へ渡せる（SCALAR-HANDOFF）。$\omega$ 空間へ行く残りの代数はそちらの領分。
+
+\textbf{連鎖が1つの演算子で閉じない場合も、有限個で閉じるなら厳密に出る。} 跳び移りのある2サイト模型で試す——$\mathrm{ad}$ は $\hat c_1$ と $\hat c_2$ の張る2次元で閉じ、係数は行列指数になる。
+
+$H_w = w (c'(1) c(2) + c'(2) c(1))$
+
+\begin{equation}
+  H_w = w (c^{\dagger}(1) c(2) + c^{\dagger}(2) c(1))
+  \label{eq:E10}
+\end{equation}
+
+消滅演算子を時間発展させると、\textbf{2つの演算子が混ざる}（$\cos$ と $-i\sin$）。1つの演算子に閉じる対角の場合との違いはここである。
+
+c(1) を E10 のもとで時間発展させて
+
+\begin{equation}
+  \cos{\left(t w \right)} c_{1} -  i \sin{\left(t w \right)} c_{2}
+  \label{eq:E11}
+\end{equation}
+
+c'(1) を E10 で時刻 u まで時間発展させて
+
+\begin{equation}
+  \cos{\left(u w \right)} c^{\dagger}_{1} + i \sin{\left(u w \right)} c^{\dagger}_{2}
+  \label{eq:E12}
+\end{equation}
+
+異時刻の反交換関係。4つの組み合わせのうち2つが生き残り、$\cos\cos+\sin\sin$ がスカラー側でまとまって——\textbf{時間差だけの関数} $\cos(w(t-u))$ になる。2サイト模型の自由伝播関数そのものである。
+
+E11 と E12 の反交換関係
+
+\begin{equation}
+  \cos{\left(w \left(t - u\right) \right)}
+  \label{eq:E13}
+\end{equation}
+
+\end{document}

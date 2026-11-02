@@ -1,0 +1,54 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_eoq\_optimal\_order\_quantity}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Given annual demand $D$, ordering cost $K$ per order, holding cost $h$ per unit, and order quantity $Q$, define the total cost $C(Q)=KD/Q+hQ/2$ (the sum of the ordering cost, "number of orders $D/Q$ times $K$", and the holding cost, "average inventory $Q/2$ times $h$").
+
+$C = K D / Q + h Q / 2$
+
+\begin{equation}
+  C = K D / Q + h Q / 2
+  \label{eq:E1}
+\end{equation}
+
+To find the order quantity that minimizes the total cost, take the total derivative of $C$ with respect to $Q$.
+
+Take the total derivative of E1 with respect to Q
+
+\begin{equation}
+  \frac{dC}{dQ} = \frac{h}{2}-\frac{D K}{Q^2}
+  \label{eq:E2}
+\end{equation}
+
+Set the derivative to zero and solve for $Q$ to find the candidate order quantities that minimize the cost.
+
+Solve E2 for Q
+
+\begin{equation}
+  Q = -\sqrt{2} \sqrt{\frac{D K}{h}}
+  \label{eq:E3}
+\end{equation}
+
+\begin{equation}
+  Q = \sqrt{2} \sqrt{\frac{D K}{h}}
+  \label{eq:E4}
+\end{equation}
+
+Substitute the economically meaningful positive order quantity $Q^*$ from the solutions just found into the total-cost expression $C(Q)$ to obtain the minimum total cost.
+
+Substitute E4 into E1
+
+\begin{equation}
+  C = {{\sqrt{2} D K}\over{\sqrt{\frac{D K}{h}}}}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

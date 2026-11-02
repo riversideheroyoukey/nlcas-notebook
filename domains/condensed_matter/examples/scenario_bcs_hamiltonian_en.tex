@@ -1,0 +1,120 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_bcs\_hamiltonian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Prepare the operators and parameters needed to build the BCS Hamiltonian. $c$ is the annihilation operator for an electron with momentum $k$ and spin $\sigma$ ($u$ = up, $d$ = down). $g$ is the annihilation operator for the Bogoliubov quasiparticle introduced by the transformation below (declared as a generic fermion operator, separate from the electron, since it is not a named particle species). $u$ and $v$ are the coefficients of the Bogoliubov transformation (a condition such as $u^2+v^2=1$ is imposed later). $\xi_k$ (xi) is the electron kinetic energy measured from the chemical potential, and $\Delta$ (Delta) is the pair potential (the superconducting gap) that binds Cooper pairs.
+
+c as the annihilation operator for electron
+
+\[
+  c
+\]
+
+g as a fermion operator
+
+\[
+  g
+\]
+
+Define u, v as scalars
+
+\[
+  u, v
+\]
+
+Define xi, Delta as scalars
+
+\[
+  \xi, \Delta
+\]
+
+Register the mean-field BCS Hamiltonian. The first term xi*(c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) is the electron kinetic energy; the second term Delta*(c'(k,u) c'(-k,d) + c(-k,d) c(k,u)) is the pair potential describing the creation and annihilation of Cooper pairs.
+
+$H_BCS = \xi (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + \Delta (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))$
+
+\begin{equation}
+  H_BCS = \xi (c^{\dagger}(k,u) c(k,u) + c^{\dagger}(-k,d) c(-k,d)) + \Delta (c^{\dagger}(k,u) c^{\dagger}(-k,d) + c(-k,d) c(k,u))
+  \label{eq:E1}
+\end{equation}
+
+Compute the Heisenberg equation of motion dc/dt = i[H, c] for c(k,u), to see how it is coupled to H\_BCS.
+
+Heisenberg equation of E1 for c(k,u)
+
+\begin{equation}
+  \frac{d c(k,u)}{d t} = - \Delta \mathit{i} {c}_{-k,d}^{\dagger} - \xi \mathit{i} {c}_{ku}
+  \label{eq:E2}
+\end{equation}
+
+Define the Bogoliubov transformation (the change of basis to quasiparticle operators) as all four components of the Nambu-spinor set of electron operators and their adjoints together (the dagger is not auto-generated, so the creation-operator equations are written out explicitly).
+
+$g(k,u) = u c(k,u) - v c'(-k,d)$
+
+\begin{equation}
+  g(k,u) = u c(k,u) - v c^{\dagger}(-k,d)
+  \label{eq:E3}
+\end{equation}
+
+$g(-k,d) = u c(-k,d) + v c'(k,u)$
+
+\begin{equation}
+  g(-k,d) = u c(-k,d) + v c^{\dagger}(k,u)
+  \label{eq:E4}
+\end{equation}
+
+$g'(k,u) = u c'(k,u) - v c(-k,d)$
+
+\begin{equation}
+  g^{\dagger}(k,u) = u c^{\dagger}(k,u) - v c(-k,d)
+  \label{eq:E5}
+\end{equation}
+
+$g'(-k,d) = u c'(-k,d) + v c(k,u)$
+
+\begin{equation}
+  g^{\dagger}(-k,d) = u c^{\dagger}(-k,d) + v c(k,u)
+  \label{eq:E6}
+\end{equation}
+
+Solve the four transformation equations just defined for the electron operators c(k,u), c(-k,d), c'(k,u), c'(-k,d) (the inverse transform), expressing them in terms of the quasiparticle operators g.
+
+Invert E3, E4, E5, E6 for c(k,u), c(-k,d), c'(k,u), c'(-k,d)
+
+\begin{equation}
+  c_{k,u} = \frac{g^{\dagger}_{-k,d} \cdot v + g_{k,u} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  c_{-k,d} = \frac{ - g^{\dagger}_{k,u} \cdot v + g_{-k,d} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{k,u} = \frac{g^{\dagger}_{k,u} \cdot u + g_{-k,d} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{-k,d} = \frac{g^{\dagger}_{-k,d} \cdot u - g_{k,u} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E10}
+\end{equation}
+
+Substitute the inverse-transform results into the BCS Hamiltonian to obtain it in terms of the quasiparticle operators g. Choosing u, v so that the coefficient of the pair-creation term vanishes (the Bogoliubov condition) brings the Hamiltonian to diagonal form, containing only the quasiparticle number operator g'g.
+
+In E1, substitute E7 for c(k,u) and E8 for c(-k,d)
+
+\begin{equation}
+  H_BCS = \left(2 \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right)  + \left( - \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - u v \xi}{\left( u^{2} + v^{2} \right)^{2}} - \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{-k,d}^{\dagger} {g}_{-k,d} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - 2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{ku}^{\dagger} {g}_{ku} + \left(2 \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d} {g}_{ku}
+  \label{eq:E11}
+\end{equation}
+
+\end{document}

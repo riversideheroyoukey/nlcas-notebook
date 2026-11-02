@@ -1,0 +1,14 @@
+## OCR Domain Hint: Relativity
+
+Symbol recognition priorities:
+- Greek letter pairs with subscript+superscript (gμν, Γ^ρ_μν) → tensor components
+- η with two subscripts → Minkowski metric \eta_{\mu\nu}
+- Γ (capital gamma, with indices) → Christoffel symbol \Gamma^{\rho}_{\mu\nu}
+- R with 4 indices → Riemann tensor R^{\rho}{}_{\sigma\mu\nu}
+- T with two subscripts → stress-energy tensor T_{\mu\nu}
+- Repeated index (one up, one down) → Einstein summation (no explicit Σ needed)
+- □ or ∂²/∂t² - ∇² → d'Alembertian operator \Box
+
+Common expression patterns:
+- G_μν = 8πG T_μν → Einstein field equations
+- ds² = g_μν dx^μ dx^ν → line element

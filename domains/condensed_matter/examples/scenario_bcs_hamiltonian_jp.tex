@@ -1,0 +1,121 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_bcs\_hamiltonian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+BCSハミルトニアンを組み立てるための演算子・パラメータを準備する。$c$ は運動量 $k$・スピン $\sigma$（$u=\uparrow$, $d=\downarrow$）を持つ電子の消滅演算子。$g$ はこのあと Bogoliubov 変換で導入する準粒子の消滅演算子（特定の粒子種を持たないため、電子とは別に汎用フェルミオン演算子として宣言する）。$u, v$ は Bogoliubov 変換の係数（後で $u^2+v^2=1$ などの条件を課す）。$\xi_k$（xi）は電子の運動エネルギー（化学ポテンシャルからの相対値）、$\Delta$（Delta）はクーパー対を結びつけるペアポテンシャル（超伝導ギャップ）を表すスカラーパラメータ。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+g をフェルミオン演算子として定義して
+
+\[
+  g
+\]
+
+u, v をスカラーパラメータとして定義して
+
+\[
+  u, v
+\]
+
+xi, Delta をスカラーパラメータとして定義して
+
+\[
+  \xi, \Delta
+\]
+
+平均場BCSハミルトニアンを登録する。第1項 $\xi_k(c^\dagger_{k\uparrow}c_{k\uparrow}+c^\dagger_{-k\downarrow}c_{-k\downarrow})$ は電子の運動エネルギー、第2項 $\Delta(c^\dagger_{k\uparrow}c^\dagger_{-k\downarrow}+c_{-k\downarrow}c_{k\uparrow})$ はクーパー対の生成・消滅を表すペアポテンシャル項。
+
+$H_BCS = \xi (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + \Delta (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))$
+
+\begin{equation}
+  H_BCS = \xi (c^{\dagger}(k,u) c(k,u) + c^{\dagger}(-k,d) c(-k,d)) + \Delta (c^{\dagger}(k,u) c^{\dagger}(-k,d) + c(-k,d) c(k,u))
+  \label{eq:E1}
+\end{equation}
+
+運動方程式（ハイゼンベルク方程式 $dc/dt=i[H,c]$）を $c(k,u)$ について求め、この演算子が H\_BCS とどのように結びついているかを確認する。
+
+c(k,u) の Heisenberg 方程式 E1
+
+\begin{equation}
+  \frac{d c(k,u)}{d t} = - \Delta \mathit{i} {c}_{-k,d}^{\dagger} - \xi \mathit{i} {c}_{ku}
+  \label{eq:E2}
+\end{equation}
+
+Bogoliubov 変換（準粒子への基底変換）を、電子演算子とその随伴すべてを含む Nambu スピノル形式の4本まとめて定義する（ダガーは自動生成しない設計のため、生成演算子側の式も明示的に書く）。
+
+$g(k,u) = u c(k,u) - v c'(-k,d)$
+
+\begin{equation}
+  g(k,u) = u c(k,u) - v c^{\dagger}(-k,d)
+  \label{eq:E3}
+\end{equation}
+
+$g(-k,d) = u c(-k,d) + v c'(k,u)$
+
+\begin{equation}
+  g(-k,d) = u c(-k,d) + v c^{\dagger}(k,u)
+  \label{eq:E4}
+\end{equation}
+
+$g'(k,u) = u c'(k,u) - v c(-k,d)$
+
+\begin{equation}
+  g^{\dagger}(k,u) = u c^{\dagger}(k,u) - v c(-k,d)
+  \label{eq:E5}
+\end{equation}
+
+$g'(-k,d) = u c'(-k,d) + v c(k,u)$
+
+\begin{equation}
+  g^{\dagger}(-k,d) = u c^{\dagger}(-k,d) + v c(k,u)
+  \label{eq:E6}
+\end{equation}
+
+先に定義した4本の変換式を、電子演算子 c(k,u), c(-k,d), c'(k,u), c'(-k,d) について解き直し（逆変換）、準粒子演算子gで電子演算子を表す式を得る。
+
+E3, E4, E5, E6 を c(k,u), c(-k,d), c'(k,u), c'(-k,d) について逆変換して
+
+\begin{equation}
+  c_{k,u} = \frac{g^{\dagger}_{-k,d} \cdot v + g_{k,u} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  c_{-k,d} = \frac{ - g^{\dagger}_{k,u} \cdot v + g_{-k,d} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{k,u} = \frac{g^{\dagger}_{k,u} \cdot u + g_{-k,d} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{-k,d} = \frac{g^{\dagger}_{-k,d} \cdot u - g_{k,u} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E10}
+\end{equation}
+
+得られた逆変換の結果を BCS ハミルトニアンへ代入し、準粒子演算子 $g$ で表されたハミルトニアンを得る。対生成項 $g^\dagger_{-k\downarrow}g^\dagger_{k\uparrow}$ の係数がゼロになるよう $u, v$ を選ぶ（Bogoliubov 条件）と、ハミルトニアンは準粒子数演算子 $g^\dagger g$ のみの対角形になる。
+
+E1 の c(k,u) に E7 を、c(-k,d) に E8 を代入する
+
+\begin{equation}
+  H_BCS = \left(2 \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right)  + \left( - \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - u v \xi}{\left( u^{2} + v^{2} \right)^{2}} - \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{-k,d}^{\dagger} {g}_{-k,d} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - 2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{ku}^{\dagger} {g}_{ku} + \left(2 \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d} {g}_{ku}
+  \label{eq:E11}
+\end{equation}
+
+\end{document}

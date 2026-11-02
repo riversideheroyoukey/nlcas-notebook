@@ -1,0 +1,64 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_transverse\_field\_ising}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the two-site transverse-field Ising model. Prepare the coupling constant $J$ (the strength of the Ising interaction) and the transverse-field strength $\Gamma$ as scalar parameters.
+
+Define J, $\Gamma$ as scalars
+
+\[
+  J, \Gamma
+\]
+
+Prepare the spin operator $S$ used on both sites.
+
+S as the spin operator
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+Register the transverse-field Ising Hamiltonian $H=-JS^z_1S^z_2-\Gamma(S^x_1+S^x_2)$ (the Ising coupling term and the transverse-field term).
+
+$H = -J Sz_1 Sz_2 - \Gamma (Sx_1 + Sx_2)$
+
+\begin{equation}
+  H = -J Sz_1 Sz_2 - \Gamma (Sx_1 + Sx_2)
+  \label{eq:E1}
+\end{equation}
+
+Compute the commutator of the Hamiltonian $H$ and $S^z$ on site 1, to check part of the equation of motion following from the SU(2) commutation relations.
+
+[E1, $Sz_1$]
+
+\begin{equation}
+  2 \Gamma \mathit{i} Sy_1
+  \label{eq:E2}
+\end{equation}
+
+To carry out a mean-field approximation, prepare the mean field (a c-number) $m_z=\langle S^z\rangle$, which will replace the spin on site 2, as a scalar parameter.
+
+Define mz as a scalar
+
+\[
+  mz
+\]
+
+Replace only the operator $S^z_2$ on site 2 with the mean field $m_z$, obtaining the mean-field Hamiltonian $H_{\rm MF}$ (the operators on site 1 and the transverse-field term should be unchanged).
+
+In E1, substitute mz for $S^z_2$
+
+\begin{equation}
+  H = - \Gamma Sx_1 - \Gamma Sx_2 - J mz Sz_1
+  \label{eq:E3}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,1146 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_b86d2adf",
+    "title": "scenario_double_pendulum_lagrangian",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:19.316207Z",
+    "active_branch_id": "main",
+    "domains": [
+      "analytical_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_72aefd",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "Lag = (1/2) (M + m) p^2 \\dot{a}^2 + (1/2) m q^2 \\dot{b}^2 + m p q \\dot{a} \\dot{b} \\cos(a - b) + (M + m) g p \\cos(a) + m g q \\cos(b)",
+      "canonical": "(1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b)",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_ade548",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial Lag}{\\partial \\dot{a}} = \\cos \\left(b-a\\right) \\dot{b} m p q+\\dot{a} \\left(m+M\\right) p^2",
+      "canonical": "cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_1aa3e4",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\frac{d}{dt}\\left(\\frac{\\partial Lag}{\\partial \\dot{a}}\\right) = \\left(-\\left(\\sin \\left(b-a\\right) \\dot{b}^2\\right)+\\dot{a} \\sin \\left(b-a\\right) \\dot{b}+\\cos \\left(b-a\\right) \\ddot{b}\\right) m p q+\\left(\\ddot{a} m+M \\ddot{a}\\right) p^2",
+      "canonical": "(-(sin(b-a)*b_dot^2)+a_dot*sin(b-a)*b_dot+cos(b-a)*b_ddot)*m*p*q\n +(a_ddot*m+M*a_ddot)*p^2",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(-(sin(b-a)*b_dot^2)+a_dot*sin(b-a)*b_dot+cos(b-a)*b_ddot)*m*p*q\n +(a_ddot*m+M*a_ddot)*p^2",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_d92173",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\frac{\\partial Lag}{\\partial a} = \\dot{a} \\sin \\left(b-a\\right) \\dot{b} m p q-\\sin a g \\left(m+M\\right) p",
+      "canonical": "a_dot*sin(b-a)*b_dot*m*p*q-sin(a)*g*(m+M)*p",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": "Lag",
+      "derivative_vars": [
+        "a"
+      ],
+      "derivative_is_partial": true,
+      "derivative_origin": null,
+      "cas_repr": "a_dot*sin(b-a)*b_dot*m*p*q-sin(a)*g*(m+M)*p",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_4749bd",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "EOMa = \\left(\\cos \\left(b-a\\right) \\ddot{b}-\\sin \\left(b-a\\right) \\dot{b}^2\\right) m p q+\\left(\\ddot{a} m+M \\ddot{a}\\right) p^2+\\left(\\sin a g m+M \\sin a g\\right) p",
+      "canonical": "(cos(b-a)*b_ddot-sin(b-a)*b_dot^2)*m*p*q\n +(a_ddot*m+M*a_ddot)*p^2+(sin(a)*g*m+M*sin(a)*g)*p",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(cos(b-a)*b_ddot-sin(b-a)*b_dot^2)*m*p*q\n +(a_ddot*m+M*a_ddot)*p^2+(sin(a)*g*m+M*sin(a)*g)*p",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:19.381432Z",
+      "user_text": "Consider a double pendulum. To avoid subscripted symbols, the angles $\\theta_1,\\theta_2$ are written $a,b$, the masses $m_1,m_2$ as $M,m$, the pendulum lengths $l_1,l_2$ as $p,q$, and gravitational acceleration as $g$. $a,b$ are time-dependent angles.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.381633Z",
+      "user_text": "Define a as a time-dependent function",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.383024Z",
+      "user_text": "Define a as a time-dependent function",
+      "visible_action": "LLM interpretation: declare_time_dependent",
+      "operation": "declare_time_dependent",
+      "operation_args": {
+        "name": "a",
+        "_all_names": [
+          "a"
+        ],
+        "_raw_names": [
+          "a"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:19.383512Z",
+      "user_text": "✓ Declared a as time-dependent (time variable: t)",
+      "visible_action": "Time-dependence declaration",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.383559Z",
+      "user_text": "Define b as a time-dependent function",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.384212Z",
+      "user_text": "Define b as a time-dependent function",
+      "visible_action": "LLM interpretation: declare_time_dependent",
+      "operation": "declare_time_dependent",
+      "operation_args": {
+        "name": "b",
+        "_all_names": [
+          "b"
+        ],
+        "_raw_names": [
+          "b"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:19.384578Z",
+      "user_text": "✓ Declared b as time-dependent (time variable: t)",
+      "visible_action": "Time-dependence declaration",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:19.384617Z",
+      "user_text": "Define M, m, p, q, g as scalars",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:19.385246Z",
+      "user_text": "Define M, m, p, q, g as scalars",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "M",
+        "_all_names": [
+          "M",
+          "m",
+          "p",
+          "q",
+          "g"
+        ],
+        "_raw_names": [
+          "M",
+          "m",
+          "p",
+          "q",
+          "g"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:19.385814Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "M",
+        "registered_names": [
+          "M",
+          "m",
+          "p",
+          "q",
+          "g"
+        ]
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(M, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:19.386045Z",
+      "user_text": "Define the double-pendulum Lagrangian $L=$ kinetic energy $+$ potential energy. The kinetic-energy term includes the rotational energy of each pendulum plus a velocity-coupling term $\\dot a\\dot b\\cos(a-b)$, proportional to the product of the two angular velocities.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:19.386095Z",
+      "user_text": "Lag = (1/2)*(M + m)*p^2*\\dot{a}^2 + (1/2)*m*q^2*\\dot{b}^2 + m*p*q*\\dot{a}*\\dot{b}*\\cos(a - b) + (M + m)*g*p*\\cos(a) + m*g*q*\\cos(b)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:19.389571Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:19.391459Z",
+      "user_text": "To obtain the generalized momentum $\\partial L/\\partial\\dot\\theta_1$, differentiate $L$ with respect to $\\dot a$ ($\\dot\\theta_1$). The velocity-coupling term brings in a term involving $\\dot b$ ($\\dot\\theta_2$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:19.391499Z",
+      "user_text": "Take the partial derivative of E1 with respect to \\dot{a}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:19.394476Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. \\dot{a} [E1]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "a_dot",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff((1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b),a_dot)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "wrt_qdot"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:19.395521Z",
+      "user_text": "Take the total time derivative of the generalized momentum just found, to obtain $\\frac{d}{dt}(\\partial L/\\partial\\dot\\theta_1)$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:19.395559Z",
+      "user_text": "Take the total derivative of E2 with respect to t",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:19.399161Z",
+      "user_text": null,
+      "visible_action": "Total differential w.r.t. t [E2]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E2",
+        "var": "t",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,a)*a_dot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,a_dot)*a_ddot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,a_ddot)*a_dddot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,a_dddot)*a_ddddot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,b)*b_dot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,b_dot)*b_ddot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,b_ddot)*b_dddot+diff(cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2,b_dddot)*b_ddddot+subst([_nb_free_a=a,_nb_free_a_dot=a_dot,_nb_free_a_ddot=a_ddot,_nb_free_a_dddot=a_dddot,_nb_free_a_ddddot=a_ddddot,_nb_free_b=b,_nb_free_b_dot=b_dot,_nb_free_b_ddot=b_ddot,_nb_free_b_dddot=b_dddot,_nb_free_b_ddddot=b_ddddot],diff(subst([a=_nb_free_a,a_dot=_nb_free_a_dot,a_ddot=_nb_free_a_ddot,a_dddot=_nb_free_a_dddot,a_ddddot=_nb_free_a_ddddot,b=_nb_free_b,b_dot=_nb_free_b_dot,b_ddot=_nb_free_b_ddot,b_dddot=_nb_free_b_dddot,b_ddddot=_nb_free_b_ddddot],cos(b-a)*b_dot*m*p*q+a_dot*(m+M)*p^2),t,1)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E2"
+      ],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:19.400927Z",
+      "user_text": "For the other term of the Euler-Lagrange equation, $\\partial L/\\partial\\theta_1$, differentiate $L$ with respect to $a$ ($\\theta_1$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:19.400963Z",
+      "user_text": "Take the partial derivative of E1 with respect to a",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:19.405371Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. a [E1]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E1",
+        "var": "a",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff((1/2)*(M + m)*p^2*a_dot^2 + (1/2)*m*q^2*b_dot^2 + m*p*q*a_dot*b_dot*cos(a - b) + (M + m)*g*p*cos(a) + m*g*q*cos(b),a)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "differentiate"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:19.406392Z",
+      "user_text": "Subtract $\\partial L/\\partial\\theta_1$ from $\\frac{d}{dt}(\\partial L/\\partial\\dot\\theta_1)$ to assemble the equation of motion for $\\theta_1$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:19.406426Z",
+      "user_text": "EOMa = E3 - E4",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:19.411663Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S25",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:19.316217Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "a": {
+      "quantity": {
+        "name": "a",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [
+          "t"
+        ],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": true,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "b": {
+      "quantity": {
+        "name": "b",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [
+          "t"
+        ],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": true,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "M": {
+      "quantity": {
+        "name": "M",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "m": {
+      "quantity": {
+        "name": "m",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "p": {
+      "quantity": {
+        "name": "p",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "q": {
+      "quantity": {
+        "name": "q",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "g": {
+      "quantity": {
+        "name": "g",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Lag": {
+      "quantity": {
+        "name": "Lag",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Lag_da": {
+      "quantity": {
+        "name": "Lag_da",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E4",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "EOMa": {
+      "quantity": {
+        "name": "EOMa",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "Lag": "E1",
+    "\\frac{\\partial Lag}{\\partial \\dot{a}}": "E2",
+    "'diff(Lag,a_dot,1)": "E2",
+    "\\frac{d}{dt}\\left(\\frac{\\partial Lag}{\\partial \\dot{a}}\\right)": "E3",
+    "'diff(((\\partial*Lag)/(\\partial*a_dot)),t,1)": "E3",
+    "\\frac{\\partial Lag}{\\partial a}": "E4",
+    "'diff(Lag,a,1)": "E4",
+    "EOMa": "E5"
+  },
+  "expr_counter": 5,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 25,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

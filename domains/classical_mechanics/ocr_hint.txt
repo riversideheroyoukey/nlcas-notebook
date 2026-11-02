@@ -1,0 +1,17 @@
+## OCR Domain Hint: Classical (Newtonian) Mechanics
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- Single-dot overhead (ẋ) → LaTeX: \dot{x}  — velocity dx/dt
+- Double-dot overhead (ẍ) → LaTeX: \ddot{x}  — acceleration d²x/dt²
+- F → force;  m → mass;  g → gravitational acceleration
+- p → momentum;  v → velocity;  a → acceleration
+- Bold or arrow over symbol → vector quantity (\vec{F}, \vec{r})
+- Subscripts (x, y, z) on vectors → components (F_x, v_y)
+
+Common expression patterns:
+- F = m a  → Newton's second law
+- d/dt(...) → \frac{d}{dt}\left(...\right)
+- Integral over t → time integration of equations of motion
+- ½ m v² → kinetic energy;  m g h → gravitational potential energy

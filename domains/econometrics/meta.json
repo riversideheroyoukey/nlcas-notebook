@@ -1,0 +1,7 @@
+{
+  "label_en": "Econometrics",
+  "category": "economics",
+  "label_ja": "計量経済学",
+  "status": "placeholder",
+  "status_note": "Domain hints exist but dedicated CAS operations are not yet implemented."
+}

@@ -1,0 +1,49 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_mm1\_queue}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider an M/M/1 queue with arrival rate $\lambda$ and service rate $\mu$. Define the utilization $\rho=\lambda/\mu$ (the fraction of time the server is busy).
+
+$\rho = \lambda/\mu$
+
+\begin{equation}
+  \rho = \lambda/\mu
+  \label{eq:E1}
+\end{equation}
+
+Define the mean number in system $L=\rho/(1-\rho)$.
+
+$L = \rho/(1-\rho)$
+
+\begin{equation}
+  L = \rho/(1-\rho)
+  \label{eq:E2}
+\end{equation}
+
+Replace $\rho$ with $\lambda/\mu$ so that $L$ is expressed purely in terms of $\lambda,\mu$.
+
+In E2, substitute $\lambda/\mu$ for $\rho$
+
+\begin{equation}
+  L = -\frac{\lambda}{\lambda-\mu}
+  \label{eq:E3}
+\end{equation}
+
+To apply Little's law $L=\lambda W$, divide both sides by the arrival rate $\lambda$ to obtain the mean time in system $W=L/\lambda$.
+
+Divide both sides of E3 by $\lambda$
+
+\begin{equation}
+  \frac{L}{\lambda} = -\frac{1}{\lambda-\mu}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

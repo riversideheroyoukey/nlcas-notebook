@@ -1,0 +1,18 @@
+## Domain: Production Systems Optimization
+
+Common symbols and their roles:
+- Q: order / lot size (decision variable); Q*: optimal lot size
+- D: demand rate (e.g. per year)
+- K (or S, A): fixed ordering / setup cost per order
+- h: holding cost per unit per unit time
+- C(Q): total cost as a function of Q; C(Q*): minimum cost
+- Line balancing: T (total task time), c (cycle time), n (number of stations),
+  η (line efficiency), t_i (individual task times)
+
+Conventions:
+- EOQ: C(Q) = K·D/Q + h·Q/2 (ordering + holding).  Minimize via dC/dQ = 0 →
+  Q* = √(2KD/h), C(Q*) = √(2KDh).
+- Line balancing: cycle time c from the demand rate; minimum number of stations
+  n = ⌈T/c⌉; line efficiency η = T/(n·c); balance delay = 1 − η.
+
+When the user writes "最適発注量" compute Q* = √(2KD/h).

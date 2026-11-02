@@ -1,0 +1,32 @@
+## OCR Domain Hint: High School Mathematics (高校数学)
+
+When recognizing handwritten mathematical expressions at the high school level:
+
+### Symbol recognition priorities
+- d/dx or dy/dx → derivative notation \frac{d}{dx} or \frac{dy}{dx}
+- ∫ with limits → definite integral \int_{a}^{b}; without limits → indefinite \int
+- Σ with limits → summation \sum_{k=1}^{n}
+- lim with subscript → limit \lim_{x \to a}
+- log without base → could be log₁₀ or ln depending on context; prefer \log
+- ln → natural logarithm \ln
+- e (standalone, upright) → Napier's constant \mathrm{e} or e
+- vec arrow over letter → vector \vec{a}
+- |v| with vector → magnitude \|\vec{v}\| or |v|
+- nCr or C(n,r) with stacked notation → \binom{n}{r}
+- i (standalone in complex context) → imaginary unit i (i² = -1)
+- Re(...), Im(...) → real/imaginary parts
+
+### Common expression patterns
+- f'(x), f''(x) → first/second derivative (prime notation)
+- [F(x)]_a^b → definite integral evaluation \left[F(x)\right]_a^b
+- a·b (dot between vectors) → dot product \vec{a} \cdot \vec{b}
+- Matrix enclosed in parentheses or brackets → 2×2 or 3×3 matrix
+- a_n with subscript n → n-th term of sequence
+
+### Handwriting quirks to watch for
+- Prime mark (') on function → derivative, not "feet" or "minutes"
+- Σ vs S (capital): Σ has sharp angles, S is curved
+- ∫ vs long S: context determines; in calculus context assume integral
+- Superscript −1 on function → inverse function f⁻¹, not reciprocal
+- θ (theta) in trigonometry context → \theta
+- φ or ϕ → \phi or \varphi; clarify from context

@@ -1,0 +1,95 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_damped\_oscillator\_numeric}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+First, prepare the time-dependent displacement $x$ and the damping rate $\gamma$ / natural angular frequency $\omega_0$ (both positive reals).
+
+Define x as a time-dependent function
+
+$\checkmark$ Declared x as time-dependent (time variable: t)
+
+Define $\gamma$ as a positive real number
+
+\[
+  \gamma
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle \gamma > 0$\par
+
+Define $\omega_0$ as a positive real number
+
+\[
+  \omega_{0}
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle \omega_{0} > 0$\par
+
+Consider the damped oscillator's equation of motion below ($\gamma$ is the damping rate, $\omega_0$ is the natural angular frequency).
+
+$\ddot{x} + 2 \gamma \dot{x} + \omega_0^2 x = 0$
+
+\begin{equation}
+  \ddot{x} + 2 \gamma \dot{x} + \omega_0^2 x = 0
+  \label{eq:E1}
+\end{equation}
+
+Substituting the exponential ansatz $x=e^{rt}$ into this differential equation ($\dot x=re^{rt},\ \ddot x=r^2e^{rt}$, then dividing both sides by $e^{rt}\neq0$) gives the characteristic equation of this differential equation below.
+
+$r^2 + 2 \gamma r + \omega_0^2 = 0$
+
+\begin{equation}
+  r^2 + 2 \gamma r + \omega_0^2 = 0
+  \label{eq:E2}
+\end{equation}
+
+Since the characteristic equation is a quadratic in $r$ ($ar^2+br+c=0$ with $a=1,\ b=2\gamma,\ c=\omega_0^2$), its discriminant is $b^2-4ac=(2\gamma)^2-4\omega_0^2$. To phrase the discussion below in the natural form "positive means underdamped", we define the sign-flipped quantity $D=4\omega_0^2-(2\gamma)^2=-(b^2-4ac)$.
+
+$D = 4 \omega_0^2 - (2 \gamma)^2$
+
+\begin{equation}
+  D = 4 \omega_0^2 - (2 \gamma)^2
+  \label{eq:E3}
+\end{equation}
+
+Here we assume underdamped (oscillatory) motion, $D>0$. This choice is a physical judgment that depends on the problem being treated, and is not something the tool should decide on its own, so it is assumed explicitly, as follows.
+
+Assume D $>$ 0
+
+\noindent\textbf{Assumption:}\ $\displaystyle D > 0$\par
+
+Under the assumption $D>0$, find the general solution of the equation of motion (E1).
+
+Find the general solution of E1
+
+\begin{equation}
+  x=e^ {- \left(\gamma t\right) } \left(k_{1} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)+k_{2} \cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)\right)
+  \label{eq:E4}
+\end{equation}
+
+The general solution (E4) contains arbitrary constants $k_1,k_2$. Give the initial conditions $x(0)=1,\ \dot x(0)=0$ to fix them.
+
+Set the initial conditions of E4 to x(0)=1, x'(0)=0
+
+\begin{equation}
+  x = e^ {- \left(\gamma t\right) } \left(\cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)-{{\gamma \sqrt{4 \omega_{0}^2-4 \gamma^2} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)}\over{2 \gamma^2-2 \omega_{0}^2}}\right)
+  \label{eq:E5}
+\end{equation}
+
+To fork into the numeric layer in the next step, extract and simplify just the right-hand side of the determined solution (E5).
+
+Simplify the right-hand side of E5
+
+\begin{equation}
+  x = -{{\gamma \sqrt{4 \omega_{0}^2-4 \gamma^2} \sin \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)+\left(2 \omega_{0}^2-2 \gamma^2\right) \cos \left({{\sqrt{4 \omega_{0}^2-4 \gamma^2} t}\over{2}}\right)}\over{2 e^{\gamma t} \gamma^2-2 e^{\gamma t} \omega_{0}^2}}
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

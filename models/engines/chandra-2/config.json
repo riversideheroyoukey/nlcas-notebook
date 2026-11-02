@@ -1,0 +1,26 @@
+{
+  "_management": {
+    "file_name": "config.json",
+    "version": "1.0.0",
+    "last_updated": "2026-04-18",
+    "description": "Chandra-2 Engine configuration for handwritten physics OCR.",
+    "status": "stable"
+  },
+  "id": "chandra-2",
+  "type": "ocr_engine",
+  "api_config": {
+    "model_name": "chandra-2:latest",
+    "base_url": "http://localhost:11434",
+    "endpoint_type": "ollama",
+    "timeout": 60
+  },
+  "parameters": {
+    "temperature": 0.0,
+    "num_predict": 512,
+    "seed": 42
+  },
+  "paths": {
+    "prompt_file": "system_prompt.txt",
+    "dataset_dir": "dataset/"
+  }
+}

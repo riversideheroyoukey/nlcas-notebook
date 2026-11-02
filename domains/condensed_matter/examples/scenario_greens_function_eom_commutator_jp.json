@@ -1,0 +1,1855 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_b8ed5ba4",
+    "title": "scenario_greens_function_eom_commutator",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:37.562526Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_4a0279",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "H = \\sum_n \\varepsilon_n c^{\\dagger}(n) c(n) + \\sum_{p q s n} V_{p,q,s,n} c^{\\dagger}(p) c^{\\dagger}(q) c(s) c(n)",
+      "canonical": "\\sum_n*epsilon_n*c'(n)*c(n) + \\sum_{p,q,s,n} V_{p,q,s,n} c'(p)*c'(q)*c(s)*c(n)",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "n",
+        "p",
+        "q",
+        "s"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_n*epsilon_n*c'(n)*c(n) + \\sum_{p,q,s,n} V_{p,q,s,n} c'(p)*c'(q)*c(s)*c(n)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_c33566",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "- \\varepsilon_{m} {c}_{m} + \\sum_{p,q,s} V_{p,m,q,s} {c}_{p}^{\\dagger} {c}_{q} {c}_{s} - \\sum_{p,q,s} V_{m,p,q,s} {c}_{p}^{\\dagger} {c}_{q} {c}_{s}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S17",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-epsilon(m) c(m) + ∑₁₂₃ V(#₁m#₂#₃) c†(#₁) c(#₂) c(#₃) - ∑₁₂₃ V(m#₁#₂#₃) c†(#₁) c(#₂) c(#₃)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_n*epsilon_n*c'(n)*c(n) + \\sum_{p,q,s,n} V_{p,q,s,n} c'(p)*c'(q)*c(s)*c(n)",
+      "sum_index_hint": "p,q,s,n",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_42e4c9",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "H_0 = \\sum_n \\varepsilon_n c^{\\dagger}(n) c(n)",
+      "canonical": "\\sum_n*epsilon_n*c'(n)*c(n)",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "n"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_n*epsilon_n*c'(n)*c(n)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_bd4317",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "e^{- i \\varepsilon_{m} t} c_{m}",
+      "canonical": "e^{- i \\varepsilon_{m} t} c_{m}",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "e^{- i \\varepsilon_{m} t}",
+            "coefficient": "exp(-I*epsilon_m*t)",
+            "operator_latex": "c_{m}",
+            "operator": "c(m)",
+            "operator_qa": "c(m)"
+          }
+        ],
+        "time_var": "t",
+        "source_latex": "c_{m}",
+        "hamiltonian_ref": "E3"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_b80a0a",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "e^{i \\varepsilon_{m} u} c^{\\dagger}_{m}",
+      "canonical": "e^{i \\varepsilon_{m} u} c^{\\dagger}_{m}",
+      "created_by_step": "S28",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "e^{i \\varepsilon_{m} u}",
+            "coefficient": "exp(I*epsilon_m*u)",
+            "operator_latex": "c^{\\dagger}_{m}",
+            "operator": "c'(m)",
+            "operator_qa": "c†(m)"
+          }
+        ],
+        "time_var": "u",
+        "source_latex": "c^{\\dagger}_{m}",
+        "hamiltonian_ref": "E3"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_c8530f",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "1",
+      "canonical": "_nb_E6",
+      "created_by_step": "S31",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_e0b35b",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "e^{i \\varepsilon_{m} \\left(- t + u\\right)}",
+      "canonical": "e^{i \\varepsilon_{m} \\left(- t + u\\right)}",
+      "created_by_step": "S32",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_73e50c",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "1 - 2 {c}_{m}^{\\dagger} {c}_{m}",
+      "canonical": "_nb_E8",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1 - 2 c†(m) c(m)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_cbdd27",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "e^{i \\varepsilon_{m} \\left(- t + u\\right)} \\left(1 - 2 {c}_{m}^{\\dagger} {c}_{m}\\right)",
+      "canonical": "e^{i \\varepsilon_{m} \\left(- t + u\\right)} \\left(1 - 2 {c}_{m}^{\\dagger} {c}_{m}\\right)",
+      "created_by_step": "S36",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "e^{i \\varepsilon_{m} \\left(- t + u\\right)}",
+            "coefficient": "exp(I*epsilon_m*(-t + u))",
+            "operator_latex": "1 - 2 {c}_{m}^{\\dagger} {c}_{m}",
+            "operator": "1 - 2 {c}_{m}^{\\dagger} {c}_{m}"
+          }
+        ],
+        "time_var": "t",
+        "source_latex": "e^{- i \\varepsilon_{m} t} c_{m} , e^{i \\varepsilon_{m} u} c^{\\dagger}_{m}",
+        "hamiltonian_ref": "E3"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_35b099",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "H_w = w (c^{\\dagger}(1) c(2) + c^{\\dagger}(2) c(1))",
+      "canonical": "w*(c'(1)*c(2) + c'(2)*c(1))",
+      "created_by_step": "S40",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "w"
+      ],
+      "warnings": [],
+      "input_canonical": "w*(c'(1)*c(2) + c'(2)*c(1))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_d07ffe",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "\\cos{\\left(t w \\right)} c_{1} -  i \\sin{\\left(t w \\right)} c_{2}",
+      "canonical": "\\cos{\\left(t w \\right)} c_{1} -  i \\sin{\\left(t w \\right)} c_{2}",
+      "created_by_step": "S43",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "\\cos{\\left(t w \\right)}",
+            "coefficient": "cos(t*w)",
+            "operator_latex": "c_{1}",
+            "operator": "c(1)",
+            "operator_qa": "c(1)"
+          },
+          {
+            "coefficient_latex": "- i \\sin{\\left(t w \\right)}",
+            "coefficient": "-I*sin(t*w)",
+            "operator_latex": "c_{2}",
+            "operator": "c(2)",
+            "operator_qa": "c(2)"
+          }
+        ],
+        "time_var": "t",
+        "source_latex": "c_{1}",
+        "hamiltonian_ref": "E10"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_52ae3c",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "\\cos{\\left(u w \\right)} c^{\\dagger}_{1} + i \\sin{\\left(u w \\right)} c^{\\dagger}_{2}",
+      "canonical": "\\cos{\\left(u w \\right)} c^{\\dagger}_{1} + i \\sin{\\left(u w \\right)} c^{\\dagger}_{2}",
+      "created_by_step": "S45",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "\\cos{\\left(u w \\right)}",
+            "coefficient": "cos(u*w)",
+            "operator_latex": "c^{\\dagger}_{1}",
+            "operator": "c'(1)",
+            "operator_qa": "c†(1)"
+          },
+          {
+            "coefficient_latex": "i \\sin{\\left(u w \\right)}",
+            "coefficient": "I*sin(u*w)",
+            "operator_latex": "c^{\\dagger}_{2}",
+            "operator": "c'(2)",
+            "operator_qa": "c†(2)"
+          }
+        ],
+        "time_var": "u",
+        "source_latex": "c^{\\dagger}_{1}",
+        "hamiltonian_ref": "E10"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_2d536b",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "\\cos{\\left(w \\left(t - u\\right) \\right)}",
+      "canonical": "\\cos{\\left(w \\left(t - u\\right) \\right)}",
+      "created_by_step": "S48",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:38.413281Z",
+      "user_text": "電子の消滅演算子と、係数のスカラーパラメータを宣言する。$\\varepsilon$ はモードのエネルギー、$V$ は2体相互作用の行列要素。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:38.413510Z",
+      "user_text": "c を電子の消滅演算子として定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:38.414797Z",
+      "user_text": "c を電子の消滅演算子として定義して",
+      "visible_action": "LLM解釈: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c",
+        "_op_expr_display": "c",
+        "_particle_name": "電子",
+        "_particle_key": "electron",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:38.632285Z",
+      "user_text": null,
+      "visible_action": "フェルミオン演算子を定義する",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops c; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:38.632606Z",
+      "user_text": "\\varepsilon をスカラーパラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:38.634450Z",
+      "user_text": "\\varepsilon をスカラーパラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "epsilon",
+        "_all_names": [
+          "epsilon"
+        ],
+        "_raw_names": [
+          "epsilon"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:39.135036Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "epsilon"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables epsilon",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:39.135985Z",
+      "user_text": "V をスカラーパラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:39.136800Z",
+      "user_text": "V をスカラーパラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "V",
+        "_all_names": [
+          "V"
+        ],
+        "_raw_names": [
+          "V"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:39.139122Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "V"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables V",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:39.139542Z",
+      "user_text": "ハミルトニアン。1体項はモードについての和、2体項は4つの添字についての和で、係数は添字付きのスカラーである（QuantumAlgebra の `param` に落ちる）。姉妹シナリオの $\\hat H_0$（対角形）と $\\hat V$ に対応する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:39.139584Z",
+      "user_text": "H = \\sum_n \\varepsilon_n c'(n) c(n) + \\sum_{p q s n} V_{p,q,s,n} c'(p) c'(q) c(s) c(n)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:57:39.141349Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:39.143732Z",
+      "user_text": "**交換子を計算する。** 手計算では、1体項からは $\\delta_{nm}$ の縮約で $-\\varepsilon_m c_m$ が残り（和は消える）、2体項からは $c^\\dagger c c$ の形が2項出る。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:39.143777Z",
+      "user_text": "E1 と c(m) の交換子",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:39.144274Z",
+      "user_text": "E1 と c(m) の交換子",
+      "visible_action": "LLM解釈: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "c(m)"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:40.552174Z",
+      "user_text": null,
+      "visible_action": "[E1, c(m)] を交換子を計算する",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "c(m)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (_nb_eval_site_deltas(normal_form(comm(_QA.∑(:n, param(:epsilon, :n) * c'(:n) * c(:n)) + _QA.∑(:p, _QA.∑(:q, _QA.∑(:s, _QA.∑(:n, param(:V, :p, :q, :s, :n) * c'(:p) * c'(:q) * c(:s) * c(:n))))), c(:m)))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:40.553279Z",
+      "user_text": "これがグリーン関数の運動方程式の右辺——姉妹シナリオへ書き写す段である。符号は $[\\hat H,\\hat c]$ の向きで、$[\\hat c,\\hat H]$ はその反転になる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:40.553292Z",
+      "user_text": "**ここから先は、時間の付いた演算子そのものを扱う**（PAIR-REP、docs/34 §2）。$\\hat c(t)=e^{i\\hat Ht}\\hat ce^{-i\\hat Ht}$ は新しい種類の量ではなく、入れ子交換子の和 $\\sum_n (it)^n/n!\\,\\mathrm{ad}_H^n(\\hat c)$ である。$\\hat H_0$ が対角なら $[\\hat H_0,\\hat c_m]=-\\varepsilon_m\\hat c_m$ で**1つの演算子に閉じる**ので、和は指数関数に**厳密に**再総和される——打ち切りではない。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:40.553298Z",
+      "user_text": "まず1体項だけのハミルトニアンを立てる（相互作用は $\\mathrm{ad}$ の連鎖を閉じないので、そこは第2スライスの領分）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:40.553349Z",
+      "user_text": "H_0 = \\sum_n \\varepsilon_n c'(n) c(n)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:40.554364Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:40.557745Z",
+      "user_text": "消滅演算子を時間発展させる。係数 $e^{-i\\varepsilon_m t}$ は**スカラー**で、QuantumAlgebra には置けない（c 数を cos/sin に分解してしまう）——だから実体は「(係数, 演算子) の対」で、表示だけが $\\hat c_m(t)$ の書き方に見える。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:40.557793Z",
+      "user_text": "c(m) を E3 のもとで時間発展させて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:41.657867Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "heisenberg_operator"
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:41.658021Z",
+      "user_text": "生成演算子も、別の時刻 $u$ で。符号が逆になる（$[\\hat H_0,\\hat c^\\dagger_m]=+\\varepsilon_m\\hat c^\\dagger_m$）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:41.658082Z",
+      "user_text": "c'(m) を E3 で時刻 u まで時間発展させて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:57:41.692841Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "heisenberg_operator"
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:41.692974Z",
+      "user_text": "**異時刻の反交換関係。** ここがこの表現の見どころで、$\\{\\hat c_m(t),\\hat c^\\dagger_m(u)\\}=f(t)\\overline{f(u)}\\{\\hat c_m,\\hat c^\\dagger_m\\}$——**係数の積 × 等時刻代数**として出る。時間を添字に畳む案なら $\\delta(t,u)$ に潰れていたところである。等時刻の $\\{\\hat c,\\hat c^\\dagger\\}=1$ が消えて、残るのは**演算子を含まないスカラー**、すなわち自由伝播関数の時間依存そのものになる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:41.693029Z",
+      "user_text": "E4 と E5 の反交換関係",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:41.730556Z",
+      "user_text": null,
+      "visible_action": "{c(m), c'(m)} を反交換子を計算する",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c(m)",
+        "b": "c'(m)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E6 = (_nb_eval_site_deltas(normal_form((c(:m))*(c'(:m)) + (c'(:m))*(c(:m)))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "pair_bracket"
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:41.744487Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "pair_bracket"
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:41.744616Z",
+      "user_text": "交換子のほうは演算子が残る（$1-2\\hat n_m$）ので、結果はふたたび「係数×演算子」の対である。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:41.744667Z",
+      "user_text": "E4 と E5 の交換子",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:41.756164Z",
+      "user_text": null,
+      "visible_action": "[c(m), c'(m)] を交換子を計算する",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "c(m)",
+        "b": "c'(m)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E8 = (_nb_eval_site_deltas(normal_form(comm(c(:m), c'(:m)))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "pair_bracket"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:57:41.762349Z",
+      "user_text": null,
+      "visible_action": "E9 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "pair_bracket"
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:57:41.762443Z",
+      "user_text": "反交換子の結果は演算子を含まないので、**ここがセッションの境界**である——スカラーになった時点で Maxima 側へ渡せる（SCALAR-HANDOFF）。$\\omega$ 空間へ行く残りの代数はそちらの領分。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:41.762452Z",
+      "user_text": "**連鎖が1つの演算子で閉じない場合も、有限個で閉じるなら厳密に出る。** 跳び移りのある2サイト模型で試す——$\\mathrm{ad}$ は $\\hat c_1$ と $\\hat c_2$ の張る2次元で閉じ、係数は行列指数になる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:57:41.762489Z",
+      "user_text": "H_w = w (c'(1) c(2) + c'(2) c(1))",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:57:41.763380Z",
+      "user_text": null,
+      "visible_action": "E10 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S40"
+      ],
+      "timestamp": "2026-09-25T11:57:41.765787Z",
+      "user_text": "消滅演算子を時間発展させると、**2つの演算子が混ざる**（$\\cos$ と $-i\\sin$）。1つの演算子に閉じる対角の場合との違いはここである。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:57:41.765831Z",
+      "user_text": "c(1) を E10 のもとで時間発展させて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:57:42.892094Z",
+      "user_text": null,
+      "visible_action": "E11 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "heisenberg_operator"
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S43"
+      ],
+      "timestamp": "2026-09-25T11:57:42.892283Z",
+      "user_text": "c'(1) を E10 で時刻 u まで時間発展させて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S43"
+      ],
+      "timestamp": "2026-09-25T11:57:42.962120Z",
+      "user_text": null,
+      "visible_action": "E12 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "heisenberg_operator"
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:42.962252Z",
+      "user_text": "異時刻の反交換関係。4つの組み合わせのうち2つが生き残り、$\\cos\\cos+\\sin\\sin$ がスカラー側でまとまって——**時間差だけの関数** $\\cos(w(t-u))$ になる。2サイト模型の自由伝播関数そのものである。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S46"
+      ],
+      "timestamp": "2026-09-25T11:57:42.962304Z",
+      "user_text": "E11 と E12 の反交換関係",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S46"
+      ],
+      "timestamp": "2026-09-25T11:57:43.081908Z",
+      "user_text": null,
+      "visible_action": "E13 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "pair_bracket"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S48",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:37.562540Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "c": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "epsilon": {
+      "quantity": {
+        "name": "epsilon",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "V": {
+      "quantity": {
+        "name": "V",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H": {
+      "quantity": {
+        "name": "H",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "c'": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "H_0": {
+      "quantity": {
+        "name": "H_0",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E3",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H_w": {
+      "quantity": {
+        "name": "H_w",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E10",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "c": [
+      -1,
+      1
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "H": "E1",
+    "H_0": "E3",
+    "H_w": "E10"
+  },
+  "expr_counter": 13,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 48,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

@@ -1,0 +1,15 @@
+## OCR Domain Hint: Quantum Field Theory
+
+Symbol recognition priorities:
+- φ (phi, cursive) → scalar field \phi or \varphi
+- ψ (psi) → spinor field \psi
+- π with no subscript in field theory context → conjugate momentum \pi
+- ∂μ, ∂_μ → partial derivative \partial_\mu
+- γμ → Dirac gamma matrix \gamma^\mu
+- ℒ (script L) → Lagrangian density \mathcal{L}
+- δ(x-y) or δ³(x-y) → Dirac delta \delta^{(3)}(\mathbf{x}-\mathbf{y})
+- :...: (colon-delimited) → normal ordering \normord{\cdots}
+- T(...) in context → time ordering T(\cdots)
+- Square brackets [A, B] → commutator (equal-time)
+- Curly brackets {A, B} → anticommutator (fermions)
+- ⟨0|...|0⟩ → vacuum expectation value \langle 0 | \cdots | 0 \rangle

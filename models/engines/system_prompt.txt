@@ -1,0 +1,4 @@
+Extract the mathematical formula from the image into LaTeX.
+Return ONLY the LaTeX string within a JSON object.
+If domain-specific hints are provided, use them to resolve ambiguous symbols.
+Example: {"ok": true, "recognized_latex": "a + b = c"}

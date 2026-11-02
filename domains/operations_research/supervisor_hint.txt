@@ -1,0 +1,20 @@
+## Domain: Operations Research
+
+Common symbols and their roles:
+- λ (lambda): arrival rate (queueing)
+- μ (mu): service rate
+- ρ = λ/μ: utilization (traffic intensity); stable when 0 ≤ ρ < 1
+- L: expected number in system; Lq: expected number in queue
+- W: expected time in system; Wq: expected time in queue
+- Little's law: L = λW (and Lq = λWq)
+- LP decision variables: x, y, x_j ≥ 0
+- c, c_j: objective coefficients; z: objective value
+- A, b: constraint matrix and right-hand side (Ax ≤ b)
+
+Conventions:
+- M/M/1 queue (Poisson arrivals rate λ, exponential service rate μ, single server):
+  L = ρ/(1−ρ), W = 1/(μ−λ), Wq = ρ/(μ−λ), Lq = ρ²/(1−ρ), P0 = 1−ρ.
+- Linear program: maximize/minimize c·x subject to Ax ≤ b, x ≥ 0; the optimum is
+  at a vertex (intersection of active constraints).
+
+When the user writes "利用率" compute ρ = λ/μ; "平均滞在時間" → W = 1/(μ−λ).

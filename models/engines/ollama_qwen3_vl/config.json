@@ -1,0 +1,27 @@
+{
+  "_management": {
+    "file_name": "config.json",
+    "version": "1.0.0",
+    "last_updated": "2026-05-16",
+    "description": "Qwen3-VL OCR engine via Ollama. Handwritten image → LaTeX.",
+    "status": "testing"
+  },
+  "id": "ollama-qwen3-vl-engine",
+  "type": "ocr_engine",
+  "api_config": {
+    "model_name": "qwen3-vl:latest",
+    "base_url": "http://127.0.0.1:11434",
+    "endpoint_type": "ollama",
+    "timeout": 120
+  },
+  "parameters": {
+    "temperature": 0.1,
+    "num_predict": 2048,
+    "top_p": 0.9,
+    "num_ctx": 8192,
+    "think": false
+  },
+  "paths": {
+    "prompt_file": "system_prompt.txt"
+  }
+}

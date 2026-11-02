@@ -1,0 +1,17 @@
+## OCR Domain Hint: Analytical Mechanics
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- Single-dot overhead (q̇) → LaTeX: \dot{q}  — generalized velocity
+- Double-dot overhead (q̈) → LaTeX: \ddot{q}  — generalized acceleration
+- δ (lowercase delta, cursive) → variational operator \delta, NOT partial ∂
+- ∂ → partial derivative \partial
+- L (script or upright) → Lagrangian L
+- H (script or upright) → Hamiltonian H
+- Subscript i on coordinates → q_i, p_i
+
+Common expression patterns:
+- Fraction with ∂L in numerator → \frac{\partial L}{\partial q}
+- d/dt(...) → \frac{d}{dt}\left(...\right)
+- Curly brace expressions → Poisson bracket \{f, g\}

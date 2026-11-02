@@ -1,0 +1,86 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_matrix\_diagonalization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+対称行列 $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ を登録する。
+
+$A = [2, 1; 1, 2]$
+
+\begin{equation}
+  A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+$A$ の固有値を求める。
+
+E1 の固有値を求めて
+
+\begin{equation}
+  \left\{ 3 , 1 \right\}
+  \label{eq:E2}
+\end{equation}
+
+$A$ の固有ベクトルを求める。
+
+E1 の固有ベクトルを求めて
+
+\begin{equation}
+  \left[ \left[ \left[ 3 , 1 \right]  , \left[ 1 , 1 \right]  \right]  , \left[ \left[ \left[ 1 , 1 \right]  \right]  , \left[ \left[ 1 , -1 \right]  \right]  \right]  \right]
+  \label{eq:E3}
+\end{equation}
+
+正規化した固有ベクトルを列に並べた直交変換行列 $P$ を求める（対角化を行う変換行列）。
+
+E1 を対角化して
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E4}
+\end{equation}
+
+固有値を対角成分に並べた対角行列 $D$ を求める。
+
+E1 の対角行列を求めて
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 3&0\cr 0&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E5}
+\end{equation}
+
+相似変換 $P^{-1}AP$ を計算するため、まず $P$ の逆行列 $P^{-1}$ を求める（$P$ は直交行列なので $P^{-1}=P^\top$ になるはず）。
+
+E4 の逆行列を求めて
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E6}
+\end{equation}
+
+$P^{-1}$ と $A$ の行列積 $P^{-1}A$ を求める。
+
+E6 と E1 の行列積を求めて
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{3}{\sqrt{2}}&\frac{3}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E7}
+\end{equation}
+
+続けて $P$ との行列積を取り、$P^{-1}AP$ を完成させる。これが対角行列 $D$（固有値を並べたもの）に一致するはずである。
+
+E7 と E4 の行列積を求めて
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 3&0\cr 0&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

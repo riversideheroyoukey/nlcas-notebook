@@ -1,0 +1,25 @@
+## Domain: Econometrics
+
+Common symbols and their roles:
+- y: dependent variable (n×1 vector of observations)
+- X: design matrix / regressor matrix (n×k)
+- β: coefficient vector (k×1) — parameters to estimate
+- ε: error term vector (n×1)
+- β̂: OLS estimator = (X'X)^{-1}X'y
+- Σ, Ω: covariance matrix of errors
+- R²: coefficient of determination
+- σ²: error variance
+- t: t-statistic; F: F-statistic
+- n: sample size; k: number of regressors
+
+Model: y = Xβ + ε
+
+Typical dependency patterns:
+- y depends on regressors in X
+- Residuals ε depend on the model specification
+
+Estimation assumptions:
+- E[ε|X] = 0: zero conditional mean
+- Var[ε|X] = σ²I: homoscedasticity
+
+When the user writes "OLS推定量を求めて", interpret as β̂ = (X'X)^{-1}X'y.

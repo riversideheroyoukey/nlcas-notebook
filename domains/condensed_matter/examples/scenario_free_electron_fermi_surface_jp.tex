@@ -1,0 +1,94 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_free\_electron\_fermi\_surface}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+フリー電子モデルの分散関係を扱う。波数 $k$、電子質量 $m$、化学ポテンシャル $\mu$、換算プランク定数 $\hbar$ をスカラーパラメータとして準備する。
+
+k, m, $\mu$, $\hbar$ をスカラーとして定義する
+
+\[
+  k, m, \mu, \hbar
+\]
+
+フリー電子のエネルギー分散 $\xi_k=\hbar^2k^2/(2m)-\mu$（化学ポテンシャルを基準としたエネルギー）を定義する。
+
+$\xi_k = \hbar^2 k^2 / (2 m) - \mu$
+
+\begin{equation}
+  \xi_k = \hbar^2 k^2 / (2 m) - \mu
+  \label{eq:E1}
+\end{equation}
+
+右辺を整理して見やすい形にする（物理的な意味は変わらない）。
+
+E1 の右辺を整理して
+
+\begin{equation}
+  \xi_k = \frac{ - 2 m \mu + k^{2} \hbar^{2}}{2 m}
+  \label{eq:E2}
+\end{equation}
+
+フェルミ面の条件 $\xi_k=0$（エネルギーがフェルミ準位に一致する）を、右辺を 0 と置いた方程式として確定する。
+
+E1 の右辺を 0 とする
+
+\begin{equation}
+  \hbar^2 k^2 / (2 m) - \mu = 0
+  \label{eq:E3}
+\end{equation}
+
+この方程式を波数 $k$ について解き、フェルミ波数 $k_F$ を求める。
+
+E3 を k について解いて
+
+\begin{equation}
+  k = \sqrt{2} \sqrt{m \mu}/\hbar
+  \label{eq:E4}
+\end{equation}
+
+得られたフェルミ波数を元の $\xi_k$ の式に代入し、フェルミ面上ではエネルギーが恒等的にゼロになることを確認する。
+
+E1 に E4 を代入して
+
+\begin{equation}
+  \xi_k = \left( - \mu + \frac{\left( \frac{\sqrt{2 m \mu}}{\hbar} \right)^{2} \hbar^{2}}{2 m}\right)
+  \label{eq:E5}
+\end{equation}
+
+代入結果を整理し、ゼロになることを明示的に確認する。
+
+E5 の右辺を整理して
+
+\begin{equation}
+  \xi_k = 0
+  \label{eq:E6}
+\end{equation}
+
+有効質量 $m^*$ を求めるため、分散関係 $\xi_k$ を波数 $k$ について2階微分する。
+
+E1 を k で 2 回微分して
+
+\begin{equation}
+  \frac{d^{2}}{dk^{2}}\left(\xi_k\right) = \frac{\hbar^{2}}{m}
+  \label{eq:E7}
+\end{equation}
+
+得られた2階微分から、有効質量 $m^*=\hbar^2/(d^2\xi_k/dk^2)$ を定義する（フリー電子モデルでは $m^*=m$、裸の質量に一致するはず）。
+
+$m_star = \hbar^2 / E7$
+
+\begin{equation}
+  m_star = m
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,166 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_utility\_maximization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+コブ・ダグラス型効用関数 $U(x_1,x_2)=x_1^ax_2^b$ を予算制約 $p_1x_1+p_2x_2=m$ の下で最大化する。まず添字つきの記号を「名前」として宣言する——宣言しないと操作時に成分インデックス $x(1)$ として解決され、一階条件が誤る。
+
+$x_1$ をスカラーとする
+
+\[
+  x_1
+\]
+
+$x_2$ をスカラーとする
+
+\[
+  x_2
+\]
+
+$p_1$ をスカラーとする
+
+\[
+  p_1
+\]
+
+$p_2$ をスカラーとする
+
+\[
+  p_2
+\]
+
+効用関数を登録する。
+
+$U = x_1^a x_2^b$
+
+\begin{equation}
+  U = x_1^a x_2^b
+  \label{eq:E1}
+\end{equation}
+
+ラグランジアンを研究者が書く。乗数の名前も研究者が付ける（システムが自動採番する必要はない）。
+
+$L = U - \lambda (p_1 x_1 + p_2 x_2 - m)$
+
+\begin{equation}
+  L = U - \lambda (p_1 x_1 + p_2 x_2 - m)
+  \label{eq:E2}
+\end{equation}
+
+一階条件のために、ラグランジアンを各変数で偏微分する。
+
+E2 を $x_1$ で偏微分して
+
+\begin{equation}
+  \frac{\partial L}{\partial x_1} = x_{1}^{a-1} x_{2}^{b} a-p_{1} \lambda
+  \label{eq:E3}
+\end{equation}
+
+E2 を $x_2$ で偏微分して
+
+\begin{equation}
+  \frac{\partial L}{\partial x_2} = x_{1}^{a} x_{2}^{b-1} b-p_{2} \lambda
+  \label{eq:E4}
+\end{equation}
+
+E2 を $\lambda$ で偏微分して
+
+\begin{equation}
+  \frac{\partial L}{\partial \lambda} = m-p_{2} x_{2}-p_{1} x_{1}
+  \label{eq:E5}
+\end{equation}
+
+それぞれの右辺を 0 とおいて、一階条件（連立方程式）にする。
+
+E3 の右辺を 0 とする
+
+\begin{equation}
+  x_{1}^{a-1} x_{2}^{b} a-p_{1} \lambda = 0
+  \label{eq:E6}
+\end{equation}
+
+E4 の右辺を 0 とする
+
+\begin{equation}
+  x_{1}^{a} x_{2}^{b-1} b-p_{2} \lambda = 0
+  \label{eq:E7}
+\end{equation}
+
+E5 の右辺を 0 とする
+
+\begin{equation}
+  m-p_{2} x_{2}-p_{1} x_{1} = 0
+  \label{eq:E8}
+\end{equation}
+
+比較静学を先に行う。需要関数を陽に $F(x_1,m)=am-(a+b)p_1x_1=0$ の形で書く。この段は連立を解く前に置く必要がある——解くと $x_1$ が CAS 側で束縛され、$F$ が恒等的に 0 に潰れるためである。
+
+$F = a m - (a+b) p_1 x_1$
+
+\begin{equation}
+  F = a m - (a+b) p_1 x_1
+  \label{eq:E9}
+\end{equation}
+
+陰関数定理に必要な2つの偏導関数を求める。
+
+E9 を m で偏微分して
+
+\begin{equation}
+  \frac{\partial F}{\partial m} = a
+  \label{eq:E10}
+\end{equation}
+
+E9 を $x_1$ で偏微分して
+
+\begin{equation}
+  \frac{\partial F}{\partial x_1} = -p_{1} \left(b+a\right)
+  \label{eq:E11}
+\end{equation}
+
+陰関数定理 $dx_1/dm=-F_m/F_{x_1}$ を研究者が書く。式番号参照で前段の結果を差し込む。
+
+$\frac{dx_1}{dm} = -\frac{E10}{E11}$
+
+\begin{equation}
+  \frac{d}{d m} x_{1}=\frac{a}{p_{1} \left(b+a\right)}
+  \label{eq:E12}
+\end{equation}
+
+一階条件の連立方程式を解いて需要関数を得る。
+
+E6 と E7 と E8 の連立方程式を $x_1$, $x_2$, $\lambda$ について解いて
+
+\begin{equation}
+  x_{1} = \frac{a m}{p_{1} b+p_{1} a}
+  \label{eq:E13}
+\end{equation}
+
+\begin{equation}
+  x_{2} = \frac{b m}{p_{2} b+p_{2} a}
+  \label{eq:E14}
+\end{equation}
+
+\begin{equation}
+  \lambda = {{b \left(\frac{a m}{p_{1} b+p_{1} a}\right)^{a} \left(\frac{b m}{p_{2} b+p_{2} a}\right)^{b}+a \left(\frac{a m}{p_{1} b+p_{1} a}\right)^{a} \left(\frac{b m}{p_{2} b+p_{2} a}\right)^{b}}\over{m}}
+  \label{eq:E15}
+\end{equation}
+
+得られた需要関数を $m$ で直接微分し、陰関数定理から得た感応度と一致することを確かめる。マクロは答えを1つ返すだけで、この比較ができなかった。
+
+E13 を m で偏微分して
+
+\begin{equation}
+  \frac{\partial x_1}{\partial m} = \frac{a}{p_{1} b+p_{1} a}
+  \label{eq:E16}
+\end{equation}
+
+\end{document}

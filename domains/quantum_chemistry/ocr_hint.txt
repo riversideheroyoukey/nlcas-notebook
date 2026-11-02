@@ -1,0 +1,18 @@
+## OCR Domain Hint: Quantum Chemistry
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- Ψ (capital psi) → wavefunction \Psi
+- ψ (lowercase psi) → orbital \psi
+- φ (phi) → molecular orbital \phi or \varphi
+- ∇² → Laplacian \nabla^2 (kinetic energy operator)
+- ℏ (h-bar) → \hbar
+- Bra-ket notation: ⟨φ|H|ψ⟩ → \langle \phi | H | \psi \rangle
+- ρ(r) → electron density \rho(\mathbf{r})
+- α, β (small, near spin context) → spin functions \alpha, \beta
+
+Common expression patterns:
+- Hat over letter (Ĥ) → operator \hat{H}
+- Integral with dr³ or dV → three-dimensional spatial integral
+- Subscript 0 on energy → ground state E_0

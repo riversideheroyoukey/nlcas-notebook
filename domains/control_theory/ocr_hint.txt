@@ -1,0 +1,16 @@
+## OCR Domain Hint: Control Theory
+
+Symbol recognition priorities:
+- G(s), H(s), C(s) → transfer functions G(s), H(s), C(s)
+- s (lowercase italic, in denominator of fraction) → Laplace variable s
+- jω → imaginary frequency j\omega
+- ζ (zeta) → damping ratio \zeta
+- ωₙ (omega with subscript n) → natural frequency \omega_n
+- ẋ (x with overdot) → state derivative \dot{x}
+- A, B, C, D (matrices in state-space context) → system matrices
+
+Common expression patterns:
+- G(s) = K/(τs+1) → first-order transfer function
+- G(s) = ωₙ²/(s² + 2ζωₙs + ωₙ²) → second-order transfer function
+- ẋ = Ax + Bu, y = Cx + Du → state-space representation
+- T(s) = G(s)/(1 + G(s)H(s)) → closed-loop transfer function

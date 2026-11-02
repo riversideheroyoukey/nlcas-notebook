@@ -1,0 +1,920 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_1018bcf5",
+    "title": "scenario_matrix_diagonalization",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:45.496514Z",
+    "active_branch_id": "main",
+    "domains": [
+      "linear_algebra"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_a8cd8a",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}",
+      "canonical": "matrix([2, 1], [1, 2])",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "matrix"
+      ],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_f92546",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\left\\{ 3 , 1 \\right\\}",
+      "canonical": "[[3,1],[1,1]]",
+      "created_by_step": "S6",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "[[3,1],[1,1]]",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_bfaeec",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\left[ \\left[ \\left[ 3 , 1 \\right]  , \\left[ 1 , 1 \\right]  \\right]  , \\left[ \\left[ \\left[ 1 , 1 \\right]  \\right]  , \\left[ \\left[ 1 , -1 \\right]  \\right]  \\right]  \\right]",
+      "canonical": "[[[3,1],[1,1]],[[[1,1]],[[1,-1]]]]",
+      "created_by_step": "S9",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "[[[3,1],[1,1]],[[[1,1]],[[1,-1]]]]",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_2127d2",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\ifx\\endpmatrix\\undefined\\pmatrix{\\else\\begin{pmatrix}\\fi \\frac{1}{\\sqrt{2}}&\\frac{1}{\\sqrt{2}}\\cr \\frac{1}{\\sqrt{2}}&-\\left(\\frac{1}{\\sqrt{2}}\\right)\\cr \\ifx\\endpmatrix\\undefined}\\else\\end{pmatrix}\\fi",
+      "canonical": "matrix([1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "created_by_step": "S13",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "matrix([1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_4955a5",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\ifx\\endpmatrix\\undefined\\pmatrix{\\else\\begin{pmatrix}\\fi 3&0\\cr 0&1\\cr \\ifx\\endpmatrix\\undefined}\\else\\end{pmatrix}\\fi",
+      "canonical": "matrix([3,0],[0,1])",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "matrix([3,0],[0,1])",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_297f2c",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\ifx\\endpmatrix\\undefined\\pmatrix{\\else\\begin{pmatrix}\\fi \\frac{1}{\\sqrt{2}}&\\frac{1}{\\sqrt{2}}\\cr \\frac{1}{\\sqrt{2}}&-\\left(\\frac{1}{\\sqrt{2}}\\right)\\cr \\ifx\\endpmatrix\\undefined}\\else\\end{pmatrix}\\fi",
+      "canonical": "matrix([1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "created_by_step": "S19",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "matrix([1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_256a9a",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\ifx\\endpmatrix\\undefined\\pmatrix{\\else\\begin{pmatrix}\\fi \\frac{3}{\\sqrt{2}}&\\frac{3}{\\sqrt{2}}\\cr \\frac{1}{\\sqrt{2}}&-\\left(\\frac{1}{\\sqrt{2}}\\right)\\cr \\ifx\\endpmatrix\\undefined}\\else\\end{pmatrix}\\fi",
+      "canonical": "matrix([3/sqrt(2),3/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "created_by_step": "S22",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "matrix([3/sqrt(2),3/sqrt(2)],[1/sqrt(2),-(1/sqrt(2))])",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_bcc8e4",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "\\ifx\\endpmatrix\\undefined\\pmatrix{\\else\\begin{pmatrix}\\fi 3&0\\cr 0&1\\cr \\ifx\\endpmatrix\\undefined}\\else\\end{pmatrix}\\fi",
+      "canonical": "matrix([3,0],[0,1])",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "matrix([3,0],[0,1])",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "matrix([2, 1], [1, 2])",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:45.561878Z",
+      "user_text": "対称行列 $A=\\begin{pmatrix}2&1\\\\1&2\\end{pmatrix}$ を登録する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:45.562075Z",
+      "user_text": "A = [2, 1; 1, 2]",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:45.563500Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:58:45.566373Z",
+      "user_text": "$A$ の固有値を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:45.566420Z",
+      "user_text": "E1 の固有値を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:45.569577Z",
+      "user_text": null,
+      "visible_action": "E1 の固有値を求める",
+      "operation": "eigenvalues",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "maxima",
+      "rendered_command": "eigenvalues(matrix([2, 1], [1, 2]))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:58:45.570007Z",
+      "user_text": "$A$ の固有ベクトルを求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:45.570044Z",
+      "user_text": "E1 の固有ベクトルを求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:45.571768Z",
+      "user_text": null,
+      "visible_action": "E1 の固有ベクトルを求める",
+      "operation": "eigenvectors",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "maxima",
+      "rendered_command": "eigenvectors(matrix([2, 1], [1, 2]))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:58:45.572470Z",
+      "user_text": "正規化した固有ベクトルを列に並べた直交変換行列 $P$ を求める（対角化を行う変換行列）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:45.572526Z",
+      "user_text": "E1 を対角化して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:45.573091Z",
+      "user_text": "E1 を対角化して",
+      "visible_action": "LLM解釈: diagonalize",
+      "operation": "diagonalize",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:45.588369Z",
+      "user_text": null,
+      "visible_action": "E1 の対角化する（変換行列 P を求める）",
+      "operation": "diagonalize",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "maxima",
+      "rendered_command": "transpose(apply(matrix, map(lambda([_v], _v/sqrt(_v . _v)), apply(append, second(eigenvectors(matrix([2, 1], [1, 2])))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:45.589199Z",
+      "user_text": "固有値を対角成分に並べた対角行列 $D$ を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:45.589235Z",
+      "user_text": "E1 の対角行列を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:45.599404Z",
+      "user_text": null,
+      "visible_action": "E1 の対角行列を求める（固有値を並べた D）",
+      "operation": "diagonal_matrix",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "maxima",
+      "rendered_command": "apply(diag_matrix, apply(append, map(lambda([_v,_m], makelist(_v,_i,1,_m)), first(eigenvalues(matrix([2, 1], [1, 2]))), second(eigenvalues(matrix([2, 1], [1, 2]))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:45.599867Z",
+      "user_text": "相似変換 $P^{-1}AP$ を計算するため、まず $P$ の逆行列 $P^{-1}$ を求める（$P$ は直交行列なので $P^{-1}=P^\\top$ になるはず）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:45.599908Z",
+      "user_text": "E4 の逆行列を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:45.602450Z",
+      "user_text": null,
+      "visible_action": "E4 の逆行列を求める",
+      "operation": "inverse_matrix",
+      "operation_args": {
+        "expr": "E4"
+      },
+      "backend": "maxima",
+      "rendered_command": "invert(matrix([1 * sqrt(2)^-1, 1 * sqrt(2)^-1], [1 * sqrt(2)^-1, -1 * sqrt(2)^-1]))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E4"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:58:45.603159Z",
+      "user_text": "$P^{-1}$ と $A$ の行列積 $P^{-1}A$ を求める。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:45.603195Z",
+      "user_text": "E6 と E1 の行列積を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:45.606310Z",
+      "user_text": null,
+      "visible_action": "E6 の行列積を求める",
+      "operation": "matrix_multiply",
+      "operation_args": {
+        "a": "E6",
+        "b": "E1"
+      },
+      "backend": "maxima",
+      "rendered_command": "matrix([1 * sqrt(2)^-1, 1 * sqrt(2)^-1], [1 * sqrt(2)^-1, -1 * sqrt(2)^-1]) . matrix([2, 1], [1, 2])",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E6",
+        "E1"
+      ],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:58:45.607000Z",
+      "user_text": "続けて $P$ との行列積を取り、$P^{-1}AP$ を完成させる。これが対角行列 $D$（固有値を並べたもの）に一致するはずである。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:45.607033Z",
+      "user_text": "E7 と E4 の行列積を求めて",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:45.610944Z",
+      "user_text": null,
+      "visible_action": "E7 の行列積を求める",
+      "operation": "matrix_multiply",
+      "operation_args": {
+        "a": "E7",
+        "b": "E4"
+      },
+      "backend": "maxima",
+      "rendered_command": "matrix([3 * sqrt(2)^-1, 3 * sqrt(2)^-1], [1 * sqrt(2)^-1, -1 * sqrt(2)^-1]) . matrix([1 * sqrt(2)^-1, 1 * sqrt(2)^-1], [1 * sqrt(2)^-1, -1 * sqrt(2)^-1])",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E7",
+        "E4"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S25",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:45.496520Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "A": {
+      "quantity": {
+        "name": "A",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {},
+  "called_bases": [
+    "matrix"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "A": "E1"
+  },
+  "expr_counter": 8,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 25,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

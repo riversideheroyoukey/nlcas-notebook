@@ -1,0 +1,4386 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_9e16a883",
+    "title": "scenario_greens_function_from_hamiltonian",
+    "mode": "standard_symbolic",
+    "primary_backend": "maxima",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:49.135821Z",
+    "active_branch_id": "main",
+    "domains": [
+      "quantum_mechanics"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_1783f6",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "psi_hat_sigma(vec(r))",
+      "created_by_step": "S3",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_acf67a",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\hat\\psi^\\dagger_\\sigma(\\mathbf{r})",
+      "canonical": "psi_hat^\\dagger_sigma(vec(r))",
+      "created_by_step": "S5",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_dagger_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat^\\dagger_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_dad522",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\} = \\delta_{\\sigma\\sigma'}\\delta(\\mathbf{r}-\\mathbf{r}')",
+      "canonical": "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\} = delta_{sigma,sigma'} delta(vec(r)-vec(r)')",
+      "created_by_step": "S8",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "sigma'",
+        "vec",
+        "r'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\} = delta_{sigma,sigma'} delta(vec(r)-vec(r)')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_ec05de",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\int d^3r\\, \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat T(\\mathbf{r}) \\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "\\int*d^3*r*psi_hat^\\dagger_sigma(vec(r))*T_hat(vec(r))*psi_hat_sigma(vec(r))",
+      "created_by_step": "S15",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "psi_hat_dagger_sigma",
+        "vec",
+        "T_hat",
+        "psi_hat_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*r*psi_hat^\\dagger_sigma(vec(r))*T_hat(vec(r))*psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_47dfbd",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "\\hat V = \\frac{1}{2}\\int d^3r \\int d^3r' \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}') v(\\mathbf{r}-\\mathbf{r}') \\hat\\psi_{\\sigma'}(\\mathbf{r}') \\hat\\psi_\\sigma(\\mathbf{r})",
+      "canonical": "((1)/(2)) \\int*d^3*r \\int*d^3*r' psi_hat^\\dagger_sigma(vec(r))*psi_hat^\\dagger_sigma'(vec(r)')*v(vec(r)-vec(r)')*psi_hat_sigma'(vec(r)')*psi_hat_sigma(vec(r))",
+      "created_by_step": "S18",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "int",
+        "r'",
+        "psi_hat_dagger_sigma",
+        "vec",
+        "psi_hat_dagger_sigma'",
+        "psi_hat_sigma'",
+        "psi_hat_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "((1)/(2)) \\int*d^3*r \\int*d^3*r' psi_hat^\\dagger_sigma(vec(r))*psi_hat^\\dagger_sigma'(vec(r)')*v(vec(r)-vec(r)')*psi_hat_sigma'(vec(r)')*psi_hat_sigma(vec(r))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_968943",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "\\int d^3r\\, \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r}) = \\delta_{nm}\\delta_{\\sigma\\sigma'}",
+      "canonical": "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r)) = delta_nm*delta_{sigma,sigma'}",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r)) = delta_nm*delta_{sigma,sigma'}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_d34d0d",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\int_{-\\infty }^{\\infty }{\\varphi_{m,\\sigma'}(r_{x}, r_{y}, r_{z}) \\varphi^{\\ast}_{n,\\sigma}(r_{x}, r_{y}, r_{z})\\;dr_{z}}\\;dr_{y}}\\;dr_{x}}=\\delta_{m, n}  \\delta_{\\sigma, \\sigma'}",
+      "canonical": "'integrate('integrate('integrate(phi[m,sigma\\'](vec(r_x,r_y,r_z))\n                                  *conjugate(phi[n,sigma](vec(r_x,r_y,r_z))),\n                                 r_z,-inf,inf),r_y,-inf,inf),r_x,-inf,inf)\n  = kron_delta(m,n)*kron_delta(sigma,sigma\\')",
+      "created_by_step": "S24",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_3f71f4",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}') = \\delta(\\mathbf{r}-\\mathbf{r}')",
+      "canonical": "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)') = delta(vec(r)-vec(r)')",
+      "created_by_step": "S27",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "vec",
+        "r'"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)') = delta(vec(r)-vec(r)')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_600b63",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "\\hat\\psi_\\sigma(\\mathbf{r}) = \\sum_n \\varphi_{n\\sigma}(\\mathbf{r}) \\hat c_{n\\sigma}",
+      "canonical": "psi_hat_sigma(vec(r)) = \\sum_n*phi_{n,sigma}(vec(r))*c_hat_{n,sigma}",
+      "created_by_step": "S30",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "phi_n_sigma",
+        "vec"
+      ],
+      "warnings": [],
+      "input_canonical": "psi_hat_sigma(vec(r)) = \\sum_n*phi_{n,sigma}(vec(r))*c_hat_{n,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_d8f8c5",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "\\hat\\rho_{n\\sigma,m\\sigma} = \\hat c^\\dagger_{n\\sigma} \\hat c_{m\\sigma}",
+      "canonical": "c_hat^\\dagger_{n,sigma} c_hat_{m,sigma}",
+      "created_by_step": "S33",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "c_hat^\\dagger_{n,sigma} c_hat_{m,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_9d4bf9",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n m} T_{n\\sigma,m\\sigma} \\hat\\rho_{n\\sigma,m\\sigma}",
+      "canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "T_n_sigma_m_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_0b3df7",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "\\hat V = \\frac{1}{2}\\sum_{n m p q}\\sum_{\\sigma \\sigma'} V_{n\\sigma,m\\sigma',p\\sigma',q\\sigma} \\hat c^\\dagger_{n\\sigma} \\hat c^\\dagger_{m\\sigma'} \\hat c_{p\\sigma'} \\hat c_{q\\sigma}",
+      "canonical": "((1)/(2)) \\sum_{n,m,p,q} \\sum_{sigma,sigma'} V_{n,sigma,m,sigma',p,sigma',q,sigma} c_hat^\\dagger_{n,sigma} c_hat^\\dagger_{m,sigma'} c_hat_{p,sigma'} c_hat_{q,sigma}",
+      "created_by_step": "S38",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "V_n_sigma_m_sigma'_p_sigma'_q_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "((1)/(2)) \\sum_{n,m,p,q} \\sum_{sigma,sigma'} V_{n,sigma,m,sigma',p,sigma',q,sigma} c_hat^\\dagger_{n,sigma} c_hat^\\dagger_{m,sigma'} c_hat_{p,sigma'} c_hat_{q,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_00426c",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "T_{n\\sigma,m\\sigma} = \\varepsilon_{n\\sigma} \\delta_{nm}",
+      "canonical": "epsilon_{n,sigma} delta_nm",
+      "created_by_step": "S41",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_n_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "epsilon_{n,sigma} delta_nm",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E14": {
+      "expr_uid": "expr_8047bf",
+      "display_id": "E14",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n}{\\varepsilon_{n,\\sigma} \\sum_{m}{\\delta_{m, n}  \\hat{\\rho}_{n,\\sigma,m,\\sigma}}}",
+      "canonical": "'sum(epsilon(n,sigma)*'sum(kron_delta(m,n)*rho_hat(n,sigma,m,sigma),m,\n                           nbSumLo5,nbSumHi5),n,nbSumLo4,nbSumHi4)",
+      "created_by_step": "S44",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'sum(epsilon(n,sigma)*'sum(kron_delta(m,n)*rho_hat(n,sigma,m,sigma),m,\n                           nbSumLo5,nbSumHi5),n,nbSumLo4,nbSumHi4)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "n",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E15": {
+      "expr_uid": "expr_6a80a9",
+      "display_id": "E15",
+      "branch_id": "main",
+      "latex": "\\hat H_0 = \\sum_{n}{\\varepsilon_{n,\\sigma} \\hat{\\rho}_{n,\\sigma,n,\\sigma}}",
+      "canonical": "'sum(epsilon(n,sigma)*rho_hat(n,sigma,n,sigma),n,nbSumLo4,nbSumHi4)",
+      "created_by_step": "S48",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'sum(epsilon(n,sigma)*rho_hat(n,sigma,n,sigma),n,nbSumLo4,nbSumHi4)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{n,m} T_{n,sigma,m,sigma} rho_hat_{n,sigma,m,sigma}",
+      "sum_index_hint": "n",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E16": {
+      "expr_uid": "expr_d8b974",
+      "display_id": "E16",
+      "branch_id": "main",
+      "latex": "\\hat c_{n\\sigma}(t) = e^{i\\hat H t/\\hbar} \\hat c_{n\\sigma} e^{-i\\hat H t/\\hbar}",
+      "canonical": "c_hat_{n,sigma}(t) = %e^(i*H_hat*t/hbar)*c_hat_{n,sigma} %e^(-i*H_hat*t/hbar)",
+      "created_by_step": "S51",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "H",
+        "hbar"
+      ],
+      "warnings": [],
+      "input_canonical": "c_hat_{n,sigma}(t) = %e^(i*H_hat*t/hbar)*c_hat_{n,sigma} %e^(-i*H_hat*t/hbar)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E17": {
+      "expr_uid": "expr_8b6072",
+      "display_id": "E17",
+      "branch_id": "main",
+      "latex": "G_{n\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c_{n\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "canonical": "G_{n,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat_{n,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "created_by_step": "S53",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "time_order",
+        "c_hat_n_sigma",
+        "c_hat_dagger_m_sigma'",
+        "t'",
+        "Phi_0"
+      ],
+      "warnings": [],
+      "input_canonical": "G_{n,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat_{n,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E18": {
+      "expr_uid": "expr_8a52be",
+      "display_id": "E18",
+      "branch_id": "main",
+      "latex": "G^0_{n\\sigma}(\\omega) = \\frac{1}{\\omega - \\varepsilon_{n\\sigma}/\\hbar + i\\eta\\,\\mathrm{sgn}(\\varepsilon_{n\\sigma}-\\varepsilon_F)}",
+      "canonical": "G_sup0_{n,sigma}(omega) = ((1)/(omega - epsilon_{n,sigma}/hbar + i*eta*sgn(epsilon_{n,sigma}-epsilon_F)))",
+      "created_by_step": "S56",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_n_sigma",
+        "hbar",
+        "sgn",
+        "epsilon_F"
+      ],
+      "warnings": [],
+      "input_canonical": "G_sup0_{n,sigma}(omega) = ((1)/(omega - epsilon_{n,sigma}/hbar + i*eta*sgn(epsilon_{n,sigma}-epsilon_F)))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E19": {
+      "expr_uid": "expr_8f0c06",
+      "display_id": "E19",
+      "branch_id": "main",
+      "latex": "G_{n\\sigma,m\\sigma'}(\\omega) = G^0_{n\\sigma}(\\omega)\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\sum_{p \\sigma''} G^0_{n\\sigma}(\\omega) \\Sigma_{n\\sigma,p\\sigma''}(\\omega) G_{p\\sigma'',m\\sigma'}(\\omega)",
+      "canonical": "G_{n,sigma,m,sigma'}(omega) = G_sup0_{n,sigma}(omega)*delta_nm*delta_{sigma,sigma'} + \\sum_{p,sigma''} G_sup0_{n,sigma}(omega)*Sigma_{n,sigma,p,sigma''}(omega)*G_{p,sigma'',m,sigma'}(omega)",
+      "created_by_step": "S59",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_sup0_n_sigma",
+        "sigma'",
+        "Sigma_n_sigma_p_sigma''",
+        "G_p_sigma''_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_{n,sigma,m,sigma'}(omega) = G_sup0_{n,sigma}(omega)*delta_nm*delta_{sigma,sigma'} + \\sum_{p,sigma''} G_sup0_{n,sigma}(omega)*Sigma_{n,sigma,p,sigma''}(omega)*G_{p,sigma'',m,sigma'}(omega)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E20": {
+      "expr_uid": "expr_ea8dc7",
+      "display_id": "E20",
+      "branch_id": "main",
+      "latex": "(1 - G^0 \\Sigma) G = G^0",
+      "canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "created_by_step": "S72",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E21": {
+      "expr_uid": "expr_0da4c4",
+      "display_id": "E21",
+      "branch_id": "main",
+      "latex": "G=\\left(1-G^{0}\\cdot \\Sigma\\right)^{-1}\\cdot G^{0}",
+      "canonical": "G = (1-G_sup0 . Sigma)^^(-1) . G_sup0",
+      "created_by_step": "S75",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "G = (1-G_sup0 . Sigma)^^(-1) . G_sup0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "(1 - G_sup0*Sigma)*G = G_sup0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E22": {
+      "expr_uid": "expr_3c8730",
+      "display_id": "E22",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t) = [\\hat c_{n\\sigma}(t), \\hat H]",
+      "canonical": "i*hbar*'diff(c_hat_{n,sigma}(t),t,1) = [c_hat_{n,sigma}(t), H_hat]",
+      "created_by_step": "S80",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "c_hat_n_sigma",
+        "H"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(c_hat_{n,sigma}(t),t,1) = [c_hat_{n,sigma}(t), H_hat]",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E23": {
+      "expr_uid": "expr_9f4a02",
+      "display_id": "E23",
+      "branch_id": "main",
+      "latex": "[\\hat c_{m\\sigma}, \\hat H] = -\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} - \\sum_{p q s}\\sum_{\\sigma''} V_{m\\sigma,p\\sigma'',q\\sigma'',s\\sigma} \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''} \\hat c_{s\\sigma}",
+      "canonical": "-epsilon_{m,sigma} c_hat_{m,sigma} - \\sum_{p,q,s} \\sum_sigma'' V_{m,sigma,p,sigma'',q,sigma'',s,sigma} c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''} c_hat_{s,sigma}",
+      "created_by_step": "S83",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "epsilon_m_sigma",
+        "V_m_sigma_p_sigma''_q_sigma''_s_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "-epsilon_{m,sigma} c_hat_{m,sigma} - \\sum_{p,q,s} \\sum_sigma'' V_{m,sigma,p,sigma'',q,sigma'',s,sigma} c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''} c_hat_{s,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E24": {
+      "expr_uid": "expr_5e9c49",
+      "display_id": "E24",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G_{n\\sigma,m\\sigma'}(t,t') + \\sum_{p q s}\\sum_{\\sigma''} V_{n\\sigma,p\\sigma'',q\\sigma'',s\\sigma} G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')",
+      "canonical": "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_{n,sigma,m,sigma'}(t,t') + \\sum_{p,q,s} \\sum_sigma'' V_{n,sigma,p,sigma'',q,sigma'',s,sigma} G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')",
+      "created_by_step": "S87",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "t'",
+        "sigma'",
+        "epsilon_n_sigma",
+        "G_n_sigma_m_sigma'",
+        "V_n_sigma_p_sigma''_q_sigma''_s_sigma",
+        "G_psup2_p_sigma''_q_sigma''_s_sigma_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_{n,sigma,m,sigma'}(t,t') + \\sum_{p,q,s} \\sum_sigma'' V_{n,sigma,p,sigma'',q,sigma'',s,sigma} G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E25": {
+      "expr_uid": "expr_970005",
+      "display_id": "E25",
+      "branch_id": "main",
+      "latex": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c^\\dagger_{p\\sigma''}(t) \\hat c_{q\\sigma''}(t) \\hat c_{s\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat^\\dagger_{p,sigma''}(t)*c_hat_{q,sigma''}(t)*c_hat_{s,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "created_by_step": "S90",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "time_order",
+        "c_hat_dagger_p_sigma''",
+        "c_hat_q_sigma''",
+        "c_hat_s_sigma",
+        "c_hat_dagger_m_sigma'",
+        "t'",
+        "Phi_0"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') = -i*expectation(time_order(c_hat^\\dagger_{p,sigma''}(t)*c_hat_{q,sigma''}(t)*c_hat_{s,sigma}(t)*c_hat^\\dagger_{m,sigma'}(t')), Phi_0)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E26": {
+      "expr_uid": "expr_493d12",
+      "display_id": "E26",
+      "branch_id": "main",
+      "latex": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') \\approx \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle G_{s\\sigma,m\\sigma'}(t,t') - \\delta_{\\sigma\\sigma''} \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{s\\sigma''}\\rangle G_{q\\sigma'',m\\sigma'}(t,t')",
+      "canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') ≈ expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})*G_{s,sigma,m,sigma'}(t,t') - delta_{sigma,sigma''} expectation(c_hat^\\dagger_{p,sigma''} c_hat_{s,sigma''})*G_{q,sigma'',m,sigma'}(t,t')",
+      "created_by_step": "S94",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psup2_p_sigma''_q_sigma''_s_sigma_m_sigma'",
+        "t'",
+        "G_s_sigma_m_sigma'",
+        "sigma''",
+        "G_q_sigma''_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t') ≈ expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})*G_{s,sigma,m,sigma'}(t,t') - delta_{sigma,sigma''} expectation(c_hat^\\dagger_{p,sigma''} c_hat_{s,sigma''})*G_{q,sigma'',m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E27": {
+      "expr_uid": "expr_d0ec23",
+      "display_id": "E27",
+      "branch_id": "main",
+      "latex": "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle = \\delta_{pq}\\langle \\hat n_{p\\sigma''}\\rangle",
+      "canonical": "delta_pq*expectation(n_hat_{p,sigma''})",
+      "created_by_step": "S97",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "delta_pq*expectation(n_hat_{p,sigma''})",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E28": {
+      "expr_uid": "expr_f15fb3",
+      "display_id": "E28",
+      "branch_id": "main",
+      "latex": "\\Sigma^{(HF)}_{n\\sigma,s\\sigma} = \\sum_{p \\sigma''}\\left[V_{n\\sigma,p\\sigma'',p\\sigma'',s\\sigma} - \\delta_{\\sigma\\sigma''}V_{n\\sigma,p\\sigma'',s\\sigma'',p\\sigma}\\right]\\langle \\hat n_{p\\sigma''} \\rangle",
+      "canonical": "Sigma_psupHF_{n,sigma,s,sigma} = \\sum_{p,sigma''}[V_{n,sigma,p,sigma'',p,sigma'',s,sigma} - delta_{sigma,sigma''}V_{n,sigma,p,sigma'',s,sigma'',p,sigma}] expectation(n_hat_{p,sigma''})",
+      "created_by_step": "S100",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "V_n_sigma_p_sigma''_p_sigma''_s_sigma",
+        "sigma''",
+        "V_n_sigma_p_sigma''_s_sigma''_p_sigma"
+      ],
+      "warnings": [],
+      "input_canonical": "Sigma_psupHF_{n,sigma,s,sigma} = \\sum_{p,sigma''}[V_{n,sigma,p,sigma'',p,sigma'',s,sigma} - delta_{sigma,sigma''}V_{n,sigma,p,sigma'',s,sigma'',p,sigma}] expectation(n_hat_{p,sigma''})",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E29": {
+      "expr_uid": "expr_1c8040",
+      "display_id": "E29",
+      "branch_id": "main",
+      "latex": "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') + \\sum_{s} \\Sigma^{(HF)}_{n\\sigma,s\\sigma} G^{(HF)}_{s\\sigma,m\\sigma'}(t,t')",
+      "canonical": "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_psupHF_{n,sigma,m,sigma'}(t,t') + \\sum_s*Sigma_psupHF_{n,sigma,s,sigma} G_psupHF_{s,sigma,m,sigma'}(t,t')",
+      "created_by_step": "S103",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "t'",
+        "sigma'",
+        "epsilon_n_sigma",
+        "G_psupHF_n_sigma_m_sigma'",
+        "G_psupHF_s_sigma_m_sigma'"
+      ],
+      "warnings": [],
+      "input_canonical": "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1) = hbar*delta(t-t')*delta_nm*delta_{sigma,sigma'} + epsilon_{n,sigma} G_psupHF_{n,sigma,m,sigma'}(t,t') + \\sum_s*Sigma_psupHF_{n,sigma,s,sigma} G_psupHF_{s,sigma,m,sigma'}(t,t')",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E30": {
+      "expr_uid": "expr_716229",
+      "display_id": "E30",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n\\sigma}(t-t') = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} G^{(HF)}_{n\\sigma}(\\omega) e^{-i\\omega (t-t')} d\\omega",
+      "canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "created_by_step": "S106",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psupHF_n_sigma",
+        "t'"
+      ],
+      "warnings": [],
+      "input_canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E31": {
+      "expr_uid": "expr_c8bb09",
+      "display_id": "E31",
+      "branch_id": "main",
+      "latex": "\\frac{d}{d t} G^{(HF)}_{n,\\sigma}(t-t')=-\\left({{i \\int_{-\\infty }^{\\infty }{e^ {- \\left(i \\omega \\left(t-t'\\right)\\right) } \\omega G^{(HF)}_{n,\\sigma}(\\omega)\\;d\\omega}}\\over{2 \\pi}}\\right)",
+      "canonical": "'diff(G_psupHF[n,sigma](t-t\\'),t,1) = -((%i\n                                    *'integrate(\n                                     %e^-(%i*omega*(t-t\\'))\n                                      *omega*G_psupHF[n,sigma](omega),omega,\n                                     -inf,inf))\n                                    /(2*%pi))",
+      "created_by_step": "S110",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "'diff(G_psupHF[n,sigma](t-t\\'),t,1) = -((%i\n                                    *'integrate(\n                                     %e^-(%i*omega*(t-t\\'))\n                                      *omega*G_psupHF[n,sigma](omega),omega,\n                                     -inf,inf))\n                                    /(2*%pi))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "G_psupHF_{n,sigma}(t-t') = ((1)/(2*%pi)) \\int_-inf^(inf)*G_psupHF_{n,sigma}(omega)*%e^(-i*omega (t-t'))*d*omega",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E32": {
+      "expr_uid": "expr_f7d14e",
+      "display_id": "E32",
+      "branch_id": "main",
+      "latex": "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega) = 1 + \\Sigma^{(HF)}_{n\\sigma} G^{(HF)}_{n\\sigma}(\\omega)/\\hbar",
+      "canonical": "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega) = 1 + Sigma_psupHF_{n,sigma} G_psupHF_{n,sigma}(omega)/hbar",
+      "created_by_step": "S113",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "G_psupHF_n_sigma",
+        "hbar"
+      ],
+      "warnings": [],
+      "input_canonical": "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega) = 1 + Sigma_psupHF_{n,sigma} G_psupHF_{n,sigma}(omega)/hbar",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E33": {
+      "expr_uid": "expr_338bcf",
+      "display_id": "E33",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n,\\sigma}(\\omega) = \\frac{\\hbar}{\\hbar \\omega-\\varepsilon_{n,\\sigma}-\\Sigma^{(HF)}_{n,\\sigma}}",
+      "canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "created_by_step": "S117",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "hbar",
+        "Sigma_psupHF"
+      ],
+      "warnings": [],
+      "input_canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E34": {
+      "expr_uid": "expr_590c97",
+      "display_id": "E34",
+      "branch_id": "main",
+      "latex": "\\Sigma^{(HF)}_{n\\sigma} = 0",
+      "canonical": "Sigma_psupHF_{n,sigma} = 0",
+      "created_by_step": "S121",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "Sigma_psupHF_{n,sigma} = 0",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E35": {
+      "expr_uid": "expr_e3c16f",
+      "display_id": "E35",
+      "branch_id": "main",
+      "latex": "G^{(HF)}_{n,\\sigma}(\\omega) = \\frac{\\hbar}{\\hbar \\omega-\\varepsilon\\left(n , \\sigma\\right)}",
+      "canonical": "hbar/(hbar*omega-epsilon(n,sigma))",
+      "created_by_step": "S123",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "hbar/(hbar*omega-epsilon(n,sigma))",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "hbar/(hbar*omega-epsilon(n,sigma)\n                                            -Sigma_psupHF(n,sigma))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:49.203272Z",
+      "user_text": "Start from the spin-dependent field operators. The hat is a decoration of the NAME: $\\hat\\psi$ is a different quantity from $\\psi$, which is exactly why physics writes it that way.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:49.203451Z",
+      "user_text": "\\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:49.205057Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:57:49.205198Z",
+      "user_text": "\\hat\\psi^\\dagger_\\sigma(\\mathbf{r})",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S3"
+      ],
+      "timestamp": "2026-09-25T11:57:49.206218Z",
+      "user_text": null,
+      "visible_action": "Register E2",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:57:49.206328Z",
+      "user_text": "The equal-time anticommutator. The two deltas on the right are DIFFERENT: the spin one is Kronecker, the position one is Dirac. A subscript against an argument list tells them apart — physics writes them apart, so no guess is needed.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:57:49.206373Z",
+      "user_text": "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\} = \\delta_{\\sigma\\sigma'}\\delta(\\mathbf{r}-\\mathbf{r}')",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S6"
+      ],
+      "timestamp": "2026-09-25T11:57:49.208610Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:57:49.209283Z",
+      "user_text": "Declare that the 0 in $\\hat H_0$ is PART OF THE NAME. Undeclared, a subscript is read as a component index (this notebook's rule), and a computed result would come back as $\\hat H(0)$. A declaration is the discriminator for most of the readings in this system.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:49.209318Z",
+      "user_text": "declare \\hat H_0 as a scalar",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:49.210274Z",
+      "user_text": "declare \\hat H_0 as a scalar",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "H_hat_0",
+        "_all_names": [
+          "H_hat_0"
+        ],
+        "_raw_names": [
+          "H_hat_0"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S9"
+      ],
+      "timestamp": "2026-09-25T11:57:49.211375Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "H_hat_0"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(H_hat_0, scalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:57:49.211566Z",
+      "user_text": "The one-body term. $\\hat T$ is kinetic energy plus external field as one operator. $\\int d^3r$ is a volume measure, not a one-variable integral.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:49.211607Z",
+      "user_text": "\\hat H_0 = \\int d^3r\\, \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat T(\\mathbf{r}) \\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:49.213616Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S15"
+      ],
+      "timestamp": "2026-09-25T11:57:49.214053Z",
+      "user_text": "The two-body term — six dimensions, and $\\mathbf r$ and $\\mathbf r'$ are DIFFERENT points. While the prime was being dropped, $v(\\mathbf r-\\mathbf r')$ was reaching the CAS as $v(0)$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:49.214106Z",
+      "user_text": "\\hat V = \\frac{1}{2}\\int d^3r \\int d^3r' \\hat\\psi^\\dagger_\\sigma(\\mathbf{r}) \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}') v(\\mathbf{r}-\\mathbf{r}') \\hat\\psi_{\\sigma'}(\\mathbf{r}') \\hat\\psi_\\sigma(\\mathbf{r})",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:49.217614Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:57:49.218217Z",
+      "user_text": "The spin-dependent orthonormal set. Orthonormality is an integral over all space and the basis is arbitrary, so it is NOT something to evaluate — the integral is the condition.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:49.218259Z",
+      "user_text": "\\int d^3r\\, \\varphi^*_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r}) = \\delta_{nm}\\delta_{\\sigma\\sigma'}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S19"
+      ],
+      "timestamp": "2026-09-25T11:57:49.220897Z",
+      "user_text": null,
+      "visible_action": "Register E6",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:49.221581Z",
+      "user_text": "Open it into components: an iterated Cartesian integral over all space.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:49.221624Z",
+      "user_text": "expand into components",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S22"
+      ],
+      "timestamp": "2026-09-25T11:57:49.227768Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "expand_components"
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S24"
+      ],
+      "timestamp": "2026-09-25T11:57:49.227839Z",
+      "user_text": "Completeness. The right-hand side is the Dirac delta; the sum on the left runs over BOTH mode and spin.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:49.227880Z",
+      "user_text": "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^*_{n\\sigma}(\\mathbf{r}') = \\delta(\\mathbf{r}-\\mathbf{r}')",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:49.230793Z",
+      "user_text": null,
+      "visible_action": "Register E8",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:49.231493Z",
+      "user_text": "Expand the field operators in that set. From here the algebra splits into scalar coefficients and the operators $\\hat c_{n\\sigma}$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:49.231535Z",
+      "user_text": "\\hat\\psi_\\sigma(\\mathbf{r}) = \\sum_n \\varphi_{n\\sigma}(\\mathbf{r}) \\hat c_{n\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S28"
+      ],
+      "timestamp": "2026-09-25T11:57:49.233485Z",
+      "user_text": null,
+      "visible_action": "Register E9",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:49.233958Z",
+      "user_text": "**The computation starts here.** Put the expansion (E9) into $\\hat H$ and write **the Hamiltonian in the new basis**. The one-body term first: the matrix element $T_{n\\sigma,m\\sigma}$ is an all-space integral of the same shape as E6, and is not something to evaluate. The operator PAIR $\\hat c^\\dagger_{n\\sigma}\\hat c_{m\\sigma}$ is carried as ONE name — Maxima has no operator algebra, so it is never asked to order a product (the operator algebra itself is done in the sister scenario's Julia session).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:49.234000Z",
+      "user_text": "\\hat\\rho_{n\\sigma,m\\sigma} = \\hat c^\\dagger_{n\\sigma} \\hat c_{m\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S31"
+      ],
+      "timestamp": "2026-09-25T11:57:49.235205Z",
+      "user_text": null,
+      "visible_action": "Register E10",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:49.235703Z",
+      "user_text": "\\hat H_0 = \\sum_{n m} T_{n\\sigma,m\\sigma} \\hat\\rho_{n\\sigma,m\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:57:49.237143Z",
+      "user_text": null,
+      "visible_action": "Register E11",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:57:49.237570Z",
+      "user_text": "The two-body term moves over the same way. **There are only TWO spins**: the field-operator form carries $\\sigma,\\sigma'$ and expanding in the basis multiplies the MODES only, so the independent indices are **four modes plus two spins — six**. Summation indices are written SEPARATED (`\\sum_{nmpq}` would be one index named $nmpq$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:57:49.237617Z",
+      "user_text": "\\hat V = \\frac{1}{2}\\sum_{n m p q}\\sum_{\\sigma \\sigma'} V_{n\\sigma,m\\sigma',p\\sigma',q\\sigma} \\hat c^\\dagger_{n\\sigma} \\hat c^\\dagger_{m\\sigma'} \\hat c_{p\\sigma'} \\hat c_{q\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S36"
+      ],
+      "timestamp": "2026-09-25T11:57:49.240917Z",
+      "user_text": null,
+      "visible_action": "Register E12",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:57:49.241514Z",
+      "user_text": "Up to here the basis is ARBITRARY. Now CHOOSE one: assuming that the orthonormal set introduced at the start diagonalises $\\hat H_0$ is a single equation about the matrix element. Unlike specialising to plane waves, almost no generality is lost.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:57:49.241548Z",
+      "user_text": "T_{n\\sigma,m\\sigma} = \\varepsilon_{n\\sigma} \\delta_{nm}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:57:49.242519Z",
+      "user_text": null,
+      "visible_action": "Register E13",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:57:49.242951Z",
+      "user_text": "Substitute it into the zeroth-order term.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:57:49.242982Z",
+      "user_text": "substitute E13 into E11",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S42"
+      ],
+      "timestamp": "2026-09-25T11:57:49.252566Z",
+      "user_text": null,
+      "visible_action": "T_{n,sigma,m,sigma} → \\varepsilon_{n,sigma} delta_nm in E11",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E11",
+        "lhs": "T_{n,sigma,m,sigma}",
+        "rhs": "epsilon_{n,sigma} delta_nm"
+      },
+      "backend": "maxima",
+      "rendered_command": "rhs(block([H_hat_0], block([T], ratsimp(subst(T(n, sigma, m, sigma)=epsilon(n, sigma) * kron_delta(n, m),H_hat_0=sum(sum(T(n, sigma, m, sigma) * rho_hat(n, sigma, m, sigma), m, nbSumLo5, nbSumHi5), n, nbSumLo4, nbSumHi4))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E11"
+      ],
+      "output_refs": [
+        "E14"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S44"
+      ],
+      "timestamp": "2026-09-25T11:57:49.254254Z",
+      "user_text": "Simplifying, **the Kronecker delta collapses the sum over $m$** and the diagonal form is left — **the eigenvalue $\\varepsilon_{n\\sigma}$ appears as the RESULT of this computation**, not copied in by hand. $\\hat\\rho_{n\\sigma,n\\sigma}$ is the number operator.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:49.254291Z",
+      "user_text": "simplify E14",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:49.254814Z",
+      "user_text": "simplify E14",
+      "visible_action": "LLM interpretation: simplify",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E14"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S45"
+      ],
+      "timestamp": "2026-09-25T11:57:49.270003Z",
+      "user_text": null,
+      "visible_action": "simplify [E14]",
+      "operation": "simplify",
+      "operation_args": {
+        "expr": "E14"
+      },
+      "backend": "maxima",
+      "rendered_command": "trigsimp(ratsimp('sum(epsilon(n, sigma) * rho_hat(n, sigma, n, sigma), n, nbSumLo4, nbSumHi4)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E14"
+      ],
+      "output_refs": [
+        "E15"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S49": {
+      "step_id": "S49",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S48"
+      ],
+      "timestamp": "2026-09-25T11:57:49.270889Z",
+      "user_text": "**The zeroth-order term is diagonal now, so define the Green's function HERE, with this basis's creation and annihilation operators.** One could write it with field operators and move it into the basis afterwards, but that costs two substitutions and buys nothing — write it in this basis from the start. $T[\\cdots]$ is the time ordering (a bare $T$ also reads as kinetic energy, so the bracket is written), and with the same state on both sides this is the same quantity as $\\langle A\\rangle_{\\Phi_0}$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S50": {
+      "step_id": "S50",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:57:49.270935Z",
+      "user_text": "\\hat c_{n\\sigma}(t) = e^{i\\hat H t/\\hbar} \\hat c_{n\\sigma} e^{-i\\hat H t/\\hbar}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S51": {
+      "step_id": "S51",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:57:49.273130Z",
+      "user_text": null,
+      "visible_action": "Register E16",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E16"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S52": {
+      "step_id": "S52",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S51"
+      ],
+      "timestamp": "2026-09-25T11:57:49.273680Z",
+      "user_text": "G_{n\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c_{n\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S53": {
+      "step_id": "S53",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S51"
+      ],
+      "timestamp": "2026-09-25T11:57:49.276353Z",
+      "user_text": null,
+      "visible_action": "Register E17",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E17"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S54": {
+      "step_id": "S54",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S53"
+      ],
+      "timestamp": "2026-09-25T11:57:49.276921Z",
+      "user_text": "The free propagator. The superscript 0 of $G^0$ is a **perturbation-order label**, not an exponent. The sign of $i\\eta$ **flips across the Fermi surface**.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S55": {
+      "step_id": "S55",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S54"
+      ],
+      "timestamp": "2026-09-25T11:57:49.276964Z",
+      "user_text": "G^0_{n\\sigma}(\\omega) = \\frac{1}{\\omega - \\varepsilon_{n\\sigma}/\\hbar + i\\eta\\,\\mathrm{sgn}(\\varepsilon_{n\\sigma}-\\varepsilon_F)}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S56": {
+      "step_id": "S56",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S54"
+      ],
+      "timestamp": "2026-09-25T11:57:49.279933Z",
+      "user_text": null,
+      "visible_action": "Register E18",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E18"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S57": {
+      "step_id": "S57",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S56"
+      ],
+      "timestamp": "2026-09-25T11:57:49.280455Z",
+      "user_text": "The Dyson equation **in components** — the second term on the right is a sum over the basis indices, and $G$ appears on the right as well.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S58": {
+      "step_id": "S58",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S57"
+      ],
+      "timestamp": "2026-09-25T11:57:49.280501Z",
+      "user_text": "G_{n\\sigma,m\\sigma'}(\\omega) = G^0_{n\\sigma}(\\omega)\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\sum_{p \\sigma''} G^0_{n\\sigma}(\\omega) \\Sigma_{n\\sigma,p\\sigma''}(\\omega) G_{p\\sigma'',m\\sigma'}(\\omega)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S59": {
+      "step_id": "S59",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S57"
+      ],
+      "timestamp": "2026-09-25T11:57:49.284418Z",
+      "user_text": null,
+      "visible_action": "Register E19",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E19"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S60": {
+      "step_id": "S60",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S59"
+      ],
+      "timestamp": "2026-09-25T11:57:49.285262Z",
+      "user_text": "Drop the indices and write it as a matrix. **Declaring $G$, $\\Sigma$ and $G^0$ to be matrices** makes the products matrix products and $^{-1}$ the INVERSE. Without the declaration $^{-1}$ is a reciprocal and the product is commutative — both are different quantities.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S61": {
+      "step_id": "S61",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:49.285298Z",
+      "user_text": "declare G as a matrix",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S62": {
+      "step_id": "S62",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:49.285891Z",
+      "user_text": "declare G as a matrix",
+      "visible_action": "LLM interpretation: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G",
+        "_all_names": [
+          "G"
+        ],
+        "_raw_names": [
+          "G"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S63": {
+      "step_id": "S63",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S60"
+      ],
+      "timestamp": "2026-09-25T11:57:49.294301Z",
+      "user_text": null,
+      "visible_action": "define matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(G, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S64": {
+      "step_id": "S64",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:49.294530Z",
+      "user_text": "declare \\Sigma as a matrix",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S65": {
+      "step_id": "S65",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:49.295182Z",
+      "user_text": "declare \\Sigma as a matrix",
+      "visible_action": "LLM interpretation: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "Sigma",
+        "_all_names": [
+          "Sigma"
+        ],
+        "_raw_names": [
+          "Sigma"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S66": {
+      "step_id": "S66",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S63"
+      ],
+      "timestamp": "2026-09-25T11:57:49.303578Z",
+      "user_text": null,
+      "visible_action": "define matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "Sigma"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(Sigma, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S67": {
+      "step_id": "S67",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:49.303782Z",
+      "user_text": "declare G^0 as a matrix",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S68": {
+      "step_id": "S68",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:49.304493Z",
+      "user_text": "declare G^0 as a matrix",
+      "visible_action": "LLM interpretation: define_matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G_sup0",
+        "_all_names": [
+          "G_sup0"
+        ],
+        "_raw_names": [
+          "G_sup0"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S69": {
+      "step_id": "S69",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:57:49.312788Z",
+      "user_text": null,
+      "visible_action": "define matrix",
+      "operation": "define_matrix",
+      "operation_args": {
+        "name": "G_sup0"
+      },
+      "backend": "maxima",
+      "rendered_command": "declare(G_sup0, nonscalar)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S70": {
+      "step_id": "S70",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S69"
+      ],
+      "timestamp": "2026-09-25T11:57:49.312963Z",
+      "user_text": "Write it with $G$ collected on the left. **Do NOT write $G = G^0 + G^0\\Sigma G$**: that form is an H-1 DEFINITION, and from then on the name $G$ stands for that expression instead of being the unknown we want to solve for (measured: written that way, the next step comes back with its left side expanded to $G^0\\Sigma G+G^0$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S71": {
+      "step_id": "S71",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:57:49.312996Z",
+      "user_text": "(1 - G^0 \\Sigma) G = G^0",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S72": {
+      "step_id": "S72",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:57:49.314115Z",
+      "user_text": null,
+      "visible_action": "Register E20",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E20"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S73": {
+      "step_id": "S73",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S72"
+      ],
+      "timestamp": "2026-09-25T11:57:49.314503Z",
+      "user_text": "**Compute the formal solution.** Multiply both sides by $(1-G^0\\Sigma)^{-1}$ **from the left** — the product does not commute, so the two sides are different equations and which one is meant is the researcher's to say. Reducing $(1-G^0\\Sigma)^{-1}(1-G^0\\Sigma)$ to 1 is the CAS's job.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S74": {
+      "step_id": "S74",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S73"
+      ],
+      "timestamp": "2026-09-25T11:57:49.314538Z",
+      "user_text": "multiply both sides of E20 by (1 - G^0 \\Sigma)^{-1} from the left",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S75": {
+      "step_id": "S75",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S73"
+      ],
+      "timestamp": "2026-09-25T11:57:49.324449Z",
+      "user_text": null,
+      "visible_action": "multiply both sides [E20]",
+      "operation": "multiply_both_sides",
+      "operation_args": {
+        "expr": "E20",
+        "factor": "(1 - G_sup0*Sigma)^(-1)",
+        "side": "left"
+      },
+      "backend": "maxima",
+      "rendered_command": "ratsimp(((1 - G_sup0 . Sigma)^^-1) . ((1 - G_sup0 . Sigma) . G=G_sup0))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E20"
+      ],
+      "output_refs": [
+        "E21"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "both_sides"
+    },
+    "S76": {
+      "step_id": "S76",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S75"
+      ],
+      "timestamp": "2026-09-25T11:57:49.324936Z",
+      "user_text": "That is the Dyson route. **The Dyson equation does not say what $\\Sigma$ is.** The other route — the Green's function's **equation of motion** — gets $\\Sigma$ out of the Hamiltonian.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S77": {
+      "step_id": "S77",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S76"
+      ],
+      "timestamp": "2026-09-25T11:57:49.324945Z",
+      "user_text": "The Heisenberg-picture operator. Unlike the interaction picture (E10), the exponent carries the **full** Hamiltonian $\\hat H=\\hat H_0+\\hat V$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S78": {
+      "step_id": "S78",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S77"
+      ],
+      "timestamp": "2026-09-25T11:57:49.324950Z",
+      "user_text": "The operator equation of motion. **What is differentiated is $\\hat c$, not $c$** — the hat decorates the NAME, so it goes inside the derivative with it.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S79": {
+      "step_id": "S79",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:57:49.324985Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t) = [\\hat c_{n\\sigma}(t), \\hat H]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S80": {
+      "step_id": "S80",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:57:49.327322Z",
+      "user_text": null,
+      "visible_action": "Register E22",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E22"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S81": {
+      "step_id": "S81",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S80"
+      ],
+      "timestamp": "2026-09-25T11:57:49.328231Z",
+      "user_text": "**Maxima cannot compute this commutator** — it has no operator algebra (which is also why the operator pair is carried as one name in this session). **That division of labour was decided on 2026-07-30**: Green's-function algebra in Maxima, Julia only where operator algebra is needed (docs/33 §7). The SAME commutator IS computed, by QuantumAlgebra, in the sister scenario scenario_greens_function_eom_commutator, which answers $[\\hat H,\\hat c_{m\\sigma}]$ with $-\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} + \\sum V(\\ldots)$. The line below writes that result down (with the sign turned round for $[\\hat c,\\hat H]$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S82": {
+      "step_id": "S82",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S81"
+      ],
+      "timestamp": "2026-09-25T11:57:49.328277Z",
+      "user_text": "[\\hat c_{m\\sigma}, \\hat H] = -\\varepsilon_{m\\sigma}\\hat c_{m\\sigma} - \\sum_{p q s}\\sum_{\\sigma''} V_{m\\sigma,p\\sigma'',q\\sigma'',s\\sigma} \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''} \\hat c_{s\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S83": {
+      "step_id": "S83",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S81"
+      ],
+      "timestamp": "2026-09-25T11:57:49.331663Z",
+      "user_text": null,
+      "visible_action": "Register E23",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E23"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S84": {
+      "step_id": "S84",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S83"
+      ],
+      "timestamp": "2026-09-25T11:57:49.332382Z",
+      "user_text": "The Green's function with basis indices (the core of what E19 computed, with the coefficients dropped).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S85": {
+      "step_id": "S85",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S84"
+      ],
+      "timestamp": "2026-09-25T11:57:49.332391Z",
+      "user_text": "The Green's function's equation of motion. The time derivative **also hits the step functions of the time ordering**, and that is where the equal-time anticommutator — the $\\hbar\\delta(t-t')$ term — comes from. The two-body term produces the expectation of **four operators**.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S86": {
+      "step_id": "S86",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S85"
+      ],
+      "timestamp": "2026-09-25T11:57:49.332439Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G_{n\\sigma,m\\sigma'}(t,t') + \\sum_{p q s}\\sum_{\\sigma''} V_{n\\sigma,p\\sigma'',q\\sigma'',s\\sigma} G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S87": {
+      "step_id": "S87",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S85"
+      ],
+      "timestamp": "2026-09-25T11:57:49.338691Z",
+      "user_text": null,
+      "visible_action": "Register E24",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E24"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S88": {
+      "step_id": "S88",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S87"
+      ],
+      "timestamp": "2026-09-25T11:57:49.339955Z",
+      "user_text": "The definition of that higher Green's function. The superscript $(2)$ is a **label**, like the $0$ of $G^0$, not an exponent. Three operators sit at $t$; only the last one sits at $t'$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S89": {
+      "step_id": "S89",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S88"
+      ],
+      "timestamp": "2026-09-25T11:57:49.340001Z",
+      "user_text": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') = -i\\langle\\Phi_0| T[\\hat c^\\dagger_{p\\sigma''}(t) \\hat c_{q\\sigma''}(t) \\hat c_{s\\sigma}(t) \\hat c^\\dagger_{m\\sigma'}(t')]|\\Phi_0\\rangle",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S90": {
+      "step_id": "S90",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S88"
+      ],
+      "timestamp": "2026-09-25T11:57:49.343950Z",
+      "user_text": null,
+      "visible_action": "Register E25",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E25"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S91": {
+      "step_id": "S91",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S90"
+      ],
+      "timestamp": "2026-09-25T11:57:49.344730Z",
+      "user_text": "**The equation is not closed.** The one-body equation contains a two-body Green's function, whose equation contains a three-body one — the hierarchy does not end. **An approximation is a cut in that chain.**",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S92": {
+      "step_id": "S92",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S91"
+      ],
+      "timestamp": "2026-09-25T11:57:49.344741Z",
+      "user_text": "The lowest cut (Hartree–Fock decoupling): split the four operators **into pairs** and replace the equal-time pair by an expectation value. The second term is negative because the fermions were exchanged. **This is not an equality, so it is written with $\\approx$** — the approximation is this one line, and everything after it is algebra. An $\\approx$ can be written and displayed, and computing with it is refused with a reason (a CAS has no \"approximately equal\").",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S93": {
+      "step_id": "S93",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S92"
+      ],
+      "timestamp": "2026-09-25T11:57:49.344791Z",
+      "user_text": "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t') \\approx \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle G_{s\\sigma,m\\sigma'}(t,t') - \\delta_{\\sigma\\sigma''} \\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{s\\sigma''}\\rangle G_{q\\sigma'',m\\sigma'}(t,t')",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S94": {
+      "step_id": "S94",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S92"
+      ],
+      "timestamp": "2026-09-25T11:57:49.350062Z",
+      "user_text": null,
+      "visible_action": "Register E26",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E26"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S95": {
+      "step_id": "S95",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S94"
+      ],
+      "timestamp": "2026-09-25T11:57:49.350559Z",
+      "user_text": "The basis diagonalises $\\hat H_0$ (E15), so the equal-time expectation is diagonal too.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S96": {
+      "step_id": "S96",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S95"
+      ],
+      "timestamp": "2026-09-25T11:57:49.350600Z",
+      "user_text": "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle = \\delta_{pq}\\langle \\hat n_{p\\sigma''}\\rangle",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S97": {
+      "step_id": "S97",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S95"
+      ],
+      "timestamp": "2026-09-25T11:57:49.351952Z",
+      "user_text": null,
+      "visible_action": "Register E27",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E27"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S98": {
+      "step_id": "S98",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S97"
+      ],
+      "timestamp": "2026-09-25T11:57:49.352610Z",
+      "user_text": "Substituting collapses two of the sums, leaving one over the mode $p$ and the spin $\\sigma''$. This is the self-energy — **the equation of motion has fixed $\\Sigma$.** The first term is the Hartree term the Dyson route puts in by hand as its first-order approximation; the second is the exchange (Fock) term, where being a fermion first matters.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S99": {
+      "step_id": "S99",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S98"
+      ],
+      "timestamp": "2026-09-25T11:57:49.352656Z",
+      "user_text": "\\Sigma^{(HF)}_{n\\sigma,s\\sigma} = \\sum_{p \\sigma''}\\left[V_{n\\sigma,p\\sigma'',p\\sigma'',s\\sigma} - \\delta_{\\sigma\\sigma''}V_{n\\sigma,p\\sigma'',s\\sigma'',p\\sigma}\\right]\\langle \\hat n_{p\\sigma''} \\rangle",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S100": {
+      "step_id": "S100",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S98"
+      ],
+      "timestamp": "2026-09-25T11:57:49.356401Z",
+      "user_text": null,
+      "visible_action": "Register E28",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E28"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S101": {
+      "step_id": "S101",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S100"
+      ],
+      "timestamp": "2026-09-25T11:57:49.357922Z",
+      "user_text": "The higher Green's function is gone and the equation has **closed**. It is no longer the exact $G$, though: it is the quantity that came out of the decoupling, so it is written $G^{(HF)}$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S102": {
+      "step_id": "S102",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S101"
+      ],
+      "timestamp": "2026-09-25T11:57:49.357981Z",
+      "user_text": "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') = \\hbar\\delta(t-t')\\delta_{nm}\\delta_{\\sigma\\sigma'} + \\varepsilon_{n\\sigma} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t') + \\sum_{s} \\Sigma^{(HF)}_{n\\sigma,s\\sigma} G^{(HF)}_{s\\sigma,m\\sigma'}(t,t')",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S103": {
+      "step_id": "S103",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S101"
+      ],
+      "timestamp": "2026-09-25T11:57:49.363284Z",
+      "user_text": null,
+      "visible_action": "Register E29",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E29"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S104": {
+      "step_id": "S104",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S103"
+      ],
+      "timestamp": "2026-09-25T11:57:49.364528Z",
+      "user_text": "**Fourier transform in the time difference — with no dedicated operation.** Write the inverse transform's own definition and differentiate both sides with respect to $t$. The space between $\\omega$ and $(t-t')$ is the product sign (without it, $\\omega$ reads as a function applied to $(t-t')$, and that reading is refused).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S105": {
+      "step_id": "S105",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S104"
+      ],
+      "timestamp": "2026-09-25T11:57:49.364570Z",
+      "user_text": "G^{(HF)}_{n\\sigma}(t-t') = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} G^{(HF)}_{n\\sigma}(\\omega) e^{-i\\omega (t-t')} d\\omega",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S106": {
+      "step_id": "S106",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S104"
+      ],
+      "timestamp": "2026-09-25T11:57:49.367391Z",
+      "user_text": null,
+      "visible_action": "Register E30",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E30"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S107": {
+      "step_id": "S107",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S106"
+      ],
+      "timestamp": "2026-09-25T11:57:49.367966Z",
+      "user_text": "The derivative goes under the integral sign and brings $-i\\omega$ down — that is the content of $i\\hbar\\partial_t \\to \\hbar\\omega$. The same transform turns $\\delta(t-t')$ into 1.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S108": {
+      "step_id": "S108",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.368003Z",
+      "user_text": "differentiate both sides of E30 with respect to t",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S109": {
+      "step_id": "S109",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.368834Z",
+      "user_text": "differentiate both sides of E30 with respect to t",
+      "visible_action": "LLM interpretation: differentiate",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E30",
+        "var": "t"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S110": {
+      "step_id": "S110",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S107"
+      ],
+      "timestamp": "2026-09-25T11:57:49.406628Z",
+      "user_text": null,
+      "visible_action": "Partial derivative w.r.t. t [E30]",
+      "operation": "differentiate",
+      "operation_args": {
+        "expr": "E30",
+        "var": "t",
+        "order": "1"
+      },
+      "backend": "maxima",
+      "rendered_command": "diff(G_psupHF[n, sigma](t - t\\')=1 * (2 * %pi)^-1 * integrate(G_psupHF[n, sigma](omega) * %e^(-%i * omega * (t - t\\')), omega, -inf, inf),t,1)",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E30"
+      ],
+      "output_refs": [
+        "E31"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S111": {
+      "step_id": "S111",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S110"
+      ],
+      "timestamp": "2026-09-25T11:57:49.408684Z",
+      "user_text": "The frequency-domain equation. Both $\\hat H_0$ and $\\Sigma^{(HF)}$ are diagonal in this basis, so write the diagonal element. **Mind where $\\hbar$ sits**: the $\\Sigma$ of Dyson (E22) has the dimension of a frequency, the $\\Sigma^{(HF)}$ here that of an energy, and the two differ by exactly $\\hbar$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S112": {
+      "step_id": "S112",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S111"
+      ],
+      "timestamp": "2026-09-25T11:57:49.408737Z",
+      "user_text": "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega) = 1 + \\Sigma^{(HF)}_{n\\sigma} G^{(HF)}_{n\\sigma}(\\omega)/\\hbar",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S113": {
+      "step_id": "S113",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S111"
+      ],
+      "timestamp": "2026-09-25T11:57:49.411774Z",
+      "user_text": null,
+      "visible_action": "Register E32",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E32"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S114": {
+      "step_id": "S114",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S113"
+      ],
+      "timestamp": "2026-09-25T11:57:49.412464Z",
+      "user_text": "Solve for $G^{(HF)}$. **The solve-for variable is given in the researcher's own spelling** — label, indices and argument all still on it.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S115": {
+      "step_id": "S115",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S114"
+      ],
+      "timestamp": "2026-09-25T11:57:49.412505Z",
+      "user_text": "solve E32 for G^{(HF)}_{n\\sigma}(\\omega)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S116": {
+      "step_id": "S116",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S114"
+      ],
+      "timestamp": "2026-09-25T11:57:49.431965Z",
+      "user_text": null,
+      "visible_action": "solve equation [E32]",
+      "operation": "solve_equation",
+      "operation_args": {
+        "equation": "E32",
+        "var": "G^{(HF)}_{n\\sigma}(\\omega)"
+      },
+      "backend": "maxima",
+      "rendered_command": "solve((omega - epsilon(n, sigma) * hbar^-1) * G_psupHF[n, sigma](omega)=1 + Sigma_psupHF(n, sigma) * G_psupHF[n, sigma](omega) * hbar^-1, G_psupHF[n, sigma](omega))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E32"
+      ],
+      "output_refs": [
+        "E33"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S117": {
+      "step_id": "S117",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S116"
+      ],
+      "timestamp": "2026-09-25T11:57:49.433842Z",
+      "user_text": null,
+      "visible_action": "Register E33",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E33"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "solve"
+    },
+    "S118": {
+      "step_id": "S118",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S116"
+      ],
+      "timestamp": "2026-09-25T11:57:49.434242Z",
+      "user_text": "The Hartree–Fock Green's function. The pole has moved from $\\varepsilon_{n\\sigma}$ to $\\varepsilon_{n\\sigma}+\\Sigma^{(HF)}_{n\\sigma}$ — **the interaction shifts the single-particle energy**, which is what this approximation says.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S119": {
+      "step_id": "S119",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S118"
+      ],
+      "timestamp": "2026-09-25T11:57:49.434252Z",
+      "user_text": "Finally, set the self-energy back to zero. If the approximation was put in correctly, switching the interaction off must return the free propagator (E21, without the $i\\eta$).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S120": {
+      "step_id": "S120",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S119"
+      ],
+      "timestamp": "2026-09-25T11:57:49.434285Z",
+      "user_text": "\\Sigma^{(HF)}_{n\\sigma} = 0",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S121": {
+      "step_id": "S121",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S119"
+      ],
+      "timestamp": "2026-09-25T11:57:49.435306Z",
+      "user_text": null,
+      "visible_action": "Register E34",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E34"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S122": {
+      "step_id": "S122",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S121"
+      ],
+      "timestamp": "2026-09-25T11:57:49.435728Z",
+      "user_text": "substitute E34 into E33",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S123": {
+      "step_id": "S123",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S121"
+      ],
+      "timestamp": "2026-09-25T11:57:49.456198Z",
+      "user_text": null,
+      "visible_action": "\\Sigma^{(HF)}_{n,sigma} → 0 in E33",
+      "operation": "substitute",
+      "operation_args": {
+        "expr": "E33",
+        "lhs": "Sigma_psupHF_{n,sigma}",
+        "rhs": "0"
+      },
+      "backend": "maxima",
+      "rendered_command": "block([Sigma_psupHF], ratsimp(subst(Sigma_psupHF(n, sigma)=0,hbar * (hbar * omega - epsilon(n, sigma) - Sigma_psupHF(n, sigma))^-1)))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E33"
+      ],
+      "output_refs": [
+        "E35"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "dainyu"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S123",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:49.135830Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "H_hat_0": {
+      "quantity": {
+        "name": "H_hat_0",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_x": {
+      "quantity": {
+        "name": "r_x",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_y": {
+      "quantity": {
+        "name": "r_y",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "r_z": {
+      "quantity": {
+        "name": "r_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "G": {
+      "quantity": {
+        "name": "G",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E21",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Sigma": {
+      "quantity": {
+        "name": "Sigma",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "G_sup0": {
+      "quantity": {
+        "name": "G_sup0",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "matrix",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {},
+  "indexed_bases": {
+    "phi": 2,
+    "c_hat": 2,
+    "c_hat_dagger": 2,
+    "T": 4,
+    "rho_hat": 4,
+    "V": 8,
+    "epsilon": 2,
+    "G": 4,
+    "Phi": 1,
+    "G_sup0": 2,
+    "Sigma": 4,
+    "G_psup2": 8,
+    "n_hat": 2,
+    "Sigma_psupHF": 2,
+    "G_psupHF": 2
+  },
+  "called_bases": [
+    "psi_hat_sigma",
+    "vec",
+    "psi_hat_dagger_sigma",
+    "psi_hat_dagger_sigma'",
+    "T_hat",
+    "v",
+    "psi_hat_sigma'",
+    "expectation",
+    "time_order",
+    "sgn",
+    "epsilon",
+    "Sigma_psupHF"
+  ],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "\\{\\hat\\psi_\\sigma(\\mathbf{r}), \\hat\\psi^\\dagger_{\\sigma'}(\\mathbf{r}')\\}": "E3",
+    "\\{psi_hat_sigma(vec(r)), psi_hat^\\dagger_sigma'(vec(r)')\\}": "E3",
+    "\\hat H_0": "E15",
+    "H_hat_0": "E15",
+    "\\hat V": "E12",
+    "V_hat": "E12",
+    "\\int d^3r \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}) \\varphi_{m\\sigma'}(\\mathbf{r})": "E6",
+    "\\int*d^3*r*phi^*_{n,sigma}(vec(r))*phi_{m,sigma'}(vec(r))": "E6",
+    "\\sum_{n\\sigma} \\varphi_{n\\sigma}(\\mathbf{r}) \\varphi^{\\ast}_{n\\sigma}(\\mathbf{r}')": "E8",
+    "\\sum_{n,sigma} phi_{n,sigma}(vec(r))*phi^*_{n,sigma}(vec(r)')": "E8",
+    "\\hat\\psi_\\sigma(\\mathbf{r})": "E9",
+    "psi_hat_sigma(vec(r))": "E9",
+    "\\hat\\rho_{n\\sigma,m\\sigma}": "E10",
+    "rho_hat_{n,sigma,m,sigma}": "E10",
+    "T_{n\\sigma,m\\sigma}": "E13",
+    "T_{n,sigma,m,sigma}": "E13",
+    "\\hat c_{n\\sigma}(t)": "E16",
+    "c_hat_{n,sigma}(t)": "E16",
+    "G_{n\\sigma,m\\sigma'}(t,t')": "E17",
+    "G_{n,sigma,m,sigma'}(t,t')": "E17",
+    "G^0_{n\\sigma}(\\omega)": "E18",
+    "G_sup0_{n,sigma}(omega)": "E18",
+    "G_{n\\sigma,m\\sigma'}(\\omega)": "E19",
+    "G_{n,sigma,m,sigma'}(omega)": "E19",
+    "(1 - G^0 \\Sigma) G": "E20",
+    "(1 - G_sup0*Sigma)*G": "E20",
+    "G": "E21",
+    "i\\hbar \\frac{\\partial}{\\partial t} \\hat c_{n\\sigma}(t)": "E22",
+    "i*hbar*'diff(c_hat_{n,sigma}(t),t,1)": "E22",
+    "[\\hat c_{m\\sigma}, \\hat H]": "E23",
+    "[c_hat_{m,sigma}, H_hat]": "E23",
+    "i\\hbar \\frac{\\partial}{\\partial t} G_{n\\sigma,m\\sigma'}(t,t')": "E24",
+    "i*hbar*'diff(G_{n,sigma,m,sigma'}(t,t'),t,1)": "E24",
+    "G^{(2)}_{p\\sigma'',q\\sigma'',s\\sigma,m\\sigma'}(t,t')": "E25",
+    "G_psup2_{p,sigma'',q,sigma'',s,sigma,m,sigma'}(t,t')": "E25",
+    "\\langle \\hat c^\\dagger_{p\\sigma''} \\hat c_{q\\sigma''}\\rangle": "E27",
+    "expectation(c_hat^\\dagger_{p,sigma''} c_hat_{q,sigma''})": "E27",
+    "\\Sigma^{(HF)}_{n\\sigma,s\\sigma}": "E28",
+    "Sigma_psupHF_{n,sigma,s,sigma}": "E28",
+    "i\\hbar \\frac{\\partial}{\\partial t} G^{(HF)}_{n\\sigma,m\\sigma'}(t,t')": "E29",
+    "i*hbar*'diff(G_psupHF_{n,sigma,m,sigma'}(t,t'),t,1)": "E29",
+    "G^{(HF)}_{n\\sigma}(t-t')": "E30",
+    "G_psupHF_{n,sigma}(t-t')": "E30",
+    "\\frac{d}{d t} G^{(HF)}_{n,\\sigma}(t-t')": "E31",
+    "'diff(G_psupHF_{n,sigma}(t-t'),t,1)": "E31",
+    "(\\omega - \\varepsilon_{n\\sigma}/\\hbar) G^{(HF)}_{n\\sigma}(\\omega)": "E32",
+    "(omega - epsilon_{n,sigma}/hbar)*G_psupHF_{n,sigma}(omega)": "E32",
+    "G_psupHF[n,sigma](omega)": "E33",
+    "\\Sigma^{(HF)}_{n\\sigma}": "E34",
+    "Sigma_psupHF_{n,sigma}": "E34",
+    "G^{(HF)}_{n,\\sigma}(\\omega)": "E35",
+    "G_psupHF_{n,sigma}(omega)": "E35"
+  },
+  "expr_counter": 35,
+  "internal_counter": 0,
+  "sum_bound_counter": 24,
+  "sum_bound_pairs": {
+    "E8": {
+      "n": [
+        "nbSumLo1",
+        "nbSumHi1"
+      ],
+      "sigma": [
+        "nbSumLo2",
+        "nbSumHi2"
+      ]
+    },
+    "E9": {
+      "n": [
+        "nbSumLo3",
+        "nbSumHi3"
+      ]
+    },
+    "E11": {
+      "n": [
+        "nbSumLo4",
+        "nbSumHi4"
+      ],
+      "m": [
+        "nbSumLo5",
+        "nbSumHi5"
+      ]
+    },
+    "E12": {
+      "n": [
+        "nbSumLo6",
+        "nbSumHi6"
+      ],
+      "m": [
+        "nbSumLo7",
+        "nbSumHi7"
+      ],
+      "p": [
+        "nbSumLo8",
+        "nbSumHi8"
+      ],
+      "q": [
+        "nbSumLo9",
+        "nbSumHi9"
+      ],
+      "sigma": [
+        "nbSumLo10",
+        "nbSumHi10"
+      ],
+      "sigma'": [
+        "nbSumLo11",
+        "nbSumHi11"
+      ]
+    },
+    "E19": {
+      "p": [
+        "nbSumLo12",
+        "nbSumHi12"
+      ],
+      "sigma''": [
+        "nbSumLo13",
+        "nbSumHi13"
+      ]
+    },
+    "E23": {
+      "p": [
+        "nbSumLo14",
+        "nbSumHi14"
+      ],
+      "q": [
+        "nbSumLo15",
+        "nbSumHi15"
+      ],
+      "s": [
+        "nbSumLo16",
+        "nbSumHi16"
+      ],
+      "sigma''": [
+        "nbSumLo17",
+        "nbSumHi17"
+      ]
+    },
+    "E24": {
+      "p": [
+        "nbSumLo18",
+        "nbSumHi18"
+      ],
+      "q": [
+        "nbSumLo19",
+        "nbSumHi19"
+      ],
+      "s": [
+        "nbSumLo20",
+        "nbSumHi20"
+      ],
+      "sigma''": [
+        "nbSumLo21",
+        "nbSumHi21"
+      ]
+    },
+    "E28": {
+      "p": [
+        "nbSumLo22",
+        "nbSumHi22"
+      ],
+      "sigma''": [
+        "nbSumLo23",
+        "nbSumHi23"
+      ]
+    },
+    "E29": {
+      "s": [
+        "nbSumLo24",
+        "nbSumHi24"
+      ]
+    }
+  },
+  "step_counter": 123,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

@@ -1,0 +1,16 @@
+## OCR Domain Hint: Information Theory
+
+Symbol recognition priorities:
+- H(X) (H with uppercase argument) → Shannon entropy H(X)
+- H(X|Y) (with vertical bar) → conditional entropy H(X \mid Y)
+- I(X;Y) (with semicolon) → mutual information I(X;Y)
+- D_KL(P||Q) or KL(P||Q) → KL divergence D_{\text{KL}}(P \| Q)
+- log₂ → \log_2 (bits); ln → \ln (nats)
+- p(x), q(x) (lowercase, probability context) → probability distributions
+- ℋ (script H) → \mathcal{H} (often used for entropy or Hamming distance)
+- C (standalone capital) → channel capacity C
+
+Common expression patterns:
+- H(X) = -Σ p(x) log₂ p(x) → Shannon entropy definition
+- I(X;Y) = H(X) + H(Y) - H(X,Y) → mutual information via joint entropy
+- C = max_{p(x)} I(X;Y) → channel capacity

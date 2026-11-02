@@ -1,0 +1,1659 @@
+{
+  "_comment": "User-facing message table. Keys are dot-separated namespaces. Each entry has one key per ISO 639-1 language code. Add a new language by adding its code to every entry.",
+  "engine.register": {
+    "ja": "{display_id} を登録する",
+    "en": "Register {display_id}"
+  },
+  "poisson.pair_declared": {
+    "ja": "正準座標対 ({q}, {p}) を登録しました。以後「f と g のポアソン括弧を求めて」で利用できます。",
+    "en": "Registered canonical pair ({q}, {p}). It is now used by \"compute the Poisson bracket of f and g\"."
+  },
+  "poisson.pair_declared_label": {
+    "ja": "正準対の宣言",
+    "en": "Canonical pair declaration"
+  },
+  "poisson.no_canonical_pairs": {
+    "ja": "ポアソン括弧を計算するには、先に正準座標対を宣言してください（例:「p_r を r の共役運動量とする」）。",
+    "en": "Declare a canonical pair first to compute a Poisson bracket (e.g. \"p_r を r の共役運動量とする\")."
+  },
+  "engine.circular_substitution": {
+    "ja": "循環代入: {lhs} の右辺に {lhs} が含まれているため代入できません。（例: q = -q̈/ω² を q に代入すると再帰的になります。q̈ について解いて代入してください。）",
+    "en": "Circular substitution: RHS contains {lhs}, which would cause recursive expansion. (e.g. substituting q = -q̈/ω² expands recursively. Solve for q̈ instead and substitute that.)"
+  },
+  "engine.undefined_symbols": {
+    "ja": "未定義の記号: {symbols}。これらを定義してから計算してください。",
+    "en": "Undefined symbols: {symbols}. Please define them before computing."
+  },
+  "engine.undefined_symbols_hint": {
+    "ja": "例: 「{symbol} をスカラーパラメータとする」または「{symbol} = （式）」",
+    "en": "e.g. \"define {symbol} as a scalar parameter\" or \"{symbol} = (expression)\""
+  },
+  "engine.fork": {
+    "ja": "{branch_id} を {from_step_id} から分岐",
+    "en": "Branch {branch_id} from {from_step_id}"
+  },
+  "engine.assume": {
+    "ja": "{condition} を仮定する",
+    "en": "Assume {condition}"
+  },
+  "engine.forget": {
+    "ja": "{condition} の仮定を解除する",
+    "en": "Forget assumption {condition}"
+  },
+  "engine.user_input": {
+    "ja": "利用者入力",
+    "en": "User input"
+  },
+  "engine.llm_interpreted": {
+    "ja": "LLM解釈: {operation}",
+    "en": "LLM interpretation: {operation}"
+  },
+  "engine.llm_unknown": {
+    "ja": "不明",
+    "en": "unknown"
+  },
+  "engine.memo": {
+    "ja": "メモ",
+    "en": "Memo"
+  },
+  "engine.branch_forked": {
+    "ja": "{branch_id} へ分岐",
+    "en": "Forked to {branch_id}"
+  },
+  "engine.disambiguate": {
+    "ja": "曖昧性解消: {chosen_operation}",
+    "en": "Disambiguated: {chosen_operation}"
+  },
+  "engine.divide_both_sides": {
+    "ja": "両辺を割る",
+    "en": "Divide both sides"
+  },
+  "engine.divide_both_sides_short": {
+    "ja": "割る",
+    "en": "divide"
+  },
+  "engine.multiply_both_sides": {
+    "ja": "両辺に乗じる",
+    "en": "Multiply both sides"
+  },
+  "engine.multiply_both_sides_short": {
+    "ja": "乗じる",
+    "en": "multiply"
+  },
+  "engine.add_to_both_sides": {
+    "ja": "両辺に加える",
+    "en": "Add to both sides"
+  },
+  "engine.add_to_both_sides_short": {
+    "ja": "加える",
+    "en": "add"
+  },
+  "engine.subtract_from_both_sides": {
+    "ja": "両辺から引く",
+    "en": "Subtract from both sides"
+  },
+  "engine.subtract_from_both_sides_short": {
+    "ja": "から引く",
+    "en": "subtract"
+  },
+  "engine.total_diff": {
+    "ja": "{var} で全微分する",
+    "en": "Total differential w.r.t. {var}"
+  },
+  "engine.total_diff_novar": {
+    "ja": "全微分する",
+    "en": "Total differential"
+  },
+  "engine.partial_diff": {
+    "ja": "{var} で偏微分する",
+    "en": "Partial derivative w.r.t. {var}"
+  },
+  "engine.partial_diff_novar": {
+    "ja": "偏微分する",
+    "en": "Partial derivative"
+  },
+  "engine.diff": {
+    "ja": "{var} で微分する",
+    "en": "Differentiate w.r.t. {var}"
+  },
+  "engine.action_on_expr": {
+    "ja": "{expr_ref} を{display}",
+    "en": "{display} [{expr_ref}]"
+  },
+  "engine.action_on_expr_of": {
+    "ja": "{expr_ref} の{display}",
+    "en": "{display} [{expr_ref}]"
+  },
+  "engine.rhs_operation": {
+    "ja": "{eid} の右辺を{display}",
+    "en": "{display} the RHS of {eid}"
+  },
+  "engine.substitute_action": {
+    "ja": "{expr_ref} の {lhs} → {rhs}",
+    "en": "{lhs} → {rhs} in {expr_ref}"
+  },
+  "engine.define_symbol": {
+    "ja": "{display} ({name})",
+    "en": "{display} ({name})"
+  },
+  "interpreter.empty_input": {
+    "ja": "入力が空です。",
+    "en": "Input is empty."
+  },
+  "interpreter.rhs_set_value": {
+    "ja": "{eid} の右辺を {val} とする",
+    "en": "Set RHS of {eid} to {val}"
+  },
+  "interpreter.rhs_eval_failed": {
+    "ja": "右辺の評価に失敗しました。",
+    "en": "Failed to evaluate the right-hand side."
+  },
+  "interpreter.solve_vars_prompt": {
+    "ja": "どの変数について解きますか？（例: x, y）",
+    "en": "Which variables should be solved for? (e.g. x, y)"
+  },
+  "interpreter.inverse_transform_need_eqs": {
+    "ja": "逆変換には変換式が2本以上必要です（例: E1, E2 の逆変換を作って）。",
+    "en": "An inverse transform needs at least two transform equations (e.g. \"build the inverse of E1, E2\")."
+  },
+  "interpreter.inverse_transform_basis_prompt": {
+    "ja": "どの基底について逆変換しますか？（旧基底を指定してください。例: q_1, q_2）",
+    "en": "Which basis should be inverted? (specify the old basis, e.g. q_1, q_2)"
+  },
+  "interpreter.inverse_transform_operator_prompt": {
+    "ja": "演算子変換の逆変換は基底を明示してください（例:「… を c(1), c(2) について逆変換して」）。完全な逆変換には共役（ダガー）の式も含め、未知の演算子数と式の本数を一致させてください。",
+    "en": "For an operator transform, specify the basis explicitly (e.g. \"… invert for c(1), c(2)\"). A complete inversion also needs the conjugate (dagger) equations so the number of equations matches the unknown operators."
+  },
+  "interpreter.canonical_constraint_unsupported": {
+    "ja": "正準拘束の導出は演算子代数バックエンド（Julia）でのみ対応しています。",
+    "en": "Canonical-constraint derivation is only supported on the operator-algebra backend (Julia)."
+  },
+  "interpreter.canonical_is_canonical": {
+    "ja": "この変換は正準（para-unitary）です。追加の拘束は不要です。",
+    "en": "This transform is canonical (para-unitary); no further constraints are needed."
+  },
+  "interpreter.canonical_conditional": {
+    "ja": "次の条件を満たせば正準（para-unitary）です。",
+    "en": "The transform is canonical (para-unitary) provided the following hold."
+  },
+  "interpreter.canonical_constraint_none": {
+    "ja": "正準拘束を導出できませんでした（演算子の変換式かどうか確認してください）。",
+    "en": "Could not derive canonical constraints (check that the equations define an operator transform)."
+  },
+  "interpreter.inner_product_declared": {
+    "ja": "内積を登録しました。",
+    "en": "Inner product recorded."
+  },
+  "interpreter.no_inner_products": {
+    "ja": "内積が宣言されていません。先に ⟨e_1, e_2⟩ = … の形で計量を宣言してください。",
+    "en": "No inner products declared. Declare the metric first as ⟨e_1, e_2⟩ = …."
+  },
+  "interpreter.metric_already_preserved": {
+    "ja": "この変換は計量を保存しています（非自明な拘束はありません）。",
+    "en": "This transform already preserves the metric (no non-trivial constraints)."
+  },
+  "interpreter.no_active_constraints": {
+    "ja": "適用できる正準拘束がありません。先に「正準拘束を求めて」で導出するか、拘束の式番号を指定してください。",
+    "en": "No canonical constraints to apply. Derive them first, or specify the constraint expression IDs."
+  },
+  "interpreter.confirm_operation": {
+    "ja": "直前の式 {expr_id} に対して「{display}」を実行しますか？",
+    "en": "Apply \"{display}\" to the last expression {expr_id}?"
+  },
+  "interpreter.auto_var_detected": {
+    "ja": "変数 {var} を自動検出しました。『{display}』を実行しますか？",
+    "en": "Auto-detected variable {var}. Run \"{display}\"?"
+  },
+  "interpreter.auto_var_missing": {
+    "ja": "\n（不足: {missing}）",
+    "en": "\n(Missing: {missing})"
+  },
+  "interpreter.taylor_center_detected": {
+    "ja": "展開中心 x={point} を検出しました。",
+    "en": "Detected expansion center x={point}."
+  },
+  "interpreter.taylor_maclaurin": {
+    "ja": "展開中心の指定がないため x=0 周りの展開（マクローリン展開）とします。",
+    "en": "No expansion center specified; defaulting to x=0 (Maclaurin series)."
+  },
+  "interpreter.taylor_missing_order": {
+    "ja": "展開の次数を指定してください。例: 「3次でテイラー展開して」",
+    "en": "Please specify the expansion order. Example: 'Taylor expand to order 3'."
+  },
+  "interpreter.missing_field.order": {
+    "ja": "次数を入力してください（例: 2、３次）",
+    "en": "Enter the order (e.g. 2, or 3rd)."
+  },
+  "interpreter.missing_field.var": {
+    "ja": "変数を入力してください（例: x、t）",
+    "en": "Enter the variable name (e.g. x, t)."
+  },
+  "interpreter.missing_field.lower": {
+    "ja": "積分下限を入力してください（例: 0、-1）",
+    "en": "Enter the lower bound (e.g. 0, -1)."
+  },
+  "interpreter.missing_field.upper": {
+    "ja": "積分上限を入力してください（例: 1、pi）",
+    "en": "Enter the upper bound (e.g. 1, pi)."
+  },
+  "interpreter.missing_field.hamiltonian": {
+    "ja": "ハミルトニアンの式番号または式を入力してください（例: E2）",
+    "en": "Enter the Hamiltonian expression ID or formula (e.g. E2)."
+  },
+  "interpreter.missing_field.lhs": {
+    "ja": "置換前の式を入力してください（式番号または式）",
+    "en": "Enter the expression to substitute (expression ID or formula)."
+  },
+  "interpreter.missing_field.rhs": {
+    "ja": "置換後の式を入力してください（式番号または式）",
+    "en": "Enter the replacement expression (expression ID or formula)."
+  },
+  "interpreter.missing_field": {
+    "ja": "「{field}」を入力してください",
+    "en": "Please enter '{field}'."
+  },
+  "interpreter.confirm_run": {
+    "ja": "\n実行しますか？",
+    "en": "\nProceed?"
+  },
+  "interpreter.ambiguous_ops": {
+    "ja": "複数の操作として解釈できます。どれを実行しますか？\n",
+    "en": "This can be interpreted as multiple operations. Which one?\n"
+  },
+  "interpreter.interpreted_as": {
+    "ja": "以下の操作として解釈しました。実行しますか？\n",
+    "en": "Interpreted as the following operation. Proceed?\n"
+  },
+  "interpreter.missing_args": {
+    "ja": "操作 '{display}' に解釈しましたが、必要な引数が不足しています: {missing}",
+    "en": "Interpreted as '{display}' but required arguments are missing: {missing}"
+  },
+  "interpreter.llm_no_response": {
+    "ja": "LLM が応答を返しませんでした。",
+    "en": "LLM returned no response."
+  },
+  "interpreter.llm_confirm": {
+    "ja": "LLMが以下の操作として解釈しました。実行しますか？\n  操作: {display_ja} ({display_en})\n  引数: {args}",
+    "en": "LLM interpreted as:\n  Operation: {display_en}\n  Args: {args}"
+  },
+  "interpreter.llm_other_candidates": {
+    "ja": "\n\n他の候補:",
+    "en": "\n\nOther candidates:"
+  },
+  "interpreter.cannot_interpret": {
+    "ja": "解釈できませんでした。",
+    "en": "Could not interpret the input."
+  },
+  "interpreter.expr_ref_prefix": {
+    "ja": "{eid} に対して {text}",
+    "en": "{eid}: {text}",
+    "_comment": "研究者に見せる文ではなく、**解釈器（別名走査・欄割当・LLM）に渡す足場**。式が名指されていない指示に、直前の式を補って渡す。それでも言語ごとに書くのは、読む相手がその言語の自然言語パーサだから——英語のセッションに日本語の接続詞を渡していた（実測 2026-09-10、`E1 に対して simplify`）。英語側に `for` / `over` / `by` のような語を使わないのは、それらが `en_op_var_head` の綴りで、**注入した語が微分の変数や解く対象として読まれうる**ため。"
+  },
+  "interpreter.eq_diff_choice": {
+    "ja": "{expr_id} は方程式です。{lhs} の微分の扱いを選んでください。",
+    "en": "{expr_id} is an equation. How should the derivative of {lhs} be handled?"
+  },
+  "interpreter.eq_diff_as_func": {
+    "ja": "{lhs} を {var} の関数として微分",
+    "en": "Differentiate {lhs} as a function of {var}"
+  },
+  "interpreter.eq_diff_both_sides": {
+    "ja": "両辺を独立に微分",
+    "en": "Differentiate both sides independently"
+  },
+  "interpreter.diff_partial_or_total": {
+    "ja": "{expr_id} を {var} で微分します。偏微分（∂/∂{var}）と全微分（d/d{var}）のどちらですか？",
+    "en": "Differentiating {expr_id} by {var}. Partial (∂/∂{var}) or total (d/d{var})?"
+  },
+  "interpreter.diff_total_choice": {
+    "ja": "全微分 d/d{var}（他の量を {var} の関数として連鎖律で微分）",
+    "en": "Total derivative d/d{var} (other quantities taken as functions of {var}, chain rule)"
+  },
+  "interpreter.diff_partial_choice": {
+    "ja": "偏微分 ∂/∂{var}（他の量を固定）",
+    "en": "Partial derivative ∂/∂{var} (other quantities held fixed)"
+  },
+  "interpreter.diff_specify_kind": {
+    "ja": "偏微分か全微分か判別できません。明示してください（例: 「{var} で全微分して」または「{var} で偏微分して」）。",
+    "en": "Cannot tell partial from total. Please state which (e.g. \"differentiate by {var} totally\" / \"partially\")."
+  },
+  "interpreter.assume_unknown": {
+    "ja": "仮定の条件が不明です。",
+    "en": "Assumption condition is unknown."
+  },
+  "interpreter.assumed": {
+    "ja": "✓ 仮定しました: {condition}",
+    "en": "✓ Assumed: {condition}"
+  },
+  "interpreter.forget_unknown": {
+    "ja": "解除する仮定が不明です。",
+    "en": "No assumption to forget was specified."
+  },
+  "interpreter.forgotten": {
+    "ja": "✓ 仮定を解除しました: {condition}",
+    "en": "✓ Forgot assumption: {condition}"
+  },
+  "interpreter.declare_var_unknown": {
+    "ja": "時間依存を宣言する変数名が不明です。",
+    "en": "Variable name for time-dependence declaration is unknown."
+  },
+  "interpreter.declared_time_dep": {
+    "ja": "✓ {name} を時間依存として宣言しました（時間変数: {time_var}）",
+    "en": "✓ Declared {name} as time-dependent (time variable: {time_var})"
+  },
+  "interpreter.notation_var_unknown": {
+    "ja": "記法を変更する変数名が不明です。",
+    "en": "Variable name for notation change is unknown."
+  },
+  "interpreter.notation_unknown_type": {
+    "ja": "記法の種類が不明です: {fmt}。'dot' または 'leibniz' を指定してください。",
+    "en": "Unknown notation type: {fmt}. Specify 'dot' or 'leibniz'."
+  },
+  "interpreter.notation_dot": {
+    "ja": "ドット記法（q̇）",
+    "en": "Dot notation (q̇)"
+  },
+  "interpreter.notation_leibniz": {
+    "ja": "Leibniz記法（dq/dt）",
+    "en": "Leibniz notation (dq/dt)"
+  },
+  "interpreter.notation_changed": {
+    "ja": "✓ {name} の微分表示を {label} に切り替えました",
+    "en": "✓ Changed derivative notation for {name} to {label}"
+  },
+  "interpreter.latex_name_var_unknown": {
+    "ja": "LaTeX名を設定する変数名が不明です。",
+    "en": "Variable name for LaTeX name assignment is unknown."
+  },
+  "interpreter.latex_name_missing": {
+    "ja": "LaTeX名が指定されていません。",
+    "en": "No LaTeX name was specified."
+  },
+  "interpreter.latex_name_set": {
+    "ja": "✓ {name} の LaTeX 名を {latex} に設定しました",
+    "en": "✓ Set LaTeX name for {name} to {latex}"
+  },
+  "interpreter.notation_switch": {
+    "ja": "記法切り替え",
+    "en": "Notation switch"
+  },
+  "interpreter.latex_name_label": {
+    "ja": "LaTeX名設定",
+    "en": "LaTeX name assignment"
+  },
+  "interpreter.time_dep_label": {
+    "ja": "時間依存宣言",
+    "en": "Time-dependence declaration"
+  },
+  "interpreter.defined": {
+    "ja": "✓ 定義しました",
+    "en": "✓ Defined"
+  },
+  "interpreter.particle_op_defined": {
+    "ja": "が {particle} の{op_type}演算子として定義されました",
+    "en": "defined as the {op_type} operator for {particle}"
+  },
+  "interpreter.spin_op_defined": {
+    "ja": "をスピン演算子（$SU(2)$代数）として定義しました",
+    "en": "defined as spin operators (SU(2) algebra)"
+  },
+  "interpreter.spin_op_defined_nuclide": {
+    "ja": "を $^{{{mass}}}${element} の核スピン演算子として定義しました（$I = {spin}$、射影は {count} 通り）",
+    "en": "defined as the $^{{{mass}}}${element} nuclear spin operators ($I = {spin}$, {count} projections)"
+  },
+  "interpreter.spin_algebra_too_large": {
+    "ja": "計算量が閾値を超えたため中断しました（無限に待機させないための安全策）。格子を小さくするか、次数・深さを下げてください。交換子そのものの表示（`[H,[H,S^x_1]]` など）で当たった場合は、各サイトのスピンを宣言する（例:「サイト1のスピンは1/2」）と同一サイト積が畳まれて項数が頭打ちになります——モーメント・スペクトル関数の経路は宣言なしでも畳んでいます。",
+    "en": "The computation was aborted after exceeding a complexity threshold (a safeguard against an unbounded wait). Use a smaller lattice, or a lower order/depth. If you hit this while displaying a commutator itself (e.g. `[H,[H,S^x_1]]`), declaring each site's spin (e.g. \"site 1 has spin 1/2\") collapses same-site products and caps the term count — the moment and spectral-function paths already do this without a declaration."
+  },
+  "interpreter.fermion_op_defined": {
+    "ja": "をフェルミオン演算子として定義しました",
+    "en": "defined as fermion operator"
+  },
+  "interpreter.boson_op_defined": {
+    "ja": "をボゾン演算子として定義しました",
+    "en": "defined as boson operator"
+  },
+  "interpreter.subscript_role_prompt": {
+    "ja": "{name} の添字 {sub} の役割を選んでください",
+    "en": "What is the subscript {sub} in {name}?"
+  },
+  "interpreter.subscript_role_prompt_multi": {
+    "ja": "{names} の添字（{subs}）の役割を選んでください（同じ選択が全員に適用されます）",
+    "en": "What is the subscript role for {names} (subscripts {subs})? The same choice applies to all of them."
+  },
+  "interpreter.subscript_as_index": {
+    "ja": "{sub} は成分インデックス（{base} の {sub} 成分）",
+    "en": "{sub} is a component index ({base} at {sub})"
+  },
+  "interpreter.subscript_as_name": {
+    "ja": "{sub} は名前の一部（{name} という固有の量）",
+    "en": "{sub} is part of the name ({name} is a distinct quantity)"
+  },
+  "interpreter.scalar_param_defined": {
+    "ja": "を登録しました",
+    "en": "registered"
+  },
+  "interpreter.scalar_param_defined_domain": {
+    "ja": "を{domain}として登録しました",
+    "en": "registered as {domain}"
+  },
+  "domain.real": {
+    "ja": "実数",
+    "en": "real"
+  },
+  "domain.complex": {
+    "ja": "複素数",
+    "en": "complex"
+  },
+  "sign.positive": {
+    "ja": "正の",
+    "en": "positive"
+  },
+  "sign.negative": {
+    "ja": "負の",
+    "en": "negative"
+  },
+  "sign.nonneg": {
+    "ja": "非負の",
+    "en": "non-negative"
+  },
+  "sign.nonpos": {
+    "ja": "非正の",
+    "en": "non-positive"
+  },
+  "domain.integer": {
+    "ja": "整数",
+    "en": "integer"
+  },
+  "domain.natural": {
+    "ja": "自然数",
+    "en": "natural number"
+  },
+  "interpreter.vector_defined": {
+    "ja": "をベクトルとして登録しました",
+    "en": "registered as vector(s)"
+  },
+  "interpreter.matrix_defined": {
+    "ja": "を行列として登録しました",
+    "en": "registered as matrix/matrices"
+  },
+  "interpreter.tensor_defined": {
+    "ja": "をテンソルとして登録しました",
+    "en": "registered as tensor(s)"
+  },
+  "interpreter.op_type_creation": {
+    "ja": "生成",
+    "en": "creation"
+  },
+  "interpreter.op_type_annihilation": {
+    "ja": "消滅",
+    "en": "annihilation"
+  },
+  "session.snapshot_suffix": {
+    "ja": "（スナップショット）",
+    "en": " (snapshot)"
+  },
+  "branch.adopt": {
+    "ja": "{source_branch} の {source_expr} を {target_branch} に採用",
+    "en": "Adopt {source_expr} from {source_branch} into {target_branch}"
+  },
+  "adviser.not_configured": {
+    "ja": "LLM adviser が設定されていません。",
+    "en": "LLM adviser is not configured."
+  },
+  "adviser.no_response": {
+    "ja": "LLM が応答を返しませんでした。",
+    "en": "LLM returned no response."
+  },
+  "adviser.system_role": {
+    "ja": "あなたは理論物理・数学の専門家です。",
+    "en": "You are an expert in theoretical physics and mathematics."
+  },
+  "adviser.system_task": {
+    "ja": "CAS（数式処理システム）が計算した結果を受け取り、その数学的・物理的意味を自然言語で解説します。",
+    "en": "You receive results computed by a CAS and explain their mathematical and physical meaning in natural language."
+  },
+  "adviser.system_constraints_header": {
+    "ja": "制約:",
+    "en": "Constraints:"
+  },
+  "adviser.system_no_code": {
+    "ja": "- CASコマンドやプログラムコードは出力しない。",
+    "en": "- Do not output CAS commands or program code."
+  },
+  "adviser.system_explain": {
+    "ja": "- 式の意味、性質、応用上のポイントを簡潔に説明する（3〜6文程度）。",
+    "en": "- Briefly explain the meaning, properties, and key points of the expression (3–6 sentences)."
+  },
+  "adviser.system_math_format": {
+    "ja": "- 数式は必ず $...$ （インライン）または $$...$$ （ディスプレイ）形式のみ使う。\\(...\\) や \\[...\\] は絶対に使わない。",
+    "en": "- Always use $...$ (inline) or $$...$$ (display) for math. Never use \\(...\\) or \\[...\\]."
+  },
+  "adviser.system_tex_compat": {
+    "ja": "- この回答はノートの LaTeX 文書（pdflatex）にメモとして挿入される可能性がある。ω, α, Δ, √ などの Unicode 数学記号・ギリシャ文字を文章中に直接書かず、必ず $\\omega$, $\\alpha$, $\\Delta$, $\\sqrt{}$ のように $...$ の中で TeX コマンドとして書くこと。",
+    "en": "- This response may be inserted as a memo in a LaTeX document (pdflatex). Do not write Unicode math symbols or Greek letters (ω, α, Δ, √, etc.) directly in text; always write them as TeX commands inside $...$, e.g. $\\omega$, $\\alpha$, $\\Delta$, $\\sqrt{}$."
+  },
+  "adviser.system_uncertainty": {
+    "ja": "- 確信がない場合は「かもしれない」「考えられる」など保留表現を使う。",
+    "en": "- When uncertain, use hedging expressions such as \"may\" or \"it is possible that\"."
+  },
+  "adviser.system_language": {
+    "ja": "- 日本語で回答する。",
+    "en": "- Answer in English."
+  },
+  "adviser.context_session": {
+    "ja": "セッション: {title}",
+    "en": "Session: {title}"
+  },
+  "adviser.context_assumptions": {
+    "ja": "前提条件:",
+    "en": "Assumptions:"
+  },
+  "adviser.context_history": {
+    "ja": "セッション履歴（圧縮）:",
+    "en": "Session history (compressed):"
+  },
+  "adviser.history_user": {
+    "ja": "[ユーザー] {text}",
+    "en": "[User] {text}"
+  },
+  "adviser.history_expr": {
+    "ja": "[{expr_id}] 入力: ${latex}$",
+    "en": "[{expr_id}] Input: ${latex}$"
+  },
+  "adviser.history_memo": {
+    "ja": "[メモ] {text}",
+    "en": "[Memo] {text}"
+  },
+  "adviser.history_assumption": {
+    "ja": "[前提追加] {text}",
+    "en": "[Assumption added] {text}"
+  },
+  "adviser.context_latest": {
+    "ja": "直近の式（参考）:",
+    "en": "Latest expression (reference):"
+  },
+  "adviser.operation_applied": {
+    "ja": "操作「{operation}」を $${latex}$$ に適用した結果:",
+    "en": "Result of applying \"{operation}\" to $${latex}$$:"
+  },
+  "adviser.operation_result": {
+    "ja": "操作「{operation}」の結果:",
+    "en": "Result of \"{operation}\":"
+  },
+  "adviser.calculation_result": {
+    "ja": "計算結果:",
+    "en": "Calculation result:"
+  },
+  "adviser.question": {
+    "ja": "質問: {question}",
+    "en": "Question: {question}"
+  },
+  "adviser.explain_request": {
+    "ja": "この結果の数学的・物理的意味を解説してください。",
+    "en": "Please explain the mathematical and physical meaning of this result."
+  },
+  "engine.prime_derivative.specify_variable": {
+    "ja": "微分変数を指定してください（例: {example}を{var}で微分して）",
+    "en": "Please specify the differentiation variable (e.g. differentiate {example} with respect to {var})"
+  },
+  "engine.prime_derivative.specify_partial_variable": {
+    "ja": "偏微分変数を指定してください（prime記法で多変数関数の偏微分は指定できません）",
+    "en": "Please specify the partial differentiation variable (prime notation cannot specify the variable for multi-argument functions)"
+  },
+  "bridge.coord_fallback_warning": {
+    "ja": "⚠ 座標系が指定されていません。デカルト座標 (x, y, z) を使用します。",
+    "en": "⚠ No coordinate system set. Falling back to Cartesian (x, y, z)."
+  },
+  "error.operator_missing_index": {
+    "ja": "演算子にインデックス（サイト番号など）を指定してください。例: Sx_1（サイト1のスピンx成分）, c(k)（運動量k）。論文表記のようにサイトを省略すると計算できません。",
+    "en": "Specify an index (e.g. a site number) for the operator. Examples: Sx_1 (spin-x at site 1), c(k) (momentum k). A site-less paper-style symbol cannot be computed."
+  },
+  "error.julia_undeclared_call": {
+    "ja": "{name} に引数を付けた形は、このバックエンドでは扱えません。{name} が量として宣言されていないためです。{name} 全体を1つの名前として宣言すれば、この形のまま計算できます（例:「{name} をスカラーパラメータとして定義して」）。sin・exp などの数学関数は宣言不要です。",
+    "en": "Applying arguments to {name} is not available on this backend, because {name} is not declared as a quantity. Declare {name} as a single name and this very form works (e.g. \"define {name} as a scalar parameter\"). Mathematical functions such as sin and exp need no declaration."
+  },
+  "error.julia_multichar_index": {
+    "ja": "添字 {index} は、このバックエンドでは使えません（QuantumAlgebra の添字名は1文字のみ）。1文字の添字名を使うか、添字を含む全体を1つの量として宣言してください。",
+    "en": "The index {index} cannot be used on this backend (QuantumAlgebra index names are single-character). Use a single-character index name, or declare the whole subscripted name as one quantity."
+  },
+  "error.julia_quexpr_not_differentiable": {
+    "ja": "添字付きスカラー（`xi_k` など）を含む式は、このバックエンドでは微分できません。添字付きスカラーは量子代数の c 数として扱われ、演算子との積・正規順序・和や積には使えますが、微分だけが対応していません。微分が必要な場合は、添字を含まない名前として宣言し直すか、スカラー計算を Maxima セッションへ渡してください（「E番号 を Maxima セッションに渡して」）。",
+    "en": "An expression containing an indexed scalar (e.g. `xi_k`) cannot be differentiated on this backend. Indexed scalars are carried as quantum-algebra c-numbers: they multiply operators, survive normal ordering, and add and multiply freely — only differentiation is unsupported. Declare the name without a subscript, or hand the scalar part to a Maxima session (\"hand E<n> off to a Maxima session\")."
+  },
+  "handoff.forked": {
+    "ja": "{expr_id} を {backend} セッションへ渡す準備をしました（スカラー handoff）",
+    "en": "Prepared {expr_id} to continue in a {backend} session (scalar handoff)"
+  },
+  "operand.genitive_head_not_an_operation": {
+    "ja": "`{noun}` という操作をこのシステムは知りません（`{noun} of …` の `{noun}`）。`{noun} of` を外して `{operand}` にそのまま操作をかけてください。`{noun}` が量の名前なら、その値を先に書いてください（`{noun} = …`——そのあとは `{noun}` を操作の対象にできます）。",
+    "en": "This system has no operation called `{noun}` (the `{noun}` of `{noun} of …`). Drop `{noun} of` and apply the operation to `{operand}` itself. If `{noun}` is a quantity, write its value first (`{noun} = …`) — then `{noun}` can be the operand."
+  },
+  "integral.coordinate_change_spelling": {
+    "ja": "`{system}`座標は**変数ではない**ので、積分の変数の欄には入れられません。座標を変えるのは2段です——まず定積分として登録し（`x^2+y^2<=1 の領域で {integrand} を定積分して`）、つぎに変数変換を書いてください（`E1 を x,y から r,theta へ x=r*cos(theta), y=r*sin(theta) で変数変換して`）。積分範囲も新しい変数のものへ書き換わります。",
+    "en": "`{system}` names a coordinate SYSTEM, not a variable, so it cannot fill the integration variable. Changing coordinates takes two steps: register the definite integral (`definite-integrate {integrand} over the region x^2 + y^2 <= 1`), then write the change of variables (`Change variables in E1 from x,y to r,theta via x=r*cos(theta), y=r*sin(theta)`). The bounds are rewritten in the new variables too."
+  },
+  "integral.var_is_indexed": {
+    "ja": "{var} は積分変数にできません。宣言が無いため成分の添字として読まれ（{lowered}）、CAS は**この形（関数呼び出し）では**積分できないためです。宣言すれば、書いた綴りのまま積分できます——方法は2つあります。(1) 基底 {base} を**ベクトルとして宣言する**（{var} は成分のまま {base}[…] として積分できます。{var} が本当にベクトルの成分なら、成分どうしの関係も保たれるこちらが自然です）。(2) {var} **全体を1つの名前として宣言する**（例:「{var} をスカラーパラメータとして定義して」→ 添字の確認では「名前の一部」を選ぶ）。",
+    "en": "{var} cannot be used as the integration variable: with no declaration it reads as a component index ({lowered}), and the CAS cannot integrate with respect to **that form** (a function call). Declaring it makes the spelling you wrote work — there are two ways. (1) Declare the base {base} as a VECTOR ({var} then stays a component, {base}[…], and integrates as one; if {var} really is a component of a vector this is the natural choice, and it keeps the components related). (2) Declare {var} as a single whole NAME (e.g. \"define {var} as a scalar parameter\", choosing \"part of the name\" in the subscript dialog)."
+  },
+  "handoff.created": {
+    "ja": "{expr_id} を {backend} セッションへ渡しました（宣言 {count} 件を引き継ぎ）。ファイル「{filename}」として保存してあります——続きはそちらを開いてください（今のセッションはそのままです）。",
+    "en": "Handed {expr_id} to a {backend} session, carrying {count} declaration(s). Saved as \"{filename}\" — open it to continue there; this session is left as it is."
+  },
+  "handoff.verified": {
+    "ja": "渡した式の値が両側で一致しました（{points} 点で確認）。",
+    "en": "The carried expression's value agrees on both sides (checked at {points} points)."
+  },
+  "handoff.verify_differed": {
+    "ja": "⚠ 渡した式が元の式と一致しません（{reason}: {detail}）。渡し先の式を確認してください。",
+    "en": "⚠ The carried expression does not match the original ({reason}: {detail}). Check the expression in the target session."
+  },
+  "handoff.verify_skipped": {
+    "ja": "（値の照合はできませんでした: {reason}。渡し先の式は確認していません。）",
+    "en": "(The value check could not run: {reason}. The carried expression is therefore unverified.)"
+  },
+  "handoff.target_failed": {
+    "ja": "{handoff_id} の渡し先セッションを作成できませんでした（{reason}）。渡す準備自体は記録されています。",
+    "en": "Could not build the target session for {handoff_id} ({reason}). The handoff itself is recorded."
+  },
+  "handoff.operators_present": {
+    "ja": "{expr_id} には演算子（{names}）が残っているため、スカラー CAS のセッションへは渡せません。渡せるのは演算子を含まない式だけです（期待値・係数など、演算子代数が終わったあとの量）。先に真空期待値や正規順序で c 数に落としてください。",
+    "en": "{expr_id} still contains operators ({names}), so it cannot be handed to a scalar-CAS session. Only operator-free expressions can cross — the c-numbers left after the operator algebra is done (expectation values, coefficients). Reduce it first, e.g. with a vacuum expectation or normal ordering."
+  },
+  "handoff.unparsable": {
+    "ja": "この式（{expr}）を解析できないため、演算子が残っていないかを確認できません。確認できない式は渡せません。",
+    "en": "This expression ({expr}) cannot be parsed, so it cannot be checked for leftover operators — and an unchecked expression must not cross."
+  },
+  "error.solve_no_solution": {
+    "ja": "解が見つかりませんでした。指定した変数について、この式（または連立）を満たす解は存在しないか、CAS が求められませんでした。変数の選び方・式の数・仮定（正/実数など）を確認してください。",
+    "en": "No solution was found. For the variables given, this equation (or system) has no solution, or the CAS could not find one. Check which variables you solved for, how many equations there are, and any assumptions (positive, real, …)."
+  },
+  "error.cas_asked_question": {
+    "ja": "CAS が計算を続けるために確認を求めました（{question}）。記号の符号や種別が分かっていないためです。計算は中断しましたが、セッションはそのまま使えます。その記号を「正の実数とする」のように宣言し直すか、「> 0 と仮定する」を先に実行してから、もう一度実行してください。",
+    "en": "The CAS stopped to ask a question it needs answered before it can continue ({question}). It does not know the symbol's sign or type. The computation was interrupted, but the session is still usable: declare the symbol (e.g. \"is a positive real number\") or add the assumption (e.g. \"assume x > 0\") first, then run it again."
+  },
+  "lattice.figure_saved": {
+    "ja": "格子図を保存しました: {paths}",
+    "en": "Saved lattice figure: {paths}"
+  },
+  "lattice.no_lattice": {
+    "ja": "保存できる格子がありません。先に格子和（最近接和など）を展開してください。",
+    "en": "No lattice to save — expand a lattice sum (e.g. a nearest-neighbor sum) first."
+  },
+  "lattice.pdf_skipped": {
+    "ja": "（PDF はスキップ: {reason}）",
+    "en": " (PDF skipped: {reason})"
+  },
+  "integral.need_new_bounds": {
+    "ja": "新しい積分変数の範囲を指定してください（例: r:0..1, theta:0..2π）。",
+    "en": "Please specify the new integration bounds (e.g. r:0..1, theta:0..2π)."
+  },
+  "integral.eval_needs_transform": {
+    "ja": "この定積分は領域形式です。先に変数変換して範囲を確定してください。",
+    "en": "This integral is in region form; change variables first to fix the bounds."
+  },
+  "engine.ode_no_depvar": {
+    "ja": "微分方程式の従属変数を特定できません。先に変数を時間依存関数として宣言してください（例: 「q を時間依存関数として定義する」）。",
+    "en": "Cannot identify the dependent variable of the ODE. Declare the variable as a time-dependent function first (e.g. \"define q as a time-dependent function\")."
+  },
+  "engine.specialize_no_params": {
+    "ja": "この式には条件で決定できる自由パラメータがありません。",
+    "en": "This expression has no free parameters that a condition could determine."
+  },
+  "engine.specialize_no_conditions": {
+    "ja": "自由パラメータを決定する条件が指定されていません。",
+    "en": "No conditions were given to determine the free parameters."
+  },
+  "engine.specialize_overdetermined": {
+    "ja": "条件が多すぎます（条件 {n_cond} 個に対し自由パラメータ {n_param} 個）。",
+    "en": "Too many conditions ({n_cond} conditions for {n_param} free parameters)."
+  },
+  "engine.specialize_unsolvable": {
+    "ja": "与えられた条件から自由パラメータを決定できませんでした。",
+    "en": "The given conditions do not determine the free parameters."
+  },
+  "engine.not_free_parameters": {
+    "ja": "{params} はこの式の自由パラメータではありません。",
+    "en": "{params} are not free parameters of this expression."
+  },
+  "parser.unsupported_notation.not_equal": {
+    "ja": "「等しくない」関係（`\\neq` / `\\ne` / `!=`）は式としては未対応です。制約として使うなら仮定として登録してください（例:「a と b は等しくないとする」）。",
+    "en": "A not-equal relation (`\\neq` / `\\ne` / `!=`) is not supported as an expression. To use it as a constraint, register it as an assumption instead (e.g. \"assume a is not equal to b\")."
+  },
+  "parser.unsupported_notation.pipe": {
+    "ja": "縦棒 `|` を含む記法（絶対値・ノルム・行列式など）は未対応です。絶対値は abs(...) と入力してください。",
+    "en": "Notation containing `|` (absolute value, norm, determinant, …) is not supported yet. Write abs(...) for an absolute value."
+  },
+  "notation.pipe_norm": {
+    "ja": "ノルムの記法（二重縦棒 `\\|…\\|` / `||…||`、`\\begin{Vmatrix}…\\end{Vmatrix}`）は**求めるもの**として読みます——`\\|v\\|` や `\\|E1\\| を計算して` と書けばノルムを計算します。**ここは関係式の中にあるので、述べた式であって要求ではありません**（`\\|v\\| = 5` は「大きさは5である」という主張、`E2 = \\|v\\|` は定義）。計算したいときは記法だけを書くか、言葉で書いてください（「E1 のノルムを求めて」／行列は「E1 の Frobenius ノルムを求めて」のように種類を書く）。**絶対値のつもりなら縦棒は1本**にしてください（`|x|`——絶対値か行列式かを確認します）。",
+    "en": "The norm notation (a double bar `\\|…\\|` / `||…||`, or `\\begin{Vmatrix}…\\end{Vmatrix}`) is read as a REQUEST — `\\|v\\|` or `compute \\|E1\\|` computes the norm. **Here it sits inside a relation, so it states something rather than asking for it** (`\\|v\\| = 5` asserts the magnitude; `E2 = \\|v\\|` is a definition). To compute it, write the notation on its own, or in words (\"compute the norm of E1\"; a matrix needs its kind, e.g. \"the Frobenius norm of E1\"). **If you meant an absolute value, use a single bar** (`|x|` — you will be asked whether it is an absolute value or a determinant)."
+  },
+  "notation.pipe_braket": {
+    "ja": "ブラケット記法の縦棒は、ブラとケットを**区切る**ものであって、量を囲む括弧ではありません。**両側が同じ状態の形は読めます**（`\\langle \\Phi_0 | A | \\Phi_0 \\rangle` は `\\langle A \\rangle_{\\Phi_0}` と同じ量として扱われます）。状態が2つある形（行列要素 `\\langle\\phi|A|\\psi\\rangle`・内積 `\\langle\\phi|\\psi\\rangle`）と、片側だけの形（`|\\psi\\rangle`）はまだ読みません。絶対値・行列式なら `|x|` のように囲む形で書いてください。",
+    "en": "In bra-ket notation the bar SEPARATES a bra from a ket; it is not a fence around a quantity. **The form with the SAME state on both sides is read** (`\\langle \\Phi_0 | A | \\Phi_0 \\rangle` is the same quantity as `\\langle A \\rangle_{\\Phi_0}`). A form carrying TWO states (the matrix element `\\langle\\phi|A|\\psi\\rangle`, the inner product `\\langle\\phi|\\psi\\rangle`) and a one-sided form (`|\\psi\\rangle`) are not read yet. For an absolute value or a determinant, write it as a fence: `|x|`."
+  },
+  "parser.unsupported_notation.chained_relation": {
+    "ja": "連鎖した不等式（例: 0 <= x <= 100）は現在サポートされていません。2つの制約に分けて入力してください。",
+    "en": "Chained relations (e.g. 0 <= x <= 100) are not supported yet. Enter them as two separate constraints."
+  },
+  "parser.unsupported_notation.relational_char": {
+    "ja": "この位置の `<` または `>` は解釈できません（関数呼び出しや括弧の中に不等号がある可能性があります）。",
+    "en": "The `<` or `>` here could not be interpreted (it may be nested inside a function call or bracket group)."
+  },
+  "pair_rep.display_only_pair": {
+    "ja": "{expr_id} は時間発展した演算子（係数⊗演算子の対）なので、{operation} には直接渡せません。係数はスカラー、演算子は QA 側にあり、CAS はその2つを一緒に持てません。**括弧なら計算できます**——「{expr_id} と En の反交換関係」のように書くと、係数の積 × 等時刻代数として計算します。係数だけが要るなら、括弧の結果（演算子が消えていればスカラー）に対して操作してください。",
+    "en": "{expr_id} is a time-evolved operator (a coefficient⊗operator pair), so it cannot be passed to {operation} directly: the coefficient is a scalar and the operator is a QuantumAlgebra object, and the CAS cannot hold the two together. **A bracket CAN be computed** — ask for \"the anticommutator of {expr_id} and En\" and it is evaluated as the coefficient product times the equal-time algebra. If you want the coefficient alone, operate on the bracket's result (a scalar once the operators cancel)."
+  },
+  "pair_rep.chain_does_not_close": {
+    "ja": "{operator} は {hamiltonian} のもとで、演算子 {cap} 個までに**閉じません**。ハイゼンベルク描像の演算子は入れ子交換子の和 Σ(it)^n/n!·ad_H^n(A) で、これが有限個で閉じるとき——二次形式、および原子極限の相互作用——だけ係数を行列指数として厳密に出せます。閉じない場合に級数を打ち切ると、それは**短時間展開**であって摂動論ではなく、周波数空間へは行けません。閉じるはずだと考えるなら、ハミルトニアンをその演算子が張る空間に制限して書き直してください。",
+    "en": "{operator} does not close on {cap} operators or fewer under {hamiltonian}. A Heisenberg-picture operator is the sum of nested commutators Σ(it)^n/n!·ad_H^n(A), and only when that closes on finitely many — a quadratic Hamiltonian, and the interaction in the atomic limit — can the coefficients be obtained exactly, as a matrix exponential. Truncating the series when it does not close gives a SHORT-TIME expansion, not perturbation theory, and cannot be carried into frequency space. If you expect it to close, restrict the Hamiltonian to the space the operator spans."
+  },
+  "generator.approx_no_cas_form": {
+    "ja": "近似の関係（`\\approx` / `\\simeq` / `\\cong`）は**書けます**が、そのままでは計算できません——CAS に「およそ等しい」は無く、片側だけが答えです。近似の**右辺**を新しい量として登録し（例:「E12 の右辺を計算して」）、それに対して操作してください。",
+    "en": "An approximate relation (`\\approx` / `\\simeq` / `\\cong`) can be WRITTEN, but not computed with as it stands — a CAS has no \"approximately equal\", and only one side is the answer. Register the RIGHT-HAND SIDE of the approximation as a new quantity (e.g. \"evaluate the right-hand side of E12\") and operate on that."
+  },
+  "generator.unsupported_ir_node": {
+    "ja": "この記法（{node}）はバックエンドコマンドへ変換できないため実行できません。未対応の記法です。",
+    "en": "This notation ({node}) cannot be converted to a backend command — unsupported notation."
+  },
+  "notation.pipe_prompt": {
+    "ja": "「{token}」の解釈が複数あります。どの意味で使いますか？（中身のシンボルを行列／スカラーとして宣言しておくと、次回から自動判定されます）",
+    "en": "\"{token}\" is ambiguous — which meaning do you intend? (Declaring the inner symbol as a matrix/scalar resolves this automatically next time.)"
+  },
+  "notation.bracket_functional_declared": {
+    "ja": "{sym} を汎函数として登録しました（{sym}[…] は表示のまま、CAS には {cas}(…) を渡します）",
+    "en": "Declared {sym} as a bracket functional ({sym}[…] displays as-is; the CAS receives {cas}(…))"
+  },
+  "notation.pipe_abs_choice": {
+    "ja": "絶対値 abs({inner})",
+    "en": "absolute value abs({inner})"
+  },
+  "notation.pipe_determinant_choice": {
+    "ja": "行列式 det({inner})",
+    "en": "determinant det({inner})"
+  },
+  "notation.delta_prompt": {
+    "ja": "「Δ」の解釈が複数あります。ラプラシアン ∇² ですか、それとも記号 Δ（ギャップ関数・差分など）ですか？",
+    "en": "\"Δ\" is ambiguous — the Laplacian ∇², or a symbol Δ (gap function, finite difference, …)?"
+  },
+  "notation.delta_laplacian_choice": {
+    "ja": "ラプラシアン ∇²",
+    "en": "Laplacian ∇²"
+  },
+  "notation.delta_symbol_choice": {
+    "ja": "記号 Δ（スカラーとして宣言する）",
+    "en": "symbol Δ (declare as a scalar)"
+  },
+  "notation.resolved": {
+    "ja": "✓ {token} を「{role}」として解釈しました。この選択はセッションに記憶され、以後は確認なしで適用されます。",
+    "en": "✓ Interpreted {token} as \"{role}\". The choice is remembered for this session and applied silently from now on."
+  },
+  "bridge.notation_label_dot": {
+    "ja": "ドット記法（q̇）",
+    "en": "dot notation (q̇)"
+  },
+  "bridge.notation_label_leibniz": {
+    "ja": "Leibniz記法（dq/dt）",
+    "en": "Leibniz notation (dq/dt)"
+  },
+  "bridge.notation_switched": {
+    "ja": "✓ {name} の微分表示を {label} に切り替えました",
+    "en": "✓ Switched the derivative display of {name} to {label}"
+  },
+  "bridge.notation_switch_action": {
+    "ja": "記法切り替え",
+    "en": "Notation switch"
+  },
+  "bridge.time_dependent_declared": {
+    "ja": "✓ {name} を時間依存として宣言しました（時間変数: {time_parameter}）",
+    "en": "✓ Declared {name} as time-dependent (time variable: {time_parameter})"
+  },
+  "bridge.time_dependent_action": {
+    "ja": "時間依存宣言",
+    "en": "Time-dependence declaration"
+  },
+  "bridge.latex_name_set": {
+    "ja": "✓ {name} の LaTeX 名を {latex} に設定しました",
+    "en": "✓ Set the LaTeX name of {name} to {latex}"
+  },
+  "bridge.latex_name_action": {
+    "ja": "LaTeX名設定",
+    "en": "LaTeX name set"
+  },
+  "bridge.assumption_added": {
+    "ja": "✓ 仮定しました: {condition}",
+    "en": "✓ Assumed: {condition}"
+  },
+  "numeric.forked": {
+    "ja": "数値計算タスク {task_id} を {expr_id} からフォークしました",
+    "en": "Forked numeric task {task_id} from {expr_id}"
+  },
+  "numeric.executed": {
+    "ja": "数値計算 {task_id} を実行しました",
+    "en": "Executed numeric task {task_id}"
+  },
+  "numeric.executed_summary": {
+    "ja": "数値計算 {task_id}: {target}({sweep_var}) — 最小 {min_y}（{sweep_var}={min_x}）／最大 {max_y}（{sweep_var}={max_x}）",
+    "en": "Numeric task {task_id}: {target}({sweep_var}) — min {min_y} at {sweep_var}={min_x} / max {max_y} at {sweep_var}={max_x}"
+  },
+  "numeric.exec_failed": {
+    "ja": "数値計算 {task_id} が失敗しました: {reason}",
+    "en": "Numeric task {task_id} failed: {reason}"
+  },
+  "numeric.sandbox_unavailable": {
+    "ja": "sandbox 実行環境が使えません（macOS sandbox-exec と数値用 Python {python} が必要です。`python3 -m venv .venv-numeric && source .venv-numeric/bin/activate && pip install numpy matplotlib`）",
+    "en": "The sandbox runtime is unavailable (needs macOS sandbox-exec and the numeric Python at {python}; run `python3 -m venv .venv-numeric && source .venv-numeric/bin/activate && pip install numpy matplotlib`)"
+  },
+  "numeric.task_not_found": {
+    "ja": "数値計算タスク {task_id} が見つかりません",
+    "en": "Numeric task {task_id} not found"
+  },
+  "numeric.task_source_missing": {
+    "ja": "式 {expr_id} が見つからないため数値計算へフォークできません",
+    "en": "Cannot fork to a numeric task: expression {expr_id} not found"
+  },
+  "numeric.unsupported_problem_type": {
+    "ja": "problem_type {problem_type} は決定的テンプレートでは未対応です（parameter_sweep / plotting / function_evaluation のみ）",
+    "en": "problem_type {problem_type} has no deterministic template (parameter_sweep / plotting / function_evaluation only)"
+  },
+  "numeric.evaluate_no_sweep": {
+    "ja": "1点評価（function_evaluation）に掃引パラメータは指定できません（現在 {count} 個）。全ての記号を fixed_values で固定してください",
+    "en": "Point evaluation (function_evaluation) takes no sweep parameters (got {count}) — fix every symbol via fixed_values"
+  },
+  "numeric.executed_value": {
+    "ja": "数値計算 {task_id}: {target} = {value}",
+    "en": "Numeric task {task_id}: {target} = {value}"
+  },
+  "numeric.need_one_bounded": {
+    "ja": "最小化する変数はちょうど1つ、範囲（min/max）付きで指定してください（現在 {count} 個）",
+    "en": "Exactly one bounded variable (min/max) is required for minimization (got {count})"
+  },
+  "numeric.executed_minimize": {
+    "ja": "数値計算 {task_id}: {target} の最小値 {minimum}（{variable}={argmin}）{boundary}",
+    "en": "Numeric task {task_id}: min {target} = {minimum} at {variable}={argmin}{boundary}"
+  },
+  "numeric.boundary_note": {
+    "ja": "※境界解 — 最小値が探索範囲の端にあります",
+    "en": " (boundary solution — the minimum sits on the searched bound)"
+  },
+  "numeric.eigen_needs_matrix": {
+    "ja": "固有値問題には行列（matrix(...) 形式）の式が必要です",
+    "en": "An eigenvalue problem needs a matrix expression (matrix(...) form)"
+  },
+  "numeric.eigen_needs_square": {
+    "ja": "固有値問題には正方行列が必要です（現在 {m}×{n}）",
+    "en": "An eigenvalue problem needs a square matrix (got {m}×{n})"
+  },
+  "numeric.executed_eigen": {
+    "ja": "数値計算 {task_id}: 固有値 [{values}]（昇順）{note}",
+    "en": "Numeric task {task_id}: eigenvalues [{values}] (ascending){note}"
+  },
+  "numeric.executed_eigen_sweep": {
+    "ja": "数値計算 {task_id}: 固有値分枝 {n} 本を {sweep_var} で掃引（値域 {lo}〜{hi}）{note}",
+    "en": "Numeric task {task_id}: {n} eigenvalue branches over {sweep_var} (range {lo} to {hi}){note}"
+  },
+  "numeric.non_hermitian_note": {
+    "ja": "※非エルミート行列 — 実部で整列しています",
+    "en": " (non-Hermitian matrix — sorted by real part)"
+  },
+  "numeric.executed_matrix": {
+    "ja": "数値計算 {task_id}: {target} を {m}×{n} 行列として評価しました",
+    "en": "Numeric task {task_id}: evaluated {target} as a {m}×{n} matrix"
+  },
+  "numeric.matrix_ragged": {
+    "ja": "行列の行ごとに列数が異なります（矩形の行列のみ評価できます）",
+    "en": "Matrix rows have differing lengths — only rectangular matrices can be evaluated"
+  },
+  "numeric.executed_loop": {
+    "ja": "数値計算 {task_id}: {state} に収束（{iterations} 反復・残差 {residual}）",
+    "en": "Numeric task {task_id}: converged to {state} ({iterations} iterations, residual {residual})"
+  },
+  "numeric.loop_not_converged": {
+    "ja": "数値計算 {task_id}: {iterations} 反復で収束せず（残差 {residual}・最終状態 {state}）",
+    "en": "Numeric task {task_id}: did not converge in {iterations} iterations (residual {residual}, last state {state})"
+  },
+  "numeric.spec.loop_no_body": {
+    "ja": "自己無撞着ループには本体（method.params.body の式リスト: expr_id と name）が必要です。",
+    "en": "A self-consistent loop needs a body (method.params.body: a list of {expr_id, name} entries)."
+  },
+  "numeric.spec.loop_no_update": {
+    "ja": "更新写像（method.params.update: 状態変数 ← 本体出力）が空です。",
+    "en": "The update map (method.params.update: state var ← body output) is empty."
+  },
+  "numeric.spec.loop_bad_update": {
+    "ja": "更新写像 {var} ← {source} が不正です（{var} は free 入力、{source} は本体の出力名である必要があります）。",
+    "en": "Update edge {var} ← {source} is invalid ({var} must be a free input and {source} a body output name)."
+  },
+  "numeric.need_one_sweep": {
+    "ja": "掃引パラメータはちょうど1つ指定してください（現在 {count} 個）",
+    "en": "Exactly one sweep parameter is required (got {count})"
+  },
+  "numeric.missing_values": {
+    "ja": "式に現れる記号 {symbols} の値が未指定です。fixed_values で固定するか掃引変数にしてください",
+    "en": "Symbols {symbols} in the expression have no values — fix them via fixed_values or make one the sweep variable"
+  },
+  "numeric.bad_value": {
+    "ja": "数値パラメータの値 {value} が数値として解釈できません",
+    "en": "Parameter value {value} is not a plain number"
+  },
+  "numeric.unsupported_function": {
+    "ja": "関数 {func} はまだ数値層で未対応です（対応: sin/cos/tan/exp/log/sqrt/abs 等）",
+    "en": "Function {func} is not supported by the numeric layer yet (supported: sin/cos/tan/exp/log/sqrt/abs, …)"
+  },
+  "numeric.unsupported_construct": {
+    "ja": "この式の構造（{node}）はフェーズ1の数値層では未対応です（スカラー式のみ対応）",
+    "en": "This expression construct ({node}) is not supported by the phase-1 numeric layer (scalar expressions only)"
+  },
+  "plan.goal_eigensystem": {
+    "ja": "固有状態を求める（特性多項式 → 固有値 → 固有ベクトル）",
+    "en": "Find the eigenstates (characteristic polynomial → eigenvalues → eigenvectors)"
+  },
+  "plan.step_charpoly": {
+    "ja": "特性多項式を {var} で求める",
+    "en": "Compute the characteristic polynomial in {var}"
+  },
+  "plan.step_eigenvalues": {
+    "ja": "固有値を求める",
+    "en": "Compute the eigenvalues"
+  },
+  "plan.step_eigenvectors": {
+    "ja": "固有ベクトルを求める",
+    "en": "Compute the eigenvectors"
+  },
+  "plan.executed_summary": {
+    "ja": "プラン {plan_id}「{goal}」を完了しました（{n_ok}/{n_total} ステップ成功）",
+    "en": "Plan {plan_id} \"{goal}\" completed ({n_ok}/{n_total} steps succeeded)"
+  },
+  "summary.branch_header": {
+    "ja": "【ブランチ: {label} | {step_range} | 式 {n_expr} 件 | 仮定 {n_asm} 件】",
+    "en": "[Branch: {label} | {step_range} | {n_expr} expression(s) | {n_asm} assumption(s)]"
+  },
+  "summary.step_range": {
+    "ja": "{first}〜{last}",
+    "en": "{first}–{last}"
+  },
+  "summary.no_steps": {
+    "ja": "（ステップなし）",
+    "en": "(no steps)"
+  },
+  "summary.assumption": {
+    "ja": "仮定: {text}",
+    "en": "Assumption: {text}"
+  },
+  "plan.stopped_summary": {
+    "ja": "プラン {plan_id}「{goal}」はステップ {step_id} で失敗し安全に停止しました（成功 {n_ok}/{n_total}。途中結果は保存済み）",
+    "en": "Plan {plan_id} \"{goal}\" failed at step {step_id} and stopped safely ({n_ok}/{n_total} succeeded; partial results are kept)"
+  },
+  "plan.not_found": {
+    "ja": "プラン {plan_id} が見つかりません",
+    "en": "Plan {plan_id} not found"
+  },
+  "plan.workflow_not_found": {
+    "ja": "ワークフロー {workflow} は登録されていません",
+    "en": "Workflow {workflow} is not registered"
+  },
+  "plan.empty": {
+    "ja": "プラン {plan_id} にステップがありません",
+    "en": "Plan {plan_id} has no steps"
+  },
+  "plan.target_missing": {
+    "ja": "プランの対象式 {expr_id} が見つかりません",
+    "en": "The plan's target expression {expr_id} was not found"
+  },
+  "plan.unknown_operation": {
+    "ja": "ステップ {step_id} の操作 {operation} は未知の操作です",
+    "en": "Step {step_id}: operation {operation} is unknown"
+  },
+  "plan.backend_unsupported": {
+    "ja": "ステップ {step_id} の操作 {operation} はバックエンド {backend} では実行できません",
+    "en": "Step {step_id}: operation {operation} is not supported on backend {backend}"
+  },
+  "plan.missing_field": {
+    "ja": "ステップ {step_id}（{operation}）の必須引数 {field} が未指定です",
+    "en": "Step {step_id} ({operation}): required field {field} is missing"
+  },
+  "plan.unknown_field": {
+    "ja": "ステップ {step_id}（{operation}）に許可されていない引数があります: {fields}",
+    "en": "Step {step_id} ({operation}): unexpected fields not allowed: {fields}"
+  },
+  "plan.bad_placeholder": {
+    "ja": "ステップ {step_id} の参照 {ref} が不正です（前方のステップしか参照できません）",
+    "en": "Step {step_id}: reference {ref} is invalid (only earlier steps can be referenced)"
+  },
+  "plan.goal_heisenberg_components": {
+    "ja": "各スピン成分のハイゼンベルク運動方程式を求める（x → y → z）",
+    "en": "Derive the Heisenberg equations of motion for each spin component (x → y → z)"
+  },
+  "plan.step_heisenberg": {
+    "ja": "{component} の運動方程式 d{component}/dt = i[H, {component}] を求める",
+    "en": "Derive d{component}/dt = i[H, {component}]"
+  },
+  "plan.not_retryable": {
+    "ja": "プラン {plan_id} は再試行できません（status: {status} — 再試行できるのは停止/失敗したプランのみ）",
+    "en": "Plan {plan_id} cannot be retried (status: {status} — only stopped/failed plans can be retried)"
+  },
+  "plan.candidates_prompt": {
+    "ja": "「{goal}」の解法候補です。実行する方法を選んでください（各候補は実行前に検証済み）:",
+    "en": "Solution candidates for \"{goal}\" — pick the method to run (each candidate was validated before being shown):"
+  },
+  "plan.autoselect_prompt": {
+    "ja": "「{goal}」に対し、Supervisor が以下の方法を選びました。実行してよければ確認してください（検証済み）:",
+    "en": "For \"{goal}\", the Supervisor selected the following approach — confirm to run it (validated before being shown):"
+  },
+  "plan.freeform_prompt": {
+    "ja": "「{goal}」への手順案です。実行する内容を確認してください（実行前に検証済み）:",
+    "en": "Proposed steps for \"{goal}\" — review before running (validated before being shown):"
+  },
+  "plan.replan_prompt": {
+    "ja": "前回の「{goal}」の実行は失敗しました。別の方法の候補です。実行する方法を選んでください（各候補は実行前に検証済み）:",
+    "en": "The previous attempt at \"{goal}\" failed — here are alternative approaches. Pick the method to run (each candidate was validated before being shown):"
+  },
+  "plan.adviser_unavailable": {
+    "ja": "解法候補の提案には Adviser LLM が必要ですが、接続されていません（models/ の advisor ロール設定を確認してください）",
+    "en": "Proposing solution candidates needs the Adviser LLM, which is not connected (check the advisor role setup under models/)"
+  },
+  "plan.no_candidates": {
+    "ja": "実行可能な解法候補が得られませんでした（提案 {n_rejected} 件は検証で棄却）。指示を具体化するか、操作を直接指定してください",
+    "en": "No runnable solution candidates were obtained ({n_rejected} proposals were rejected by validation). Try a more specific goal or invoke operations directly"
+  },
+  "numeric.list_not_supported": {
+    "ja": "{expr_id} はリスト／行列形式のため数値計算タスクにできません。個々のスカラー式にしてからフォークしてください（例: 固有値なら特性多項式を solve して得られる個別解 E-id を使う、または H = … の形で式を登録し直す）",
+    "en": "{expr_id} is a list/matrix result and cannot become a numeric task. Fork an individual scalar expression instead (e.g. for eigenvalues, solve the characteristic polynomial and use one of the registered solution E-ids, or re-register the expression as H = …)"
+  },
+  "numeric.coder_unavailable": {
+    "ja": "コード生成用の LLM が接続されていません（models/ の advisor ロール設定を確認してください）。ホワイトリスト内の式であれば決定的テンプレート（generate_numeric_code）が使えます",
+    "en": "The coding LLM is not connected (check the advisor role under models/). For whitelist-covered expressions the deterministic template (generate_numeric_code) still works"
+  },
+  "numeric.code_not_reviewed": {
+    "ja": "このコード（{artifact_id}）は LLM 生成で、まだレビュー承認されていません。内容を確認して approve_numeric_code（API: /numeric/approve）で承認してから実行してください",
+    "en": "This code ({artifact_id}) was LLM-generated and has not been reviewed yet. Inspect it and approve via approve_numeric_code (API: /numeric/approve) before running"
+  },
+  "numeric.no_code_block": {
+    "ja": "LLM の応答から Python コードブロックを抽出できませんでした",
+    "en": "Could not extract a Python code block from the LLM reply"
+  },
+  "numeric.code_syntax_error": {
+    "ja": "LLM が生成したコードが Python として不正です: {error}",
+    "en": "The LLM-generated code is not valid Python: {error}"
+  },
+  "numeric.no_code": {
+    "ja": "コード artifact {artifact_id} が見つかりません（または対象が LLM 生成コードではありません）",
+    "en": "Code artifact {artifact_id} not found (or the target is not LLM-generated code)"
+  },
+  "numeric.save_session_first": {
+    "ja": "数値計算を実行する前にセッションを保存してください。保存した JSON のフォルダ・ファイル名が、コード・図・表の保存先（<ファイル名>_numeric/）になります",
+    "en": "Save the session before running numeric tasks. The saved JSON's folder/filename anchors where code, figures and tables go (<stem>_numeric/)"
+  },
+  "numeric.assumption_violated": {
+    "ja": "選んだ値（{values}）は前提「{assumption}」を満たしません（左辺の値: {computed}）。パラメータを見直して再入力してください。",
+    "en": "The chosen values ({values}) violate the assumption \"{assumption}\" (left-hand side = {computed}). Please revise the parameters and re-enter."
+  },
+  "numeric.result_has_nan": {
+    "ja": "数値計算 {task_id}: 結果に NaN が含まれます（{params}）。前提条件を満たさないパラメータの可能性があります。",
+    "en": "Numeric task {task_id}: the result contains NaN ({params}). The parameters may violate the problem's assumptions."
+  },
+  "numeric.spec.unknown_symbol": {
+    "ja": "入力変数「{name}」は式の自由シンボルではありません。",
+    "en": "Input variable \"{name}\" is not a free symbol of the expression."
+  },
+  "numeric.spec.bad_sweep_range": {
+    "ja": "掃引変数「{name}」の範囲が不正です（最小 < 最大 の数値を指定してください）。",
+    "en": "Sweep variable \"{name}\" has an invalid range (need numeric min < max)."
+  },
+  "numeric.spec.too_few_points": {
+    "ja": "掃引変数「{name}」の点数は 2 以上にしてください。",
+    "en": "Sweep variable \"{name}\" needs at least 2 points."
+  },
+  "numeric.spec.bad_fixed_value": {
+    "ja": "固定値「{name}」は数値で指定してください。",
+    "en": "Fixed value \"{name}\" must be a number."
+  },
+  "numeric.spec.bad_free_initial": {
+    "ja": "自由変数「{name}」の初期値は数値で指定してください。",
+    "en": "Initial value for free variable \"{name}\" must be a number."
+  },
+  "numeric.spec.no_outputs": {
+    "ja": "出力が 1 つも指定されていません。",
+    "en": "The spec declares no outputs."
+  },
+  "numeric.spec.dangling_over": {
+    "ja": "出力「{output}」が参照する軸「{ref}」が入力変数にありません。",
+    "en": "Output \"{output}\" references axis \"{ref}\", which is not an input variable."
+  },
+  "numeric.spec.bad_method_param": {
+    "ja": "手法パラメータ「{param}」の値が不正です。",
+    "en": "Method parameter \"{param}\" has an invalid value."
+  },
+  "numeric.spec_unparseable": {
+    "ja": "アドバイザーの応答から仕様を解釈できませんでした。もう一度お試しください。",
+    "en": "Could not parse a spec from the adviser's reply. Please try again."
+  },
+  "numeric.spec.artifact_not_found": {
+    "ja": "参照先の成果物 {artifact_id} が見つかりません。",
+    "en": "Referenced artifact {artifact_id} was not found."
+  },
+  "numeric.spec.artifact_not_bindable": {
+    "ja": "成果物 {artifact_id}（種別 {value_kind}）は {role} 入力に束縛できません。束縛できるのは有限の実数スカラーのみです。",
+    "en": "Artifact {artifact_id} (kind {value_kind}) cannot bind into a {role} input — only a finite real scalar can."
+  },
+  "numeric.spec.bad_value_from_role": {
+    "ja": "入力「{name}」（役割 {role}）に value_from は指定できません。成果物の値を束縛できるのは fixed / free 入力のみです。",
+    "en": "Input \"{name}\" (role {role}) cannot take value_from — artifact values bind only into fixed / free inputs."
+  },
+  "numeric.refluxed": {
+    "ja": "数値結果を式として登録: {name} = {value}（{task_id} の成果物より）",
+    "en": "Registered numeric result as an expression: {name} = {value} (from {task_id})"
+  },
+  "numeric.reflux_not_scalar": {
+    "ja": "成果物 {artifact_id}（種別 {value_kind}）は式として差し戻せません。差し戻せるのは有限の実数スカラーのみです。",
+    "en": "Artifact {artifact_id} (kind {value_kind}) cannot be refluxed as an expression — only a finite real scalar can."
+  },
+  "numeric.reflux_bad_name": {
+    "ja": "「{name}」は記号名として使えません（英字か _ で始まる識別子を指定してください）。",
+    "en": "\"{name}\" is not a valid symbol name (use an identifier starting with a letter or _)."
+  },
+  "numeric.nl_fork_confirm_prompt": {
+    "ja": "{var} を {min} から {max} まで{points}点で掃引し、{expr_id} を数値評価します。よろしいですか?",
+    "en": "Sweep {var} from {min} to {max} ({points} points) and numerically evaluate {expr_id}. Proceed?"
+  },
+  "notation.deriv_unreadable": {
+    "ja": "微分の表記「{frac}」を解釈できませんでした（{reason}）。通常の分数として処理を続行します。",
+    "en": "Could not read \"{frac}\" as a derivative ({reason}); continuing and treating it as an ordinary fraction."
+  },
+  "notation.deriv_reason_order": {
+    "ja": "分子の階数と分母の変数の階数の合計が一致しません",
+    "en": "the numerator's order does not match the total order of the denominator's variables"
+  },
+  "notation.deriv_reason_ambiguous": {
+    "ja": "分母の区切り方が一意に決まりません",
+    "en": "the denominator can be split in more than one way"
+  },
+  "notation.deriv_reason_no_separator": {
+    "ja": "d と2文字以上の変数名の間に区切りがありません（「d x」のように空白を入れてください）",
+    "en": "there is no separator between d and a multi-letter name (write it with a space, as in \"d x\")"
+  },
+  "notation.deriv_reason_no_operand": {
+    "ja": "微分される式が見つかりません",
+    "en": "there is no operand to differentiate"
+  },
+  "angular.bad_quantum_number": {
+    "ja": "角運動量量子数として解釈できません: {value}（例: 1, 3/2, -1/2）",
+    "en": "Not a valid angular-momentum quantum number: {value} (e.g. 1, 3/2, -1/2)"
+  },
+  "angular.not_half_integer": {
+    "ja": "角運動量量子数は整数または半整数でなければなりません: {value}",
+    "en": "Angular-momentum quantum numbers must be integers or half-integers: {value}"
+  },
+  "angular.negative_j": {
+    "ja": "{name} は負にできません（{value} が指定されました）",
+    "en": "{name} cannot be negative (got {value})"
+  },
+  "angular.j_m_mismatch": {
+    "ja": "{jname}={j} と {mname}={m} の差が整数になっていません（{jname} と {mname} は同時に整数か同時に半整数である必要があります）",
+    "en": "{jname}={j} and {mname}={m} do not differ by an integer ({jname} and {mname} must both be integer or both half-integer)"
+  },
+  "angular.m_out_of_range": {
+    "ja": "{mname}={m} が範囲外です（-{jname} ≦ {mname} ≦ {jname}、{jname}={j}）",
+    "en": "{mname}={m} is out of range (-{jname} ≤ {mname} ≤ {jname} with {jname}={j})"
+  },
+  "angular.j_not_in_coupling": {
+    "ja": "{j} は {j1} と {j2} の合成で許されません（三角関係 |{j1}-{j2}| ≦ J ≦ {j1}+{j2} を満たしません）",
+    "en": "{j} is not an allowed total for coupling {j1} and {j2} (violates |{j1}-{j2}| ≤ J ≤ {j1}+{j2})"
+  },
+  "angular.bad_term_symbol": {
+    "ja": "項記号として解釈できません: {value}（例: ^2P_{{3/2}}）",
+    "en": "Not a valid term symbol: {value} (e.g. ^2P_{{3/2}})"
+  },
+  "angular.g_factor_undefined_j0": {
+    "ja": "J=0 の準位では Landé g 因子は定義されません",
+    "en": "The Landé g factor is undefined for a J=0 level"
+  },
+  "angular.lande_missing_inputs": {
+    "ja": "Landé g 因子には L・S・J の3つ、または項記号が必要です",
+    "en": "The Landé g factor needs all three of L, S, J, or a term symbol"
+  },
+  "angular.unknown_wigner_symbol": {
+    "ja": "未対応の Wigner 記号です: {kind}（3j・6j・9j のみ）",
+    "en": "Unsupported Wigner symbol: {kind} (only 3j, 6j and 9j)"
+  },
+  "angular.wigner_symbol_shape": {
+    "ja": "{kind} 記号は {rows} 行 × {cols} 列で指定してください",
+    "en": "A {kind} symbol must be given as {rows} rows of {cols} entries"
+  },
+  "angular.missing_quantum_numbers": {
+    "ja": "量子数が足りません。{expected} を指定してください",
+    "en": "Missing quantum numbers — please give {expected}"
+  },
+  "angular.negative_factorial": {
+    "ja": "内部エラー: 負の階乗 ({value}!) が要求されました",
+    "en": "Internal error: a negative factorial ({value}!) was requested"
+  },
+  "angular.negative_sqrt": {
+    "ja": "内部エラー: 負数の平方根 (√{value}) が要求されました",
+    "en": "Internal error: the square root of a negative number (sqrt {value}) was requested"
+  },
+  "angular.display_only_state": {
+    "ja": "{expr_id} は状態ベクトルの表示形なので、{operation} の対象にできません（ケットは CAS の値ではありません）。計算に使える形にするには、**まだ使っていない**記号を2つ選んで展開し直してください（例：「j1=1/2, j2=1/2, J=1, M=0 を u と v の非結合基底で展開して」）。個々の係数だけが必要なら CG 係数を求めてください。",
+    "en": "{expr_id} is the display form of a state vector, so {operation} cannot act on it (a ket is not a CAS value). To get a computable form, expand it again with two **unused** basis symbols (e.g. \"expand j1=1/2, j2=1/2, J=1, M=0 in the uncoupled basis u and v\"). If you only need the individual coefficients, compute the Clebsch-Gordan coefficients instead."
+  },
+  "angular.expansion_named_note": {
+    "ja": "{expr_id} は計算に使える形です。基底記号 {basis} は未定義なので、必要なら定義してください。",
+    "en": "{expr_id} is a computable expression. The basis symbols {basis} are undeclared — declare them if you need to."
+  },
+  "angular.basis_name_taken": {
+    "ja": "基底記号 {name} はこのセッションで既に使われています。別の未使用の記号を指定してください（定義済みの記号を基底名にすると、その定義が展開に入り込んで誤った式になります）。",
+    "en": "The basis symbol {name} is already in use in this session. Choose a different, unused symbol (naming the basis after a defined symbol would let that definition leak into the expansion and give a wrong expression)."
+  },
+  "angular.basis_names_identical": {
+    "ja": "2つの基底記号には別々の名前が必要です（両方とも {name} が指定されました）。第1・第2の角運動量は別の空間の状態です。",
+    "en": "The two basis symbols need different names (both were given as {name}). The first and second angular momenta live in different spaces."
+  },
+  "angular.expansion_auto_basis_note": {
+    "ja": "{expr_id}：基底記号を指定しなかったので {basis} を使いました（このセッションで未使用の記号です）。自分の記法にしたい場合は「… を u と v の非結合基底で展開して」のように指定してください。",
+    "en": "{expr_id}: no basis symbols were given, so {basis} were used (unused in this session). To use your own notation, say e.g. \"… in the uncoupled basis u and v\"."
+  },
+  "angular.no_free_basis_name": {
+    "ja": "未使用の基底記号を見つけられませんでした。基底名を明示的に指定してください。",
+    "en": "Could not find unused basis symbols. Please name the basis explicitly."
+  },
+  "angular.basis_name_invalid": {
+    "ja": "基底記号 {name} は使えません。添字や装飾のない単純な名前（例: chi, psi, u）を指定してください（添字付きの名前は関数呼び出しではなく添字として解釈されます）。",
+    "en": "The basis symbol {name} cannot be used. Give a plain name without subscripts or decoration (e.g. chi, psi, u) — a subscripted name is read as a subscript, not as a function."
+  },
+  "spin_species.declared": {
+    "ja": "サイト別スピンを宣言: {spins}",
+    "en": "Declared per-site spins: {spins}"
+  },
+  "spin_species.no_sites": {
+    "ja": "スピンを宣言するサイトが指定されていません",
+    "en": "No site was given a spin"
+  },
+  "spin_species.bad_site": {
+    "ja": "サイト番号として解釈できません: {site}（整数で指定してください）",
+    "en": "Not a valid site index: {site} (use an integer)"
+  },
+  "spin_species.bad_spin": {
+    "ja": "サイト {site} のスピン {spin} が不正です。0 以上の整数または半整数を指定してください",
+    "en": "Invalid spin {spin} for site {site} — use a non-negative integer or half-integer"
+  },
+  "spin_species.bad_power": {
+    "ja": "モーメントの次数は 1 以上の整数です（{power} が指定されました）",
+    "en": "The moment order must be an integer of at least 1 (got {power})"
+  },
+  "spin_species.unknown_expr": {
+    "ja": "{expr_id} が見つかりません",
+    "en": "{expr_id} not found"
+  },
+  "spin_species.not_spin_expr": {
+    "ja": "{expr_id} はスピン演算子の式として読めません（例: S^x_1 S^x_2 + …）",
+    "en": "{expr_id} cannot be read as a spin-operator expression (e.g. S^x_1 S^x_2 + …)"
+  },
+  "engine.substitute_lhs_not_found": {
+    "ja": "代入できません: {lhs} が対象の式に含まれていません。（式中の記号と一致する形で指定してください。宣言していない添字付きの記号は別の記号として扱われることがあります。）",
+    "en": "Cannot substitute: {lhs} does not occur in the target expression. (Give it in the same form as it appears in the expression; an undeclared subscripted symbol may be treated as a different symbol.)"
+  },
+  "engine.cannot_lower_expression": {
+    "ja": "{expr_id} をバックエンドが解釈できる形に変換できませんでした（{reason}）。式の書き方を見直してください。",
+    "en": "Could not convert {expr_id} into a form the backend can read ({reason}). Please revise how the expression is written."
+  },
+  "notation.applied_sub_prompt": {
+    "ja": "{token} の {sub} は、添字ですか、それとも名前の一部ですか？（{base} について一度答えると、このセッションでは記憶されます）",
+    "en": "In {token}, is {sub} an index, or part of the name? (Answered once for {base}, remembered for this session.)"
+  },
+  "notation.applied_sub_index_choice": {
+    "ja": "添字（{sub} を動かせる。\\sum_{sub} や {sub} への代入ができる）",
+    "en": "An index ({sub} can vary — summable, and substitutable)"
+  },
+  "notation.applied_sub_name_choice": {
+    "ja": "名前の一部（{base}_{sub} でひとつの量。bessel_j と同じ扱い）",
+    "en": "Part of the name ({base}_{sub} is one quantity, like bessel_j)"
+  },
+  "parser.unsupported_notation.julia_applied_indexed": {
+    "ja": "添字付きの量に引数を付けた形 {name}（{base} に添字 {index}、そこへ引数）は、このバックエンドでは扱えません。QuantumAlgebra の演算子は添字を取りますが、その結果を呼び出すことはできません。引数も添字として書く形（{base} の添字に加える）を使ってください。",
+    "en": "An indexed quantity applied to arguments, {name} ({base} with index {index}, then applied), is not available on this backend. A QuantumAlgebra operator takes indices, but the result cannot be called. Write the argument as one more index on {base} instead."
+  },
+  "parser.unsupported_notation.julia_indexed_scalar": {
+    "ja": "添字付きスカラー {name} は、このバックエンドでは「{base} に添字 {index}」の形にできません（{base} は呼び出せる量として宣言されていません）。{name} 全体を1つの名前として宣言してください（添字の確認ダイアログで「名前の一部」）。演算子の添字（c_k）と、和に束縛された添字（\\sum_k {name} …）はそのまま使えます。",
+    "en": "The indexed scalar {name} cannot be written as \"{base} at index {index}\" on this backend ({base} is not declared as something callable). Declare {name} as a single name instead (choose \"part of the name\" in the subscript dialog). An operator's index (c_k) and an index bound by a sum (\\sum_k {name} …) do work."
+  },
+  "parser.unsupported_notation.julia_multichar_index": {
+    "ja": "添字 {index} は、このバックエンドでは演算子の添字にできません（QuantumAlgebra の添字名は1文字のみ。スピンラベル sigma・up・down などは自動で1文字に変換されます）。1文字の添字名を使うか、複数の添字は a_{{k,s}} のようにカンマで区切ってください。添字を含む全体を1つの量として使う場合は、その名前で宣言してください（添字の確認ダイアログで「名前の一部」）。",
+    "en": "The index {index} cannot be used as an operator index on this backend (QuantumAlgebra index names are single-character; spin labels such as sigma, up, down are converted automatically). Use a single-character index name, separate multiple indices with commas as in a_{{k,s}}, or declare the whole subscripted name as one quantity (choose \"part of the name\" in the subscript dialog)."
+  },
+  "parser.unsupported_notation.called_subscript": {
+    "ja": "多重添字の量に引数を付けた形（例: M_{i,j}(x)）は、まだ扱えません。添字は M_{i,j} のように単独で使ってください。単一添字（a_i(k)）や、添字を名前の一部とする形（bessel_j(0,x)）は使えます。",
+    "en": "A multi-index quantity applied to arguments (e.g. M_{i,j}(x)) is not supported yet. Use the indices on their own, as in M_{i,j}. A single index (a_i(k)) and a subscript that is part of the name (bessel_j(0,x)) do work."
+  },
+  "integral.display_only_form": {
+    "ja": "{expr_id} は範囲つきの定積分（表示専用で、まだ CAS に渡していません）なので、{operation} の対象にはできません。変数変換するなら新旧の変数を明示してください（例：「{expr_id} を x,y から r,θ へ x=r*cos(θ), y=r*sin(θ) で変数変換して」）。値が必要なら先に「この定積分を評価して」で評価してください。",
+    "en": "{expr_id} is a range-bearing definite integral — display-only, not yet handed to the CAS — so {operation} cannot act on it. To change variables, name the old and new ones (e.g. \"change variables in {expr_id} from x,y to r,θ with x=r*cos(θ), y=r*sin(θ)\"). If you need its value, evaluate it first (\"evaluate this integral\")."
+  },
+  "lattice.display_only_bond_sum": {
+    "ja": "{expr_id} は和の範囲（⟨ij⟩・i<j・i≠j といった条件）を持つシンボリックな格子和で、そのままでは {operation} を適用できません（条件は式の文字列ではなく記述子に入っているため、一般の操作では黙って落ちます）。「{expr_id} を N サイトで展開して」で具体的な項に開いてから操作するか、分散関係など格子和そのものへの操作を指示してください。",
+    "en": "{expr_id} is a symbolic lattice sum carrying a pair constraint (⟨ij⟩, i<j, i≠j), so {operation} cannot be applied to it as it stands — the constraint lives in its descriptor, not in the expression text, and a generic operation drops it silently. Expand it first (\"expand {expr_id} over N sites\") and operate on the terms, or ask for an operation defined on the lattice sum itself, such as a dispersion relation."
+  },
+  "bound_name.also_free": {
+    "ja": "和の添字 {name} は、この式の中で和の外にも使われています。意図した書き方かもしれませんが、束縛された {name} と外の {name} は別物として計算されます。",
+    "en": "The summation index {name} is also used outside the sum in this expression. That may be intended, but the bound {name} and the outer {name} are computed as different things."
+  },
+  "bound_name.also_declared": {
+    "ja": "和の添字 {name} は、宣言済みの量と同じ名前です。意図した書き方かもしれませんが、和の中の {name} は宣言した量ではなく束縛された添字として計算されます。",
+    "en": "The summation index {name} has the same name as a declared quantity. That may be intended, but inside the sum {name} is computed as a bound index, not as the quantity you declared."
+  },
+  "integral.no_form_to_evaluate": {
+    "ja": "評価できる定積分がありません。先に範囲つきの定積分を登録してください（例：「x^2+y^2<=1 の領域で x^2+y^2 を定積分して」／「\\int_{0}^{1} x^2 \\, dx」）。特定の式を計算したい場合は E 番号で指定してください（例：「E3 を整理して」）。",
+    "en": "There is no definite integral to evaluate. Register a range-bearing integral first (e.g. \"definite-integrate x^2 + y^2 over the region x^2 + y^2 <= 1\", or \"\\int_{0}^{1} x^2 \\, dx\"). To compute a particular expression, name it by its E-number instead (e.g. \"simplify E3\")."
+  },
+  "vector_op.operand_type": {
+    "ja": "{expr_id} は{actual}です。「{operation}」は{required}に対して定義される操作なので、これには使えません。ベクトルにしたいなら成分を与えて定義するか、量を「ベクトル場として定義して」と宣言してください。スカラーなら勾配・ラプラシアンをお使いください。",
+    "en": "{expr_id} is a {actual}. \"{operation}\" is defined on a {required}, so it cannot act on this. To make it a vector, give its components or declare the quantity as a vector field; if it is a scalar, use the gradient or the Laplacian instead."
+  },
+  "warning.bare_time_ordering": {
+    "ja": "⟨…⟩ の中の `{name}` を掛け算の因子として読みました。時間順序演算子のつもりなら `T[…]`・`\\mathcal{{T}}`・`T_\\tau` と書いてください（素の `T` は運動エネルギーとも読めるため、記法だけでは判別できません）。",
+    "en": "The `{name}` inside ⟨…⟩ was read as a multiplicative factor. If you meant the time-ordering operator, write `T[…]`, `\\mathcal{{T}}` or `T_\\tau` — a bare `T` also reads as kinetic energy, so the notation alone cannot decide."
+  },
+  "parser.unsupported_notation.prime_on_compound": {
+    "ja": "式にプライムが付いています。プライムは「同じ名前の別の量」を表す印なので、名前の上にしか置けません（例: `x'`・`\\mathbf{r}'`・`c_k'`）。式全体を別の量として扱いたい場合は、その式に名前を付けてから（例: `A = ...`）プライムを付けてください。",
+    "en": "A prime is attached to a compound expression. A prime marks \"a different quantity of the same name\", so it can only sit on a name (e.g. `x'`, `\\mathbf{r}'`, `c_k'`). To treat a whole expression as a different quantity, name it first (e.g. `A = ...`) and prime the name."
+  },
+  "parser.unsupported_notation.multidim_measure": {
+    "ja": "多次元の積分測度 {measure} は、そのままでは計算できません（1変数の積分にしか下ろせないため、{var} との積として黙って計算されてしまいます）。{var} をベクトルとして宣言したうえで「成分に展開して」と指示すると、成分ごとの積分に開けます。",
+    "en": "The multi-dimensional measure {measure} cannot be computed as written (it can only be lowered to a one-variable integral, and would be computed silently as a product with {var}). Declare {var} as a vector and ask to expand into components to open it into one integral per component."
+  },
+  "parser.unsupported_notation.constrained_sum": {
+    "ja": "条件つきの{binder}（{constraint}）のうち、この形は計算できません。値の大小を表す条件（`i<j`・`i \\ne j` など）を**2つの添字**の間に書いた場合は、範囲の書き換えとして計算できます（例: `\\sum_{{i<j}}^{{N}} V_{{i,j}}`）。3つ以上を連ねた条件（`i<j<k`）は、どの範囲の組を意味するのか記法からは決まりません。",
+    "en": "This form of a constrained {binder} ({constraint}) cannot be computed. A condition comparing VALUES (`i<j`, `i \\ne j`, …) written between exactly TWO indices is computed by rewriting the ranges (e.g. `\\sum_{{i<j}}^{{N}} V_{{i,j}}`). A chain of three or more (`i<j<k`) does not say which pair of ranges is meant."
+  },
+  "parser.unsupported_notation.function_inverse_script": {
+    "ja": "`\\{name}` に `^{{-1}}` を付けた形は、読みが一意に決まりません。任意の関数では `f^{{-1}}` は**逆関数**を指しますが、`\\{name}^2 x` を「値の2乗」と読む同じ規則に従えば**逆数** `1/\\{name}(x)` になります。三角・双曲線関数では逆数に固有の名前（cosec・sec・cot など）があるため逆関数と確定しますが、`\\{name}` にはその手がかりがありません。逆数なら `1/\\{name}(x)`、逆関数ならその関数名を直接書いてください。",
+    "en": "`\\{name}^{{-1}}` has no unique reading. For an arbitrary function `f^{{-1}}` is the INVERSE, but the same rule that reads `\\{name}^2 x` as the value squared makes it the RECIPROCAL `1/\\{name}(x)`. For the trigonometric and hyperbolic functions the reciprocal has its own name (cosec, sec, cot, …), which settles it — `\\{name}` has no such clue. Write `1/\\{name}(x)` for the reciprocal, or name the inverse function directly."
+  },
+  "parser.unsupported_notation.function_negative_power": {
+    "ja": "`\\{name}` に `-1` 以外の負の指数を付けた形には読みがありません。`\\{name}^{{-1}}` は逆関数として読めますが（逆数に固有の名前があるため）、`\\{name}^{{-2}}` は「逆関数の2乗」とも「逆数の2乗」とも書かれません。`(1/\\{name}(x))^2` のように、意図する形を明示してください。",
+    "en": "A negative exponent other than `-1` on `\\{name}` has no reading. `\\{name}^{{-1}}` reads as the inverse function (because the reciprocal has its own name), but `\\{name}^{{-2}}` is written neither for the inverse squared nor for the reciprocal squared. Write what you mean explicitly, e.g. `(1/\\{name}(x))^2`."
+  },
+  "parser.unsupported_notation.function_subscript_no_reading": {
+    "ja": "`\\{name}` に付いた添字には標準的な読みがありません（底の変換が読めるのは対数 `\\log_2 x` だけです）。放置すると `{name}(2)` のような**別の妥当な式**になってしまうため断ります。添字が量の一部なら、その名前を丸ごと関数として宣言してください。",
+    "en": "A subscript on `\\{name}` has no standard reading (only the logarithm's `\\log_2 x` reads as a change of base). Left alone it becomes a DIFFERENT well-formed expression such as `{name}(2)`, so it is refused. If the subscript is part of a quantity's name, declare that whole name as a function."
+  },
+  "parser.unsupported_notation.adjacency_sum": {
+    "ja": "最近接の{binder}（{constraint}）は、そのままでは計算できません。隣接関係は添字の値どうしの関係ではなく**格子の性質**なので、記法だけからは何を足すのかが決まりません（格子を指定していないため）。格子模型であれば格子名を指定してください（例:「H の正方格子で分散関係を求めて」）。値の大小を表す条件（`i<j`・`i \\ne j`）であれば、そのまま計算できます。",
+    "en": "A nearest-neighbour {binder} ({constraint}) cannot be computed as written. Adjacency is a property of the LATTICE, not a relation between the index values, so the notation alone does not say which terms to add (no lattice has been named). For a lattice model, name the lattice (e.g. \"dispersion of H on the square lattice\"). A condition comparing values (`i<j`, `i \\ne j`) is computed as written."
+  },
+  "parser.unsupported_notation.constrained_product_ne": {
+    "ja": "条件つきの{binder}（{constraint}）は計算できません。積の場合、全体を対角成分で**割る**ことになりますが、対角成分が 0 でない保証は記法のどこにもありません。大小の条件（`i<j` など）であれば、割り算を伴わないのでそのまま計算できます。",
+    "en": "A constrained {binder} ({constraint}) cannot be computed: for a product this means DIVIDING the full product by its diagonal, and nothing in the notation guarantees no diagonal factor is zero. An ordering condition (`i<j`, …) needs no division and is computed as written."
+  },
+  "engine.cannot_read_expression": {
+    "ja": "{expr_id} を式として読み直せませんでした。",
+    "en": "Could not re-read {expr_id} as an expression."
+  },
+  "extremum.range_not_concrete": {
+    "ja": "{expr_id} は範囲が具体的な整数でないため、値を出せません（バックエンドは有限個の項を並べて最大／最小を取る形しか持たないので、記号の上限や範囲なしの形には対応する計算がありません）。上下限を整数で書くと計算できます（例: \\max_{{i=1}}^{{3}} x_i）。",
+    "en": "{expr_id} has no concrete integer range, so no value can be produced (the backend can only take an extremum over a finite list of terms, so a symbolic bound — or no range at all — has no corresponding computation). Write integer bounds and it computes (e.g. \\max_{{i=1}}^{{3}} x_i)."
+  },
+  "extremum.range_is_strict": {
+    "ja": "{expr_id} は範囲が**厳密不等号**で書かれているため、値を出せません。`1 < i < 3` は整数なら `i = 2` ですが実数では別のものを指し、記法がどちらとも言っていません（このシステムは推測しません）。整数のつもりなら `\\max_{{i \\in \\{{2\\}}}}` のように値を明示するか、`\\le` で書いてください。",
+    "en": "{expr_id} has a STRICT inequality for its range, so no value can be produced. `1 < i < 3` means `i = 2` over the integers but something else over the reals, and the notation does not say which (this system does not guess). If you mean the integers, name the values — `\\max_{{i \\in \\{{2\\}}}}` — or write it with `\\le`."
+  },
+  "extremum.display_only_form": {
+    "ja": "{expr_id} は添字について最大／最小を取る形（表示専用）なので、{operation} の対象にはできません。バックエンドに「添字についての極値」を表す形が無いためです（範囲が具体的な整数なら計算できる余地はあります —— open_items EXTREMUM-BINDER）。いまは項を並べて \\max(a, b, c) と書けば計算できます。",
+    "en": "{expr_id} is an extremum over an index (display-only), so {operation} cannot be applied to it: the backend has no form for \"the extremum over an index\". (A concrete integer range is computable in principle — see open_items EXTREMUM-BINDER.) For now, write the terms out as \\max(a, b, c) and that computes."
+  },
+  "parser.unsupported_notation.extremum_binder": {
+    "ja": "\\{name} に添字を付けた形（\\{name}_i など）は、添字について最大／最小を取る束縛子ですが、この記法に対応する計算形はまだありません。項を明示して \\{name}(a, b, c) と書くか、対象を並べてから比較してください（\\{name}(a, b) は通常どおり計算できます）。",
+    "en": "A subscripted \\{name} (\\{name}_i) is a binder — the extremum over the index — and there is no computable form for that notation yet. Write the terms out as \\{name}(a, b, c), or list the candidates and compare them (\\{name}(a, b) computes as usual)."
+  },
+  "engine.cannot_lower_integrand": {
+    "ja": "{expr_id} の被積分関数を CAS に渡せる形にできませんでした（{reason}）。この積分を評価するには、被積分関数を CAS が読める記法で書き直してください。",
+    "en": "Could not put the integrand of {expr_id} into a form the CAS can take ({reason}). Rewrite the integrand in notation the CAS can read to evaluate this integral."
+  },
+  "engine.components_opened": {
+    "ja": "ベクトルを成分に展開しました（{names}）。",
+    "en": "Expanded the vectors into components ({names})."
+  },
+  "engine.vector_not_opened": {
+    "ja": "ベクトル {name} が成分に展開されないまま残りました。ドット積の中にある場合は、相手側もベクトルとして宣言されている必要があります（\\int d^3x のように測度に書けば、それも宣言になります）。{name} を単独で書いた形は成分に開けません。",
+    "en": "The vector {name} was left unopened. Inside a dot product, the other side must be known to be a vector too (writing it in a measure, as in \\int d^3x, counts as saying so). {name} written on its own cannot be opened into components."
+  },
+  "parser.unsupported_notation.unreadable_char": {
+    "ja": "文字 `{token}` は数式として読めません。ワープロや PDF から貼り付けた記号（ダッシュ `–`、プライム `′`、アクセント付き文字など）が混ざっていないか確認してください。この文字を黙って無視すると、書いた式と違うものが計算されてしまいます。",
+    "en": "The character `{token}` cannot be read as mathematics. Check for symbols pasted from a word processor or PDF (a dash `–`, a prime `′`, an accented letter, …). Ignoring it silently would compute something other than what you wrote."
+  },
+  "engine.relabel_index_not_found": {
+    "ja": "添字を付け替えられません: {index} が対象の式に含まれていません。和の束縛添字と一致する名前を指定してください。",
+    "en": "Cannot relabel: {index} does not occur in the expression. Give the name of a summation's bound index."
+  },
+  "engine.operator_not_in_expression": {
+    "ja": "演算子 {name} が対象の式に現れていないので、置換できません。（これまでは何も起きないまま成功として返っていました。）",
+    "en": "The operator {name} does not occur in the expression, so nothing can be substituted. (This used to return the expression unchanged, as a success.)"
+  },
+  "warning.julia_pair_substitute_no_match": {
+    "ja": "どの規則も式の項に当たりませんでした。式は変わっていません——規則が名指す演算子対がこの式に現れているか確認してください。",
+    "en": "No rule reached any term; the expression is unchanged. Check that the operator pairs a rule names actually occur in it."
+  },
+  "warning.julia_wick_no_match": {
+    "ja": "どの収縮規則も演算子の対に当たりませんでした。結果が空なのは収縮が0になったからではなく、規則が名指す演算子がこの式に現れていないためです。",
+    "en": "No contraction rule reached an operator pair. The empty result is not a vanishing contraction — the operators a rule names do not occur in the expression."
+  },
+  "free_params.bare_initial_conditions": {
+    "ja": "初期条件 {conditions} を、どの式に課すのかが指定されていません。対象を伴う形でお書きください（例:「E5 の初期条件を {conditions} とする」「E5 を {conditions} で特殊化して」）。初期値そのものを記号として置きたい場合は、普通の定義として書けます（例:「q_0 = 0」）。",
+    "en": "The initial conditions {conditions} do not say WHICH expression they apply to. Write them with a target (e.g. \"set the initial conditions of E5 to {conditions}\", or \"specialize E5 with {conditions}\"). To name the initial values themselves, write them as ordinary definitions instead (e.g. \"q_0 = 0\")."
+  },
+  "error.julia_assumption_unsupported": {
+    "ja": "仮定（{condition}）は、このバックエンドでは扱えません。Symbolics.jl には仮定を保持する仕組み（Maxima の `assume` に当たるもの）が無く、記号に付けられるのは型（`::Real`・`::Integer` など）だけです。宣言時に「正の実数とする」のように種別と符号を指定しておくか、式がスカラーだけになった時点で Maxima セッションへ渡してください（「E<n> を Maxima セッションへ渡す」）。渡した先では仮定を使えます。",
+    "en": "An assumption ({condition}) cannot be held on this backend. Symbolics.jl has no mechanism for holding assumptions (Maxima's `assume`); a symbol can only carry a TYPE (`::Real`, `::Integer`, …). Give the kind and sign at declaration time (\"let γ be a positive real\"), or — once the expression is purely scalar — hand it to a Maxima session (\"hand E<n> off to a Maxima session\"), where assumptions are available."
+  },
+  "error.assumption_unsupported": {
+    "ja": "仮定（{condition}）は、このバックエンドでは扱えません（仮定を保持する仕組みがありません）。宣言の時点で量の種別と符号を指定しておくか、仮定を使えるバックエンドのセッションで計算してください。",
+    "en": "An assumption ({condition}) cannot be held on this backend (it has no mechanism for holding assumptions). Give the quantity's kind and sign at declaration time, or work in a session whose backend supports assumptions."
+  },
+  "pair_rep.chain_is_not_concrete": {
+    "ja": "{operator} を {hamiltonian} のもとで時間発展させる連鎖は、**具体的な演算子では閉じません**——出てきた基底が和の印や自由添字を抱えたまま（`∑₁ δ(1q) c†(#₁) …` のような形）で、これは1つの演算子ではなく**族**です。このまま係数を組み立てると、別々の行列要素が同じ記号に潰れて、誰も書いていない式が答えとして返ります。添字を具体的な値にしたハミルトニアン（例: 2サイト）で書き直すか、演算子代数の側で先に和を畳んでください。",
+    "en": "The chain that evolves {operator} under {hamiltonian} does not close on CONCRETE operators: the basis it produced still carries summation marks and free indices (shapes like `∑₁ δ(1q) c†(#₁) …`), which is a FAMILY of operators, not one. Building coefficients from it would collapse distinct matrix elements onto the same symbol and return an expression nobody wrote. Rewrite the Hamiltonian with concrete indices (a two-site model, say), or contract the sums on the operator-algebra side first."
+  },
+  "declare.type_conflict": {
+    "ja": "{name} は既に **{old}** として宣言されています（いま指定されたのは **{new}**）。宣言はこのノートの読み方そのものを決めるので（添字が添字か名前かの別、`^{{-1}}` が逆行列か逆数かの別、積が可換かどうか）、黙って変えると**この名前で既に書いた式の意味が変わります**。変えてよければ「{name} を{new}として**宣言し直して**」と書いてください——前の宣言を取り消してから宣言し直します。",
+    "en": "{name} is already declared as **{old}** (you asked for **{new}**). A declaration decides how this notebook READS things — whether a subscript is an index or part of a name, whether `^{{-1}}` is an inverse matrix or a reciprocal, whether a product commutes — so changing it silently would change what the expressions you have already written mean. If you do want to change it, say \"**re-declare** {name} as a {new}\": the previous declaration is withdrawn first."
+  },
+  "declare.algebra_scalar": {
+    "ja": "スカラー",
+    "en": "scalar"
+  },
+  "declare.algebra_vector": {
+    "ja": "ベクトル",
+    "en": "vector"
+  },
+  "declare.algebra_matrix": {
+    "ja": "行列",
+    "en": "matrix"
+  },
+  "declare.algebra_tensor": {
+    "ja": "テンソル",
+    "en": "tensor"
+  },
+  "operand.own_word.grammar": {
+    "ja": "「{value}」を {operation} の {field} として読みました。これは文法の語で、記号ではありません。文中の語を取り違えている可能性があります。",
+    "en": "Read \"{value}\" as the {field} of {operation}. That is a grammar word, not a symbol. A word from the sentence may have been taken as an operand."
+  },
+  "operand.own_word.separator": {
+    "ja": "「{value}」を {operation} の {field} として読みました。これは並びの区切りで、記号ではありません。文中の語を取り違えている可能性があります。",
+    "en": "Read \"{value}\" as the {field} of {operation}. That is a list separator, not a symbol. A word from the sentence may have been taken as an operand."
+  },
+  "operand.own_word.verb": {
+    "ja": "「{value}」を {operation} の {field} として読みました。これは操作を表す動詞で、記号ではありません。文中の語を取り違えている可能性があります。",
+    "en": "Read \"{value}\" as the {field} of {operation}. That is an operation verb, not a symbol. A word from the sentence may have been taken as an operand."
+  },
+  "operand.own_word.operation_name": {
+    "ja": "「{value}」を {operation} の {field} として読みました。これは操作の名前で、記号ではありません。文中の語を取り違えている可能性があります。",
+    "en": "Read \"{value}\" as the {field} of {operation}. That names an operation, not a symbol. A word from the sentence may have been taken as an operand."
+  },
+  "interpreter.lhs_is_a_name": {
+    "ja": "{expr_id} の左辺は名前（{lhs}）なので、計算する対象がありません。左辺が式である等式に対してお使いください。",
+    "en": "The left-hand side of {expr_id} is a name ({lhs}), so there is nothing to compute. Use this on an equation whose left side is an expression."
+  },
+  "interpreter.set_left_side_unsupported": {
+    "ja": "左辺に値を置く操作はまだありません（{expr_id}）。右辺なら「{expr_id} の右辺を … とする」で置けます。左辺に置きたい場合は、等式そのものを書き直してください。",
+    "en": "Setting the LEFT-hand side is not supported yet ({expr_id}). The right-hand side works: \"set the right-hand side of {expr_id} to …\". To change the left side, write the equation itself."
+  },
+  "interpreter.declaration_backend_unsupported": {
+    "ja": "この宣言（{display}）は現在のバックエンドでは扱えません。第二量子化の演算子代数は Julia セッションにしかなく、バックエンドはセッション作成時に固定されます。Julia（第二量子化）でセッションを作り直してください。",
+    "en": "This declaration ({display}) is not available on the current backend. Second-quantization operator algebra exists only in a Julia session, and the backend is fixed when the session is created. Please start a new session with the Julia (second quantization) backend."
+  },
+  "interpreter.ladder_op_statistics_missing": {
+    "ja": "{name} が消滅／生成演算子であることは読めましたが、フェルミオンかボソンかが書かれていません。粒子を書いてください（例:「{name} を電子の消滅演算子とする」）。",
+    "en": "Read {name} as a creation/annihilation operator, but the statistics are not stated — fermion or boson? Name the particle (e.g. \"define {name} as an electron annihilation operator\")."
+  },
+  "interpreter.decl_family.second_quantization": {
+    "ja": "第二量子化の演算子",
+    "en": "a second-quantization operator"
+  },
+  "pair_rep.not_a_generic_operation": {
+    "ja": "{operation} の結果は CAS の値ではなく、係数とハミルトニアン側の構造なので、一般の操作としては実行できません（そのまま登録すると内部の受け渡し文字列がそのまま式として出ます）。時間発展させたい演算子とハミルトニアンを文として書いてください——「c(1) を E1 のもとで時間発展させて」「E1 のもとでの c(1) のハイゼンベルク演算子」のどちらでも読みます。",
+    "en": "The result of {operation} is not a CAS value but a structure (coefficients on the scalar side, operators on the algebra side), so it cannot be run as a generic operation — registering it directly publishes the internal hand-off string as if it were a formula. Write the operator and the Hamiltonian as a sentence instead: both \"evolve c(1) under E1\" and \"the Heisenberg operator of c(1) under E1\" are read."
+  },
+  "order.general_moment_beyond": {
+    "ja": "{requested}次のモーメントは、配位数 z による**一般式**では分かりません（一般式で閉じているのは {cap} 次までです）。格子を具体的に書けば任意の次数まで計算できます——例:「ハイゼンベルク模型 3サイト鎖で S^x_2 の {requested} 次までのモーメントを求めて」。",
+    "en": "The {requested}-th moment is not known in the **general formula** in the coordination number z (the general form closes only up to order {cap}). Naming a concrete lattice computes any order — e.g. \"Find the moments up to {requested}th order of S^x_2 for the Heisenberg model on a 3-site chain\"."
+  },
+  "order.general_contfrac_beyond": {
+    "ja": "{requested}段の連分数は、配位数 z による**一般式**では分かりません（一般式で閉じているのは b_1^2、つまり {cap} 段までです）。格子を具体的に書けば任意の段数まで計算できます。",
+    "en": "A {requested}-level continued fraction is not known in the **general formula** in the coordination number z (the general form closes at b_1^2, i.e. {cap} level). Naming a concrete lattice computes any depth."
+  },
+  "order.energy_moment_out_of_range": {
+    "ja": "高温展開は {lower}〜{upper} 次で計算します（{requested} 次と書かれています）。{lower} 次より下は無限温度で ⟨H⟩ = 0 なので級数がそこから始まり、{upper} 次より上はグラフの5-サイクルの数え上げが未実装です。",
+    "en": "The high-temperature expansion is computed for orders {lower} to {upper} (you wrote order {requested}). Below {lower} the series has no terms — ⟨H⟩ = 0 at infinite temperature — and above {upper} the graph's 5-cycle count is not implemented."
+  },
+  "interpreter.field_direction_unstated": {
+    "ja": "磁場があると読めましたが、**向き**が書かれていません。横磁場なら「横磁場」、縦磁場なら「縦磁場」と書いてください——向きで答えが変わります（[H, S^z] は横磁場なら i h S^y、縦磁場なら 0）。",
+    "en": "A field is mentioned but its DIRECTION is not. Write \"transverse field\" or \"longitudinal field\" — the direction changes the answer ([H, S^z] is i h S^y in a transverse field and 0 in a longitudinal one)."
+  },
+  "norm.matrix_kind_required": {
+    "ja": "行列のノルム `\\|A\\|` は**種類を書かないと定まりません**（Frobenius ノルム・スペクトルノルム・最大絶対列和・最大絶対行和はどれも別の値です）。種類を書いてください——例:「E1 の Frobenius ノルムを求めて」「E1 のスペクトルノルムを求めて」。ベクトルなら種類は要りません（`\\|v\\|` は大きさ＝2ノルムです）。",
+    "en": "A matrix norm `\\|A\\|` is **not determined without naming the kind** (Frobenius, spectral, maximum absolute column sum and row sum are all different values). Name the kind — e.g. \"compute the Frobenius norm of E1\", \"compute the spectral norm of E1\". A vector needs no kind (`\\|v\\|` is its magnitude, the 2-norm)."
+  },
+  "norm.unknown_matrix_kind": {
+    "ja": "`{kind}` というノルムの種類は分かりません。使えるのは Frobenius ノルム・スペクトルノルム・最大絶対列和（1ノルム）・最大絶対行和（∞ノルム）です。",
+    "en": "The norm kind `{kind}` is not recognised. Available: Frobenius, spectral, maximum absolute column sum (1-norm), maximum absolute row sum (∞-norm)."
+  },
+  "norm.vector_kind_unsupported": {
+    "ja": "ベクトルに対して `{kind}` ノルムは実装していません。`\\|v\\|`（大きさ＝2ノルム）なら種類を書かずに求められます。",
+    "en": "The `{kind}` norm of a vector is not implemented. `\\|v\\|` (the magnitude, i.e. the 2-norm) needs no kind."
+  },
+  "norm.operand_kind_unknown": {
+    "ja": "ノルムを取る相手がベクトルにも行列にも見えません。ベクトルは `\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}`（列ベクトル）や `v = [1, 2, 3]`（成分）と書くか、ベクトル場として宣言してください。**丸括弧の組 `(3, 4)` はベクトルとしては読みません**し、**平坦な2要素の角括弧はこの記法では交換子です**（`[3, 4]` は `3·4 − 4·3`）。",
+    "en": "The operand does not look like a vector or a matrix. Write a vector as `\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}` (a column vector) or `v = [1, 2, 3]` (components), or declare it as a vector field. **A parenthesised tuple `(3, 4)` is not read as a vector**, and **a flat two-element bracket is a COMMUTATOR in this notation** (`[3, 4]` is `3·4 − 4·3`)."
+  },
+  "parser.unsupported_notation.julia_limit": {
+    "ja": "極限（{var} についての `\\lim`）は、このバックエンドでは計算できません。Symbolics.jl に極限がなく、QuantumAlgebra は演算子代数だからです。**式としては登録・表示できます**ので、書いたうえで、値が要る段階で Maxima のセッションへ渡してください（係数がスカラーになっていれば渡せます）。",
+    "en": "A limit (`\\lim` over {var}) cannot be computed on this backend: Symbolics.jl has no limit and QuantumAlgebra is an operator algebra. It CAN be written down and displayed — write it, and hand the expression to a Maxima session when you need the value (which works once the coefficients are scalars)."
+  },
+  "vector.applied_field_components": {
+    "ja": "ベクトル場 {name} に引数 ({args}) を書いた形は、ベクトル解析の操作にはそのまま使えません。成分を {name}_x({args}) と読むと、座標で微分する ∇× と ∇· は**0 になります**——書かれていない座標依存を勝手に補うことはしません。**引数を書かずに `\\nabla \\times {name}` / `\\nabla \\cdot {name}` と書いてください**（{name} をベクトル場として宣言してあれば、成分は {name}_x(x,y,z) になり計算できます）。時刻依存も書きたい場合は、まず座標の側を計算してから時間微分を別の操作として行ってください。",
+    "en": "A vector field {name} written with arguments ({args}) cannot be used directly in vector calculus. Read as components {name}_x({args}), the coordinate derivatives in ∇× and ∇· are **zero** — and the coordinate dependence you did not write will not be invented for you. **Write it without the arguments: `\\nabla \\times {name}` / `\\nabla \\cdot {name}`** (with {name} declared as a vector field its components are {name}_x(x,y,z), which compute). To carry a time dependence as well, take the coordinate derivative first and differentiate in time as a separate operation."
+  },
+  "vector.operand_is_scalar": {
+    "ja": "`{operand}` の値はスカラーなので、ベクトルが要る位置には置けません。",
+    "en": "`{operand}` is a scalar, so it cannot stand where a vector is required."
+  },
+  "vector.operand_is_vector": {
+    "ja": "`{operand}` の値はベクトルなので、スカラーが要る位置には置けません。",
+    "en": "`{operand}` is a vector, so it cannot stand where a scalar is required."
+  },
+  "vector.nesting_too_deep": {
+    "ja": "ベクトル演算の入れ子が深すぎます（上限 8 段）。",
+    "en": "Vector operations are nested too deeply (limit: 8)."
+  },
+  "vector.coordinate_name_as_field": {
+    "ja": "`{name}` は座標変数の名前なので、ベクトル場の名前としては使えません。ベクトル場として宣言した名前を使ってください。",
+    "en": "`{name}` is the name of a coordinate variable, so it cannot name a vector field. Use a name declared as a vector field."
+  },
+  "operand.name_has_no_value": {
+    "ja": "`{name}` は、この notebook がまだ何も持っていない名前です（値も宣言もありません）。値を与えてから同じ指示を書いてください——例: `{name} = a x + b`。",
+    "en": "`{name}` is a name this notebook holds nothing for — it has no value and no declaration. Give it one and write the same instruction again — for example `{name} = a x + b`."
+  },
+  "operand.variable_has_a_value": {
+    "ja": "`{name}` には {eid} で値 `{value}` が与えられています。**値を持つ名前は変数ではない**ので、「{operation}」の変数にはできません。次のどちらかで条件を満たせます —— ① `{value}` が書かれている変数で操作する ② 値を持たない別の名前を変数に使う。",
+    "en": "`{name}` has been given the value `{value}` ({eid}). **A name that holds a value is not a variable**, so it cannot be the variable of “{operation}”. Either of these satisfies the condition — (1) operate with a variable that `{value}` is written in, or (2) use another name that has no value."
+  },
+  "vector.product_of_vectors": {
+    "ja": "`{operand}` はベクトル同士の積で、内積なのか外積なのか書かれていないので読めません。操作を言葉で名指してください（`v と w の内積を求めて` / `v と w の外積を求めて`）。",
+    "en": "`{operand}` is a product of two vectors, and whether it is a dot or a cross product is not written. Name the operation (`the dot product of v and w` / `the cross product of v and w`)."
+  },
+  "vector.operand_not_a_vector": {
+    "ja": "`{operand}` はベクトルとして読めません。3成分のベクトルは `[1, 2, 3]`（成分）や `\\begin{{pmatrix}} 1 \\\\ 2 \\\\ 3 \\end{{pmatrix}}`（列ベクトル）と書くか、ベクトル場として宣言してください。**丸括弧の組 `(1, 2, 3)` はベクトルとしては読みません**——ノルムと同じ読み方です。",
+    "en": "`{operand}` cannot be read as a vector. Write a three-component vector as `[1, 2, 3]` (components) or `\\begin{{pmatrix}} 1 \\\\ 2 \\\\ 3 \\end{{pmatrix}}` (a column vector), or declare it as a vector field. **A parenthesised tuple `(1, 2, 3)` is not read as a vector** — the same reading the norm uses."
+  },
+  "operand.declared_without_value": {
+    "ja": "{name} は{type_label}として宣言されていますが、**まだ値が与えられていません**。「{operation}」は値を必要とするので、この宣言だけでは計算できません。次のどちらかで条件を満たせます —— ① {name} に値を与える（例: `{example}`。そのうえで同じ指示がそのまま通ります） ② 宣言だけで計算できる操作を使う（{reading_ops}）。",
+    "en": "{name} is declared as {type_label}, but **no value has been given to it yet**. “{operation}” needs a value, so the declaration alone is not enough to compute with. Either of these satisfies the condition — (1) give {name} a value (e.g. `{example}`; the same instruction then works as written), or (2) use an operation that computes from the declaration alone ({reading_ops})."
+  },
+  "declare.kind_vector_field": {
+    "ja": "ベクトル場",
+    "en": "a vector field"
+  },
+  "declare.kind_scalar_field": {
+    "ja": "スカラー場",
+    "en": "a scalar field"
+  },
+  "declare.algebra_matrix_a": {
+    "ja": "行列",
+    "en": "a matrix"
+  },
+  "declare.algebra_tensor_a": {
+    "ja": "テンソル",
+    "en": "a tensor"
+  },
+  "declare.algebra_vector_a": {
+    "ja": "ベクトル",
+    "en": "a vector"
+  },
+  "operand.declared_without_value_no_op": {
+    "ja": "{name} は{type_label}として宣言されていますが、**まだ値が与えられていません**。「{operation}」は値を必要とするので、この宣言だけでは計算できません。{name} に値を与えてください（例: `{example}`）——そのうえで同じ指示がそのまま通ります。{type_label}の宣言だけから計算できる操作は、いまのところありません。",
+    "en": "{name} is declared as {type_label}, but **no value has been given to it yet**. “{operation}” needs a value, so the declaration alone is not enough to compute with. Give {name} a value (e.g. `{example}`) — the same instruction then works as written. No operation computes from the declaration of {type_label} alone."
+  },
+  "operand.variable_is_indexed": {
+    "ja": "{var} は「{operation}」の変数にできません。宣言が無いため成分の添字として読まれ（{lowered}）、CAS は**この形（関数呼び出し）では**この操作を受けないためです。宣言すれば、書いた綴りのまま計算できます——方法は2つあります。(1) 基底 {base} を**ベクトルとして宣言する**（{var} は成分のまま {base}[…] として計算できます。{var} が本当にベクトルの成分なら、成分どうしの関係も保たれるこちらが自然です）。(2) {var} **全体を1つの名前として宣言する**（例:「{var} をスカラーパラメータとして定義して」→ 添字の確認では「名前の一部」を選ぶ）。",
+    "en": "{var} cannot be the variable of “{operation}”: with no declaration it reads as a component index ({lowered}), and the CAS does not accept **that form** (a function call) here. Declaring it makes the spelling you wrote work — there are two ways. (1) Declare the base {base} as a VECTOR ({var} then stays a component, {base}[…], and computes as one; if {var} really is a component of a vector this is the natural choice, and it keeps the components related). (2) Declare {var} as a single whole NAME (e.g. \"define {var} as a scalar parameter\", choosing \"part of the name\" in the subscript dialog)."
+  },
+  "change_variable.not_an_integral": {
+    "ja": "{expr_id} には積分が書かれていないので、変数変換できません。これは**置換積分**（u 置換）の操作で、CAS の `changevar` は積分（やシグマ）の形にしか効きません——ただの式に当てると**何も変えずにそのまま返る**ので、成功に見える誤りになります。名前を置き換えたいだけなら「{expr_id} の {old_var} を {new_var} に置換して」（代入）が通ります。積分の変数を変えたいなら、まず積分を書いてください（例: `\\int {old_var}^2 \\, d{old_var}`）。",
+    "en": "{expr_id} has no integral written in it, so there is no change of variables to make. This is the u-SUBSTITUTION operation, and the CAS's `changevar` only acts on an integral (or a sum) — applied to a plain expression it **returns it unchanged**, which looks like success. To rename a symbol, “substitute {new_var} for {old_var} in {expr_id}” works. To change an integration variable, write the integral first (e.g. `\\int {old_var}^2 \\, d{old_var}`)."
+  },
+  "numeric.plot.invalid_spec": {
+  "ja": "作図仕様が不正です。軸・層・有限の範囲・点数を確認してください（全層で最大200万標本）。",
+  "en": "Invalid plot spec. Check axes, layers, finite ranges and grid sizes (up to two million samples across layers)."
+},
+  "numeric.plot.need_inequality": {
+  "ja": "領域には不等式の式番号を指定してください。",
+  "en": "Region constraints must reference inequality expressions."
+},
+  "numeric.plot.need_scalar": {
+  "ja": "この作図層にはスカラー式または等式が必要です。曲線には右辺の値を登録して指定してください。",
+  "en": "This layer needs a scalar expression or equality; explicit lines must reference a registered scalar value."
+},
+  "numeric.plot.nonreal": {
+  "ja": "実数の作図に複素数値が含まれています。実部・絶対値などを明示してください。",
+  "en": "A real plot received complex values. Explicitly select the real part, magnitude, or another real quantity."
+},
+  "numeric.plot.nonfinite": {
+  "ja": "指定範囲に有効な有限値がありません。",
+  "en": "No finite values exist in the requested range."
+},
+  "numeric.adviser_failed": {
+  "ja": "Adviserへの問い合わせに失敗しました: {detail}",
+  "en": "Adviser request failed: {detail}"
+},
+  "ui.numeric_chat_spec_presentation": {
+  "ja": "表示",
+  "en": "Presentation"
+},
+  "numeric.plot.result": {"ja":"作図 {task_id}: {layers}層（指定した標本点に基づく描画）。", "en":"Plot {task_id}: {layers} layers rendered on the requested sample grid."},
+  "ui.numeric_plot_line": {"ja": "曲線", "en": "Curve"},
+  "ui.numeric_plot_contour": {"ja": "等高線・境界線", "en": "Contour / boundary"},
+  "ui.numeric_plot_region": {"ja": "領域", "en": "Region"},
+  "ui.numeric_plot_point": {"ja": "注目点", "en": "Point"},
+  "numeric.plot.empty_sampled_region": {"ja":"層{layer}: この格子では領域が見つかりません。範囲や標本点数を確認してください。", "en":"Layer {layer}: no region was found on this grid; check bounds and resolution."},
+  "numeric.plot.levels_without_crossing": {"ja":"層{layer}: 指定した等高線の一部はこの範囲で境界線を作りません。", "en":"Layer {layer}: some requested levels do not form contour crossings in this window."}
+}

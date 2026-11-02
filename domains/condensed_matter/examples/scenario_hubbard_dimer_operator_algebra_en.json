@@ -1,0 +1,3032 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_64000431",
+    "title": "scenario_hubbard_dimer_operator_algebra",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:58:04.283076Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_cf608b",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "H = -w \\sum_{\\sigma} (c^\\dagger_{1\\sigma} c_{2\\sigma} + c^\\dagger_{2\\sigma} c_{1\\sigma}) + U \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\uparrow} c^\\dagger_{i\\downarrow} c_{i\\downarrow}",
+      "canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_fa4879",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "1",
+      "canonical": "_nb_E2",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "1",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_7b1442",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "_nb_E3",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_03a10e",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "_nb_E4",
+      "created_by_step": "S26",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_07b2c4",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "N = \\sum_{i=1}^{2} \\sum_{\\sigma} c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "canonical": "N = \\sum_{i=1}^2 \\sum_sigma*c'_{i,sigma} c_{i,sigma}",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "N = \\sum_{i=1}^2 \\sum_sigma*c'_{i,sigma} c_{i,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_c4c58e",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "_nb_E6",
+      "created_by_step": "S32",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_f538b4",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "S_z = \\sum_{i=1}^{2} \\sum_{\\sigma} \\sigma c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "canonical": "S_z = \\sum_{i=1}^2 \\sum_sigma*sigma*c'_{i,sigma} c_{i,sigma}",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "S_z = \\sum_{i=1}^2 \\sum_sigma*sigma*c'_{i,sigma} c_{i,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_e14ee9",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "_nb_E8",
+      "created_by_step": "S38",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_12a15f",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "S_p = \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\downarrow}",
+      "canonical": "S_p = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,downarrow}",
+      "created_by_step": "S41",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "S_p = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,downarrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_a1df63",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "S_m = \\sum_{i=1}^{2} c^\\dagger_{i\\downarrow} c_{i\\uparrow}",
+      "canonical": "S_m = \\sum_{i=1}^2*c'_{i,downarrow} c_{i,uparrow}",
+      "created_by_step": "S43",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "S_m = \\sum_{i=1}^2*c'_{i,downarrow} c_{i,uparrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_7d8b8e",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "{c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\uparrow}} - {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\downarrow}} + {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\uparrow}} - {c}_{2{\\downarrow}}^{\\dagger} {c}_{2{\\downarrow}}",
+      "canonical": "_nb_E11",
+      "created_by_step": "S46",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "c†(1↑) c(1↑) - c†(1↓) c(1↓) + c†(2↑) c(2↑) - c†(2↓) c(2↓)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "S_p = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E12": {
+      "expr_uid": "expr_2d5841",
+      "display_id": "E12",
+      "branch_id": "main",
+      "latex": "T = 2 \\sum_{i=1}^{2} \\sum_{\\sigma} \\sigma c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "canonical": "T = 2 \\sum_{i=1}^2 \\sum_sigma*sigma*c'_{i,sigma} c_{i,sigma}",
+      "created_by_step": "S49",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "T = 2 \\sum_{i=1}^2 \\sum_sigma*sigma*c'_{i,sigma} c_{i,sigma}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E13": {
+      "expr_uid": "expr_1b6fec",
+      "display_id": "E13",
+      "branch_id": "main",
+      "latex": "{c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\uparrow}} - {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\downarrow}} + {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\uparrow}} - {c}_{2{\\downarrow}}^{\\dagger} {c}_{2{\\downarrow}} - T = 0",
+      "canonical": "_nb_E13",
+      "created_by_step": "S51",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "S_p = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E14": {
+      "expr_uid": "expr_acfd31",
+      "display_id": "E14",
+      "branch_id": "main",
+      "latex": "0",
+      "canonical": "_nb_E14",
+      "created_by_step": "S55",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "0",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E15": {
+      "expr_uid": "expr_7cd687",
+      "display_id": "E15",
+      "branch_id": "main",
+      "latex": "D = \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\uparrow} c^\\dagger_{i\\downarrow} c_{i\\downarrow}",
+      "canonical": "D = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "created_by_step": "S58",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "D = \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E16": {
+      "expr_uid": "expr_58bcdd",
+      "display_id": "E16",
+      "branch_id": "main",
+      "latex": "- w {c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\uparrow}} {c}_{2{\\downarrow}} + w {c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\downarrow}} {c}_{2{\\uparrow}} + w {c}_{1{\\uparrow}}^{\\dagger} {c}_{2{\\downarrow}}^{\\dagger} {c}_{1{\\uparrow}} {c}_{1{\\downarrow}} + w {c}_{1{\\uparrow}}^{\\dagger} {c}_{2{\\downarrow}}^{\\dagger} {c}_{2{\\uparrow}} {c}_{2{\\downarrow}} - w {c}_{1{\\downarrow}}^{\\dagger} {c}_{2{\\uparrow}}^{\\dagger} {c}_{1{\\uparrow}} {c}_{1{\\downarrow}} - w {c}_{1{\\downarrow}}^{\\dagger} {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\uparrow}} {c}_{2{\\downarrow}} - w {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\downarrow}}^{\\dagger} {c}_{1{\\uparrow}} {c}_{2{\\downarrow}} + w {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\downarrow}}^{\\dagger} {c}_{1{\\downarrow}} {c}_{2{\\uparrow}}",
+      "canonical": "_nb_E16",
+      "created_by_step": "S61",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-w c†(1↑) c†(1↓) c(1↑) c(2↓) + w c†(1↑) c†(1↓) c(1↓) c(2↑) + w c†(1↑) c†(2↓) c(1↑) c(1↓) + w c†(1↑) c†(2↓) c(2↑) c(2↓) - w c†(1↓) c†(2↑) c(1↑) c(1↓) - w c†(1↓) c†(2↑) c(2↑) c(2↓) - w c†(2↑) c†(2↓) c(1↑) c(2↓) + w c†(2↑) c†(2↓) c(1↓) c(2↑)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E17": {
+      "expr_uid": "expr_c09520",
+      "display_id": "E17",
+      "branch_id": "main",
+      "latex": "w {c}_{2{\\uparrow}} + U {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\uparrow}} {c}_{1{\\downarrow}}",
+      "canonical": "_nb_E17",
+      "created_by_step": "S65",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "w c(2↑) + U c†(1↓) c(1↑) c(1↓)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "H = -w \\sum_sigma*(c'_{1,sigma} c_{2,sigma} + c'_{2,sigma} c_{1,sigma}) + U \\sum_{i=1}^2*c'_{i,uparrow} c_{i,uparrow} c'_{i,downarrow} c_{i,downarrow}",
+      "sum_index_hint": "i",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E18": {
+      "expr_uid": "expr_075fb8",
+      "display_id": "E18",
+      "branch_id": "main",
+      "latex": "2 {c}_{1{\\uparrow}}",
+      "canonical": "_nb_E18",
+      "created_by_step": "S69",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "2 c(1↑)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E19": {
+      "expr_uid": "expr_5ce81e",
+      "display_id": "E19",
+      "branch_id": "main",
+      "latex": "c^\\dagger_{1\\uparrow} c_{1\\uparrow} c^\\dagger_{1\\uparrow} c_{1\\uparrow}",
+      "canonical": "c'_{1,uparrow} c_{1,uparrow} c'_{1,uparrow} c_{1,uparrow}",
+      "created_by_step": "S72",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "c'_{1,uparrow} c_{1,uparrow} c'_{1,uparrow} c_{1,uparrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E20": {
+      "expr_uid": "expr_d759f8",
+      "display_id": "E20",
+      "branch_id": "main",
+      "latex": "{c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\uparrow}}",
+      "canonical": "_nb_E20",
+      "created_by_step": "S74",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "c†(1↑) c(1↑)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "c'_{1,uparrow} c_{1,uparrow} c'_{1,uparrow} c_{1,uparrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E21": {
+      "expr_uid": "expr_1df0fd",
+      "display_id": "E21",
+      "branch_id": "main",
+      "latex": "H_U = U c^\\dagger_{1\\uparrow} c_{1\\uparrow} c^\\dagger_{1\\downarrow} c_{1\\downarrow}",
+      "canonical": "U*c'_{1,uparrow} c_{1,uparrow} c'_{1,downarrow} c_{1,downarrow}",
+      "created_by_step": "S77",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "U*c'_{1,uparrow} c_{1,uparrow} c'_{1,downarrow} c_{1,downarrow}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E22": {
+      "expr_uid": "expr_b356e0",
+      "display_id": "E22",
+      "branch_id": "main",
+      "latex": "c_{1\\uparrow} + \\left(1 - e^{- i U t}\\right) c^{\\dagger}_{1\\downarrow} c_{1\\uparrow} c_{1\\downarrow}",
+      "canonical": "c_{1\\uparrow} + \\left(1 - e^{- i U t}\\right) c^{\\dagger}_{1\\downarrow} c_{1\\uparrow} c_{1\\downarrow}",
+      "created_by_step": "S80",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": null,
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": {
+        "terms": [
+          {
+            "coefficient_latex": "1",
+            "coefficient": "1",
+            "operator_latex": "c_{1↑}",
+            "operator": "c_{1\\uparrow}",
+            "operator_qa": "c(1↑)"
+          },
+          {
+            "coefficient_latex": "1 - e^{- i U t}",
+            "coefficient": "1 - exp(-I*U*t)",
+            "operator_latex": "c^{\\dagger}_{1↓} c_{1↑} c_{1↓}",
+            "operator": "c'(1↓) c(1↑) c(1↓)",
+            "operator_qa": "c†(1↓) c(1↑) c(1↓)"
+          }
+        ],
+        "time_var": "t",
+        "source_latex": "c_{1\\uparrow}",
+        "hamiltonian_ref": "E21"
+      },
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:58:05.137029Z",
+      "user_text": "Declare the electron annihilation operator, the hopping $w$, the on-site repulsion $U$ and the time $t$.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:05.137264Z",
+      "user_text": "define c as an electron annihilation operator",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:05.138604Z",
+      "user_text": "define c as an electron annihilation operator",
+      "visible_action": "LLM interpretation: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c",
+        "_op_expr_display": "c",
+        "_particle_name": "electron",
+        "_particle_key": "electron",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:58:05.355900Z",
+      "user_text": null,
+      "visible_action": "define fermion operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops c; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:05.356221Z",
+      "user_text": "define w as a scalar parameter",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:05.357212Z",
+      "user_text": "define w as a scalar parameter",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "w",
+        "_all_names": [
+          "w"
+        ],
+        "_raw_names": [
+          "w"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:58:05.856694Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "w"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables w",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:05.857215Z",
+      "user_text": "define U as a scalar parameter",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:05.858191Z",
+      "user_text": "define U as a scalar parameter",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "U",
+        "_all_names": [
+          "U"
+        ],
+        "_raw_names": [
+          "U"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:58:05.860487Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "U"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables U",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:05.860750Z",
+      "user_text": "define t as a scalar parameter",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:05.861476Z",
+      "user_text": "define t as a scalar parameter",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "t",
+        "_all_names": [
+          "t"
+        ],
+        "_raw_names": [
+          "t"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:58:05.863549Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "t"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables t",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:58:05.863759Z",
+      "user_text": "**The two-site Hubbard model, written in the textbook sum notation.** The spin sum $\\sum_\\sigma$ carries no range, so it goes to QuantumAlgebra's formal sum as written; the site sum $\\sum_{i=1}^{2}$ has a concrete range and is therefore **expanded into terms** before it reaches the backend (QA's $\\sum$ has nowhere to put a range — which is no reason to drop the range silently and compute something other than what was written).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:05.863825Z",
+      "user_text": "H = -w \\sum_{\\sigma} (c^\\dagger_{1\\sigma} c_{2\\sigma} + c^\\dagger_{2\\sigma} c_{1\\sigma}) + U \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\uparrow} c^\\dagger_{i\\downarrow} c_{i\\downarrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:58:05.866428Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:58:05.866631Z",
+      "user_text": "Ask for the underlying anticommutators **in the bracket notation itself**: 1 for the same site and spin, 0 for a different site, and **0 for a different spin** — that last one stays as $\\delta_{\\uparrow\\downarrow}$ unless the arrow is read as a value.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:05.866669Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{1\\uparrow}\\}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:05.867103Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{1\\uparrow}\\}",
+      "visible_action": "LLM interpretation: anticommutator",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{1\\uparrow}"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:58:06.849478Z",
+      "user_text": null,
+      "visible_action": "compute anticommutator [{c_{1\\uparrow}, c^\\dagger_{1\\uparrow}}]",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{1\\uparrow}"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (_nb_eval_site_deltas(normal_form((c(1, _QA.QuIndex(\"↑\")))*(c'(1, _QA.QuIndex(\"↑\"))) + (c'(1, _QA.QuIndex(\"↑\")))*(c(1, _QA.QuIndex(\"↑\"))))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:06.849896Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{2\\uparrow}\\}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:06.850440Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{2\\uparrow}\\}",
+      "visible_action": "LLM interpretation: anticommutator",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{2\\uparrow}"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:58:06.948518Z",
+      "user_text": null,
+      "visible_action": "compute anticommutator [{c_{1\\uparrow}, c^\\dagger_{2\\uparrow}}]",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{2\\uparrow}"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E3 = (_nb_eval_site_deltas(normal_form((c(1, _QA.QuIndex(\"↑\")))*(c'(2, _QA.QuIndex(\"↑\"))) + (c'(2, _QA.QuIndex(\"↑\")))*(c(1, _QA.QuIndex(\"↑\"))))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:06.948915Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{1\\downarrow}\\}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:06.949462Z",
+      "user_text": "\\{c_{1\\uparrow}, c^\\dagger_{1\\downarrow}\\}",
+      "visible_action": "LLM interpretation: anticommutator",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{1\\downarrow}"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:58:06.951055Z",
+      "user_text": null,
+      "visible_action": "compute anticommutator [{c_{1\\uparrow}, c^\\dagger_{1\\downarrow}}]",
+      "operation": "anticommutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "c^\\dagger_{1\\downarrow}"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E4 = (_nb_eval_site_deltas(normal_form((c(1, _QA.QuIndex(\"↑\")))*(c'(1, _QA.QuIndex(\"↓\"))) + (c'(1, _QA.QuIndex(\"↓\")))*(c(1, _QA.QuIndex(\"↑\"))))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S26"
+      ],
+      "timestamp": "2026-09-25T11:58:06.951265Z",
+      "user_text": "**Particle-number conservation.** Write the total number $\\hat N=\\sum_{i\\sigma}\\hat c^\\dagger_{i\\sigma}\\hat c_{i\\sigma}$ and compute $[\\hat H,\\hat N]$. The $\\sum_\\sigma$ expands over the projections of the particle that was DECLARED (an electron, $m=\\pm1/2$). Neither hopping nor $U$ changes $\\hat N$, so it should be 0.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:06.951311Z",
+      "user_text": "N = \\sum_{i=1}^{2} \\sum_{\\sigma} c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:58:06.952544Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:58:06.952767Z",
+      "user_text": "[E1, N]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:58:06.953069Z",
+      "user_text": "[E1, N]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E5"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:58:07.914267Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, E5]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E5"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E6 = (_nb_eval_site_deltas(normal_form(comm(-w * (c'(1, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + U * (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\"))), ((c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + (c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\"))))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E5"
+      ],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:58:07.914656Z",
+      "user_text": "**Conservation of $S^z$.** Written the textbook way, $\\hat S^z=\\sum_{i\\sigma}\\sigma\\,\\hat n_{i\\sigma}$: the $\\sigma$ in the COEFFICIENT position gets the **value** ($\\pm1/2$, an exact rational), the one in the INDEX position gets the **spelling** (the arrow). Also 0.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:07.914724Z",
+      "user_text": "S_z = \\sum_{i=1}^{2} \\sum_{\\sigma} \\sigma c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S33"
+      ],
+      "timestamp": "2026-09-25T11:58:07.916228Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:58:07.916476Z",
+      "user_text": "[E1, S_z]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:58:07.916845Z",
+      "user_text": "[E1, S_z]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E7"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S35"
+      ],
+      "timestamp": "2026-09-25T11:58:07.962067Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, E7]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E7"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E8 = (_nb_eval_site_deltas(normal_form(comm(-w * (c'(1, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + U * (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\"))), ((-(1//2) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + 1 * (1//2) * c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + (-(1//2) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + 1 * (1//2) * c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\"))))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E7"
+      ],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S38"
+      ],
+      "timestamp": "2026-09-25T11:58:07.962342Z",
+      "user_text": "**Derive the SU(2) algebra.** Write the ladder operators $\\hat S^\\pm$ and compute $[\\hat S^+,\\hat S^-]$. It should be $2\\hat S^z$ — and the point is to compute that rather than assume it.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:07.962395Z",
+      "user_text": "S_p = \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\downarrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S41": {
+      "step_id": "S41",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S39"
+      ],
+      "timestamp": "2026-09-25T11:58:07.963704Z",
+      "user_text": null,
+      "visible_action": "Register E9",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S42": {
+      "step_id": "S42",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:58:07.963952Z",
+      "user_text": "S_m = \\sum_{i=1}^{2} c^\\dagger_{i\\downarrow} c_{i\\uparrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S43": {
+      "step_id": "S43",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S41"
+      ],
+      "timestamp": "2026-09-25T11:58:07.965220Z",
+      "user_text": null,
+      "visible_action": "Register E10",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S44": {
+      "step_id": "S44",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S43"
+      ],
+      "timestamp": "2026-09-25T11:58:07.965458Z",
+      "user_text": "[S_p, S_m]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S45": {
+      "step_id": "S45",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S43"
+      ],
+      "timestamp": "2026-09-25T11:58:07.965798Z",
+      "user_text": "[S_p, S_m]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E9",
+        "b": "E10"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S46": {
+      "step_id": "S46",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S43"
+      ],
+      "timestamp": "2026-09-25T11:58:08.331463Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E9, E10]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E9",
+        "b": "E10"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E11 = (_nb_eval_site_deltas(normal_form(comm((c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↓\"))), (c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↑\")))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E9",
+        "E10"
+      ],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S47": {
+      "step_id": "S47",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S46"
+      ],
+      "timestamp": "2026-09-25T11:58:08.332104Z",
+      "user_text": "Write $2\\hat S^z$, subtract it, and let the CAS confirm the identity (it gives 0).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S48": {
+      "step_id": "S48",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S47"
+      ],
+      "timestamp": "2026-09-25T11:58:08.332167Z",
+      "user_text": "T = 2 \\sum_{i=1}^{2} \\sum_{\\sigma} \\sigma c^\\dagger_{i\\sigma} c_{i\\sigma}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S49": {
+      "step_id": "S49",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S47"
+      ],
+      "timestamp": "2026-09-25T11:58:08.333871Z",
+      "user_text": null,
+      "visible_action": "Register E12",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E12"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S50": {
+      "step_id": "S50",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:58:08.334111Z",
+      "user_text": "subtract E12 from E11",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S51": {
+      "step_id": "S51",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S49"
+      ],
+      "timestamp": "2026-09-25T11:58:08.337225Z",
+      "user_text": null,
+      "visible_action": "combine expressions",
+      "operation": "combine_expressions",
+      "operation_args": {
+        "expr_a": "E11",
+        "expr_b": "E12",
+        "op": "-"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E13 = ((_nb_E11) - (2 * ((-(1//2) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + 1 * (1//2) * c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + (-(1//2) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + 1 * (1//2) * c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\"))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E11",
+        "E12"
+      ],
+      "output_refs": [
+        "E13"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "combine"
+    },
+    "S52": {
+      "step_id": "S52",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S51"
+      ],
+      "timestamp": "2026-09-25T11:58:08.338553Z",
+      "user_text": "**SU(2) symmetry of $\\hat H$**: $[\\hat H,\\hat S^+]=0$. The $U$ term $\\hat n_\\uparrow\\hat n_\\downarrow$ is invariant under flipping the spins, and hopping conserves spin.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S53": {
+      "step_id": "S53",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S52"
+      ],
+      "timestamp": "2026-09-25T11:58:08.338597Z",
+      "user_text": "[E1, S_p]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S54": {
+      "step_id": "S54",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S52"
+      ],
+      "timestamp": "2026-09-25T11:58:08.338970Z",
+      "user_text": "[E1, S_p]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E9"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S55": {
+      "step_id": "S55",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S52"
+      ],
+      "timestamp": "2026-09-25T11:58:08.344356Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, E9]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E9"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E14 = (_nb_eval_site_deltas(normal_form(comm(-w * (c'(1, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + U * (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\"))), (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↓\")))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E9"
+      ],
+      "output_refs": [
+        "E14"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S56": {
+      "step_id": "S56",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S55"
+      ],
+      "timestamp": "2026-09-25T11:58:08.344588Z",
+      "user_text": "**Something that is NOT conserved.** The double occupancy $\\hat D=\\sum_i\\hat n_{i\\uparrow}\\hat n_{i\\downarrow}$ is not a constant of the motion. Only the **hopping** terms survive; $U$ drops out — creating and destroying double occupancy is hopping's doing.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S57": {
+      "step_id": "S57",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S56"
+      ],
+      "timestamp": "2026-09-25T11:58:08.344629Z",
+      "user_text": "D = \\sum_{i=1}^{2} c^\\dagger_{i\\uparrow} c_{i\\uparrow} c^\\dagger_{i\\downarrow} c_{i\\downarrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S58": {
+      "step_id": "S58",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S56"
+      ],
+      "timestamp": "2026-09-25T11:58:08.346306Z",
+      "user_text": null,
+      "visible_action": "Register E15",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E15"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S59": {
+      "step_id": "S59",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S58"
+      ],
+      "timestamp": "2026-09-25T11:58:08.346526Z",
+      "user_text": "[E1, D]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S60": {
+      "step_id": "S60",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S58"
+      ],
+      "timestamp": "2026-09-25T11:58:08.346864Z",
+      "user_text": "[E1, D]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E15"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S61": {
+      "step_id": "S61",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S58"
+      ],
+      "timestamp": "2026-09-25T11:58:08.951783Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, E15]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E15"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E16 = (_nb_eval_site_deltas(normal_form(comm(-w * (c'(1, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + U * (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\"))), (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E15"
+      ],
+      "output_refs": [
+        "E16"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S62": {
+      "step_id": "S62",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S61"
+      ],
+      "timestamp": "2026-09-25T11:58:08.953213Z",
+      "user_text": "**The right-hand side of the equation of motion**, the core of $i\\hbar\\,\\partial_t\\hat c_{1\\uparrow}=[\\hat c_{1\\uparrow},\\hat H]$: hopping carries it to the neighbouring site, $U$ brings in the opposite-spin number operator.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S63": {
+      "step_id": "S63",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S62"
+      ],
+      "timestamp": "2026-09-25T11:58:08.953270Z",
+      "user_text": "[E1, c_{1\\uparrow}]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S64": {
+      "step_id": "S64",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S62"
+      ],
+      "timestamp": "2026-09-25T11:58:08.953832Z",
+      "user_text": "[E1, c_{1\\uparrow}]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "c_{1\\uparrow}"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S65": {
+      "step_id": "S65",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S62"
+      ],
+      "timestamp": "2026-09-25T11:58:08.959358Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, c_{1\\uparrow}]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "c_{1\\uparrow}"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E17 = (_nb_eval_site_deltas(normal_form(comm(-w * (c'(1, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(1, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) + c'(2, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\"))) + U * (c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↓\")) * c(1, _QA.QuIndex(\"↓\")) + c'(2, _QA.QuIndex(\"↑\")) * c(2, _QA.QuIndex(\"↑\")) * c'(2, _QA.QuIndex(\"↓\")) * c(2, _QA.QuIndex(\"↓\"))), c(1, _QA.QuIndex(\"↑\"))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E17"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S66": {
+      "step_id": "S66",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S65"
+      ],
+      "timestamp": "2026-09-25T11:58:08.959749Z",
+      "user_text": "**A nested commutator is read as written**: $[\\hat c_{1\\uparrow},[\\hat c^\\dagger_{1\\uparrow},\\hat c_{1\\uparrow}]]=2\\hat c_{1\\uparrow}$. Which comma separates is decided by bracket depth, so the inner bracket is part of the operand.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S67": {
+      "step_id": "S67",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:58:08.959798Z",
+      "user_text": "[c_{1\\uparrow}, [c^\\dagger_{1\\uparrow}, c_{1\\uparrow}]]",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S68": {
+      "step_id": "S68",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:58:08.960510Z",
+      "user_text": "[c_{1\\uparrow}, [c^\\dagger_{1\\uparrow}, c_{1\\uparrow}]]",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "[c^\\dagger_{1\\uparrow}, c_{1\\uparrow}]"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S69": {
+      "step_id": "S69",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S66"
+      ],
+      "timestamp": "2026-09-25T11:58:08.970392Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[c_{1\\uparrow}, [c^\\dagger_{1\\uparrow}, c_{1\\uparrow}]]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "c_{1\\uparrow}",
+        "b": "[c^\\dagger_{1\\uparrow}, c_{1\\uparrow}]"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E18 = (_nb_eval_site_deltas(normal_form(comm(c(1, _QA.QuIndex(\"↑\")), comm(c'(1, _QA.QuIndex(\"↑\")), c(1, _QA.QuIndex(\"↑\")))))))",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E18"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S70": {
+      "step_id": "S70",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S69"
+      ],
+      "timestamp": "2026-09-25T11:58:08.970693Z",
+      "user_text": "**Pauli's identity.** Normal-ordering $\\hat n^2$ gives $\\hat n$ back — two electrons cannot occupy the same state. Another algebraic result, not a transcription.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S71": {
+      "step_id": "S71",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:58:08.970742Z",
+      "user_text": "normal order c^\\dagger_{1\\uparrow} c_{1\\uparrow} c^\\dagger_{1\\uparrow} c_{1\\uparrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S72": {
+      "step_id": "S72",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S70"
+      ],
+      "timestamp": "2026-09-25T11:58:08.972169Z",
+      "user_text": null,
+      "visible_action": "Register E19",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E19"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inline_formula"
+    },
+    "S73": {
+      "step_id": "S73",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S72"
+      ],
+      "timestamp": "2026-09-25T11:58:08.972717Z",
+      "user_text": "normal order c^\\dagger_{1\\uparrow} c_{1\\uparrow} c^\\dagger_{1\\uparrow} c_{1\\uparrow}",
+      "visible_action": "LLM interpretation: normal_order",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E19"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S74": {
+      "step_id": "S74",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S72"
+      ],
+      "timestamp": "2026-09-25T11:58:09.013624Z",
+      "user_text": null,
+      "visible_action": "normal order [E19]",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E19"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E20 = (_nb_eval_site_deltas(normal_form(c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")) * c'(1, _QA.QuIndex(\"↑\")) * c(1, _QA.QuIndex(\"↑\")))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E19"
+      ],
+      "output_refs": [
+        "E20"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S75": {
+      "step_id": "S75",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S74"
+      ],
+      "timestamp": "2026-09-25T11:58:09.014047Z",
+      "user_text": "**Exact time evolution in the atomic limit** (PAIR-REP, docs/34 §2). Switch off the hopping and keep the $U$ term: the $\\mathrm{ad}_H$ chain closes on finitely many operators, so $\\hat c_{1\\uparrow}(t)$ comes out **with no truncation**.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S76": {
+      "step_id": "S76",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S75"
+      ],
+      "timestamp": "2026-09-25T11:58:09.014103Z",
+      "user_text": "H_U = U c^\\dagger_{1\\uparrow} c_{1\\uparrow} c^\\dagger_{1\\downarrow} c_{1\\downarrow}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S77": {
+      "step_id": "S77",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S75"
+      ],
+      "timestamp": "2026-09-25T11:58:09.015454Z",
+      "user_text": null,
+      "visible_action": "Register E21",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E21"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S78": {
+      "step_id": "S78",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S77"
+      ],
+      "timestamp": "2026-09-25T11:58:09.015816Z",
+      "user_text": "The coefficient $1-e^{-iUt}$ is a scalar and cannot live in QuantumAlgebra (which decomposes c-numbers into cos/sin) — the substance is the (coefficient, operator) PAIR, and only the display looks like $\\hat c_{1\\uparrow}(t)$. This is the Hubbard atom's exact result.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S79": {
+      "step_id": "S79",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:58:09.015864Z",
+      "user_text": "evolve c_{1\\uparrow} under H_U",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S80": {
+      "step_id": "S80",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S78"
+      ],
+      "timestamp": "2026-09-25T11:58:10.111851Z",
+      "user_text": null,
+      "visible_action": "Register E22",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E22"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "heisenberg_operator"
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S80",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:58:04.283088Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "c": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "w": {
+      "quantity": {
+        "name": "w",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "U": {
+      "quantity": {
+        "name": "U",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "t": {
+      "quantity": {
+        "name": "t",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H": {
+      "quantity": {
+        "name": "H",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E1",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "N": {
+      "quantity": {
+        "name": "N",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E5",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "c'": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "S_z": {
+      "quantity": {
+        "name": "S_z",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E7",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "S_p": {
+      "quantity": {
+        "name": "S_p",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E9",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "S_m": {
+      "quantity": {
+        "name": "S_m",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E10",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "T": {
+      "quantity": {
+        "name": "T",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E12",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "D": {
+      "quantity": {
+        "name": "D",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E15",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H_U": {
+      "quantity": {
+        "name": "H_U",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E21",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "c": [
+      -1,
+      1
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "H": "E1",
+    "N": "E5",
+    "S_z": "E7",
+    "S_p": "E9",
+    "S_m": "E10",
+    "T": "E12",
+    "{c}_{1{\\uparrow}}^{\\dagger} {c}_{1{\\uparrow}} - {c}_{1{\\downarrow}}^{\\dagger} {c}_{1{\\downarrow}} + {c}_{2{\\uparrow}}^{\\dagger} {c}_{2{\\uparrow}} - {c}_{2{\\downarrow}}^{\\dagger} {c}_{2{\\downarrow}} - T": "E13",
+    "c_{1{uparrow}}^\\dagger*c_{1{uparrow}} - c_{1{downarrow}}^\\dagger*c_{1{downarrow}} + c_{2{uparrow}}^\\dagger*c_{2{uparrow}} - c_{2{downarrow}}^\\dagger*c_{2{downarrow}} - T": "E13",
+    "D": "E15",
+    "H_U": "E21"
+  },
+  "expr_counter": 22,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 80,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

@@ -1,0 +1,38 @@
+## Domain: Information Theory
+
+Common symbols and their roles:
+- H(X): Shannon entropy of random variable X
+- H(X|Y): conditional entropy of X given Y
+- I(X;Y): mutual information between X and Y
+- D_KL(P||Q): Kullback-Leibler divergence from Q to P
+- h(X): differential entropy (for continuous X)
+- p(x), q(x): probability distributions
+- C: channel capacity (bits or nats)
+- R: information rate
+- log₂: logarithm base 2 (bits); ln: natural log (nats)
+
+Key formulas:
+- H(X) = -Σ p(x) log p(x)
+- I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
+- D_KL(P||Q) = Σ p(x) log(p(x)/q(x))
+- C = max_{p(x)} I(X;Y)
+
+Typical dependency patterns:
+- Entropy H(X) is a functional of the distribution p(x)
+- Mutual information depends on the joint distribution p(x,y)
+- Channel capacity C depends on channel transition probabilities
+
+When the user writes "相互情報量を計算して", compute I(X;Y) = Σ_{x,y} p(x,y) log(p(x,y)/(p(x)p(y))).
+
+Notebook operation field names (use these exact field names when calling
+shannon_entropy / kl_divergence / mutual_information — do not invent or
+rename fields, and do not put explanatory words like "compute" or the
+operation name itself into a field value):
+- shannon_entropy: p (the probability expression, e.g. "1/6" or "p(x)"),
+  var (summation index, e.g. "x"), lower, upper (summation bounds).
+- kl_divergence: p, q (the two probability expressions), var, lower, upper.
+- mutual_information: pxy (joint distribution), px, py (marginals), xvar,
+  xlower, xupper (x-summation), yvar, ylower, yupper (y-summation).
+Example: "compute the Shannon entropy with p=1/6, var=x, lower=1, upper=6"
+must map to shannon_entropy(p="1/6", var="x", lower="1", upper="6") — never
+substitute a field's own name or a verb from the sentence as its value.

@@ -1,0 +1,98 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_two\_level\_perturbation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Perturbation theory for a two-level system. $H=H_0+\lambda V$, with $H_0$ eigenvalues $E_a, E_b$ and a purely off-diagonal $V$; $\lambda$ is the coupling.
+
+Define Ea, Eb, V, $\lambda$ as scalars
+
+\[
+  Ea, Eb, V, \lambda
+\]
+
+Register the Hamiltonian as a $2\times2$ matrix.
+
+$H = [Ea, \lambda V; \lambda V, Eb]$
+
+\begin{equation}
+  H = \begin{pmatrix} Ea & \lambda V \\ \lambda V & Eb \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+For a $2\times2$ the eigenvalues are exact, and the perturbation series is just that closed form expanded in $\lambda$ — no dedicated "perturbation expansion" operation is needed.
+
+eigenvalues of E1
+
+\begin{equation}
+  \left\{ -\left(\frac{\sqrt{4 V^2 \lambda^2+Eb^2-2 Ea Eb+Ea^2}-Eb-Ea}{2}\right) , \frac{\sqrt{4 V^2 \lambda^2+Eb^2-2 Ea Eb+Ea^2}+Eb+Ea}{2} \right\}
+  \label{eq:E2}
+\end{equation}
+
+Register the lower branch.
+
+$(Ea + Eb - \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2$
+
+\begin{equation}
+  (Ea + Eb - \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2
+  \label{eq:E3}
+\end{equation}
+
+Expand to first order. The perturbation is off-diagonal ($\langle n|V|n\rangle=0$), so the first-order correction should vanish.
+
+taylor expand E3 in $\lambda$ around 0 to order 1
+
+\begin{equation}
+  Ea
+  \label{eq:E4}
+\end{equation}
+
+Expand to second order. This should give the textbook $E^{(2)}_n=|\langle m|V|n\rangle|^2/(E_n-E_m)$.
+
+taylor expand E3 in $\lambda$ around 0 to order 2
+
+\begin{equation}
+  Ea-\frac{V^2 \lambda^2}{Eb-Ea}
+  \label{eq:E5}
+\end{equation}
+
+Do the same for the upper branch. The sign is opposite — the two levels repel.
+
+$(Ea + Eb + \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2$
+
+\begin{equation}
+  (Ea + Eb + \sqrt{4 V^2 \lambda^2 + (Ea-Eb)^2})/2
+  \label{eq:E6}
+\end{equation}
+
+taylor expand E6 in $\lambda$ around 0 to order 2
+
+\begin{equation}
+  \frac{V^2 \lambda^2}{Eb-Ea}+Eb
+  \label{eq:E7}
+\end{equation}
+
+The check. The sum of the two levels is the trace $E_a+E_b$, and that holds exactly, so the second-order contributions must cancel if the series is right.
+
+$E5 + E7$
+
+\begin{equation}
+  E5 + E7
+  \label{eq:E8}
+\end{equation}
+
+simplify E8
+
+\begin{equation}
+  Eb+Ea
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

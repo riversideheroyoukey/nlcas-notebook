@@ -1,0 +1,121 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ito\_black\_scholes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Apply Itô's lemma to a function of an asset following geometric Brownian motion $dS=\mu S\,dt+\sigma S\,dW$. Start by registering the logarithm $f=\ln S$.
+
+$f = \ln S$
+
+\begin{equation}
+  f = \ln S
+  \label{eq:E1}
+\end{equation}
+
+Obtain, with general operations, the three partial derivatives Itô's formula needs. First $\partial f/\partial t$, which is 0 since $t$ does not appear explicitly in $f$. Whether this is a partial or a total derivative is stated by the researcher (the ambiguity is real, since $S$ depends on $t$).
+
+take the partial derivative of E1 with respect to t
+
+\begin{equation}
+  \frac{\partial f}{\partial t} = 0
+  \label{eq:E2}
+\end{equation}
+
+Then $\partial f/\partial S$.
+
+take the partial derivative of E1 with respect to S
+
+\begin{equation}
+  \frac{\partial f}{\partial S} = \frac{1}{S}
+  \label{eq:E3}
+\end{equation}
+
+The second-order term $\partial^2 f/\partial S^2$ specific to Itô's lemma — this is what separates it from the classical chain rule.
+
+take the 2nd order partial derivative of E1 with respect to S
+
+\begin{equation}
+  \frac{\partial^{2} f}{\partial S^{2}} = -\frac{1}{S^2}
+  \label{eq:E4}
+\end{equation}
+
+Assemble Itô's formula $df=(\partial_t f+\mu S\partial_S f+\frac12\sigma^2S^2\partial_S^2 f)dt+\sigma S\partial_S f\,dW$ from those expression references. The formula itself is finance, and the researcher writes it.
+
+$df = (E2 + \mu S E3 + \frac{1}{2}\sigma^2 S^2 E4) dt + \sigma S E3 dW$
+
+\begin{equation}
+  df=dt \left(\mu-\frac{\sigma^2}{2}\right)+dW \sigma
+  \label{eq:E5}
+\end{equation}
+
+Repeat the same steps for a different function $g=S^2$, to confirm the same formula works on another input.
+
+$g = S^2$
+
+\begin{equation}
+  g = S^2
+  \label{eq:E6}
+\end{equation}
+
+$\partial g/\partial t$.
+
+take the partial derivative of E6 with respect to t
+
+\begin{equation}
+  \frac{\partial g}{\partial t} = 0
+  \label{eq:E7}
+\end{equation}
+
+$\partial g/\partial S$.
+
+take the partial derivative of E6 with respect to S
+
+\begin{equation}
+  \frac{\partial g}{\partial S} = 2 S
+  \label{eq:E8}
+\end{equation}
+
+$\partial^2 g/\partial S^2$, a constant 2.
+
+take the 2nd order partial derivative of E6 with respect to S
+
+\begin{equation}
+  \frac{\partial^{2} g}{\partial S^{2}} = 2
+  \label{eq:E9}
+\end{equation}
+
+Assemble the same Itô formula for $g$ — identical in shape to step 5, only the expression references change.
+
+$dg = (E7 + \mu S E8 + \frac{1}{2}\sigma^2 S^2 E9) dt + \sigma S E8 dW$
+
+\begin{equation}
+  dg=dt \left(S^2 \sigma^2+2 S^2 \mu\right)+2 S^2 dW \sigma
+  \label{eq:E10}
+\end{equation}
+
+The SDE notation itself needs no dedicated operation — it registers as an ordinary expression ($dt$ and $dW$ are plain symbols).
+
+$dS = \mu S dt + \sigma S dW$
+
+\begin{equation}
+  dS = \mu S dt + \sigma S dW
+  \label{eq:E11}
+\end{equation}
+
+The Black–Scholes equation is likewise an ordinary equation. Solving it symbolically for a closed-form price is out of this scenario's scope.
+
+$\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0$
+
+\begin{equation}
+  \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + r S \frac{\partial V}{\partial S} - r V = 0
+  \label{eq:E12}
+\end{equation}
+
+\end{document}

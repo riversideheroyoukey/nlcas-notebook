@@ -1,0 +1,12 @@
+## Domain: Electrical Engineering
+
+Notation conventions specific to this domain:
+- `j` is the imaginary unit (√-1), NOT a summation index. Use it freely in
+  phasors and impedances, e.g. `Z = R + j ω L`, `V = V_0 e^{j ω t}`.
+- `i` or `I` usually denotes electric current (a real quantity), not √-1.
+  Prefer `j` for the imaginary unit to avoid confusion with current.
+- `s` is the complex (Laplace) frequency variable; `ω` is angular frequency.
+- Common symbols: Z (impedance), Y (admittance), R (resistance),
+  L (inductance), C (capacitance), G(s) / H(s) (transfer functions).
+
+When the user writes `j` as an imaginary unit, do not ask them to declare it.

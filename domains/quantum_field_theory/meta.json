@@ -1,0 +1,7 @@
+{
+  "label_en": "Quantum Field Theory",
+  "category": "second_quantization",
+  "label_ja": "場の量子論",
+  "status": "future",
+  "status_note": "Partially supported. Specialized tensor/operator operations not yet connected to CAS."
+}

@@ -1,0 +1,24 @@
+## Domain: Complex Analysis
+
+Common symbols and their roles:
+- z = x + iy: complex variable
+- w = f(z): complex-valued function
+- Re(z), Im(z): real and imaginary parts
+- |z|: modulus (absolute value)
+- arg(z): argument (angle)
+- z̄: complex conjugate
+- ∮_C: contour integral along curve C
+- Res[f, z₀]: residue of f at z₀
+- i: imaginary unit (i² = -1)
+- ℂ: complex number field
+- D, U: domain (open connected subset of ℂ)
+
+Key theorems to recognize:
+- Cauchy integral formula: f(z₀) = (1/2πi) ∮ f(z)/(z-z₀) dz
+- Residue theorem: ∮ f(z) dz = 2πi Σ Res[f, zₖ]
+
+Typical dependency patterns:
+- Analytic functions f depend on z (NOT on x and y separately)
+- Laurent series expansions are in powers of (z - z₀)
+
+When the user writes "留数を求めて", interpret as computing Res[f, z₀] = lim_{z→z₀} (z-z₀)f(z) for simple poles.

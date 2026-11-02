@@ -1,0 +1,112 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_rlc\_transfer\_function}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+直列RLC回路（電荷 $q(t)$、入力電圧 $v(t)$）を扱う。$q,v$ を時間依存関数として準備する。
+
+q を時間依存関数として定義する
+
+$\checkmark$ q を時間依存として宣言しました（時間変数: t）
+
+v を時間依存関数として定義する
+
+$\checkmark$ v を時間依存として宣言しました（時間変数: t）
+
+$q$ のラプラス変換を $Q$（s領域の量）と名付ける定義カードを作る。
+
+q のラプラス変換を Q とおく
+
+\begin{equation}
+  Q(s) = \int_0^{\infty} q(t)\, e^{-s t}\, dt
+  \label{eq:E1}
+\end{equation}
+
+同様に $v$ のラプラス変換を $V$ と名付ける。
+
+v のラプラス変換を V とおく
+
+\begin{equation}
+  V(s) = \int_0^{\infty} v(t)\, e^{-s t}\, dt
+  \label{eq:E2}
+\end{equation}
+
+導関数のラプラス変換則を書く。部分積分は $u=e^{-st}$ が変換の構造で決まっていて選択が無いので、これは計算ではなく定理であり、研究者が書ける。まず $\mathcal L\{\dot q\} = sQ - q(0)$。
+
+$s Q - q_0$
+
+\begin{equation}
+  s Q - q_0
+  \label{eq:E3}
+\end{equation}
+
+続いて $\mathcal L\{\ddot q\} = s^2 Q - s q(0) - \dot q(0)$。
+
+$s^2 Q - s q_0 - u_0$
+
+\begin{equation}
+  s^2 Q - s q_0 - u_0
+  \label{eq:E4}
+\end{equation}
+
+回路方程式 $L\ddot q+R\dot q+q/C=v$（インダクタンス $L$・抵抗 $R$・キャパシタンス $C$）の $s$ 領域形を、上の2つを E 番号で参照して組み立てる。
+
+$L E4 + R E3 + Q/C = V$
+
+\begin{equation}
+  L \left(-u_{0}+Q s^2-q_{0} s\right)+R \left(Q s-q_{0}\right)+\frac{Q}{C}=V
+  \label{eq:E5}
+\end{equation}
+
+伝達関数はゼロ初期条件のもとで定義される量なので、$q(0)=0$、$\dot q(0)=0$ を置く。H-1 の定義は登録時に CAS へ送られるので、これ以降の計算に自動的に効く。
+
+$q_0 = 0$
+
+\begin{equation}
+  q_0 = 0
+  \label{eq:E6}
+\end{equation}
+
+$u_0 = 0$
+
+\begin{equation}
+  u_0 = 0
+  \label{eq:E7}
+\end{equation}
+
+伝達関数 $H=Q/V$（出力と入力の $s$ 領域での比）を定義する。
+
+$H = Q/V$
+
+\begin{equation}
+  H = Q/V
+  \label{eq:E8}
+\end{equation}
+
+$s$ 領域の方程式を $Q$ について解く。ゼロ初期条件は既に効いている。
+
+E5 を Q について解いて
+
+\begin{equation}
+  Q = \frac{C V}{C L s^2+C R s+1}
+  \label{eq:E9}
+\end{equation}
+
+得られた $Q$ の式を $H$ の定義に代入し、伝達関数の閉じた式を得る。
+
+E9 を E8 に代入して
+
+\begin{equation}
+  H = \frac{C}{C L s^2+C R s+1}
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

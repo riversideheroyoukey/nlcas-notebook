@@ -1,0 +1,18 @@
+## Domain: Fluid Dynamics
+
+Common symbols and their roles:
+- u, v, w (or bold **u**): velocity field components — functions of (x, y, z, t)
+- ρ: fluid density
+- p: pressure field — function of (x, y, z, t)
+- T: temperature or stress tensor
+- ν: kinematic viscosity (constant)
+- μ: dynamic viscosity (constant)
+- Re: Reynolds number (dimensionless parameter)
+- ∇, ∇²: gradient and Laplacian — operate on spatial coordinates
+
+Typical dependency patterns to infer:
+- Velocity components u, v, w depend on (x, y, z, t)
+- Scalar fields (ρ, p, T) depend on (x, y, z, t) unless stated as constant
+- Vorticity ω = ∇ × u — depends on same variables as u
+
+When the user writes "x で偏微分", interpret as ∂/∂x.

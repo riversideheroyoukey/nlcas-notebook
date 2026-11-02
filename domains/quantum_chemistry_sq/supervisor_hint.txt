@@ -1,0 +1,31 @@
+## Domain: Quantum Chemistry (Second Quantization)
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- a†_p, a_p: creation/annihilation of electron in orbital p (fermionic)
+- n_p = a†_p a_p: occupation number operator for orbital p
+- p, q, r, s: orbital indices (molecular orbital labels)
+- H: electronic Hamiltonian in second-quantized form
+  H = Σ_pq h_pq a†_p a_q + (1/2) Σ_pqrs g_pqrs a†_p a†_q a_r a_s
+- h_pq: one-electron integral (kinetic + nuclear attraction)
+- g_pqrs: two-electron integral (electron repulsion)
+- |HF⟩: Hartree-Fock reference state (vacuum for quasiparticles)
+- τ†, τ: cluster/excitation operators (CC theory)
+
+Typical methods:
+- FCI: full configuration interaction (exact diagonalization)
+- CISD: single and double excitations
+- CC / CCSD: coupled-cluster
+- MP2: second-order Møller-Plesset
+
+Julia operation mapping:
+- 反交換関係 / 交換子 → comm(A, B) or anticommutator
+- 正規順序 → normal_form(expr)
+- HF 基底の期待値 / ⟨HF|...|HF⟩ → vacExpVal(expr)
+- 軌道 p の生成・消滅演算子を定義 → @fermion_ops name
+- Heisenberg方程式 → heisenberg_eom(op, H)
+
+Pre-defined operators in QuantumAlgebra.jl:
+- f(i), f'(i): fermion annihilation/creation (use index for orbital label)
+- Use @fermion_ops to define named orbital operators (e.g., @fermion_ops c)

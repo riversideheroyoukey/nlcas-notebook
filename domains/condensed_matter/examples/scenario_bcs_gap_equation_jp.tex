@@ -1,0 +1,150 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_bcs\_gap\_equation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+BCSハミルトニアンを組み立てるための演算子・パラメータを準備する。$c$ は運動量 $k$・スピン $\sigma$（$u=\uparrow$, $d=\downarrow$）を持つ電子の消滅演算子、$g$ は Bogoliubov 準粒子の消滅演算子。$u, v$ は変換係数、$\xi$ は運動エネルギー、$\Delta$ は超伝導ギャップ。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+g をフェルミオン演算子として定義して
+
+\[
+  g
+\]
+
+u, v をスカラーパラメータとして定義して
+
+\[
+  u, v
+\]
+
+xi, Delta をスカラーパラメータとして定義して
+
+\[
+  \xi, \Delta
+\]
+
+平均場BCSハミルトニアンを登録する。
+
+$H_BCS = \xi (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + \Delta (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))$
+
+\begin{equation}
+  H_BCS = \xi (c^{\dagger}(k,u) c(k,u) + c^{\dagger}(-k,d) c(-k,d)) + \Delta (c^{\dagger}(k,u) c^{\dagger}(-k,d) + c(-k,d) c(k,u))
+  \label{eq:E1}
+\end{equation}
+
+運動方程式で $c(k,u)$ が H\_BCS とどう結びついているかを確認する。
+
+c(k,u) の Heisenberg 方程式 E1
+
+\begin{equation}
+  \frac{d c(k,u)}{d t} = - \Delta \mathit{i} {c}_{-k,d}^{\dagger} - \xi \mathit{i} {c}_{ku}
+  \label{eq:E2}
+\end{equation}
+
+Bogoliubov 変換を Nambu スピノル形式の4本まとめて定義する。
+
+$g(k,u) = u c(k,u) - v c'(-k,d)$
+
+\begin{equation}
+  g(k,u) = u c(k,u) - v c^{\dagger}(-k,d)
+  \label{eq:E3}
+\end{equation}
+
+$g(-k,d) = u c(-k,d) + v c'(k,u)$
+
+\begin{equation}
+  g(-k,d) = u c(-k,d) + v c^{\dagger}(k,u)
+  \label{eq:E4}
+\end{equation}
+
+$g'(k,u) = u c'(k,u) - v c(-k,d)$
+
+\begin{equation}
+  g^{\dagger}(k,u) = u c^{\dagger}(k,u) - v c(-k,d)
+  \label{eq:E5}
+\end{equation}
+
+$g'(-k,d) = u c'(-k,d) + v c(k,u)$
+
+\begin{equation}
+  g^{\dagger}(-k,d) = u c^{\dagger}(-k,d) + v c(k,u)
+  \label{eq:E6}
+\end{equation}
+
+4本を電子演算子について解き直し（逆変換）、準粒子演算子で電子演算子を表す。
+
+E3, E4, E5, E6 を c(k,u), c(-k,d), c'(k,u), c'(-k,d) について逆変換して
+
+\begin{equation}
+  c_{k,u} = \frac{g^{\dagger}_{-k,d} \cdot v + g_{k,u} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  c_{-k,d} = \frac{ - g^{\dagger}_{k,u} \cdot v + g_{-k,d} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{k,u} = \frac{g^{\dagger}_{k,u} \cdot u + g_{-k,d} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{-k,d} = \frac{g^{\dagger}_{-k,d} \cdot u - g_{k,u} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E10}
+\end{equation}
+
+逆変換をハミルトニアンへ代入する。対生成項の係数がゼロになるよう $u,v$ を選ぶのが Bogoliubov 条件。
+
+E1 の c(k,u) に E7 を、c(-k,d) に E8 を代入する
+
+\begin{equation}
+  H_BCS = \left(2 \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right)  + \left( - \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - u v \xi}{\left( u^{2} + v^{2} \right)^{2}} - \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{-k,d}^{\dagger} {g}_{-k,d} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - 2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{ku}^{\dagger} {g}_{ku} + \left(2 \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d} {g}_{ku}
+  \label{eq:E11}
+\end{equation}
+
+ここからギャップ方程式へ向かう。クーパー対の異常平均 $\langle c_{-k\downarrow}c_{k\uparrow}\rangle$ を求めるため、まず対の積を式として登録する。
+
+c(-k,d) c(k,u)
+
+\begin{equation}
+  c(-k,d) c(k,u)
+  \label{eq:E12}
+\end{equation}
+
+準粒子基底へ移す。
+
+E12 の c(k,u) に E7 を、c(-k,d) に E8 を代入する
+
+\begin{equation}
+  c(-k,d) c(k,u) = \frac{u v}{\left( u^{2} + v^{2} \right)^{2}}  + \frac{v^{2}}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \frac{ - u v}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d}^{\dagger} {g}_{-k,d} + \frac{ - u v}{\left( u^{2} + v^{2} \right)^{2}} {g}_{ku}^{\dagger} {g}_{ku} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d} {g}_{ku}
+  \label{eq:E13}
+\end{equation}
+
+準粒子の真空（＝BCS基底状態）での期待値を取る。ここで演算子代数は終わり、以降は c 数の計算になる。
+
+\begin{equation}
+  c(-k,d) c(k,u) = \frac{u v}{\left( u^{2} + v^{2} \right)^{2}}
+  \label{eq:E14}
+\end{equation}
+
+演算子を終えたので、残りのスカラー代数は Maxima の領分。セッション境界を越える（fork であって切り替えではない——このセッションはそのまま残り、渡し先は新しいファイルになる）。渡るのは右辺の値と、それを渡し先で establish し直すための宣言（符号込み）。左辺の演算子ラベルはスカラー CAS で意味を持たないので、値が「何の期待値か」は渡し先のメモに残る。
+
+E14 を Maxima セッションに渡して
+
+\end{document}

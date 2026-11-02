@@ -1,0 +1,81 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_lp\_vertex\_optimization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+2変数線形計画問題 $\max z=c_1x+c_2y$（制約 $a_1x+b_1y\le d_1,\ a_2x+b_2y\le d_2$）の係数 $a_1,b_1,c_1,d_1,a_2,b_2,c_2,d_2$ を実数として準備する。
+
+$a_1$, $b_1$, $c_1$, $d_1$, $a_2$, $b_2$, $c_2$, $d_2$ を実数とする
+
+\[
+  a_1, b_1, c_1, d_1, a_2, b_2, c_2, d_2
+\]
+
+目的関数 $z=c_1x+c_2y$ を定義する。
+
+$z = c_1 x + c_2 y$
+
+\begin{equation}
+  z = c_1 x + c_2 y
+  \label{eq:E1}
+\end{equation}
+
+最適解が実現するのは実行可能領域の頂点（いずれかの制約が等号で成り立つ点）である。1本目の有効制約 $a_1x+b_1y=d_1$ を方程式として登録する。
+
+$a_1 x + b_1 y - d_1 = 0$
+
+\begin{equation}
+  a_1 x + b_1 y - d_1 = 0
+  \label{eq:E2}
+\end{equation}
+
+2本目の有効制約 $a_2x+b_2y=d_2$ を登録する。
+
+$a_2 x + b_2 y - d_2 = 0$
+
+\begin{equation}
+  a_2 x + b_2 y - d_2 = 0
+  \label{eq:E3}
+\end{equation}
+
+2本の制約を連立方程式として $x,y$ について解き、それらの交点（頂点の座標 $x^*,y^*$）を求める。
+
+E2 と E3 の連立方程式を x と y について解いて
+
+\begin{equation}
+  x = -\frac{b_{2} d_{1}-b_{1} d_{2}}{a_{2} b_{1}-a_{1} b_{2}}
+  \label{eq:E4}
+\end{equation}
+
+\begin{equation}
+  y = \frac{a_{2} d_{1}-a_{1} d_{2}}{a_{2} b_{1}-a_{1} b_{2}}
+  \label{eq:E5}
+\end{equation}
+
+求めた $x^*$ を目的関数 $z$ に代入する（$y$ はまだ残った中間形になる）。
+
+E1 に E4 を代入して
+
+\begin{equation}
+  z = \frac{\left(a_{1} b_{2}-a_{2} b_{1}\right) c_{2} y-b_{1} c_{1} d_{2}+b_{2} c_{1} d_{1}}{a_{1} b_{2}-a_{2} b_{1}}
+  \label{eq:E6}
+\end{equation}
+
+$y^*$ も代入し、頂点における目的関数の値 $z^*=c_1x^*+c_2y^*$ を得る。
+
+E6 に E5 を代入して
+
+\begin{equation}
+  z = \frac{\left(a_{1} c_{2}-b_{1} c_{1}\right) d_{2}+\left(b_{2} c_{1}-a_{2} c_{2}\right) d_{1}}{a_{1} b_{2}-a_{2} b_{1}}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

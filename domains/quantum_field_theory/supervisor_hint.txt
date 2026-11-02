@@ -1,0 +1,32 @@
+## Domain: Quantum Field Theory
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- φ(x), ψ(x): quantum field operators (scalar, spinor)
+- a†(k), a(k): creation/annihilation in momentum space (bosonic modes)
+- b†(k), b(k): particle modes; d†(k), d(k): antiparticle modes (fermionic)
+- π(x): conjugate momentum field [φ(x), π(y)] = iδ(x-y)
+- T: time-ordering operator (Wick's theorem)
+- :...: normal ordering symbol
+- Δ(x-y), G(x-y): propagators (Feynman, retarded, advanced)
+- L, ℒ: Lagrangian density
+- S: S-matrix / action
+
+Julia operation mapping:
+- 交換関係 / 交換子 → comm(A, B)
+- 正規順序 / :...: → normal_form(expr)
+- 真空期待値 / ⟨0|...|0⟩ → vacExpVal(expr)
+- Heisenberg描像の時間発展 / 運動方程式 → heisenberg_eom(op, H)
+- ボゾン場を定義 → @boson_ops name
+- フェルミオン場を定義 → @fermion_ops name
+
+Operators in QuantumAlgebra.jl:
+- QuantumAlgebra.jl pre-defines a(i)/a'(i) as bosonic and f(i)/f'(i) as fermionic
+  by library convention; the letter itself does not fix the statistics.
+- For scalar/vector boson fields use a(i)/a'(i) or declare with @boson_ops name.
+- For spinor/Dirac fields use f(i)/f'(i) or declare with @fermion_ops name.
+- Use mode index i to label momentum/spin quantum numbers.
+
+Convention note:
+- QuantumAlgebra.jl uses ℏ = 1; heisenberg_eom returns i[H, op]

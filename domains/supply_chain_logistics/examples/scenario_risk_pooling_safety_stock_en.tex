@@ -1,0 +1,49 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_risk\_pooling\_safety\_stock}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Define the general safety-stock formula $SS=z\sigma\sqrt{L}$ ($z$: service-level factor, $\sigma$: demand standard deviation, $L$: lead time).
+
+$SS = z \sigma \sqrt{L}$
+
+\begin{equation}
+  SS = z \sigma \sqrt{L}
+  \label{eq:E1}
+\end{equation}
+
+Consider pooling the demand of $n$ locations into a single central warehouse. Under the i.i.d. assumption, variances add, so the effective lead-time term becomes $nL$ instead of $L$. Substitute this replacement into the original expression (the original expression itself remains available as the single-location case).
+
+In E1, substitute n * L for L
+
+\begin{equation}
+  SS = \sqrt{L n} \sigma z
+  \label{eq:E2}
+\end{equation}
+
+Take the ratio of the pooled safety stock to the total safety stock of the $n$ separate locations ($n$ times the original expression), to confirm the risk-pooling effect (the square-root law $1/\sqrt n$).
+
+$ratio = E2 / (n E1)$
+
+\begin{equation}
+  ratio = \frac{\sqrt{L n}}{\sqrt{L} n}
+  \label{eq:E3}
+\end{equation}
+
+$E3=\sqrt{Ln}/(\sqrt{L}\,n)$ is algebraically $1/\sqrt{n}$, but Maxima's general `simplify` does not combine the two separate radicals on its own. Apply the dedicated radical-simplification operation to reduce it to the familiar closed form.
+
+$radical_simplify$ E3
+
+\begin{equation}
+  \frac{1}{\sqrt{n}}=\frac{1}{\sqrt{n}}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

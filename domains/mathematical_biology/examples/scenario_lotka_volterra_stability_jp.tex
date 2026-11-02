@@ -1,0 +1,120 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_lotka\_volterra\_stability}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Lotka–Volterra方程式 $\dot x=ax-bxy$（被食者 $x$ の個体数変化）のヌルクライン（$\dot x=0$ となる条件）を方程式として登録する。
+
+$a x - b x y = 0$
+
+\begin{equation}
+  a x - b x y = 0
+  \label{eq:E1}
+\end{equation}
+
+もう一方の式 $\dot y=dxy-cy$（捕食者 $y$ の個体数変化）のヌルクラインを登録する。
+
+$d x y - c y = 0$
+
+\begin{equation}
+  d x y - c y = 0
+  \label{eq:E2}
+\end{equation}
+
+2つのヌルクラインを連立方程式として $x,y$ について解き、固定点（個体数が変化しない点）を求める。Maxima の `solve([...],[x,y])` の1回の呼び出しで両方の解の枝が本当に一度に返る（実機の生の Maxima 出力 `[[x=0,y=0],[x=c/d,y=a/b]]` で確認済み）——本プロジェクト独自のコードが2つの答えを継ぎ合わせたものではなく、2本の低次多項式方程式からなる連立系に対する `solve` の挙動そのものである。絶滅平衡 $(0,0)$ と共存平衡 $(c/d,\,a/b)$ の2つが得られるはずである。
+
+E1 と E2 の連立方程式を x と y について解いて
+
+\begin{equation}
+  x = 0
+  \label{eq:E3}
+\end{equation}
+
+\begin{equation}
+  y = 0
+  \label{eq:E4}
+\end{equation}
+
+\begin{equation}
+  x = \frac{c}{d}
+  \label{eq:E5}
+\end{equation}
+
+\begin{equation}
+  y = \frac{a}{b}
+  \label{eq:E6}
+\end{equation}
+
+共存平衡での安定性を調べるため、ヤコビアン行列の成分を1つずつ求める。まず $\dot x$ を $x$ で偏微分する。この操作対象（$ax-bxy$）は既存の $E_n$ 参照ではなく生の数式として入力されているため、パイプラインはまずこれを独自の番号付き方程式として登録し（下に微分の直前の式として現れる）、その後で微分する——つまりこの1つのコマンドから2つの番号付き方程式が生成される。同じ生の数式を下で（$y$について）再び微分する際は、この登録を再利用し、重複登録はしない。
+
+a*x - b*x*y を x で偏微分して
+
+\begin{equation}
+  a x - b x y
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial}{\partial x}\left(a x - b x y\right) = a-b y
+  \label{eq:E8}
+\end{equation}
+
+$\dot x$ を $y$ で偏微分する。
+
+a*x - b*x*y を y で偏微分して
+
+\begin{equation}
+  \frac{\partial}{\partial y}\left(a x - b x y\right) = -b x
+  \label{eq:E9}
+\end{equation}
+
+$\dot y$ を $x$ で偏微分する。上と同様、この操作対象（$dxy-cy$）も生の数式であるため、微分される前にまずそれ自体が方程式として登録され、この1コマンドからも再び2つの番号付き方程式が現れる。
+
+d*x*y - c*y を x で偏微分して
+
+\begin{equation}
+  d x y - c y
+  \label{eq:E10}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial}{\partial x}\left(d x y - c y\right) = d y
+  \label{eq:E11}
+\end{equation}
+
+$\dot y$ を $y$ で偏微分する。
+
+d*x*y - c*y を y で偏微分して
+
+\begin{equation}
+  \frac{\partial}{\partial y}\left(d x y - c y\right) = d x-c
+  \label{eq:E12}
+\end{equation}
+
+上で求めた4つの偏微分を、共存平衡 $(c/d,a/b)$ で評価した値としてヤコビアン行列 $J=\begin{pmatrix}0&-bc/d\\ad/b&0\end{pmatrix}$ を組み立てる。
+
+$[0, -b c/d; a d/b, 0]$
+
+\begin{equation}
+  \begin{pmatrix} 0 & -b c/d \\ a d/b & 0 \end{pmatrix}
+  \label{eq:E13}
+\end{equation}
+
+このヤコビアン行列の固有値を求める。固有値が純虚数であれば、共存平衡は中立中心（個体数が固定点の周りを周回する）である。
+
+E13 の固有値を求めて
+
+\begin{equation}
+  \left\{ -\sqrt{-\left(a c\right)} , \sqrt{-\left(a c\right)} \right\}
+  \label{eq:E14}
+\end{equation}
+
+\end{document}

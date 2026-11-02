@@ -1,0 +1,64 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_spinful\_perturbation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Using the coefficients defined in the first half, write the general Hamiltonian over an \textbf{arbitrary, spin-dependent} basis — not specialised to $k$-space — and take it to first order.
+
+c as the annihilation operator for electron
+
+\[
+  c
+\]
+
+The one-body term $\hat H_0=\sum_{m\sigma,n\sigma'} h_{m\sigma,n\sigma'} c^\dagger_{m\sigma}c_{n\sigma'}$, with mode ($m,n$) and spin ($s,t$) written separated.
+
+$\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}$
+
+\begin{equation}
+  \sum_{m,s,n,t} h_{m,s,n,t} c^{\dagger}_{m,s} c_{n,t}
+  \label{eq:E1}
+\end{equation}
+
+Normal-order it. It is already normal-ordered so the expression does not change, but mode and spin must stay separated in the display — without the separator it becomes "one index called $ms$", and typing the display back in gives a different expression.
+
+$normal_order$ E1
+
+\begin{equation}
+  \sum_{m,s,n,t} h_{m,s,n,t} {c}_{m,s}^{\dagger} {c}_{n,t}
+  \label{eq:E2}
+\end{equation}
+
+The interaction $\hat V$: eight indices, four mode and four spin.
+
+$\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}$
+
+\begin{equation}
+  \sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c^{\dagger}_{m,s} c^{\dagger}_{n,t} c_{p,u} c_{q,w}
+  \label{eq:E3}
+\end{equation}
+
+$normal_order$ E3
+
+\begin{equation}
+  \sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{p,u} {c}_{q,w}
+  \label{eq:E4}
+\end{equation}
+
+The first-order term $[\hat H_0,\hat V]$. Every contraction introduces a new bound index — watch it come out as the researcher's own letter plus a subscript ($m_1,s_1$). Spending the plain $r$, $s$, $t$ would shrink the alphabet left for actual quantities, for labels that live inside one sum.
+
+commutator of E1 and E3
+
+\begin{equation}
+  - \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{q,w,m_{1},s_{1}} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{p,u} {c}_{m_{1},s_{1}} + \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{p,u,m_{1},s_{1}} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{q,w} {c}_{m_{1},s_{1}} + \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},n,t} {c}_{m,s}^{\dagger} {c}_{m_{1},s_{1}}^{\dagger} {c}_{p,u} {c}_{q,w} - \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},m,s} {c}_{n,t}^{\dagger} {c}_{m_{1},s_{1}}^{\dagger} {c}_{p,u} {c}_{q,w}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

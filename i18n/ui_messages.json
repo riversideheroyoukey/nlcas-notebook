@@ -1,0 +1,943 @@
+{
+  "_comment": "Front-end UI string table. Keys are dot-separated. Add a language by adding its ISO 639-1 code to every entry.",
+  "ui.new_session_btn": {
+    "ja": "＋ 新規",
+    "en": "+ New"
+  },
+  "ui.status_btn": {
+    "ja": "📊 ステータス",
+    "en": "📊 Status"
+  },
+  "ui.status_modal_title": {
+    "ja": "📊 ステータス",
+    "en": "📊 Status"
+  },
+  "ui.status_title": {
+    "ja": "タイトル",
+    "en": "Title"
+  },
+  "ui.status_file": {
+    "ja": "ファイル",
+    "en": "File"
+  },
+  "ui.status_lang": {
+    "ja": "言語",
+    "en": "Language"
+  },
+  "ui.status_backend": {
+    "ja": "バックエンド",
+    "en": "Backend"
+  },
+  "ui.status_coord_system": {
+    "ja": "座標系",
+    "en": "Coordinate system"
+  },
+  "ui.status_domains": {
+    "ja": "ドメイン",
+    "en": "Domain"
+  },
+  "ui.status_steps": {
+    "ja": "ステップ数",
+    "en": "Steps"
+  },
+  "ui.status_supervisor": {
+    "ja": "スーパーバイザー LLM",
+    "en": "Supervisor LLM"
+  },
+  "ui.status_advisers": {
+    "ja": "アドバイザー LLM",
+    "en": "Adviser LLM"
+  },
+  "ui.status_ocr_engine": {
+    "ja": "OCR エンジン LLM",
+    "en": "OCR Engine LLM"
+  },
+  "ui.status_ocr_refiner": {
+    "ja": "OCR リファイナー LLM",
+    "en": "OCR Refiner LLM"
+  },
+  "ui.summary_btn": {
+    "ja": "📋 サマリ",
+    "en": "📋 Summary"
+  },
+  "ui.save_btn": {
+    "ja": "💾 保存",
+    "en": "💾 Save"
+  },
+  "ui.load_btn": {
+    "ja": "📂 読み込み",
+    "en": "📂 Load"
+  },
+  "ui.op_label": {
+    "ja": "操作：",
+    "en": "Operation:"
+  },
+  "ui.op_expand": {
+    "ja": "展開",
+    "en": "Expand"
+  },
+  "ui.op_factor": {
+    "ja": "因数分解",
+    "en": "Factor"
+  },
+  "ui.op_ratsimp": {
+    "ja": "有理式簡約",
+    "en": "Rat. Simplify"
+  },
+  "ui.op_diff": {
+    "ja": "微分",
+    "en": "Diff."
+  },
+  "ui.op_integrate": {
+    "ja": "積分",
+    "en": "Integrate"
+  },
+  "ui.op_subst": {
+    "ja": "代入",
+    "en": "Substitute"
+  },
+  "ui.op_re_evaluate": {
+    "ja": "再評価",
+    "en": "Re-evaluate"
+  },
+  "ui.op_wick_contract": {
+    "ja": "Wick収縮",
+    "en": "Wick contract"
+  },
+  "ui.op_operator_taylor": {
+    "ja": "演算子展開",
+    "en": "Op. Taylor"
+  },
+  "ui.op_extract_order": {
+    "ja": "次数抽出",
+    "en": "Extract order"
+  },
+  "ui.op_truncate_series": {
+    "ja": "打ち切り",
+    "en": "Truncate"
+  },
+  "ui.advise_btn": {
+    "ja": "💡 考察",
+    "en": "💡 Analyse"
+  },
+  "ui.input_placeholder": {
+    "ja": "数式や指示を入力（Enter で送信、Shift+Enter で改行）",
+    "en": "Enter formula or instruction (Enter to submit, Shift+Enter for newline)"
+  },
+  "ui.hw_btn": {
+    "ja": "✍️ 手書き入力",
+    "en": "✍️ Handwrite"
+  },
+  "ui.note_btn": {
+    "ja": "📝 メモ",
+    "en": "📝 Note"
+  },
+  "ui.submit_btn": {
+    "ja": "送信",
+    "en": "Submit"
+  },
+  "ui.hw_modal_header": {
+    "ja": "✍️ 手書き入力",
+    "en": "✍️ Handwriting Input"
+  },
+  "ui.cancel_close_btn": {
+    "ja": "✕ キャンセル",
+    "en": "✕ Cancel"
+  },
+  "ui.save_modal_title": {
+    "ja": "💾 セッションを保存",
+    "en": "💾 Save Session"
+  },
+  "ui.save_filename_ph": {
+    "ja": "ファイル名（省略可）",
+    "en": "Filename (optional)"
+  },
+  "ui.save_as_btn": {
+    "ja": "名前を付けて保存",
+    "en": "Save As"
+  },
+  "ui.skip_save_btn": {
+    "ja": "保存せずに続ける",
+    "en": "Continue without saving"
+  },
+  "ui.fork_modal_title": {
+    "ja": "💾 このステップまでを別ファイルとして保存",
+    "en": "💾 Save up to this step as new file"
+  },
+  "ui.fork_label": {
+    "ja": "ファイル名（省略可）",
+    "en": "Filename (optional)"
+  },
+  "ui.fork_ok_btn": {
+    "ja": "保存",
+    "en": "Save"
+  },
+  "ui.live_branch_modal_title": {
+    "ja": "🌿 このステップから分岐する",
+    "en": "🌿 Fork a branch from this step"
+  },
+  "ui.branch_label_placeholder": {
+    "ja": "branch名（省略可）",
+    "en": "Branch label (optional)"
+  },
+  "ui.branch_fork_ok_btn": {
+    "ja": "分岐する",
+    "en": "Fork"
+  },
+  "ui.cancel_btn": {
+    "ja": "キャンセル",
+    "en": "Cancel"
+  },
+  "ui.new_session_title": {
+    "ja": "新規セッション",
+    "en": "New Session"
+  },
+  "ui.session_title_label": {
+    "ja": "タイトル（省略可）",
+    "en": "Title (optional)"
+  },
+  "ui.language_label": {
+    "ja": "言語",
+    "en": "Language"
+  },
+  "ui.coord_system_label": {
+    "ja": "座標系（Maxima セッション用）",
+    "en": "Coordinate system (Maxima sessions)"
+  },
+  "ui.coord_cartesian": {
+    "ja": "デカルト座標 (x, y, z)",
+    "en": "Cartesian (x, y, z)"
+  },
+  "ui.coord_spherical": {
+    "ja": "球座標 (r, θ, φ)",
+    "en": "Spherical (r, θ, φ)"
+  },
+  "ui.coord_cylindrical": {
+    "ja": "円柱座標 (r, φ, z)",
+    "en": "Cylindrical (r, φ, z)"
+  },
+  "ui.domains_label": {
+    "ja": "研究分野（複数選択可）",
+    "en": "Research domain (multiple OK)"
+  },
+  "ui.domains_loading": {
+    "ja": "読み込み中…",
+    "en": "Loading…"
+  },
+  "ui.domains_hint": {
+    "ja": "未選択でも開始できます",
+    "en": "Can start without selecting"
+  },
+  "ui.new_session_ok_btn": {
+    "ja": "開始",
+    "en": "Start"
+  },
+  "ui.load_modal_title": {
+    "ja": "セッションを読み込む",
+    "en": "Load Session"
+  },
+  "ui.advise_modal_title": {
+    "ja": "💡 考察",
+    "en": "💡 Analyse"
+  },
+  "ui.llm_loading": {
+    "ja": "（LLM 読み込み中…）",
+    "en": "(Loading LLMs…)"
+  },
+  "ui.question_ph": {
+    "ja": "質問（省略可）",
+    "en": "Question (optional)"
+  },
+  "ui.advise_submit_btn": {
+    "ja": "考察する",
+    "en": "Analyse"
+  },
+  "ui.save_as_memo_btn": {
+    "ja": "📝 メモとして保存",
+    "en": "📝 Save as memo"
+  },
+  "ui.label_note": {
+    "ja": "📝 メモ",
+    "en": "📝 Note"
+  },
+  "ui.label_assumption": {
+    "ja": "📌 仮定",
+    "en": "📌 Assumption"
+  },
+  "ui.note_remove_title": {
+    "ja": "このメモを削除",
+    "en": "Remove this note"
+  },
+  "ui.assumption_remove_title": {
+    "ja": "仮定を解除",
+    "en": "Remove assumption"
+  },
+  "ui.user_remove_title": {
+    "ja": "この入力を削除",
+    "en": "Delete this input"
+  },
+  "ui.ctx_send_to_input": {
+    "ja": "入力欄に送る",
+    "en": "Send to input"
+  },
+  "ui.domain_status_placeholder": {
+    "ja": "未実装",
+    "en": "Not implemented"
+  },
+  "ui.domain_status_future": {
+    "ja": "準備中",
+    "en": "Coming soon"
+  },
+  "ui.domain_status_placeholder_title": {
+    "ja": "専用CAS操作が未実装です",
+    "en": "Dedicated CAS operations not yet implemented"
+  },
+  "ui.domain_status_future_title": {
+    "ja": "CAS操作を接続中です",
+    "en": "CAS operations being connected"
+  },
+  "ui.cas_remove_title": {
+    "ja": "この式を削除",
+    "en": "Delete this expression"
+  },
+  "ui.define_remove_title": {
+    "ja": "この定義をキャンセル",
+    "en": "Cancel this definition"
+  },
+  "ui.undefined_symbols_label": {
+    "ja": "未定義の記号",
+    "en": "Undefined symbols"
+  },
+  "ui.undefined_symbols_hint": {
+    "ja": "定義例: 「{symbol} をスカラーとする」「{symbol} をベクトルとする」「{symbol} を行列とする」など",
+    "en": "e.g. \"define {symbol} as a scalar\", \"define {symbol} as a vector\", \"define {symbol} as a matrix\""
+  },
+  "ui.advise_note_prefix": {
+    "ja": "【考察 {expr_id}】",
+    "en": "[Analysis: {expr_id}]"
+  },
+  "ui.op_completed": {
+    "ja": "✓ 完了",
+    "en": "✓ Done"
+  },
+  "ui.dep_warning": {
+    "ja": "{vars} は {diffVar} の関数として宣言されています。",
+    "en": "{vars} is declared as a function of {diffVar}."
+  },
+  "ui.dep_total": {
+    "ja": "全微分として計算",
+    "en": "Compute as total derivative"
+  },
+  "ui.dep_partial": {
+    "ja": "{vars} を独立変数として計算（偏微分）",
+    "en": "Treat {vars} as independent (partial derivative)"
+  },
+  "ui.confirm_default": {
+    "ja": "解釈を確認してください。",
+    "en": "Please confirm interpretation."
+  },
+  "ui.diff_var_label": {
+    "ja": "{var} で微分",
+    "en": "Diff. w.r.t. {var}"
+  },
+  "ui.cancel": {
+    "ja": "キャンセル",
+    "en": "Cancel"
+  },
+  "ui.execute": {
+    "ja": "実行",
+    "en": "Execute"
+  },
+  "ui.processing": {
+    "ja": "処理中…",
+    "en": "Processing…"
+  },
+  "ui.submit": {
+    "ja": "送信",
+    "en": "Submit"
+  },
+  "ui.cancel_processing_btn": {
+    "ja": "⏹ 停止",
+    "en": "⏹ Stop"
+  },
+  "ui.cancelled": {
+    "ja": "キャンセルしました",
+    "en": "Cancelled"
+  },
+  "ui.server_error": {
+    "ja": "サーバーエラー",
+    "en": "Server error"
+  },
+  "ui.network_error": {
+    "ja": "通信エラー",
+    "en": "Network error"
+  },
+  "ui.unknown_error": {
+    "ja": "不明なエラー",
+    "en": "Unknown error"
+  },
+  "ui.op_instruction": {
+    "ja": "{expr_id} を{label}して",
+    "en": "{label} {expr_id}"
+  },
+  "ui.no_llm": {
+    "ja": "（LLM なし）",
+    "en": "(No LLM)"
+  },
+  "ui.advise_title_expr": {
+    "ja": "💡 考察 — {expr_id}",
+    "en": "💡 Analyse — {expr_id}"
+  },
+  "ui.advising": {
+    "ja": "考察 …",
+    "en": "Analysing…"
+  },
+  "ui.advise_available": {
+    "ja": "💡 考察",
+    "en": "💡 Analyse"
+  },
+  "ui.advise_unavailable": {
+    "ja": "⚠️ 考察（未接続）",
+    "en": "⚠️ Analyse (offline)"
+  },
+  "ui.advising_progress": {
+    "ja": "考察中…",
+    "en": "Analysing…"
+  },
+  "ui.advising_spinner": {
+    "ja": "考察中です…",
+    "en": "Analysing…"
+  },
+  "ui.advise_error": {
+    "ja": "エラーが発生しました",
+    "en": "An error occurred"
+  },
+  "ui.advise_submit_done": {
+    "ja": "考察する",
+    "en": "Analyse"
+  },
+  "ui.memo_saving": {
+    "ja": "保存中…",
+    "en": "Saving…"
+  },
+  "ui.memo_save_failed": {
+    "ja": "❌ 保存失敗",
+    "en": "❌ Save failed"
+  },
+  "ui.memo_save_error": {
+    "ja": "❌ 通信エラー",
+    "en": "❌ Network error"
+  },
+  "ui.session_restored": {
+    "ja": "セッションを復元しました。",
+    "en": "Session restored."
+  },
+  "ui.fork_saved": {
+    "ja": "💾 別ファイルとして保存: {file}",
+    "en": "💾 Saved as: {file}"
+  },
+  "ui.fork_step_title": {
+    "ja": "このステップまでを別ファイルとして保存",
+    "en": "Save up to this step as new file"
+  },
+  "ui.branch_fork_step_title": {
+    "ja": "このステップから分岐する",
+    "en": "Fork a branch from this step"
+  },
+  "ui.branch_forked_toast": {
+    "ja": "🌿 分岐しました: {branch_id}",
+    "en": "🌿 Forked to branch: {branch_id}"
+  },
+  "ui.active_branch_prefix": {
+    "ja": "branch",
+    "en": "branch"
+  },
+  "ui.generating": {
+    "ja": "生成中…",
+    "en": "Generating…"
+  },
+  "ui.summary_failed": {
+    "ja": "❌ サマリ生成失敗: {detail}",
+    "en": "❌ Summary failed: {detail}"
+  },
+  "ui.save_current_file": {
+    "ja": "現在のファイル: {file}",
+    "en": "Current file: {file}"
+  },
+  "ui.no_current_file": {
+    "ja": "（まだ保存されていません）",
+    "en": "(Not saved yet)"
+  },
+  "ui.overwrite_btn": {
+    "ja": "上書き保存（{file}）",
+    "en": "Overwrite ({file})"
+  },
+  "ui.export_latex_btn": {
+    "ja": "⬇ LaTeX 出力",
+    "en": "⬇ Export LaTeX"
+  },
+  "ui.saving": {
+    "ja": "保存中…",
+    "en": "Saving…"
+  },
+  "ui.saved_done": {
+    "ja": "✅ 保存済",
+    "en": "✅ Saved"
+  },
+  "ui.save_failed": {
+    "ja": "保存失敗",
+    "en": "Save failed"
+  },
+  "ui.skip_save_exit": {
+    "ja": "保存せずに終了",
+    "en": "Exit without saving"
+  },
+  "ui.skip_save_continue": {
+    "ja": "保存せずに続ける",
+    "en": "Continue without saving"
+  },
+  "ui.autosave_done": {
+    "ja": "💾 自動保存済",
+    "en": "💾 Autosaved"
+  },
+  "ui.session_list_loading": {
+    "ja": "読み込み中…",
+    "en": "Loading…"
+  },
+  "ui.session_list_empty": {
+    "ja": "保存済みセッションがありません。",
+    "en": "No saved sessions."
+  },
+  "ui.session_info": {
+    "ja": "{date} — 式 {exprs}件 / ステップ {steps}件",
+    "en": "{date} — {exprs} expressions / {steps} steps"
+  },
+  "ui.load_item_btn": {
+    "ja": "読み込む",
+    "en": "Load"
+  },
+  "ui.session_list_error": {
+    "ja": "エラー: {error}",
+    "en": "Error: {error}"
+  },
+  "ui.confirm_load": {
+    "ja": "「{filename}」を読み込みます。\n現在のセッションは失われます。よろしいですか？",
+    "en": "Load \"{filename}\"?\nThe current session will be lost. Continue?"
+  },
+  "ui.loading_session": {
+    "ja": "🔄 セッションを読み込んでいます…",
+    "en": "🔄 Loading session…"
+  },
+  "ui.load_complete": {
+    "ja": "✅ 読み込み完了：{title} (式 {count}件)",
+    "en": "✅ Loaded: {title} ({count} expressions)"
+  },
+  "ui.load_failed": {
+    "ja": "❌ 読み込み失敗: {error}",
+    "en": "❌ Load failed: {error}"
+  },
+  "ui.domains_none": {
+    "ja": "（分野情報なし）",
+    "en": "(No domain info)"
+  },
+  "ui.domains_load_failed": {
+    "ja": "分野情報の取得に失敗しました",
+    "en": "Failed to load domain info"
+  },
+  "ui.starting_session": {
+    "ja": "新規セッションを開始しています…",
+    "en": "Starting new session…"
+  },
+  "ui.session_started": {
+    "ja": "新規セッションを開始しました",
+    "en": "New session started"
+  },
+  "ui.session_started_domains": {
+    "ja": "新規セッションを開始しました（分野: {domains}）",
+    "en": "New session started (domains: {domains})"
+  },
+  "ui.supervisor_label": {
+    "ja": "Supervisor",
+    "en": "Supervisor"
+  },
+  "ui.save_or_new": {
+    "ja": "または新規保存",
+    "en": "or save as new"
+  },
+  "ui.save_dir_label": {
+    "ja": "保存先フォルダ",
+    "en": "Save folder"
+  },
+  "ui.save_new_folder_btn": {
+    "ja": "＋ 新規",
+    "en": "+ New"
+  },
+  "ui.save_new_folder_prompt": {
+    "ja": "フォルダ名:",
+    "en": "Folder name:"
+  },
+  "ui.save_dir_empty": {
+    "ja": "（サブフォルダなし）",
+    "en": "(No subfolders)"
+  },
+  "ui.save_filename_label": {
+    "ja": "ファイル名",
+    "en": "File name"
+  },
+  "ui.save_new_btn": {
+    "ja": "保存",
+    "en": "Save"
+  },
+  "ui.latex_exported": {
+    "ja": "LaTeX を保存しました: {path}",
+    "en": "LaTeX saved: {path}"
+  },
+  "ui.op_numeric_fork": {
+    "ja": "🔢 数値計算へ",
+    "en": "🔢 To numeric"
+  },
+  "ui.label_numeric_fork": {
+    "ja": "🔢 数値フォーク",
+    "en": "🔢 Numeric fork"
+  },
+  "ui.label_numeric_result": {
+    "ja": "📈 数値結果",
+    "en": "📈 Numeric result"
+  },
+  "ui.label_plan": {
+    "ja": "🗂 プラン",
+    "en": "🗂 Plan"
+  },
+  "ui.plan_compare_btn": {
+    "ja": "🔀 Plan比較",
+    "en": "🔀 Plan comparison"
+  },
+  "ui.plan_compare_title": {
+    "ja": "🔀 Plan比較（同じワークフロー×違う分岐）",
+    "en": "🔀 Plan comparison (same workflow × different branches)"
+  },
+  "ui.plan_compare_empty": {
+    "ja": "比較可能なプラン実行はまだありません。",
+    "en": "No comparable plan executions yet."
+  },
+  "ui.plan_branch_compare_group": {
+    "ja": "プラン（ワークフロー・対象）",
+    "en": "Plan (workflow · target)"
+  },
+  "ui.plan_retry_btn": {
+    "ja": "🔁 再試行",
+    "en": "🔁 Retry"
+  },
+  "ui.plan_replan_btn": {
+    "ja": "🔄 別の方法で再計画",
+    "en": "🔄 Replan"
+  },
+  "ui.numeric_modal_title": {
+    "ja": "🔢 数値計算へフォーク",
+    "en": "🔢 Fork to numeric computation"
+  },
+  "ui.numeric_target_label": {
+    "ja": "対象量（変数名）",
+    "en": "Target quantity (variable name)"
+  },
+  "ui.numeric_sweep_label": {
+    "ja": "掃引する変数",
+    "en": "Sweep variable"
+  },
+  "ui.numeric_sweep_pick": {
+    "ja": "（選択）",
+    "en": "(choose)"
+  },
+  "ui.numeric_sweep_min": {
+    "ja": "最小",
+    "en": "Min"
+  },
+  "ui.numeric_sweep_max": {
+    "ja": "最大",
+    "en": "Max"
+  },
+  "ui.numeric_sweep_points": {
+    "ja": "点数",
+    "en": "Points"
+  },
+  "ui.numeric_fixed_label": {
+    "ja": "固定値",
+    "en": "Fixed values"
+  },
+  "ui.numeric_generate_btn": {
+    "ja": "コード生成",
+    "en": "Generate code"
+  },
+  "ui.numeric_run_btn": {
+    "ja": "▶ 実行",
+    "en": "▶ Run"
+  },
+  "ui.numeric_code_label": {
+    "ja": "生成コード（レビュー可）",
+    "en": "Generated code (reviewable)"
+  },
+  "ui.numeric_no_params": {
+    "ja": "この式には数値化できる自由変数がありません",
+    "en": "This expression has no numeric free variables"
+  },
+  "ui.numeric_pick_sweep": {
+    "ja": "掃引変数を選んでください",
+    "en": "Please choose a sweep variable"
+  },
+  "ui.numeric_generating": {
+    "ja": "生成中…",
+    "en": "Generating…"
+  },
+  "ui.numeric_running": {
+    "ja": "実行中…",
+    "en": "Running…"
+  },
+  "ui.numeric_timeout_label": {
+    "ja": "タイムアウト（秒）",
+    "en": "Timeout (seconds)"
+  },
+  "ui.numeric_timeout_note": {
+    "ja": "タイムアウトが発生した場合、後片付けのため数秒〜十数秒ほど余分に時間がかかることがあります。",
+    "en": "If the timeout is reached, cleanup may add a few extra seconds (up to around ten)."
+  },
+  "ui.numeric_fig_alt": {
+    "ja": "数値結果の図",
+    "en": "Numeric result plot"
+  },
+  "ui.op_numeric_chat": {
+    "ja": "💬 対話で仕様を確定",
+    "en": "💬 Set up via dialogue"
+  },
+  "ui.numeric_chat_title": {
+    "ja": "💬 対話で数値計算の仕様を確定",
+    "en": "💬 Set up the numeric spec via dialogue"
+  },
+  "ui.numeric_graph_btn": {
+    "ja": "🕸 数値グラフ",
+    "en": "🕸 Numeric graph"
+  },
+  "ui.numeric_graph_title": {
+    "ja": "🕸 数値計算グラフ（式 → タスク → 値の流れ）",
+    "en": "🕸 Numeric computation graph (expression → task → value flow)"
+  },
+  "ui.numeric_graph_empty": {
+    "ja": "数値計算タスクはまだありません。",
+    "en": "No numeric tasks yet."
+  },
+  "ui.numeric_graph_stale": {
+    "ja": "陳腐化",
+    "en": "stale"
+  },
+  "ui.numeric_graph_missing": {
+    "ja": "（削除済みの式）",
+    "en": "(deleted expression)"
+  },
+  "ui.numeric_branch_compare_title": {
+    "ja": "🔀 分岐比較（同じ計算×違う分岐）",
+    "en": "🔀 Branch comparison (same computation × different branches)"
+  },
+  "ui.numeric_branch_compare_group": {
+    "ja": "計算（種別・対象）",
+    "en": "Computation (kind · target)"
+  },
+  "ui.numeric_graph_legend": {
+    "ja": "実線=式の参照／紫=値の受け渡し（成果物）／破線=式差し戻し。橙枠=上流が変更され陳腐化。",
+    "en": "solid = source expression / purple = value handoff (artifact) / dashed = reflux. Orange border = stale (upstream changed)."
+  },
+  "ui.numeric_chat_goal_label": {
+    "ja": "何を計算したいですか",
+    "en": "What do you want to compute?"
+  },
+  "ui.numeric_chat_goal_placeholder": {
+    "ja": "例: 収束するまで解いて／2次元グラフが欲しい／行列を対角化して",
+    "en": "e.g. iterate until convergence / I want a 2-D plot / diagonalize the matrix"
+  },
+  "ui.numeric_chat_propose_btn": {
+    "ja": "提案してもらう",
+    "en": "Propose"
+  },
+  "ui.numeric_chat_refine_label": {
+    "ja": "修正の指示",
+    "en": "Correction"
+  },
+  "ui.numeric_chat_refine_placeholder": {
+    "ja": "例: k を掃引して／収束するまでに変えて",
+    "en": "e.g. sweep k instead / change to iterate until convergence"
+  },
+  "ui.numeric_chat_refine_btn": {
+    "ja": "この内容で修正",
+    "en": "Refine"
+  },
+  "ui.numeric_chat_approve_btn": {
+    "ja": "この仕様で承認してフォーク",
+    "en": "Approve this spec and fork"
+  },
+  "ui.numeric_chat_thinking": {
+    "ja": "考え中…",
+    "en": "Thinking…"
+  },
+  "ui.numeric_chat_spec_intent": {
+    "ja": "目的",
+    "en": "Intent"
+  },
+  "ui.numeric_chat_spec_inputs": {
+    "ja": "入力変数",
+    "en": "Inputs"
+  },
+  "ui.numeric_chat_spec_outputs": {
+    "ja": "出力",
+    "en": "Outputs"
+  },
+  "ui.numeric_chat_spec_method": {
+    "ja": "手法",
+    "en": "Method"
+  },
+  "ui.numeric_chat_diffcheck_btn": {
+    "ja": "差分検証",
+    "en": "Differential check"
+  },
+  "ui.numeric_chat_approve_code_btn": {
+    "ja": "コードを承認",
+    "en": "Approve code"
+  },
+  "ui.numeric_chat_code_approved": {
+    "ja": "承認済み",
+    "en": "Approved"
+  },
+  "ui.numeric_chat_diff_match": {
+    "ja": "✓ 決定的経路と一致",
+    "en": "✓ Matches the deterministic result"
+  },
+  "ui.numeric_chat_diff_mismatch": {
+    "ja": "✗ 決定的経路と不一致",
+    "en": "✗ Does not match the deterministic result"
+  },
+  "ui.op_scalar_handoff": {
+    "ja": "🔀 Maxima セッションへ渡す",
+    "en": "🔀 Hand to a Maxima session"
+  },
+  "ui.handoff_modal_title": {
+    "ja": "🔀 Maxima セッションへ渡す",
+    "en": "🔀 Hand to a Maxima session"
+  },
+  "ui.handoff_confirm": {
+    "ja": "渡す",
+    "en": "Hand off"
+  },
+  "ui.handoff_loading": {
+    "ja": "何を渡すか調べています…",
+    "en": "Working out what would cross…"
+  },
+  "ui.handoff_creating": {
+    "ja": "渡し先セッションを作成しています…",
+    "en": "Building the target session…"
+  },
+  "ui.handoff_carries": {
+    "ja": "宣言 {count} 件を一緒に渡します（符号も含む）:",
+    "en": "Carries {count} declaration(s), signs included:"
+  },
+  "ui.handoff_undeclared": {
+    "ja": "この式には宣言の無い記号があります: {names}（自由変数なら問題ありません）",
+    "en": "Undeclared symbols in this expression: {names} (fine if they are free variables)"
+  },
+  "ui.handoff_open": {
+    "ja": "作成したセッションを開く",
+    "en": "Open the new session"
+  },
+  "ui.hwpage_eraser": {
+    "ja": "🧽 消しゴム",
+    "en": "🧽 Eraser"
+  },
+  "ui.hwpage_pen": {
+    "ja": "✏️ ペン",
+    "en": "✏️ Pen"
+  },
+  "ui.hwpage_clear": {
+    "ja": "消去",
+    "en": "Clear"
+  },
+  "ui.hwpage_run": {
+    "ja": "認識",
+    "en": "Run"
+  },
+  "ui.hwpage_insert": {
+    "ja": "✓ 挿入",
+    "en": "✓ Insert"
+  },
+  "ui.hwpage_exit": {
+    "ja": "終了",
+    "en": "Exit"
+  },
+  "ui.hwpage_latex_editor": {
+    "ja": "LaTeX エディタ",
+    "en": "LaTeX Editor"
+  },
+  "ui.hwpage_typeset": {
+    "ja": "組版",
+    "en": "Typeset"
+  },
+  "ui.hwpage_add_notebook": {
+    "ja": "＋ ノートへ",
+    "en": "+ Notebook"
+  },
+  "ui.hwpage_latex_result": {
+    "ja": "LaTeX 結果",
+    "en": "LaTeX Result"
+  },
+  "ui.hwpage_size": {
+    "ja": "サイズ:",
+    "en": "Size:"
+  },
+  "ui.hwpage_edit_canvas": {
+    "ja": "✍️ キャンバスで編集",
+    "en": "✍️ Edit on Canvas"
+  },
+  "ui.hwpage_notebook": {
+    "ja": "ノート",
+    "en": "Notebook"
+  },
+  "ui.hwpage_clear_session": {
+    "ja": "セッションを消去",
+    "en": "Clear session"
+  },
+  "ui.hwpage_processing": {
+    "ja": "🧠 認識中…",
+    "en": "🧠 Processing…"
+  },
+  "ui.hwpage_error": {
+    "ja": "❌ エラー: {msg}",
+    "en": "❌ Error: {msg}"
+  },
+  "ui.hwpage_conn_error": {
+    "ja": "❌ 接続エラー",
+    "en": "❌ Connection Error"
+  },
+  "ui.hwpage_registering": {
+    "ja": "登録中…",
+    "en": "Registering…"
+  },
+  "ui.hwpage_select_engine": {
+    "ja": "⚠️ エンジンを選択",
+    "en": "⚠️ Select Engine"
+  },
+  "ui.hwpage_zoom_out_title": {
+    "ja": "表示を縮小",
+    "en": "Zoom out"
+  },
+  "ui.hwpage_zoom_reset_title": {
+    "ja": "表示倍率（クリックで等倍）",
+    "en": "Display scale (click for 100%)"
+  },
+  "ui.hwpage_zoom_in_title": {
+    "ja": "表示を拡大",
+    "en": "Zoom in"
+  },
+  "ui.hwpage_add_notebook_title": {
+    "ja": "ノートに式を登録する",
+    "en": "Register expression in Notebook"
+  },
+  "ui.expr_warnings_label": {
+    "ja": "確認",
+    "en": "Check"
+  }
+}

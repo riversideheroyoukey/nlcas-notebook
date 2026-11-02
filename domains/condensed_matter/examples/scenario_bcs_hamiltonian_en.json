@@ -1,0 +1,1688 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_d154cb42",
+    "title": "scenario_bcs_hamiltonian",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:57:07.193878Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_417fe5",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "H_BCS = \\xi (c^{\\dagger}(k,u) c(k,u) + c^{\\dagger}(-k,d) c(-k,d)) + \\Delta (c^{\\dagger}(k,u) c^{\\dagger}(-k,d) + c(-k,d) c(k,u))",
+      "canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_1a042d",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\frac{d c(k,u)}{d t} = - \\Delta \\mathit{i} {c}_{-k,d}^{\\dagger} - \\xi \\mathit{i} {c}_{ku}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-Deltai c†(Kd) - xii c(ku)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_b287b7",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "g(k,u) = u * c(k,u) - v * c^{\\dagger}(-k,d)",
+      "canonical": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_39e061",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "g(-k,d) = u * c(-k,d) + v * c^{\\dagger}(k,u)",
+      "canonical": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_fe00fb",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "g^{\\dagger}(k,u) = u * c^{\\dagger}(k,u) - v * c(-k,d)",
+      "canonical": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "created_by_step": "S27",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_a4a9ce",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "g^{\\dagger}(-k,d) = u * c^{\\dagger}(-k,d) + v * c(k,u)",
+      "canonical": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_feac1d",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "c_{k,u} = \\frac{g^{\\dagger}_{-k,d} \\cdot v + g_{k,u} \\cdot u}{u^{2} + v^{2}}",
+      "canonical": "(g'(-k,d)*v + g(k,u)*u) / (u^2 + v^2)",
+      "created_by_step": "S33",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(-k,d)*v + g(k,u)*u) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_805643",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "c_{-k,d} = \\frac{ - g^{\\dagger}_{k,u} \\cdot v + g_{-k,d} \\cdot u}{u^{2} + v^{2}}",
+      "canonical": "(-g'(k,u)*v + g(-k,d)*u) / (u^2 + v^2)",
+      "created_by_step": "S34",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(-g'(k,u)*v + g(-k,d)*u) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_958db0",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "c^{\\dagger}_{k,u} = \\frac{g^{\\dagger}_{k,u} \\cdot u + g_{-k,d} \\cdot v}{u^{2} + v^{2}}",
+      "canonical": "(g'(k,u)*u + g(-k,d)*v) / (u^2 + v^2)",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(k,u)*u + g(-k,d)*v) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_39e103",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "c^{\\dagger}_{-k,d} = \\frac{g^{\\dagger}_{-k,d} \\cdot u - g_{k,u} \\cdot v}{u^{2} + v^{2}}",
+      "canonical": "(g'(-k,d)*u - g(k,u)*v) / (u^2 + v^2)",
+      "created_by_step": "S36",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(-k,d)*u - g(k,u)*v) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_c50910",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "H_BCS = \\left(2 \\frac{v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}}\\right)  + \\left( - \\frac{u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\Delta \\left( \\frac{ - v^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{u^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} \\right)\\right) {g}_{-k,d}^{\\dagger} {g}_{ku}^{\\dagger} + \\left(\\frac{u^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\frac{v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\frac{2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}}\\right) {g}_{-k,d}^{\\dagger} {g}_{-k,d} + \\left(\\frac{u^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - 2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}}\\right) {g}_{ku}^{\\dagger} {g}_{ku} + \\left(2 \\frac{u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\Delta \\left( \\frac{ - v^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{u^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} \\right)\\right) {g}_{-k,d} {g}_{ku}",
+      "canonical": "_nb_E11",
+      "created_by_step": "S40",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(2(((v^2)*xi) / ((u^2 + v^2)^2)) + (2Delta*u*v) / ((u^2 + v^2)^2)) + (-((u*v*xi) / ((u^2 + v^2)^2)) + (-u*v*xi) / ((u^2 + v^2)^2) - Delta*((-(v^2)) / ((u^2 + v^2)^2) + (u^2) / ((u^2 + v^2)^2))) g†(Kd) g†(ku) + (((u^2)*xi) / ((u^2 + v^2)^2) - (((v^2)*xi) / ((u^2 + v^2)^2)) - ((2Delta*u*v) / ((u^2 + v^2)^2))) g†(Kd) g(Kd) + (((u^2)*xi) / ((u^2 + v^2)^2) + (-2Delta*u*v) / ((u^2 + v^2)^2) + (-(v^2)*xi) / ((u^2 + v^2)^2)) g†(ku) g(ku) + (2((u*v*xi) / ((u^2 + v^2)^2)) + Delta*((-(v^2)) / ((u^2 + v^2)^2) + (u^2) / ((u^2 + v^2)^2))) g(Kd) g(ku)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:57:08.048405Z",
+      "user_text": "Prepare the operators and parameters needed to build the BCS Hamiltonian. $c$ is the annihilation operator for an electron with momentum $k$ and spin $\\sigma$ ($u$ = up, $d$ = down). $g$ is the annihilation operator for the Bogoliubov quasiparticle introduced by the transformation below (declared as a generic fermion operator, separate from the electron, since it is not a named particle species). $u$ and $v$ are the coefficients of the Bogoliubov transformation (a condition such as $u^2+v^2=1$ is imposed later). $\\xi_k$ (xi) is the electron kinetic energy measured from the chemical potential, and $\\Delta$ (Delta) is the pair potential (the superconducting gap) that binds Cooper pairs.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:08.048629Z",
+      "user_text": "c as the annihilation operator for electron",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:08.050135Z",
+      "user_text": "c as the annihilation operator for electron",
+      "visible_action": "LLM interpretation: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c",
+        "_op_expr_display": "c",
+        "_particle_name": "electron",
+        "_particle_key": "electron",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:57:08.267842Z",
+      "user_text": null,
+      "visible_action": "define fermion operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops c; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:08.268149Z",
+      "user_text": "g as a fermion operator",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:08.268726Z",
+      "user_text": "g as a fermion operator",
+      "visible_action": "LLM interpretation: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "g",
+        "_op_expr_display": "g",
+        "_op_kind": "fermion"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:57:08.269760Z",
+      "user_text": null,
+      "visible_action": "define fermion operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "g"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops g; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:08.269906Z",
+      "user_text": "Define u, v as scalars",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:08.270646Z",
+      "user_text": "Define u, v as scalars",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "u",
+        "_all_names": [
+          "u",
+          "v"
+        ],
+        "_raw_names": [
+          "u",
+          "v"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:57:08.773671Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "u",
+        "registered_names": [
+          "u",
+          "v"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables u",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:08.774177Z",
+      "user_text": "Define xi, Delta as scalars",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:08.775052Z",
+      "user_text": "Define xi, Delta as scalars",
+      "visible_action": "LLM interpretation: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "xi",
+        "_all_names": [
+          "xi",
+          "Delta"
+        ],
+        "_raw_names": [
+          "xi",
+          "Delta"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:57:08.777644Z",
+      "user_text": null,
+      "visible_action": "define scalar parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "xi",
+        "registered_names": [
+          "xi",
+          "Delta"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables xi",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:57:08.777913Z",
+      "user_text": "Register the mean-field BCS Hamiltonian. The first term xi*(c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) is the electron kinetic energy; the second term Delta*(c'(k,u) c'(-k,d) + c(-k,d) c(k,u)) is the pair potential describing the creation and annihilation of Cooper pairs.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:08.777970Z",
+      "user_text": "H_BCS = xi * (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + Delta * (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:57:08.779512Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:57:08.779787Z",
+      "user_text": "Compute the Heisenberg equation of motion dc/dt = i[H, c] for c(k,u), to see how it is coupled to H_BCS.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:08.779826Z",
+      "user_text": "Heisenberg equation of E1 for c(k,u)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:08.780306Z",
+      "user_text": "Heisenberg equation of E1 for c(k,u)",
+      "visible_action": "LLM interpretation: heisenberg_equation",
+      "operation": "heisenberg_equation",
+      "operation_args": {
+        "operator": "c(k,u)",
+        "hamiltonian": "E1"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:11.492118Z",
+      "user_text": null,
+      "visible_action": "Heisenberg equation of motion [c(k,u)]",
+      "operation": "heisenberg_equation",
+      "operation_args": {
+        "operator": "c(k,u)",
+        "hamiltonian": "E1"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (_nb_eval_site_deltas(normal_form(heisenberg_eom(c(:k, :u), xi * (c'(:k, :u) * c(:k, :u) + c'(_QA.QuIndex(\"K\"), :d) * c(_QA.QuIndex(\"K\"), :d)) + Delta * (c'(:k, :u) * c'(_QA.QuIndex(\"K\"), :d) + c(_QA.QuIndex(\"K\"), :d) * c(:k, :u))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:11.493014Z",
+      "user_text": "Define the Bogoliubov transformation (the change of basis to quasiparticle operators) as all four components of the Nambu-spinor set of electron operators and their adjoints together (the dagger is not auto-generated, so the creation-operator equations are written out explicitly).",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:11.493072Z",
+      "user_text": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:11.493967Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:11.494178Z",
+      "user_text": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:11.494936Z",
+      "user_text": null,
+      "visible_action": "Register E4",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:11.495139Z",
+      "user_text": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:11.495894Z",
+      "user_text": null,
+      "visible_action": "Register E5",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:11.496103Z",
+      "user_text": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:11.496966Z",
+      "user_text": null,
+      "visible_action": "Register E6",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:11.497174Z",
+      "user_text": "Solve the four transformation equations just defined for the electron operators c(k,u), c(-k,d), c'(k,u), c'(-k,d) (the inverse transform), expressing them in terms of the quasiparticle operators g.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:11.497215Z",
+      "user_text": "Invert E3, E4, E5, E6 for c(k,u), c(-k,d), c'(k,u), c'(-k,d)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:16.578243Z",
+      "user_text": null,
+      "visible_action": "build inverse transform",
+      "operation": "build_inverse_transform",
+      "operation_args": {
+        "equations": "E3, E4, E5, E6",
+        "vars": "c(k,u), c(-k,d), c'(k,u), c'(-k,d)",
+        "new_basis": "g(k,u), g(-k,d), g'(k,u), g'(-k,d)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E7 = (let\n    @variables nbA_g_k_u nbA_g__k_d nbA_gD_k_u nbA_gD__k_d nbA_c_k_u nbA_c__k_d nbA_cD_k_u nbA_cD__k_d\n    _sols = Symbolics.simplify.(Symbolics.solve_for([nbA_g_k_u ~ u * nbA_c_k_u - v * nbA_cD__k_d, nbA_g__k_d ~ u * nbA_c__k_d + v * nbA_cD_k_u, nbA_gD_k_u ~ u * nbA_cD_k_u - v * nbA_c__k_d, nbA_gD__k_d ~ u * nbA_cD__k_d + v * nbA_c_k_u], [nbA_c_k_u, nbA_c__k_d, nbA_cD_k_u, nbA_cD__k_d]))\n    replace(join([\"c(k,u)\", \"c(-k,d)\", \"c'(k,u)\", \"c'(-k,d)\"] .* \" = \" .* string.(_sols), \", \"), \"nbA_g_k_u\" => \"g(k,u)\", \"nbA_c_k_u\" => \"c(k,u)\", \"nbA_cD__k_d\" => \"c'(-k,d)\", \"nbA_g__k_d\" => \"g(-k,d)\", \"nbA_c__k_d\" => \"c(-k,d)\", \"nbA_cD_k_u\" => \"c'(k,u)\", \"nbA_gD_k_u\" => \"g'(k,u)\", \"nbA_gD__k_d\" => \"g'(-k,d)\")\nend)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7",
+        "E8",
+        "E9",
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:16.579623Z",
+      "user_text": null,
+      "visible_action": "Register E7",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:16.580320Z",
+      "user_text": null,
+      "visible_action": "Register E8",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:16.580973Z",
+      "user_text": null,
+      "visible_action": "Register E9",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:16.581626Z",
+      "user_text": null,
+      "visible_action": "Register E10",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:16.581952Z",
+      "user_text": "Substitute the inverse-transform results into the BCS Hamiltonian to obtain it in terms of the quasiparticle operators g. Choosing u, v so that the coefficient of the pair-creation term vanishes (the Bogoliubov condition) brings the Hamiltonian to diagonal form, containing only the quasiparticle number operator g'g.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:16.582007Z",
+      "user_text": "In E1, substitute E7 for c(k,u) and E8 for c(-k,d)",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:16.582738Z",
+      "user_text": "In E1, substitute E7 for c(k,u) and E8 for c(-k,d)",
+      "visible_action": "LLM interpretation: operator_substitute",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E1",
+        "op_rules": [
+          {
+            "op_name": "c",
+            "formal_index": "k",
+            "spin_label": "u",
+            "rhs": "E7"
+          },
+          {
+            "op_name": "c",
+            "formal_index": "-k",
+            "spin_label": "d",
+            "rhs": "E8"
+          }
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:17.738560Z",
+      "user_text": null,
+      "visible_action": "operator substitution [E1]",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E1",
+        "op_rules": [
+          {
+            "op_name": "c",
+            "formal_index": "k",
+            "spin_label": "u",
+            "rhs": "E7"
+          },
+          {
+            "op_name": "c",
+            "formal_index": "-k",
+            "spin_label": "d",
+            "rhs": "E8"
+          }
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E11 = (_nb_eval_site_deltas(normal_form(xi * ((u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) + u * adjoint(g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")))) * (g'(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * v + g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * u) * (u^2 + v^2)^-1 + (u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * -1 + u * adjoint(g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")))) * (-g'(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * v + g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * u) * (u^2 + v^2)^-1) + Delta * ((u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) + u * adjoint(g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")))) * (u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * -1 + u * adjoint(g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")))) + (-g'(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * v + g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * u) * (u^2 + v^2)^-1 * (g'(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * v + g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * u) * (u^2 + v^2)^-1))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S40",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:57:07.193892Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "c": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "g": {
+      "quantity": {
+        "name": "g",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "u": {
+      "quantity": {
+        "name": "u",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "v": {
+      "quantity": {
+        "name": "v",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "xi": {
+      "quantity": {
+        "name": "xi",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Delta": {
+      "quantity": {
+        "name": "Delta",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H_BCS": {
+      "quantity": {
+        "name": "H_BCS",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E11",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "c'": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "g'": {
+      "quantity": {
+        "name": "g",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "c": [
+      -1,
+      1
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "H_BCS": "E11",
+    "\\frac{d c(k,u)}{d t}": "E2",
+    "((d*c(k,u))/(d*t))": "E2",
+    "g(k,u)": "E3",
+    "g(-k,d)": "E4",
+    "g^{\\dagger}(k,u)": "E5",
+    "g'(k,u)": "E5",
+    "g^{\\dagger}(-k,d)": "E6",
+    "g'(-k,d)": "E6",
+    "c(k,u)": "E7",
+    "c(-k,d)": "E8",
+    "c'(k,u)": "E9",
+    "c'(-k,d)": "E10"
+  },
+  "expr_counter": 11,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 40,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

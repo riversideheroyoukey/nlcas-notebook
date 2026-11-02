@@ -1,0 +1,305 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_coulomb\_gauge}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Declare the scalar potential $\phi$ (depending on space $x,y,z$ and time $t$) and the vector potential $\mathbf A$ (components $A_x,A_y,A_z$, also time-dependent). The electric field $\mathbf E$ and magnetic field $\mathbf B$ are built from these two.
+
+phi as a time-dependent scalar field
+
+\[
+  \phi
+\]
+
+A as a vector field
+
+\[
+  A
+\]
+
+Define $A_x$ as a time-dependent function
+
+$\checkmark$ Declared A\_x as time-dependent (time variable: t)
+
+Define $A_y$ as a time-dependent function
+
+$\checkmark$ Declared A\_y as time-dependent (time variable: t)
+
+Define $A_z$ as a time-dependent function
+
+$\checkmark$ Declared A\_z as time-dependent (time variable: t)
+
+For use later in derivative calculations, give the values of $\phi,A_x,A_y,A_z$ the aliases phi0, Ax0, Ay0, Az0 and register them as expressions.
+
+$\phi_{0} = \phi$
+
+\begin{equation}
+  \phi_{0} = \phi
+  \label{eq:E1}
+\end{equation}
+
+$Ax0 = A_x$
+
+\begin{equation}
+  Ax0 = A_x
+  \label{eq:E2}
+\end{equation}
+
+$Ay0 = A_y$
+
+\begin{equation}
+  Ay0 = A_y
+  \label{eq:E3}
+\end{equation}
+
+$Az0 = A_z$
+
+\begin{equation}
+  Az0 = A_z
+  \label{eq:E4}
+\end{equation}
+
+For the first term $\nabla\phi$ of the electric-field definition $\mathbf E=-\nabla\phi-\partial\mathbf A/\partial t$, take the spatial partial derivatives $\partial\phi/\partial x,\partial\phi/\partial y,\partial\phi/\partial z$.
+
+Take the partial derivative of E1 with respect to x
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial x} = \frac{d}{d x} \phi
+  \label{eq:E5}
+\end{equation}
+
+Take the partial derivative of E1 with respect to y
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial y} = \frac{d}{d y} \phi
+  \label{eq:E6}
+\end{equation}
+
+Take the partial derivative of E1 with respect to z
+
+\begin{equation}
+  \frac{\partial \phi_{0}}{\partial z} = \frac{d}{d z} \phi
+  \label{eq:E7}
+\end{equation}
+
+For the second term $\partial\mathbf A/\partial t$ of the electric-field definition, take the time derivative of each component of $\mathbf A$: $\partial A_x/\partial t,\partial A_y/\partial t,\partial A_z/\partial t$.
+
+Take the partial derivative of E2 with respect to t
+
+\begin{equation}
+  \frac{\partial Ax0}{\partial t} = \frac{d}{d t} A_{x}
+  \label{eq:E8}
+\end{equation}
+
+Take the partial derivative of E3 with respect to t
+
+\begin{equation}
+  \frac{\partial Ay0}{\partial t} = \frac{d}{d t} A_{y}
+  \label{eq:E9}
+\end{equation}
+
+Take the partial derivative of E4 with respect to t
+
+\begin{equation}
+  \frac{\partial Az0}{\partial t} = \frac{d}{d t} A_{z}
+  \label{eq:E10}
+\end{equation}
+
+Combine the derivatives just computed to assemble each component of the electric field $\mathbf E=-\nabla\phi-\partial\mathbf A/\partial t$.
+
+$E_x = -E5 - E8$
+
+\begin{equation}
+  E_x = -\left(\frac{d}{d x} \phi\right)-\frac{d}{d t} A_{x}
+  \label{eq:E11}
+\end{equation}
+
+$E_y = -E6 - E9$
+
+\begin{equation}
+  E_y = -\left(\frac{d}{d y} \phi\right)-\frac{d}{d t} A_{y}
+  \label{eq:E12}
+\end{equation}
+
+$E_z = -E7 - E10$
+
+\begin{equation}
+  E_z = -\left(\frac{d}{d z} \phi\right)-\frac{d}{d t} A_{z}
+  \label{eq:E13}
+\end{equation}
+
+Obtain the magnetic field $\mathbf B=\nabla\times\mathbf A$ in a single step by applying the $\nabla\times$ operator directly to $\mathbf A$ (all three components are returned together).
+
+$\nabla \times A$
+
+\begin{equation}
+  \left[ \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y} , \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z} , \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x} \right]
+  \label{eq:E14}
+\end{equation}
+
+B as a vector field
+
+\[
+  B
+\]
+
+Bind the three components of the curl result to the $x,y,z$ components of the vector field $\mathbf B$.
+
+$B_x = E14[1]$
+
+\begin{equation}
+  B_x = \frac{d}{d y} A_{z}-\frac{d}{d z} A_{y}
+  \label{eq:E15}
+\end{equation}
+
+$B_y = E14[2]$
+
+\begin{equation}
+  B_y = \frac{d}{d z} A_{x}-\frac{d}{d x} A_{z}
+  \label{eq:E16}
+\end{equation}
+
+$B_z = E14[3]$
+
+\begin{equation}
+  B_z = \frac{d}{d x} A_{y}-\frac{d}{d y} A_{x}
+  \label{eq:E17}
+\end{equation}
+
+Check the identity $\nabla\cdot\mathbf B=0$ (no magnetic charge), which must always hold since $\mathbf B=\nabla\times\mathbf A$, by computing the divergence of $\mathbf B$.
+
+$\nabla \cdot B$
+
+\begin{equation}
+  0
+  \label{eq:E18}
+\end{equation}
+
+To check the Coulomb-gauge condition $\nabla\cdot\mathbf A=0$, first compute the divergence of $\mathbf A$.
+
+$\nabla \cdot A$
+
+\begin{equation}
+  \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E19}
+\end{equation}
+
+Give this divergence the name gauge.
+
+$gauge = E19$
+
+\begin{equation}
+  gauge = \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x}
+  \label{eq:E20}
+\end{equation}
+
+The Coulomb gauge imposes the condition $\nabla\cdot\mathbf A=0$. Fix this as an equation by setting the value of gauge to 0.
+
+Set the right-hand side of E20 to 0
+
+\begin{equation}
+  \frac{d}{d z} A_{z}+\frac{d}{d y} A_{y}+\frac{d}{d x} A_{x} = 0
+  \label{eq:E21}
+\end{equation}
+
+To solve the gauge condition later, prepare the spatial derivative $\partial A_z/\partial z$ separately and give it a name.
+
+Take the partial derivative of Az0 with respect to z
+
+\begin{equation}
+  \frac{\partial Az0}{\partial z} = \frac{d}{d z} A_{z}
+  \label{eq:E22}
+\end{equation}
+
+$Az_z = E22$
+
+\begin{equation}
+  Az_z = \frac{d}{d z} A_{z}
+  \label{eq:E23}
+\end{equation}
+
+Solve the gauge-condition equation for $\partial A_z/\partial z$, expressing it in terms of $\partial A_x/\partial x$ and $\partial A_y/\partial y$.
+
+Solve E21 for $Az_z$
+
+\begin{equation}
+  \frac{d}{d z} A_{z} = -\left(\frac{d}{d y} A_{y}\right)-\frac{d}{d x} A_{x}
+  \label{eq:E24}
+\end{equation}
+
+To assemble the divergence $\nabla\cdot\mathbf E$, take the partial derivative of each component of $\mathbf E$ with respect to the corresponding coordinate.
+
+Take the partial derivative of E11 with respect to x
+
+\begin{equation}
+  \frac{\partial E_x}{\partial x} = -\left(\frac{d^2}{d x^2} \phi\right)-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E25}
+\end{equation}
+
+Take the partial derivative of E12 with respect to y
+
+\begin{equation}
+  \frac{\partial E_y}{\partial y} = -\left(\frac{d^2}{d y^2} \phi\right)-\frac{d^2}{d t d y} A_{y}
+  \label{eq:E26}
+\end{equation}
+
+Take the partial derivative of E13 with respect to z
+
+\begin{equation}
+  \frac{\partial E_z}{\partial z} = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d t d z} A_{z}
+  \label{eq:E27}
+\end{equation}
+
+Assemble the divergence of the electric field $\nabla\cdot\mathbf E$ as the sum of the three partial derivatives above.
+
+$divE = E25 + E26 + E27$
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi-\frac{d^2}{d t d z} A_{z}-\frac{d^2}{d t d y} A_{y}-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E28}
+\end{equation}
+
+Simplify the assembled expression for $\nabla\cdot\mathbf E$.
+
+Simplify the right-hand side of E28
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi-\frac{d^2}{d t d z} A_{z}-\frac{d^2}{d t d y} A_{y}-\frac{d^2}{d t d x} A_{x}
+  \label{eq:E29}
+\end{equation}
+
+Compute the time derivative of the gauge condition $\nabla\cdot\mathbf A=0$, to confirm that it must be identically zero.
+
+Take the partial derivative of gauge with respect to t
+
+\begin{equation}
+  \frac{\partial gauge}{\partial t} = \frac{d^2}{d t d z} A_{z}+\frac{d^2}{d t d y} A_{y}+\frac{d^2}{d t d x} A_{x}
+  \label{eq:E30}
+\end{equation}
+
+Fix this time derivative's value as an equation set to 0.
+
+Set the right-hand side of E30 to 0
+
+\begin{equation}
+  \frac{d^2}{d t d z} A_{z}+\frac{d^2}{d t d y} A_{y}+\frac{d^2}{d t d x} A_{x} = 0
+  \label{eq:E31}
+\end{equation}
+
+Substituting the gauge condition's time derivative = 0 into the expanded $\nabla\cdot\mathbf E$ cancels the corresponding three terms, giving $\nabla\cdot\mathbf E=-\nabla^2\phi$ (the Poisson equation).
+
+Substitute E31 into E29
+
+\begin{equation}
+  divE = -\left(\frac{d^2}{d z^2} \phi\right)-\frac{d^2}{d y^2} \phi-\frac{d^2}{d x^2} \phi
+  \label{eq:E32}
+\end{equation}
+
+\end{document}

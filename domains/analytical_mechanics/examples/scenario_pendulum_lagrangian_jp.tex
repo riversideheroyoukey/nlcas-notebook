@@ -1,0 +1,89 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_pendulum\_lagrangian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+単振り子（振り子長 $l$、角度 $q$、質量 $m$）を扱う。$q$ は時間に依存する角度、$m,l,g$（重力加速度）はスカラーパラメータとして準備する。
+
+q を時間依存関数として定義する
+
+$\checkmark$ q を時間依存として宣言しました（時間変数: t）
+
+m と l と g をスカラーとして定義する
+
+\[
+  m, l, g
+\]
+
+単振り子のラグランジアン $L=\frac12ml^2\dot q^2-mgl(1-\cos q)$（運動エネルギーとポテンシャルエネルギーの差）を定義する。
+
+$L = (1/2) m l^2 \dot{q}^2 - m g l (1 - cos(q))$
+
+\begin{equation}
+  L = (1/2) m l^2 \dot{q}^2 - m g l (1 - \cos(q))
+  \label{eq:E1}
+\end{equation}
+
+オイラー・ラグランジュ方程式 $\frac{d}{dt}\frac{\partial L}{\partial\dot q}-\frac{\partial L}{\partial q}=0$ に従い、まず一般化運動量 $\partial L/\partial\dot q$ を求める。
+
+E1 を $\dot{q}$ で偏微分して
+
+\begin{equation}
+  \frac{\partial L}{\partial \dot{q}} = m l^2 \dot{q}
+  \label{eq:E2}
+\end{equation}
+
+求めた一般化運動量を時間で全微分し、$\frac{d}{dt}(\partial L/\partial\dot q)$ を求める。
+
+E2 を t で全微分して
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right) = m l^2 \ddot{q}
+  \label{eq:E3}
+\end{equation}
+
+オイラー・ラグランジュ方程式のもう一方の項 $\partial L/\partial q$ を求める。
+
+E1 を q で偏微分して
+
+\begin{equation}
+  \frac{\partial L}{\partial q} = -m g l \sin q
+  \label{eq:E4}
+\end{equation}
+
+$\frac{d}{dt}(\partial L/\partial\dot q)$ から $\partial L/\partial q$ を引き、運動方程式を組み立てる。
+
+$EOM = E3 - E4$
+
+\begin{equation}
+  EOM = m l^2 \ddot{q}+m g l \sin q
+  \label{eq:E5}
+\end{equation}
+
+両辺を $ml^2$ で割り、係数を落として単振動の形に近づける。
+
+E5 の両辺を m $l^2$ で割って
+
+\begin{equation}
+  \frac{EOM}{m l^2} = \frac{l \ddot{q}+g \sin q}{l}
+  \label{eq:E6}
+\end{equation}
+
+小角近似 $\sin q\approx q$ を適用し、単振動の方程式 $\ddot q+\omega^2q=0$（$\omega=\sqrt{g/l}$）に帰着させる。
+
+E6 の sin(q) を q で置き換えて
+
+\begin{equation}
+  \frac{EOM}{m l^2} = \frac{l \ddot{q}+g q}{l}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

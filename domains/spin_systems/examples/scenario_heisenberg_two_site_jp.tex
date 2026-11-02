@@ -1,0 +1,103 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_heisenberg\_two\_site}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+2サイトのスピン-1/2 ハイゼンベルクモデルを扱う。結合定数 $J$（$J>0$ は反強磁性結合、$J<0$ は強磁性結合）と、両サイトで使うスピン演算子 $S$ を準備する。
+
+J を実数パラメータとして定義して
+
+\[
+  J
+\]
+
+S をスピン演算子として定義して
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+昇降演算子 $S^\pm=S^x\pm iS^y$ を、サイト1・2それぞれについて既存の $S^x,S^y$ の一次結合として明示的に定義する。
+
+$Sp_1 = Sx_1 + i Sy_1$
+
+\begin{equation}
+  Sp_1 = Sx_1 + i Sy_1
+  \label{eq:E1}
+\end{equation}
+
+$Sm_1 = Sx_1 - i Sy_1$
+
+\begin{equation}
+  Sm_1 = Sx_1 - i Sy_1
+  \label{eq:E2}
+\end{equation}
+
+$Sp_2 = Sx_2 + i Sy_2$
+
+\begin{equation}
+  Sp_2 = Sx_2 + i Sy_2
+  \label{eq:E3}
+\end{equation}
+
+$Sm_2 = Sx_2 - i Sy_2$
+
+\begin{equation}
+  Sm_2 = Sx_2 - i Sy_2
+  \label{eq:E4}
+\end{equation}
+
+ハイゼンベルクハミルトニアン $H=J\mathbf S_1\cdot\mathbf S_2=JS_1^zS_2^z+\frac{J}{4}(S_1^xS_2^x+S_1^yS_2^y)$ を登録する（第2項は $S^x,S^y$ で表した $S_1^+S_2^-+S_1^-S_2^+$ に相当する）。
+
+$H = J Sz_1 Sz_2 + J/4 (Sx_1 Sx_2 + Sy_1 Sy_2)$
+
+\begin{equation}
+  H = J Sz_1 Sz_2 + J/4 (Sx_1 Sx_2 + Sy_1 Sy_2)
+  \label{eq:E5}
+\end{equation}
+
+全 $z$ 方向スピン $S_z^{\rm tot}=S_1^z+S_2^z$ を登録する。
+
+$Sztot = Sz_1 + Sz_2$
+
+\begin{equation}
+  Sztot = Sz_1 + Sz_2
+  \label{eq:E6}
+\end{equation}
+
+ハミルトニアン $H$ と全スピン $S_z^{\rm tot}$ の交換子を、それぞれ先ほど付けた名前で参照して計算する（ブラケット記法は E番号と同じ仕組みで名前付きシンボルも解決する）。ゼロになれば、全 $z$ 方向スピンは保存量である（SU(2) 対称性に由来）。
+
+[H, Sztot]
+
+\begin{equation}
+  0
+  \label{eq:E7}
+\end{equation}
+
+個々のサイトのスピンは必ずしも保存しない。サイト1の $S^z$ に対するハイゼンベルク方程式（運動方程式）を求め、非ゼロの結合項が現れることを確認する。
+
+$Sz_1$ の Heisenberg 方程式 E5
+
+\begin{equation}
+  \frac{d Sz_1}{d t} = - \frac{1}{2} J Sx_1 Sy_2 + \frac{1}{2} J Sx_2 Sy_1
+  \label{eq:E8}
+\end{equation}
+
+同様に、サイト1の $S^x$ に対するハイゼンベルク方程式を求める。
+
+$Sx_1$ の Heisenberg 方程式 E5
+
+\begin{equation}
+  \frac{d Sx_1}{d t} = - 2 J Sy_1 Sz_2 + \frac{1}{2} J Sy_2 Sz_1
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

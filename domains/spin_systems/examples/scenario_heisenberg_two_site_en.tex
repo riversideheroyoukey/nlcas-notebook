@@ -1,0 +1,102 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_heisenberg\_two\_site}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the two-site spin-1/2 Heisenberg model. Prepare the coupling constant $J$ ($J>0$ is antiferromagnetic coupling, $J<0$ is ferromagnetic coupling) and the spin operator $S$ used on both sites.
+
+Define J as a real parameter
+
+\[
+  J
+\]
+
+S as the spin operator
+
+\[
+  S, S^{x}, S^{y}, S^{z}
+\]
+
+Explicitly define the ladder operators $S^\pm=S^x\pm iS^y$ on sites 1 and 2 as linear combinations of the existing $S^x,S^y$.
+
+$Sp_1 = Sx_1 + i Sy_1$
+
+\begin{equation}
+  Sp_1 = Sx_1 + i Sy_1
+  \label{eq:E1}
+\end{equation}
+
+$Sm_1 = Sx_1 - i Sy_1$
+
+\begin{equation}
+  Sm_1 = Sx_1 - i Sy_1
+  \label{eq:E2}
+\end{equation}
+
+$Sp_2 = Sx_2 + i Sy_2$
+
+\begin{equation}
+  Sp_2 = Sx_2 + i Sy_2
+  \label{eq:E3}
+\end{equation}
+
+$Sm_2 = Sx_2 - i Sy_2$
+
+\begin{equation}
+  Sm_2 = Sx_2 - i Sy_2
+  \label{eq:E4}
+\end{equation}
+
+Register the Heisenberg Hamiltonian $H=J\mathbf S_1\cdot\mathbf S_2=JS_1^zS_2^z+\frac{J}{4}(S_1^xS_2^x+S_1^yS_2^y)$ (the second term is the $S^x,S^y$ form of $S_1^+S_2^-+S_1^-S_2^+$).
+
+$H = J Sz_1 Sz_2 + J/4 (Sx_1 Sx_2 + Sy_1 Sy_2)$
+
+\begin{equation}
+  H = J Sz_1 Sz_2 + J/4 (Sx_1 Sx_2 + Sy_1 Sy_2)
+  \label{eq:E5}
+\end{equation}
+
+Register the total $z$-spin $S_z^{\rm tot}=S_1^z+S_2^z$.
+
+$Sztot = Sz_1 + Sz_2$
+
+\begin{equation}
+  Sztot = Sz_1 + Sz_2
+  \label{eq:E6}
+\end{equation}
+
+Compute the commutator of the Hamiltonian $H$ and the total spin $S_z^{\rm tot}$, referencing both by the names just given them (the bracket notation resolves named symbols the same way it resolves E-ids). If it vanishes, the total $z$-spin is a conserved quantity (a consequence of SU(2) symmetry).
+
+[H, Sztot]
+
+\begin{equation}
+  0
+  \label{eq:E7}
+\end{equation}
+
+Individual site spins need not be conserved. Compute the Heisenberg equation of motion for $S^z$ on site 1 and check that a nonzero coupling term appears.
+
+Heisenberg equation of E5 for $Sz_1$
+
+\begin{equation}
+  \frac{d Sz_1}{d t} = - \frac{1}{2} J Sx_1 Sy_2 + \frac{1}{2} J Sx_2 Sy_1
+  \label{eq:E8}
+\end{equation}
+
+Likewise, compute the Heisenberg equation of motion for $S^x$ on site 1.
+
+Heisenberg equation of E5 for $Sx_1$
+
+\begin{equation}
+  \frac{d Sx_1}{d t} = - 2 J Sy_1 Sz_2 + \frac{1}{2} J Sy_2 Sz_1
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

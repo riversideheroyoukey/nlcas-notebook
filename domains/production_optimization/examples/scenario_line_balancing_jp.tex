@@ -1,0 +1,77 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_line\_balancing}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+全作業要素の所要時間の総和 $T$ とサイクルタイム（1工程あたりの許容時間）$c$ から、必要な最小工程数 $n=\lceil T/c\rceil$（天井関数、$T/c$ 未満では作れないため切り上げ）を定義する。
+
+$n = ceiling(T / c)$
+
+\begin{equation}
+  n = ceiling(T / c)
+  \label{eq:E1}
+\end{equation}
+
+ライン効率 $\eta=T/(nc)$（理想的な総稼働時間 $T$ に対する実際の総稼働可能時間 $nc$ の比）を定義する。
+
+$\eta = T / (n c)$
+
+\begin{equation}
+  \eta = T / (n c)
+  \label{eq:E2}
+\end{equation}
+
+具体例として総作業時間 $T=88$ を工程数の式に代入する。
+
+E1 の T に 88 を代入して
+
+\begin{equation}
+  n = \left \lceil \frac{88}{c} \right \rceil
+  \label{eq:E3}
+\end{equation}
+
+サイクルタイム $c=15$ も代入し、最小工程数 $n$ を数値として確定する。
+
+E3 の c に 15 を代入して
+
+\begin{equation}
+  n = 6
+  \label{eq:E4}
+\end{equation}
+
+同じ総作業時間 $T=88$ を、今度は効率の式へ代入する。
+
+E2 の T に 88 を代入して
+
+\begin{equation}
+  \eta = \frac{88}{\left \lceil \frac{88}{c} \right \rceil c}
+  \label{eq:E5}
+\end{equation}
+
+同じサイクルタイム $c=15$ を代入し、ライン効率 $\eta$ を数値として確定する。
+
+E5 の c に 15 を代入して
+
+\begin{equation}
+  \eta = \frac{44}{45}
+  \label{eq:E6}
+\end{equation}
+
+バランス遅れ（アイドル率）$d=1-\eta$ を、ステップ6で確定した $\eta$ の値を直接埋め込んで計算する。
+
+$d = 1 - E6$
+
+\begin{equation}
+  d = \frac{1}{45}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

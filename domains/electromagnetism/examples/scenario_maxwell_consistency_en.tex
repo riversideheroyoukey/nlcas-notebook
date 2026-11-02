@@ -1,0 +1,179 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_maxwell\_consistency}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider the electromagnetic field. Prepare the electric field $\mathbf E$ and magnetic field $\mathbf B$ as vector fields (components registered abstractly, to be assigned concrete expressions next).
+
+E as a vector field
+
+\[
+  E
+\]
+
+B as a vector field
+
+\[
+  B
+\]
+
+Assign the components of the electric field for a linearly polarized plane wave traveling in the $+x$ direction (amplitude 1, wavevector $k$, angular frequency $\omega$).
+
+$E_x = 0$
+
+\begin{equation}
+  E_x = 0
+  \label{eq:E1}
+\end{equation}
+
+$E_y = cos(k x - w t)$
+
+\begin{equation}
+  E_y = \cos(k x - w t)
+  \label{eq:E2}
+\end{equation}
+
+$E_z = 0$
+
+\begin{equation}
+  E_z = 0
+  \label{eq:E3}
+\end{equation}
+
+Assign the corresponding components of the magnetic field.
+
+$B_x = 0$
+
+\begin{equation}
+  B_x = 0
+  \label{eq:E4}
+\end{equation}
+
+$B_y = 0$
+
+\begin{equation}
+  B_y = 0
+  \label{eq:E5}
+\end{equation}
+
+$B_z = cos(k x - w t)/c$
+
+\begin{equation}
+  B_z = \cos(k x - w t)/c
+  \label{eq:E6}
+\end{equation}
+
+Compute the divergence of the electric field $\nabla\cdot\mathbf E$. In vacuum (no charge), this should vanish identically (Gauss's law).
+
+$\nabla \cdot E$
+
+\begin{equation}
+  0
+  \label{eq:E7}
+\end{equation}
+
+Compute the divergence of the magnetic field $\nabla\cdot\mathbf B$. Since no magnetic charge exists, this should vanish identically.
+
+$\nabla \cdot B$
+
+\begin{equation}
+  0
+  \label{eq:E8}
+\end{equation}
+
+Compute the curl of the electric field $\nabla\times\mathbf E$ (the left-hand side of Faraday's law).
+
+$\nabla \times E$
+
+\begin{equation}
+  \left[ 0 , 0 , -\left(k \sin \left(k x-t w\right)\right) \right]
+  \label{eq:E9}
+\end{equation}
+
+Compute the curl of the magnetic field $\nabla\times\mathbf B$ (the left-hand side of Ampere's law).
+
+$\nabla \times B$
+
+\begin{equation}
+  \left[ 0 , \frac{k \sin \left(k x-t w\right)}{c} , 0 \right]
+  \label{eq:E10}
+\end{equation}
+
+Since $\partial/\partial t$ cannot act directly on a vector field, take the time derivative component by component. Here, take the partial derivative of the nonzero component $B_z$ with respect to $t$.
+
+Take the partial derivative of $B_z$ with respect to t
+
+\begin{equation}
+  \frac{\partial}{\partial t} B_z(x,y,z) = \frac{w \sin \left(k x-t w\right)}{c}
+  \label{eq:E11}
+\end{equation}
+
+Assemble the derivative just found into a new vector field, which we name `dBdt` — a plain identifier chosen here to stand for $d\mathbf B/dt$ (it is not a CAS keyword or special syntax; any other name would work identically), assigning each component in turn.
+
+dBdt as a vector field
+
+\[
+  dBdt
+\]
+
+$dBdt_x = 0$
+
+\begin{equation}
+  dBdt_x = 0
+  \label{eq:E12}
+\end{equation}
+
+$dBdt_y = 0$
+
+\begin{equation}
+  dBdt_y = 0
+  \label{eq:E13}
+\end{equation}
+
+$dBdt_z = w sin(k x - w t)/c$
+
+\begin{equation}
+  dBdt_z = w \sin(k x - w t)/c
+  \label{eq:E14}
+\end{equation}
+
+Confirm that the assembled $d\mathbf B/dt$ can be used in further calculations (such as a divergence) by computing its divergence.
+
+$\nabla \cdot dBdt$
+
+\begin{equation}
+  0
+  \label{eq:E15}
+\end{equation}
+
+Register the $z$-components of Faraday's law $\nabla\times\mathbf E=-\partial\mathbf B/\partial t$ as an equality (comparing the $z$-component of each side).
+
+$-k sin(k x - w t) = -w sin(k x - w t)/c$
+
+\begin{equation}
+  -k \sin(k x - w t) = -w \sin(k x - w t)/c
+  \label{eq:E16}
+\end{equation}
+
+Solve this equality for the angular frequency $\omega$ to obtain the consistency condition (dispersion relation) $\omega=ck$.
+
+Solve E16 for w
+
+\begin{equation}
+  w = \frac{k x}{t}
+  \label{eq:E17}
+\end{equation}
+
+\begin{equation}
+  w = c k
+  \label{eq:E18}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,358 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_greens\_function\_from\_hamiltonian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Start from the spin-dependent field operators. The hat is a decoration of the NAME: $\hat\psi$ is a different quantity from $\psi$, which is exactly why physics writes it that way.
+
+$\hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E1}
+\end{equation}
+
+$\hat\psi^\dagger_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat\psi^\dagger_\sigma(\mathbf{r})
+  \label{eq:E2}
+\end{equation}
+
+The equal-time anticommutator. The two deltas on the right are DIFFERENT: the spin one is Kronecker, the position one is Dirac. A subscript against an argument list tells them apart — physics writes them apart, so no guess is needed.
+
+$\{\hat\psi_\sigma(\mathbf{r}), \hat\psi^\dagger_{\sigma'}(\mathbf{r}')\} = \delta_{\sigma\sigma'}\delta(\mathbf{r}-\mathbf{r}')$
+
+\begin{equation}
+  \{\hat\psi_\sigma(\mathbf{r}), \hat\psi^\dagger_{\sigma'}(\mathbf{r}')\} = \delta_{\sigma\sigma'}\delta(\mathbf{r}-\mathbf{r}')
+  \label{eq:E3}
+\end{equation}
+
+Declare that the 0 in $\hat H_0$ is PART OF THE NAME. Undeclared, a subscript is read as a component index (this notebook's rule), and a computed result would come back as $\hat H(0)$. A declaration is the discriminator for most of the readings in this system.
+
+declare $\hat H_0$ as a scalar
+
+\[
+  \hat{H}_{0}
+\]
+
+The one-body term. $\hat T$ is kinetic energy plus external field as one operator. $\int d^3r$ is a volume measure, not a one-variable integral.
+
+$\hat H_0 = \int d^3r\, \hat\psi^\dagger_\sigma(\mathbf{r}) \hat T(\mathbf{r}) \hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat H_0 = \int d^3r\, \hat\psi^\dagger_\sigma(\mathbf{r}) \hat T(\mathbf{r}) \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E4}
+\end{equation}
+
+The two-body term — six dimensions, and $\mathbf r$ and $\mathbf r'$ are DIFFERENT points. While the prime was being dropped, $v(\mathbf r-\mathbf r')$ was reaching the CAS as $v(0)$.
+
+$\hat V = \frac{1}{2}\int d^3r \int d^3r' \hat\psi^\dagger_\sigma(\mathbf{r}) \hat\psi^\dagger_{\sigma'}(\mathbf{r}') v(\mathbf{r}-\mathbf{r}') \hat\psi_{\sigma'}(\mathbf{r}') \hat\psi_\sigma(\mathbf{r})$
+
+\begin{equation}
+  \hat V = \frac{1}{2}\int d^3r \int d^3r' \hat\psi^\dagger_\sigma(\mathbf{r}) \hat\psi^\dagger_{\sigma'}(\mathbf{r}') v(\mathbf{r}-\mathbf{r}') \hat\psi_{\sigma'}(\mathbf{r}') \hat\psi_\sigma(\mathbf{r})
+  \label{eq:E5}
+\end{equation}
+
+The spin-dependent orthonormal set. Orthonormality is an integral over all space and the basis is arbitrary, so it is NOT something to evaluate — the integral is the condition.
+
+$\int d^3r\, \varphi^{\ast}_{n\sigma}(\mathbf{r}) \varphi_{m\sigma'}(\mathbf{r}) = \delta_{nm}\delta_{\sigma\sigma'}$
+
+\begin{equation}
+  \int d^3r\, \varphi^{\ast}_{n\sigma}(\mathbf{r}) \varphi_{m\sigma'}(\mathbf{r}) = \delta_{nm}\delta_{\sigma\sigma'}
+  \label{eq:E6}
+\end{equation}
+
+Open it into components: an iterated Cartesian integral over all space.
+
+expand into components
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{m,\sigma'}(r_{x}, r_{y}, r_{z}) \varphi^{\ast}_{n,\sigma}(r_{x}, r_{y}, r_{z})\;dr_{z}}\;dr_{y}}\;dr_{x}}=\delta_{m, n}  \delta_{\sigma, \sigma'}
+  \label{eq:E7}
+\end{equation}
+
+Completeness. The right-hand side is the Dirac delta; the sum on the left runs over BOTH mode and spin.
+
+$\sum_{n\sigma} \varphi_{n\sigma}(\mathbf{r}) \varphi^{\ast}_{n\sigma}(\mathbf{r}') = \delta(\mathbf{r}-\mathbf{r}')$
+
+\begin{equation}
+  \sum_{n\sigma} \varphi_{n\sigma}(\mathbf{r}) \varphi^{\ast}_{n\sigma}(\mathbf{r}') = \delta(\mathbf{r}-\mathbf{r}')
+  \label{eq:E8}
+\end{equation}
+
+Expand the field operators in that set. From here the algebra splits into scalar coefficients and the operators $\hat c_{n\sigma}$.
+
+$\hat\psi_\sigma(\mathbf{r}) = \sum_n \varphi_{n\sigma}(\mathbf{r}) \hat c_{n\sigma}$
+
+\begin{equation}
+  \hat\psi_\sigma(\mathbf{r}) = \sum_n \varphi_{n\sigma}(\mathbf{r}) \hat c_{n\sigma}
+  \label{eq:E9}
+\end{equation}
+
+\textbf{The computation starts here.} Put the expansion (E9) into $\hat H$ and write \textbf{the Hamiltonian in the new basis}. The one-body term first: the matrix element $T_{n\sigma,m\sigma}$ is an all-space integral of the same shape as E6, and is not something to evaluate. The operator PAIR $\hat c^\dagger_{n\sigma}\hat c_{m\sigma}$ is carried as ONE name — Maxima has no operator algebra, so it is never asked to order a product (the operator algebra itself is done in the sister scenario's Julia session).
+
+$\hat\rho_{n\sigma,m\sigma} = \hat c^\dagger_{n\sigma} \hat c_{m\sigma}$
+
+\begin{equation}
+  \hat\rho_{n\sigma,m\sigma} = \hat c^\dagger_{n\sigma} \hat c_{m\sigma}
+  \label{eq:E10}
+\end{equation}
+
+$\hat H_0 = \sum_{n m} T_{n\sigma,m\sigma} \hat\rho_{n\sigma,m\sigma}$
+
+\begin{equation}
+  \hat H_0 = \sum_{n m} T_{n\sigma,m\sigma} \hat\rho_{n\sigma,m\sigma}
+  \label{eq:E11}
+\end{equation}
+
+The two-body term moves over the same way. \textbf{There are only TWO spins}: the field-operator form carries $\sigma,\sigma'$ and expanding in the basis multiplies the MODES only, so the independent indices are \textbf{four modes plus two spins — six}. Summation indices are written SEPARATED (`\textbackslash{}sum\_\{nmpq\}` would be one index named $nmpq$).
+
+$\hat V = \frac{1}{2}\sum_{n m p q}\sum_{\sigma \sigma'} V_{n\sigma,m\sigma',p\sigma',q\sigma} \hat c^\dagger_{n\sigma} \hat c^\dagger_{m\sigma'} \hat c_{p\sigma'} \hat c_{q\sigma}$
+
+\begin{equation}
+  \hat V = \frac{1}{2}\sum_{n m p q}\sum_{\sigma \sigma'} V_{n\sigma,m\sigma',p\sigma',q\sigma} \hat c^\dagger_{n\sigma} \hat c^\dagger_{m\sigma'} \hat c_{p\sigma'} \hat c_{q\sigma}
+  \label{eq:E12}
+\end{equation}
+
+Up to here the basis is ARBITRARY. Now CHOOSE one: assuming that the orthonormal set introduced at the start diagonalises $\hat H_0$ is a single equation about the matrix element. Unlike specialising to plane waves, almost no generality is lost.
+
+$T_{n\sigma,m\sigma} = \varepsilon_{n\sigma} \delta_{nm}$
+
+\begin{equation}
+  T_{n\sigma,m\sigma} = \varepsilon_{n\sigma} \delta_{nm}
+  \label{eq:E13}
+\end{equation}
+
+Substitute it into the zeroth-order term.
+
+substitute E13 into E11
+
+\begin{equation}
+  \hat H_0 = \sum_{n}{\varepsilon_{n,\sigma} \sum_{m}{\delta_{m, n}  \hat{\rho}_{n,\sigma,m,\sigma}}}
+  \label{eq:E14}
+\end{equation}
+
+Simplifying, \textbf{the Kronecker delta collapses the sum over $m$} and the diagonal form is left — \textbf{the eigenvalue $\varepsilon_{n\sigma}$ appears as the RESULT of this computation}, not copied in by hand. $\hat\rho_{n\sigma,n\sigma}$ is the number operator.
+
+simplify E14
+
+\begin{equation}
+  \hat H_0 = \sum_{n}{\varepsilon_{n,\sigma} \hat{\rho}_{n,\sigma,n,\sigma}}
+  \label{eq:E15}
+\end{equation}
+
+\textbf{The zeroth-order term is diagonal now, so define the Green's function HERE, with this basis's creation and annihilation operators.} One could write it with field operators and move it into the basis afterwards, but that costs two substitutions and buys nothing — write it in this basis from the start. $T[\cdots]$ is the time ordering (a bare $T$ also reads as kinetic energy, so the bracket is written), and with the same state on both sides this is the same quantity as $\langle A\rangle_{\Phi_0}$.
+
+$\hat c_{n\sigma}(t) = e^{i\hat H t/\hbar} \hat c_{n\sigma} e^{-i\hat H t/\hbar}$
+
+\begin{equation}
+  \hat c_{n\sigma}(t) = e^{i\hat H t/\hbar} \hat c_{n\sigma} e^{-i\hat H t/\hbar}
+  \label{eq:E16}
+\end{equation}
+
+$G_{n\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c_{n\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle$
+
+\begin{equation}
+  G_{n\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c_{n\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle
+  \label{eq:E17}
+\end{equation}
+
+The free propagator. The superscript 0 of $G^0$ is a \textbf{perturbation-order label}, not an exponent. The sign of $i\eta$ \textbf{flips across the Fermi surface}.
+
+$G^0_{n\sigma}(\omega) = \frac{1}{\omega - \varepsilon_{n\sigma}/\hbar + i\eta\,\mathrm{sgn}(\varepsilon_{n\sigma}-\varepsilon_F)}$
+
+\begin{equation}
+  G^0_{n\sigma}(\omega) = \frac{1}{\omega - \varepsilon_{n\sigma}/\hbar + i\eta\,\mathrm{sgn}(\varepsilon_{n\sigma}-\varepsilon_F)}
+  \label{eq:E18}
+\end{equation}
+
+The Dyson equation \textbf{in components} — the second term on the right is a sum over the basis indices, and $G$ appears on the right as well.
+
+$G_{n\sigma,m\sigma'}(\omega) = G^0_{n\sigma}(\omega)\delta_{nm}\delta_{\sigma\sigma'} + \sum_{p \sigma''} G^0_{n\sigma}(\omega) \Sigma_{n\sigma,p\sigma''}(\omega) G_{p\sigma'',m\sigma'}(\omega)$
+
+\begin{equation}
+  G_{n\sigma,m\sigma'}(\omega) = G^0_{n\sigma}(\omega)\delta_{nm}\delta_{\sigma\sigma'} + \sum_{p \sigma''} G^0_{n\sigma}(\omega) \Sigma_{n\sigma,p\sigma''}(\omega) G_{p\sigma'',m\sigma'}(\omega)
+  \label{eq:E19}
+\end{equation}
+
+Drop the indices and write it as a matrix. \textbf{Declaring $G$, $\Sigma$ and $G^0$ to be matrices} makes the products matrix products and $^{-1}$ the INVERSE. Without the declaration $^{-1}$ is a reciprocal and the product is commutative — both are different quantities.
+
+declare G as a matrix
+
+\[
+  G
+\]
+
+declare $\Sigma$ as a matrix
+
+\[
+  \Sigma
+\]
+
+declare $G^0$ as a matrix
+
+\[
+  G^{0}
+\]
+
+Write it with $G$ collected on the left. \textbf{Do NOT write $G = G^0 + G^0\Sigma G$}: that form is an H-1 DEFINITION, and from then on the name $G$ stands for that expression instead of being the unknown we want to solve for (measured: written that way, the next step comes back with its left side expanded to $G^0\Sigma G+G^0$).
+
+$(1 - G^0 \Sigma) G = G^0$
+
+\begin{equation}
+  (1 - G^0 \Sigma) G = G^0
+  \label{eq:E20}
+\end{equation}
+
+\textbf{Compute the formal solution.} Multiply both sides by $(1-G^0\Sigma)^{-1}$ \textbf{from the left} — the product does not commute, so the two sides are different equations and which one is meant is the researcher's to say. Reducing $(1-G^0\Sigma)^{-1}(1-G^0\Sigma)$ to 1 is the CAS's job.
+
+multiply both sides of E20 by (1 - $G^0$ $\Sigma$)\^{}\{-1\} from the left
+
+\begin{equation}
+  G=\left(1-G^{0}\cdot \Sigma\right)^{-1}\cdot G^{0}
+  \label{eq:E21}
+\end{equation}
+
+That is the Dyson route. \textbf{The Dyson equation does not say what $\Sigma$ is.} The other route — the Green's function's \textbf{equation of motion} — gets $\Sigma$ out of the Hamiltonian.
+
+The Heisenberg-picture operator. Unlike the interaction picture (E10), the exponent carries the \textbf{full} Hamiltonian $\hat H=\hat H_0+\hat V$.
+
+The operator equation of motion. \textbf{What is differentiated is $\hat c$, not $c$} — the hat decorates the NAME, so it goes inside the derivative with it.
+
+$i\hbar \frac{\partial}{\partial t} \hat c_{n\sigma}(t) = [\hat c_{n\sigma}(t), \hat H]$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} \hat c_{n\sigma}(t) = [\hat c_{n\sigma}(t), \hat H]
+  \label{eq:E22}
+\end{equation}
+
+\textbf{Maxima cannot compute this commutator} — it has no operator algebra (which is also why the operator pair is carried as one name in this session). \textbf{That division of labour was decided on 2026-07-30}: Green's-function algebra in Maxima, Julia only where operator algebra is needed (docs/33 §7). The SAME commutator IS computed, by QuantumAlgebra, in the sister scenario scenario\_greens\_function\_eom\_commutator, which answers $[\hat H,\hat c_{m\sigma}]$ with $-\varepsilon_{m\sigma}\hat c_{m\sigma} + \sum V(\ldots)$. The line below writes that result down (with the sign turned round for $[\hat c,\hat H]$).
+
+$[\hat c_{m\sigma}, \hat H] = -\varepsilon_{m\sigma}\hat c_{m\sigma} - \sum_{p q s}\sum_{\sigma''} V_{m\sigma,p\sigma'',q\sigma'',s\sigma} \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''} \hat c_{s\sigma}$
+
+\begin{equation}
+  [\hat c_{m\sigma}, \hat H] = -\varepsilon_{m\sigma}\hat c_{m\sigma} - \sum_{p q s}\sum_{\sigma''} V_{m\sigma,p\sigma'',q\sigma'',s\sigma} \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''} \hat c_{s\sigma}
+  \label{eq:E23}
+\end{equation}
+
+The Green's function with basis indices (the core of what E19 computed, with the coefficients dropped).
+
+The Green's function's equation of motion. The time derivative \textbf{also hits the step functions of the time ordering}, and that is where the equal-time anticommutator — the $\hbar\delta(t-t')$ term — comes from. The two-body term produces the expectation of \textbf{four operators}.
+
+$i\hbar \frac{\partial}{\partial t} G_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G_{n\sigma,m\sigma'}(t,t') + \sum_{p q s}\sum_{\sigma''} V_{n\sigma,p\sigma'',q\sigma'',s\sigma} G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t')$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} G_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G_{n\sigma,m\sigma'}(t,t') + \sum_{p q s}\sum_{\sigma''} V_{n\sigma,p\sigma'',q\sigma'',s\sigma} G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t')
+  \label{eq:E24}
+\end{equation}
+
+The definition of that higher Green's function. The superscript $(2)$ is a \textbf{label}, like the $0$ of $G^0$, not an exponent. Three operators sit at $t$; only the last one sits at $t'$.
+
+$G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c^\dagger_{p\sigma''}(t) \hat c_{q\sigma''}(t) \hat c_{s\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle$
+
+\begin{equation}
+  G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') = -i\langle\Phi_0| T[\hat c^\dagger_{p\sigma''}(t) \hat c_{q\sigma''}(t) \hat c_{s\sigma}(t) \hat c^\dagger_{m\sigma'}(t')]|\Phi_0\rangle
+  \label{eq:E25}
+\end{equation}
+
+\textbf{The equation is not closed.} The one-body equation contains a two-body Green's function, whose equation contains a three-body one — the hierarchy does not end. \textbf{An approximation is a cut in that chain.}
+
+The lowest cut (Hartree–Fock decoupling): split the four operators \textbf{into pairs} and replace the equal-time pair by an expectation value. The second term is negative because the fermions were exchanged. \textbf{This is not an equality, so it is written with $\approx$} — the approximation is this one line, and everything after it is algebra. An $\approx$ can be written and displayed, and computing with it is refused with a reason (a CAS has no "approximately equal").
+
+$G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') \approx \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle G_{s\sigma,m\sigma'}(t,t') - \delta_{\sigma\sigma''} \langle \hat c^\dagger_{p\sigma''} \hat c_{s\sigma''}\rangle G_{q\sigma'',m\sigma'}(t,t')$
+
+\begin{equation}
+  G^{(2)}_{p\sigma'',q\sigma'',s\sigma,m\sigma'}(t,t') \approx \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle G_{s\sigma,m\sigma'}(t,t') - \delta_{\sigma\sigma''} \langle \hat c^\dagger_{p\sigma''} \hat c_{s\sigma''}\rangle G_{q\sigma'',m\sigma'}(t,t')
+  \label{eq:E26}
+\end{equation}
+
+The basis diagonalises $\hat H_0$ (E15), so the equal-time expectation is diagonal too.
+
+$\langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle = \delta_{pq}\langle \hat n_{p\sigma''}\rangle$
+
+\begin{equation}
+  \langle \hat c^\dagger_{p\sigma''} \hat c_{q\sigma''}\rangle = \delta_{pq}\langle \hat n_{p\sigma''}\rangle
+  \label{eq:E27}
+\end{equation}
+
+Substituting collapses two of the sums, leaving one over the mode $p$ and the spin $\sigma''$. This is the self-energy — \textbf{the equation of motion has fixed $\Sigma$.} The first term is the Hartree term the Dyson route puts in by hand as its first-order approximation; the second is the exchange (Fock) term, where being a fermion first matters.
+
+$\Sigma^{(HF)}_{n\sigma,s\sigma} = \sum_{p \sigma''}\left[V_{n\sigma,p\sigma'',p\sigma'',s\sigma} - \delta_{\sigma\sigma''}V_{n\sigma,p\sigma'',s\sigma'',p\sigma}\right]\langle \hat n_{p\sigma''} \rangle$
+
+\begin{equation}
+  \Sigma^{(HF)}_{n\sigma,s\sigma} = \sum_{p \sigma''}\left[V_{n\sigma,p\sigma'',p\sigma'',s\sigma} - \delta_{\sigma\sigma''}V_{n\sigma,p\sigma'',s\sigma'',p\sigma}\right]\langle \hat n_{p\sigma''} \rangle
+  \label{eq:E28}
+\end{equation}
+
+The higher Green's function is gone and the equation has \textbf{closed}. It is no longer the exact $G$, though: it is the quantity that came out of the decoupling, so it is written $G^{(HF)}$.
+
+$i\hbar \frac{\partial}{\partial t} G^{(HF)}_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G^{(HF)}_{n\sigma,m\sigma'}(t,t') + \sum_{s} \Sigma^{(HF)}_{n\sigma,s\sigma} G^{(HF)}_{s\sigma,m\sigma'}(t,t')$
+
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} G^{(HF)}_{n\sigma,m\sigma'}(t,t') = \hbar\delta(t-t')\delta_{nm}\delta_{\sigma\sigma'} + \varepsilon_{n\sigma} G^{(HF)}_{n\sigma,m\sigma'}(t,t') + \sum_{s} \Sigma^{(HF)}_{n\sigma,s\sigma} G^{(HF)}_{s\sigma,m\sigma'}(t,t')
+  \label{eq:E29}
+\end{equation}
+
+\textbf{Fourier transform in the time difference — with no dedicated operation.} Write the inverse transform's own definition and differentiate both sides with respect to $t$. The space between $\omega$ and $(t-t')$ is the product sign (without it, $\omega$ reads as a function applied to $(t-t')$, and that reading is refused).
+
+$G^{(HF)}_{n\sigma}(t-t') = \frac{1}{2\pi}\int_{-\infty}^{\infty} G^{(HF)}_{n\sigma}(\omega) e^{-i\omega (t-t')} d\omega$
+
+\begin{equation}
+  G^{(HF)}_{n\sigma}(t-t') = \frac{1}{2\pi}\int_{-\infty}^{\infty} G^{(HF)}_{n\sigma}(\omega) e^{-i\omega (t-t')} d\omega
+  \label{eq:E30}
+\end{equation}
+
+The derivative goes under the integral sign and brings $-i\omega$ down — that is the content of $i\hbar\partial_t \to \hbar\omega$. The same transform turns $\delta(t-t')$ into 1.
+
+differentiate both sides of E30 with respect to t
+
+\begin{equation}
+  \frac{d}{d t} G^{(HF)}_{n,\sigma}(t-t')=-\left({{i \int_{-\infty }^{\infty }{e^ {- \left(i \omega \left(t-t'\right)\right) } \omega G^{(HF)}_{n,\sigma}(\omega)\;d\omega}}\over{2 \pi}}\right)
+  \label{eq:E31}
+\end{equation}
+
+The frequency-domain equation. Both $\hat H_0$ and $\Sigma^{(HF)}$ are diagonal in this basis, so write the diagonal element. \textbf{Mind where $\hbar$ sits}: the $\Sigma$ of Dyson (E22) has the dimension of a frequency, the $\Sigma^{(HF)}$ here that of an energy, and the two differ by exactly $\hbar$.
+
+$(\omega - \varepsilon_{n\sigma}/\hbar) G^{(HF)}_{n\sigma}(\omega) = 1 + \Sigma^{(HF)}_{n\sigma} G^{(HF)}_{n\sigma}(\omega)/\hbar$
+
+\begin{equation}
+  (\omega - \varepsilon_{n\sigma}/\hbar) G^{(HF)}_{n\sigma}(\omega) = 1 + \Sigma^{(HF)}_{n\sigma} G^{(HF)}_{n\sigma}(\omega)/\hbar
+  \label{eq:E32}
+\end{equation}
+
+Solve for $G^{(HF)}$. \textbf{The solve-for variable is given in the researcher's own spelling} — label, indices and argument all still on it.
+
+solve E32 for $G^{(HF)}_{n\sigma}$($\omega$)
+
+\begin{equation}
+  G^{(HF)}_{n,\sigma}(\omega) = \frac{\hbar}{\hbar \omega-\varepsilon_{n,\sigma}-\Sigma^{(HF)}_{n,\sigma}}
+  \label{eq:E33}
+\end{equation}
+
+The Hartree–Fock Green's function. The pole has moved from $\varepsilon_{n\sigma}$ to $\varepsilon_{n\sigma}+\Sigma^{(HF)}_{n\sigma}$ — \textbf{the interaction shifts the single-particle energy}, which is what this approximation says.
+
+Finally, set the self-energy back to zero. If the approximation was put in correctly, switching the interaction off must return the free propagator (E21, without the $i\eta$).
+
+$\Sigma^{(HF)}_{n\sigma} = 0$
+
+\begin{equation}
+  \Sigma^{(HF)}_{n\sigma} = 0
+  \label{eq:E34}
+\end{equation}
+
+substitute E34 into E33
+
+\begin{equation}
+  G^{(HF)}_{n,\sigma}(\omega) = \frac{\hbar}{\hbar \omega-\varepsilon\left(n , \sigma\right)}
+  \label{eq:E35}
+\end{equation}
+
+\end{document}

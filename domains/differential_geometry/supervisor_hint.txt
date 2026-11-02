@@ -1,0 +1,75 @@
+## Domain: Differential Geometry
+
+Common symbols and their roles:
+- M: smooth manifold
+- g, gμν: Riemannian metric tensor
+- ∇, ∇_μ: covariant derivative
+- Γ^k_{ij}: Christoffel symbols of the second kind
+- R^l_{kij}: Riemann curvature tensor
+- Rij: Ricci tensor
+- K: Gaussian curvature (for surfaces)
+- ω^i: differential 1-form
+- Ω: differential 2-form or curvature form
+- d: exterior derivative
+- ∧: wedge product
+- T^r_s: tensor of type (r,s)
+- φ: smooth map between manifolds
+- φ*: pullback; φ_*: pushforward
+
+Index conventions:
+- Latin indices i,j,k for local coordinates
+- Einstein summation convention applies
+- Upper = contravariant, lower = covariant
+
+When the user writes "共変微分", interpret as ∇_μ V^ν = ∂_μ V^ν + Γ^ν_{μλ} V^λ.
+
+## What This System Can Currently Compute (F-3)
+
+直交座標系（対角計量）では div/curl/grad/laplacian が利用可能。
+For **orthogonal coordinate systems** (diagonal metric), div/curl/grad/laplacian
+are available via define_coordinate_system + Lamé coefficients.
+
+対応している例 / Examples the system CAN handle:
+- 放物座標 (ξ, η, φ): define_coordinate_system(vars="xi,eta,phi",
+  lame="sqrt(xi^2+eta^2),sqrt(xi^2+eta^2),xi*eta")
+- 長回転楕円体座標・偏平回転楕円体座標・トロイダル座標等：同様の手順で対応可
+- 操作: divergence, curl, gradient, scalar_laplacian, cross_product, dot_product
+- 成分表記: A_xi, A_eta, A_phi（座標変数名を添字として使用）
+
+直交座標系での手順 / How to guide the user for orthogonal coordinates:
+1. "放物座標 (ξ,η,φ) を座標系として定義する"
+   → define_coordinate_system(vars="xi,eta,phi", lame="sqrt(xi^2+eta^2),sqrt(xi^2+eta^2),xi*eta")
+2. "A をベクトル場として定義する"
+   → define_vector_field(name="A", coordinate_system="custom")
+3. "∇·A を計算する" → divergence(expr="A")
+
+## What This System Cannot Yet Compute (F-7, future)
+
+以下は未実装（F-7 として将来実装予定）：
+The following require a separate implementation (F-7, not yet available):
+
+- 非直交一般座標の計量テンソル `g_{ij}` の定義
+  General Riemannian manifold with non-orthogonal metric g_{ij}
+- 共変微分: ∇_μ V^ν = ∂_μ V^ν + Γ^ν_{μλ} V^λ
+  Covariant derivative
+- Christoffel 記号 Γ^k_{ij}
+- 外微分 d, 楔積 ∧, Hodge 双対 *
+  Exterior derivative d, wedge product ∧, Hodge dual *
+- Riemann / Ricci 曲率テンソル
+- Einstein 和規約によるテンソル縮約
+
+これらの要求が来た場合のメッセージ：
+"共変微分・外微分・曲率テンソルは現在未サポートです（F-7 として実装予定）。
+直交座標系での div/curl/grad は define_coordinate_system で計算できます。"
+
+## Notation Note
+
+微分幾何では A^i, A_i（数値インデックス）が標準表記。
+ただしシステムは現在、数値添字（A_1, A_2）をパーサーが正しく解釈できないため、
+カスタム座標系では座標変数名を添字として使用する（A_xi, A_eta, A_phi）。
+ユーザーにはこの表記でガイドすること。
+
+In differential geometry, A^i or A_i (numeric indices) is standard.
+However, the system currently uses coordinate variable names as subscripts
+(A_xi, A_eta) rather than numeric indices (A_1, A_2) due to parser limitations.
+Guide users to use variable-name notation when working in custom coordinates.

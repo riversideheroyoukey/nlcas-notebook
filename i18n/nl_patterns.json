@@ -1,0 +1,1017 @@
+{
+  "_comment": "Natural-language INPUT grammar patterns. Each operation key maps to a per-language regex (Python `re`). Named capture groups (?P<eid>…), (?P<lhs>…), (?P<rhs>…), (?P<operand>…) carry the SAME meaning across languages so the calling code is language-agnostic. Embed flags inline at the start: (?i) ignorecase, (?s) dotall. A missing language falls back to ja. Loaded by notebook/runtime/nl_patterns.py `nlp(key, lang)`.",
+  "_comment_fragments": "Shared sub-patterns, spliced into a pattern by writing {{name}} (expanded by notebook/runtime/nl_patterns.py before compiling; an unknown name raises). `symbol` = how a researcher may spell ONE symbol name: a LaTeX command with optional braced argument (\\theta, \\dot{q}), or a plain identifier (x, x_1), either optionally carrying a subscript that may itself be braced (\\xi_k, \\xi_{k}, x_{1}, g_{\\mu\\nu}). Braces MUST be balanced. Before this existed the same question had three partial answers and the braced spellings failed with the useless 'Could not interpret' instead of the operation's own advice (open_items INTEGRAL-VAR-BRACED). The plain-identifier branch may NOT end in '_' ([A-Za-z_](?:\\w*[A-Za-z0-9])?): \\w includes '_', so a greedy '[A-Za-z_]\\w*' swallows the '_' of 'x_{1}' and stops at the brace, leaving 'x_'. In a pattern with trailing context the engine backtracks out of that, but diff_rule's EN form ends at the variable and has nothing to backtrack against — measured: JA gave 'x_{1}', EN gave 'x_'. Forbidding the trailing underscore makes the two spellings agree without relying on what follows.  ``ja_op_var_tail`` / ``en_op_var_head`` は「この記号は微分の変数か、H-9 の解く対象か」という**1つの問い**の日英2つの綴りで、2a-sym (`ui/supervisor_alias_rewrite.py`) が研究者の記号名を実行時に挟み込んで使う——日本語は記号の**後ろ**（助詞）、英語は**前**（キーワード）に付く。だから名前付きグループでは吸収できず、断片を2つに分けてある。  ``ordinal_token`` / ``ja_deriv_word`` は「何階の微分か」を読む語彙。数の綴りは ``ordinal_token`` **1つ**である——2026-08-27 に `ja_digit`（`一`〜`九`）を、2026-09-06 に `ordinal_token`（`一`〜`十`＋英語の序数）を作り、**同じ問いに2つの答え**が並んでいた。片方にしか `十` が無いので`十階微分`（`order_clause`＝`ordinal_token`）は通り `十次まで展開`（`taylor_expand_nl`＝`ja_digit`）は「解釈できません」で落ちていた（実測 2026-09-10）。これが1箇所になる前は、`order_clause` が**漢数字を知っていて `全微分` を知らず**、`diff_rule` が**`全` を知っていて漢数字を知らない**という補い合いになっており、両方が要る `二階全微分` だけがどこにも読まれず落ちていた（実測 2026-08-27）。  ``symbol`` は 2026-08-27 に**上付き script（複数可）**と**関数適用**まで広げた——`G^0`・`\\Sigma^{(HF)}`・`G^{(HF)}_{n}`（CLAUDE.md「上付きラベルは名前である」）と `f(x)`（ODE を解く対象そのもの）。Unicode ギリシャは**入れない**: `normalize_request_greek` がインターセプタより前に1つの綴りへ直すので、ここに入れると同 docstring が禁じる「綴り表の二重化」になる。  ``operator_operand`` は「演算子のオペランドはどう書かれるか」の**唯一の答え**である（2026-09-11 に `operator_operand` から改名して広げた）。名前が `call` と言っていたのに `Sz_1` も受けており、**嘘をつく名前は次のコピーを呼ぶ**（`en_op_var_head_wide` の改名と同じ理由）。実測 2026-09-11、ハイゼンベルク一族はこの問いに3通りの自前クラスで答えており、63通り（語順7×形9）のうち23が壊れていた: ja の語順①は `[^\\s、,]+?` で**コンマを跨げず** `c(k,u)` が `u)` に**黙って切れ**（コーパスに118件ある綴り）、ja の語順②③と eom は 旧 `operator_operand` で `c_{1\\uparrow}` を跨げず（これもコーパスの綴り）、en は `\\S+?` で**空白を跨げなかった**（`c(1, u)` は Maxima の `tex1` が印刷する形なので、画面を見て打ち直すと通らない）。広げた形は 名前＋（随伴の印）＋（波括弧または素の添字）＋（コンマと空白を含む引数リスト）で、助詞・キーワードの手前で止まる。  **基底は `_` で終われない。** `\\w` は `_` を含むので貪欲な `[A-Za-z][A-Za-z0-9_]*` は `c_{1\\uparrow}` の `_` まで食べて波括弧の手前で止まる。後ろに文脈のある鍵ではエンジンが後戻りして辻褄が合うが、**変数で終わる鍵は後戻りする相手が無い**——実測 2026-09-11、`Heisenberg equation of E1 for c_{1\\uparrow}` が `c_` を返した。`symbol` fragment が同じ罠を同じ言葉で註記している（`diff_rule` の英語形）。",
+  "_fragments": {
+    "symbol": "(?:\\\\[A-Za-z]+(?:\\{[^{}]*\\})*|[A-Za-z_](?:\\w*[A-Za-z0-9])?)(?:[_^](?:\\{[^{}]*\\}|[A-Za-z0-9]+))*(?:\\([^()]*\\))?'*",
+    "op_expr": "[A-Za-z][A-Za-z0-9_]*(?:\\^\\{?\\\\dagger\\}?|\\^?†|')*(?:\\([^)]*\\))?",
+    "decl_symbol": "((?:\\\\[A-Za-z]+\\s*)?\\\\?[A-Za-z_Α-ω][A-Za-z0-9_Α-ω]*(?:_\\{?[A-Za-z0-9,]+\\}?)?(?:\\^\\{?\\(?-?[A-Za-z0-9]+\\)?\\}?)?'*)",
+    "en_decl_copula": "\\b(?:as|is|are|be|to\\s+be)\\b",
+    "en_decl_verb": "(?:define|declare|let)",
+    "ja_decl_suffix": "\\s*(?:と(?:する|します|せよ|しろ|みなす|みなします|みなして)|と(?:定義|宣言){{ja_decl_infl}}?|として(?:定義|宣言){{ja_decl_infl}}?)",
+    "ja_decl_suffix_named": "\\s*(?:{{ja_decl_suffix}}|に\\s*(?:定義|宣言)?\\s*{{ja_suru_infl}}|と(?:置|お){{ja_oku_infl}})",
+    "ja_decl_wa_suffix": "\\s*(?:である|です|だ|とする|とします)?\\s*$",
+    "operator_operand": "[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?:\\^\\{?\\\\dagger\\}?|['†]+)?(?:_\\{[^{}]*\\}|_[A-Za-z0-9]+)?(?:\\^\\{?\\\\dagger\\}?|['†]+)?(?:\\([^()]*\\))?",
+    "vec_op_kw_chain": "発散|回転|勾配|ラプラシアン|divergence|div|curl|rot|gradient|grad|laplacian",
+    "ja_op_var_tail": "{{ja_op_var_particle}}\\s*(?:{{ordinal_token}})?\\s*[階次回]?\\s*{{ja_deriv_word}}|{{ja_solve_var_particle}}\\s*{{ja_solve_verb}}|{{ja_solve_var_particle}}\\s*E\\d+\\s*を\\s*{{ja_solve_verb}}|{{ja_solve_var_particle}}\\s*{{compute_verb_ja}}\\s*$|{{ja_op_var_particle}}\\s*{{ja_var_op_word}}",
+    "en_op_var_head": "(?:with\\s+respect\\s+to|w\\.?r\\.?t\\.?|\\bfor)",
+    "ja_deriv_word": "(?:{{deriv_kind_total_ja}}|{{deriv_kind_partial_ja}}|{{deriv_word_plain_ja}})",
+    "deriv_kind_total_en": "(?:total|ordinary)",
+    "deriv_kind_partial_en": "(?:partial)",
+    "deriv_kind_total_adv_en": "(?:totally|ordinarily)",
+    "deriv_kind_partial_adv_en": "(?:partially)",
+    "deriv_kind_word_en": "(?:{{deriv_kind_total_en}}|{{deriv_kind_partial_en}}|{{deriv_kind_total_adv_en}}|{{deriv_kind_partial_adv_en}})",
+    "deriv_kind_total_ja": "(?:全微分|常微分|全導関数)(?!方程式)",
+    "deriv_kind_partial_ja": "(?:偏微分|偏導関数)(?!方程式)",
+    "deriv_word_plain_ja": "(?:微分|導関数)(?!方程式)",
+    "deriv_word_plain_en": "(?:derivatives?)",
+    "en_deriv_word": "(?:{{deriv_kind_word_en}}\\s+)?{{deriv_word_plain_en}}",
+    "list_sep_ja": "(?:\\s*(?:、|，|,|と|および|及び|ならびに|並びに|や)\\s*)",
+    "list_sep_en": "(?:\\s*(?:,\\s*and\\b|,|and\\b|&)\\s*)",
+    "compute_verb_ja": "(?:取り出して|取り出す|取り出し|算出して|算出する|算出|計算して|計算する|計算|評価して|評価する|評価|求めて|求める|求めよ|求め|出して|出す|出し|取って|取る|とって|とる|とっ)",
+    "compute_verb_en": "(?:find|finds|compute|computes|calculate|calculates|get|gets|obtain|obtains|determine|determines|evaluate|evaluates|work\\s+out|give\\s+me)",
+    "derive_verb_ja": "(?:導出して|導出する|導出|生成して|生成する|生成|構成して|構成する|構成|作って|作る)",
+    "derive_verb_en": "(?:derive|derives|build|builds|construct|constructs|form)",
+    "ja_subst_verb": "(?:(?:代入|置換)(?:{{ja_suru_infl}}|して)?|置き?換え(?:る|ます|[てた])?)",
+    "ja_decl_infl": "(?:する|します|して|せよ|しろ)",
+    "ja_suru_infl": "(?:する|します|せよ|しろ)",
+    "ja_oku_infl": "(?:く|き|いて|いた)",
+    "ja_ru_infl": "(?:る|り|って|った)",
+    "en_side_phrase": "(?:the\\s+)?(?:(?P<side>right|left)[- ]hand\\s+side|(?P<side2>right|left)\\s+side|(?P<side3>R|L)\\.?H\\.?S\\.?)",
+    "ja_side_word": "(?P<side>右辺|左辺)",
+    "en_side_phrase2": "(?:the\\s+)?(?:(?P<sideB>right|left)[- ]hand\\s+side|(?P<sideB2>right|left)\\s+side|(?P<sideB3>R|L)\\.?H\\.?S\\.?)",
+    "ja_alias_decl_tail": "(?:として|と|を|に)?\\s*(?:定義|宣言|設定){{ja_decl_infl}}?\\s*$|(?:と(?:{{ja_decl_infl}}|みなす|みなします|みなして)|にする)\\s*$",
+    "en_alias_decl_head": "^(?:define|declare|set)[\\s_]+",
+    "bare_decl_verb": "define|declare|set|as|an?|the|定義|宣言|設定",
+    "en_op_var_head_wide": "(?:{{en_op_var_head}}|\\bby|\\bin|\\bover)",
+    "_ja_var_op_word_note": "**変数を名指す操作の語**——`{{ja_op_var_particle}}` のうしろに立つ。`ja_deriv_word` が微分の一族に対してやっていることの、残りの一族版である。実測 2026-09-19、`y` が別名表に載っている状態（`2 y = 8` を解いたあと）で `E1 を y で積分して` / `E1 の y に関する極限を 0 で求めて` / `E1 を y について部分分数分解して` は **2a-sym が `y` を式番号へ書き換え**、「必要な引数が不足しています」——**研究者が書いてある欄**について——を返していた。`定積分`・テイラーは読みがインターセプタで生テキストを見るので無傷だった。**この穴は3度目**で、`_ja_op_var_tail_note` が微分（二十二問目）と solve（2026-09-06）について同じことを記録している: **読みが受ける綴りは guard も知る**。",
+    "ja_var_op_word": "(?:(?:定|不定)?積分|極限|展開|部分分数|まとめ)",
+    "_ja_name_eq_clause_note": "**`記号 = 値` の左辺は名前である**——留数の点や代入の左辺。`における`/`代入` を含む節に限るのは、素の `y = 3`（H-1 の定義そのもの）を巻き込まないため。実測 2026-09-19: `E1 の y = 1 における留数を求めて` は `y` が式番号に化けて「必要な引数が不足」になっていた。",
+    "ja_name_eq_clause": "\\s*=\\s*[^、。]{0,24}(?:留数|代入|置換)",
+    "_ja_change_var_clause_note": "**変数変換は2つの名前を名指す**（`E1 の y を u に変数変換して`）。助詞が `を`/`に` なので `ja_op_var_particle` では届かない。実測 2026-09-19、別名表に `y` が載っていると「必要な引数が不足しています」になっていた。コーパスの5行は多変数形（`x,y から r,theta へ … で変数変換して`）で、そこは記号の直後が `)` なのでこの枠には当たらない（実測、差分0）。",
+    "ja_change_var_old": "\\s*を\\s*[^、。\\s]{1,24}\\s*に\\s*変数変換",
+    "ja_change_var_new": "を\\s*",
+    "_en_change_var_clause_note": "**変数変換の枠の英語側**。日本語だけが `ja_change_var_old` / `ja_change_var_new` を持っており、英語は**どちらの名前も守っていなかった**——実測 2026-09-19、`u` を解いたあと `change variable r to u in E1` が「必要な引数が不足しています」になる一方、日本語の `E1 の r を u に変数変換して` は通る。回帰シナリオを組み立てているときに出た（その筋書きが `u` を解いていた）——**状態のあるシナリオは、単体のプローブが作らない組み合わせを作る**。",
+    "en_change_var_clause": "(?:change\\s+(?:of\\s+)?variables?|u-substitution|substitution\\s+in\\s+integral)\\b[^.;]*?\\b",
+    "_en_var_op_verb_note": "**英語は操作ごとの枠が要る**（ENGLISH-INLINE-INTEGRAL と同じ理由——日本語の書記体系の切り替わりに当たるものが無い）。前置詞だけで守ると `multiply both sides of E2 by A` の `A` まで守ってしまい日英が割れるので（実測、コーパス2005対で10件）、**動詞の節**と前置詞の組で書く。`en_deriv_var_clause` を一般化したもので、微分だけが枠を持っていた。　**覆うのは「読みが在る綴り」だけ**——`decompose … into partial fractions in y` と `truncate E1 in y at order 3` は実測するとどちらも解釈されないので、守る読みが無い。`partial fraction` を書いたら**派生の種別語の ratchet が鳴り、それが正しかった**（`partial` は微分の種別の一族の語である）。",
+    "en_var_op_verb": "(?:differentiat\\w*|derivative|integrat\\w*|expand\\w*|taylor\\w*|collect\\w*)",
+    "en_op_var_clause": "{{en_var_op_verb}}\\b[^.;]*?\\b{{en_op_var_head_wide}}\\s+",
+    "_en_name_eq_clause_note": "**`記号 = 値` の左辺は名前である**の英語側。`substitute y = 3 into E1` と `the residue of E1 at y = 1` は同じ形で、どちらも実測で壊れていた（2026-09-19）。動詞の節に限るのは日本語側と同じ理由——素の `y = 3` を巻き込まない。",
+    "en_name_eq_clause": "(?:{{en_subst_apply_verb}}|residue)\\b[^.;]*?\\b",
+    "ja_op_var_particle": "(?:で|について|による|に関する|に関して)",
+    "ja_series_expand_word": "(?:(?:テイラー|テーラー|マクローリン)\\s*)?(?:級数\\s*)?展開|(?:テイラー|テーラー|マクローリン)\\s*級数",
+    "en_solve_verb": "solve",
+    "ja_solve_verb": "解[いけくき]",
+    "ja_solve_var_particle": "(?:について|に関して)",
+    "_ja_op_var_tail_note": "「この記号は操作の変数か」——2a-sym の guard が使う。**読みが受ける綴りはguard も知る**（二十二問目で測った穴）。2026-09-06 に solve 一族で同じ穴が出た: `E1 の解を x について求めて` / `E1 から x を求めて` / `x について E1 を解いて` は読めるようになったのに guard が知らず、`x` が E-id に書き換わっていた。",
+    "en_solve_var_from": "{{compute_verb_en}}\\s+",
+    "ja_solve_from_clause": "E\\d+\\s*から\\s*",
+    "en_solve_var_clause": "solv\\w*\\b[^.;]*?\\bin\\s+",
+    "_en_solve_var_head_note": "**solve 一族の「変数を導く語」は1つの表**——`ja_solve_var_particle` が日本語側でずっとそうだったもの。英語は `in` を `solve_single` の中に**直書き**しており、兄弟2鍵（`solve_solution_of_var` / `solve_system_vars`）は共有の `en_op_var_head` しか読まなかった。実測 2026-09-19、同じ前置詞で3鍵を並べると: `compute the solution of E1 in x` と `find the solution to E1 in x` は**落ち**、`solve E1 and E2 in x and y` は**どの鍵にも当たらず別名走査が答えて** `solve_equation(E1, x)` → `x = 3-y` を `completed` で返していた（正解は `x = 2, y = 1`。兄弟3綴りは全部それを返す）。日本語は3鍵とも `について`/`に関して` の両方を受けて 6/6 正しい。**`in` を共有の `en_op_var_head` に入れてはならない**——あれは 2a-sym も読む共有語彙で、`multiply both sides of E2 by A` の因子まで守り日英が割れる（実測済み、`supervisor_alias_rewrite` の註）。だから**solve 一族だけの表**にする。",
+    "en_solve_var_head": "(?:{{en_op_var_head}}|\\bin)",
+    "ja_solve_from_tail": "\\s*を",
+    "ja_binary_operation_kind": "反交換子|反交換関係|交換子|交換関係|ポ[アワ]ソン(?:の)?括弧|内積|外積",
+    "en_binary_operation_kind": "anticommutator|commutator|Poisson\\s+bracket|dot\\s+product|cross\\s+product",
+    "heisenberg_name_ja": "(?:Heisenberg|ハイゼンベル[クグ])",
+    "heisenberg_eq_ja": "{{heisenberg_name_ja}}\\s*(?:運動)?方程式",
+    "heisenberg_op_ja": "(?:{{heisenberg_name_ja}}\\s*(?:描像\\s*(?:での|で|の)?\\s*)?演算子|時間発展)",
+    "heisenberg_op_en": "(?:Heisenberg(?:\\s+picture)?\\s+operator|time\\s+evolution)",
+    "ham_ref": "(?:E\\d+|[A-Za-z][A-Za-z0-9_]*)",
+    "en_subst_verb": "(?:substitute|replace)",
+    "en_subst_apply_verb": "(?:{{en_subst_verb}}|apply|plug)",
+    "en_subst_into": "(?:into|in|to)",
+    "ja_subst_apply_verb": "(?:{{ja_subst_verb}}|適用(?:{{ja_suru_infl}}|して)?)",
+    "expand_verb_ja": "(?:展開|分解|書き下)",
+    "expand_verb_en": "(?:expand|decompose|write(?:\\s+out)?)",
+    "simplify_verb_ja": "(?:簡約|単純化|簡単に|簡略化|簡略)",
+    "simplify_verb_en": "(?:simplify|reduce)",
+    "ja_map_to": "(?:へ|に)",
+    "en_upto": "(?:up\\s+)?to",
+    "en_sentence_end": "\\s*[.．]?\\s*$",
+    "times_adverb_en": "(?:once|twice|thrice)",
+    "cardinal_word_en": "(?:one|two|three|four|five|six|seven|eight|nine|ten)",
+    "ordinal_token": "(?:[0-9０-９]+|[一二三四五六七八九十]|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|{{cardinal_word_en}}|{{times_adverb_en}})(?:st|nd|rd|th)?",
+    "nn_sum_kw_ja": "(?:最近接相互作用和|最近接和|隣接和|格子和)",
+    "nn_sum_kw_en": "(?:(?:nearest[\\s-]*)?neighbou?r\\s*-?\\s*sum|lattice\\s+sum)",
+    "ladder_ann_ja": "(?:消滅|下降)",
+    "ladder_cre_ja": "(?:生成|上昇)",
+    "ladder_ann_en": "(?:annihilation|lowering)",
+    "ladder_cre_en": "(?:creation|raising)",
+    "ladder_dir_ja": "(?:{{ladder_ann_ja}}|{{ladder_cre_ja}})",
+    "ladder_dir_en": "(?:{{ladder_ann_en}}|{{ladder_cre_en}})",
+    "ladder_any_ja": "(?:{{ladder_dir_ja}}|昇降)",
+    "ladder_any_en": "(?:{{ladder_dir_en}}|ladder)",
+    "_comment_op_expr": "演算子の名前はどう書けるか。**`c`・`c'`・`c†`・`c^†`・`c^\\dagger`・`c^{\\dagger}`**——CLAUDE.md「`a^\\dagger` と `a'` は両方とも生成演算子の入力として受け付ける」の宣言側。直す前は `['†]*` だけで、`c^\\dagger を電子の生成演算子とする` が**`dagger` という名前の演算子**を宣言し成功を返していた（実測 2026-09-08、日英）——正規表現が `c` で当たれず、後ろの `dagger` に latch していた。**生成側に固有の欠陥**（消滅演算子に † は付かない）。"
+  },
+  "_comment_instruction_marker": "Language-aware 'is this an NL instruction (not a bare formula)?' signal. Replaces the implicit 'has CJK ⇒ instruction' assumption so the formula-registration paths do not swallow English commands. ja: any CJK; en: an imperative operation verb as a whole word. Extend the en verb list as more operations are migrated.",
+  "instruction_marker": {
+    "ja": "[぀-ヿ一-鿿＀-￯]",
+    "en": "(?i)\\b(?:substitute|replace|divide|multiply|add|subtract|differentiate|integrate|define|let|find|solve|invert|diagonalize|expand|evaluate|compute|change|move|write|save|take|denote|{{simplify_verb_en}}|set|put|plug|insert|apply|regard|factor|rationalize|rationalise|heisenberg|commutator|laplace)\\b",
+    "_comment": "「この文は**指示**か（＝式として登録してはいけないか）」。H-1 とインライン式の登録がこれを訊く。**操作スキーマの en 別名と同じ問いに答えている**が、全面的に畳むと壊れる——実測 2026-09-06: 別名の先頭語173種のうち151種をここが知らず、そのうち14語（`dot`・`to`・`integral`・`assume`・`evolve`・`time`・`anticommutator`・`partial`・`spin`・`log`・`lattice`・`order`・`rot`・`nearest`）は**式として登録される行に出る**ので、足すと式の登録が止まる。足せるのは「別名の先頭語であって、コーパスに一度も出ない動詞」。`plug`/`insert`/`apply` は0件（`with` は6件出るので足さない）。"
+  },
+  "_comment_subst_verb": "**代入の動詞は1つの表**（2026-09-12）。日本語は `ja_subst_verb`（活用は `ja_suru_infl` を読む）、英語は `en_subst_verb`。**枠（frame）ごとに語彙が違うのは理由のある違いで、そこは畳まない**——`apply`／`plug`／`適用` は式→式の枠だけの語で（`apply x with 3 in E1` は英語ではない）、`en_subst_apply_verb` / `ja_subst_apply_verb` がその枠の追加分を持つ。畳んだのは理由の無い3つ: (1) `substitute_into[ja]` が `入れ` にだけ活用を書いていて `置き換えて`——いちばん普通のテ形——が行末の錨に当たって落ちていた（同じ語を演算子の族は受けていた）。(2) 英語の演算子の枠が動詞を1つずつしか持たず、`replace … for …` と `substitute … with …` が落ちていた（形A・形Bはどちらも受ける）。(3) 式→式の枠が `replace`／`置換` を受けず、断り文が「必要な引数が不足しています: ['lhs','rhs']」——**書いた文に lhs も rhs も無い**ので別の問いについての断りだった。**向きは助詞・前置詞が決める**（`を`=出どころ／`に`=行き先、`into`/`in`/`to`）ので、動詞を広げても入れ替わらない。実測 63/85 → 80/85、残る5件は英語として言わない綴り。残存は `tests/test_substitution_verb_is_one_table.py` が機械的に数えている。",
+  "substitute_into": {
+    "ja": "^\\s*(?P<eid>E\\d+)\\s*(?:の|で)\\s*(?P<lhs>.+?)\\s*に\\s*(?P<rhs>.+?)\\s*を\\s*(?:{{ja_subst_verb}}|入れ(?:る|ます|[てた])?)\\s*$",
+    "en": "(?i)^\\s*(?:in|into)\\s+(?P<eid>E\\d+),?\\s+(?:substitute|replace)\\s+(?P<rhs>.+?)\\s+for\\s+(?P<lhs>.+?){{en_sentence_end}}",
+    "_comment": "「En の X に Y を代入して」。動詞は共有表 `ja_subst_verb`、**`入れ` だけがこの鍵の局所語彙**である。**以前ここには「`入れて` は一般的な動詞なので共有一覧に足すと横取りする」と書いてあったが、2026-09-12 に測ると再現しなかった**（共有表へ入れて8綴りを打ち、横取り0。変わるのは `E1 に E2 を入れて` が通るようになる点だけ）。局所に留めているのは**用心であって実測ではない**——`入れ` はコーパス0行・シナリオの指示行にも0件で、6鍵が読む表へ一般動詞を移す判断には証拠が足りない。移すなら、`入れ` を含む指示をシナリオに1行足してから測ること。"
+  },
+  "both_sides_divide": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*を\\s*(?P<operand>.+?)\\s*で\\s*(?:割っ|割り|割る)",
+    "en": "(?i)divide\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+)\\s+by\\s+(?P<operand>.+?){{en_sentence_end}}"
+  },
+  "both_sides_multiply_side": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*(?:を|に)\\s*(?P<operand>.+?)\\s*を\\s*(?P<side>左|右)\\s*から\\s*(?:掛け|かけ|乗じ)",
+    "en": "(?i)multiply\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+)\\s+by\\s+(?P<operand>.+?)\\s+from\\s+the\\s+(?P<side>left|right){{en_sentence_end}}"
+  },
+  "both_sides_multiply": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*(?:を|に)\\s*(?P<operand>.+?)\\s*(?:を|で)\\s*(?:掛け|かけ|乗じ)",
+    "en": "(?i)multiply\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+)\\s+by\\s+(?P<operand>.+?){{en_sentence_end}}"
+  },
+  "both_sides_times": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*を\\s*(?P<operand>.+?)\\s*倍"
+  },
+  "both_sides_add": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*(?:を|に)\\s*(?P<operand>.+?)\\s*(?:を|で)\\s*(?:足し|足す|加え|加算)",
+    "en": "(?i)add\\s+(?P<operand>.+?)\\s+to\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+){{en_sentence_end}}"
+  },
+  "both_sides_subtract": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*から\\s*(?P<operand>.+?)\\s*(?:を|で)\\s*(?:引き|引く|引い|減じ|減算)",
+    "en": "(?i)subtract\\s+(?P<operand>.+?)\\s+from\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+){{en_sentence_end}}"
+  },
+  "both_sides_simplify": {
+    "_comment": "**簡約の語彙は共有 fragment**（`simplify_verb_ja` / `simplify_verb_en`）。同じ問いに3箇所が別々に答えていた——操作スキーマの別名（`簡約|単純化|simplify`）、`constr_simplify_verb`（`簡約|整理|簡単に|簡略|reduce|simplify`）、そしてここ（`整理|簡約|ratsimp|simplify`）。結果、`E1 の両辺を単純化して` と `reduce both sides of E1` が落ち、`簡単に`/`簡略化`/`reduce` はどの経路でも通らなかった（実測 2026-09-07）。`整理` は `collect` とも競合する**曖昧な語**なので fragment には入れず、ここ（両辺なら曖昧でない）とダイアログ側にだけ置く。",
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*両辺\\s*を\\s*(?:{{simplify_verb_ja}}|整理|ratsimp)",
+    "en": "(?i){{simplify_verb_en}}\\s+both\\s+sides\\s+of\\s+(?P<eid>E\\d+){{en_sentence_end}}"
+  },
+  "_comment_matrix": "Linear-algebra matrix operations on a registered matrix (_try_matrix_ops). matrix_trigger gates the whole intercept; matrix_char_poly_guard vetoes it for the characteristic-polynomial path; matrix_multiply is binary (groups a, b); the matrix_unary_* keywords select the unary op.",
+  "matrix_trigger": {
+    "ja": "{{compute_verb_ja}}",
+    "en": "(?i)\\b{{compute_verb_en}}\\b"
+  },
+  "matrix_char_poly_guard": {
+    "ja": "多項式|永年",
+    "en": "(?i)characteristic|polynomial"
+  },
+  "matrix_multiply": {
+    "ja": "(?P<a>E\\d+)\\s*と\\s*(?P<b>E\\d+).{0,12}(?:行列積|行列の積)",
+    "en": "(?i)matrix\\s+product\\s+of\\s+(?P<a>E\\d+)\\s+and\\s+(?P<b>E\\d+)"
+  },
+  "matrix_unary_diagonal_matrix": {
+    "ja": "対角行列",
+    "en": "(?i)diagonal\\s+matrix"
+  },
+  "matrix_unary_diagonalize": {
+    "ja": "対角化|モード行列|変換行列",
+    "en": "(?i)diagonali[sz]e"
+  },
+  "matrix_unary_eigenvectors": {
+    "ja": "固有ベクトル",
+    "en": "(?i)eigenvectors?"
+  },
+  "matrix_unary_eigenvalues": {
+    "ja": "固有値(?!方程式)",
+    "en": "(?i)eigenvalues?"
+  },
+  "matrix_unary_inverse_matrix": {
+    "ja": "逆行列",
+    "en": "(?i)inverse(?:\\s+matrix)?"
+  },
+  "matrix_unary_transpose": {
+    "ja": "転置",
+    "en": "(?i)transpose"
+  },
+  "matrix_unary_determinant": {
+    "ja": "行列式",
+    "en": "(?i)determinant"
+  },
+  "matrix_unary_trace": {
+    "ja": "トレース|対角和",
+    "en": "(?i)trace"
+  },
+  "_comment_integral": "Definite-integral change-of-variables workflow (S-o). change_vars groups: expr/oldv/newv/trans. region_integral groups: integrand + region predicate lhs/op/rhs. evaluate_integral: optional target (E-id or 'this integral').",
+  "change_vars": {
+    "ja": "(?s)^\\s*(?P<expr>.+?)\\s*を\\s*(?P<oldv>.+?)\\s*から\\s*(?P<newv>.+?)\\s*{{ja_map_to}}\\s*(?P<trans>.+?)\\s*で\\s*(?:多変数)?変数変換\\s*(?:して|する)?\\s*$",
+    "en": "(?is)^\\s*change\\s+(?:of\\s+)?variables?\\s+(?:in|of)\\s+(?P<expr>.+?)\\s+from\\s+(?P<oldv>.+?)\\s+to\\s+(?P<newv>.+?)\\s+via\\s+(?P<trans>.+?){{en_sentence_end}}"
+  },
+  "region_integral": {
+    "ja": "(?s)^\\s*(?P<lhs>.+?)\\s*(?P<op><=|≤|<)\\s*(?P<rhs>.+?)\\s*の領域で\\s*(?P<integrand>.+?)\\s*を\\s*定積分\\s*(?:して|する)?\\s*$",
+    "en": "(?is)^\\s*(?:definite[-\\s]?)?integrate\\s+(?P<integrand>.+?)\\s+over\\s+the\\s+region\\s+(?P<lhs>.+?)\\s*(?P<op><=|≤|<)\\s*(?P<rhs>.+?){{en_sentence_end}}"
+  },
+  "evaluate_integral": {
+    "_comment": "**動詞は共有一覧**（`compute_verb_ja` / `compute_verb_en` ＋ 簡約の語彙）で自前で綴らない。直す前は `評価|計算|簡約|整理` / `evaluate|compute|simplify` だけで、`この定積分を求めて` と `find this integral` が落ちていた——後者は**不定積分の操作に流れて**「`integrate indefinitely` と解釈しました」と返る（実測 2026-09-07）。対象語も `この積分` を欠いていた。",
+    "ja": "^\\s*(?P<target>E\\d+|この定積分|この積分|定積分|積分)\\s*を?\\s*(?:{{compute_verb_ja}}|{{simplify_verb_ja}}|整理)\\s*(?:して|する)?\\s*$",
+    "en": "(?i)^\\s*(?:{{compute_verb_en}}|{{simplify_verb_en}})\\s+(?:(?P<target>E\\d+)\\b|this\\s+.*integral|the\\s+.*integral){{en_sentence_end}}"
+  },
+  "evaluate_extremum": {
+    "ja": "^\\s*(?P<target>E\\d+|この最大値|この最小値|最大値|最小値)\\s*を?\\s*{{compute_verb_ja}}\\s*(?:して|する|て|よ)?\\s*$",
+    "en": "(?i)^\\s*{{compute_verb_en}}\\s+(?:(?P<target>E\\d+)\\b|this\\s+(?:maximum|minimum|extremum)){{en_sentence_end}}"
+  },
+  "expand_components": {
+    "_comment": "**展開の動詞は共有 fragment**（`expand_verb_ja` / `expand_verb_en`）。同じ3語（展開・分解・書き下 / expand・decompose・write）を2鍵が**違う部分集合**で持っており、しかも日英が食い違っていた——ここは ja に `分解` があって en に `decompose` が無く、`angular_coupled_state` はその逆（ja に `分解` が無く en に `decompose` がある）だった（実測 2026-09-07）。",
+    "ja": "^\\s*(?:(?P<target>E\\d+)\\s*を?\\s*)?(?:ベクトルを)?成分に{{expand_verb_ja}}\\s*(?:して|す(?:る)?)?\\s*$",
+    "en": "(?i)^\\s*{{expand_verb_en}}\\s+(?:(?P<target>E\\d+)\\s+)?(?:the\\s+)?(?:vectors?\\s+)?into\\s+components{{en_sentence_end}}"
+  },
+  "_comment_spin": "General single-spin operations on a registered spin Hamiltonian. The Hamiltonian (and the rotating-frame sum 'H_rot = E1 + ω S^z_1') is registered when an H-1 RHS parses as a spin expression (content check, no pattern). The commutator's second operand may be a LaTeX/Unicode spin operator.",
+  "spin_field_magnitude": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*(?:スピンに作用する)?(?:有効|実効)磁場(?:の大きさ)?",
+    "en": "(?i)(?:magnitude\\s+of\\s+the\\s+)?effective\\s+field(?:\\s+acting\\s+on\\s+the\\s+spin)?\\s+(?:of|in)\\s+(?P<eid>E\\d+)",
+    "_comment": "有効磁場の大きさ。`実効磁場` は `有効磁場` と同じ語——実測 2026-09-07、英語側は `effective field` の5綴りすべてを受けるのに、日本語だけが同義語を1つ落としていた（4/5）。"
+  },
+  "spin_commutator_general": {
+    "ja": "(?P<a>E\\d+)\\s*と\\s*(?P<b>S\\^?\\{?[xyz]\\}?_?\\{?\\d+\\}?|E\\d+)\\s*の\\s*交換子",
+    "en": "(?i)commutator\\s+of\\s+(?P<a>E\\d+)\\s+and\\s+(?P<b>S\\^?\\{?[xyz]\\}?_?\\{?\\d+\\}?|E\\d+)"
+  },
+  "_comment_equation_ops": "H-5/H-7/H-8/H-9 equation-operation family (ui/interpret_equation_ops.py, ui/interpret_equation_intercepts.py). Migrated from hardcoded dual-language regex pairs (所見G) as pure-duplicate (b)-category sites.",
+  "rhs_op": {
+    "ja": "(?:^|\\s)(?P<eid>E\\d+)\\s*の\\s*{{ja_side_word}}\\s*を\\s*(?P<keyword>展開|因数分解|有理式簡約|有理化|{{simplify_verb_ja}}|整理|計算|評価)\\s*(?:して|する|してください)",
+    "en": "(?i)\\b(?P<keyword>expand|factor|rationalize|rationalise|{{simplify_verb_en}}|evaluate|compute)\\s+{{en_side_phrase}}\\s+of\\s+(?P<eid>E\\d+)\\b"
+  },
+  "solve_system_vars": {
+    "ja": "(?P<eids>E\\d+(?:{{list_sep_ja}}E\\d+)+)\\s*(?:の\\s*)?(?:連立(?:方程式)?\\s*)?を\\s*(?P<vars>.+?)\\s*{{ja_solve_var_particle}}\\s*{{ja_solve_verb}}|^\\s*(?P<vars2>.+?)\\s*{{ja_solve_var_particle}}\\s*(?P<eids2>E\\d+(?:{{list_sep_ja}}E\\d+)+)\\s*(?:の\\s*)?(?:連立(?:方程式)?\\s*)?を\\s*{{ja_solve_verb}}",
+    "en": "(?i)(?:{{en_solve_verb}}\\s+(?:the\\s+(?:equations|system)\\s+(?:of\\s+)?)?(?P<eids>E\\d+(?:{{list_sep_en}}E\\d+)+)\\s+{{en_solve_var_head}}\\s+(?P<vars>.+?)|{{en_solve_verb}}\\s+{{en_solve_var_head}}\\s+(?P<vars2>.+?)\\s+in\\s+(?P<eids2>E\\d+(?:{{list_sep_en}}E\\d+)+)){{en_sentence_end}}",
+    "_comment": "連立を変数つきで解く。**`連立` の語は必須ではない**——英語の `solve E2 and E3 for x and y` は最初からその語を要求しておらず、日本語側だけが`E2 と E3 を x と y について解いて` を落としていた（実測 2026-09-05）。"
+  },
+  "solve_system": {
+    "_comment": "**並びの区切りは共有 fragment**（`list_sep_ja` / `list_sep_en`）。兄弟の `solve_system_vars` は既にそれを使っており、変数を書けば `および`/`&` でも通るのに、変数を書かない**この鍵だけ**が自前綴りで落ちていた（実測 2026-09-07: `E1 および E2 の連立方程式を解いて` は failed、`solve E1 & E2` は「`solve equation` と解釈しました」）。**三十四問目で `inv_transform` 系を畳んだときに数え漏らした鍵**である。",
+    "ja": "(?P<eids>E\\d+(?:{{list_sep_ja}}E\\d+)+)\\s*(?:の\\s*)?(?:連立(?:方程式)?\\s*)?を\\s*{{ja_solve_verb}}",
+    "en": "(?i)^\\s*{{en_solve_verb}}\\s+(?:the\\s+(?:equations|system)\\s+(?:of\\s+)?)?(?P<eids>E\\d+(?:{{list_sep_en}}E\\d+)+){{en_sentence_end}}"
+  },
+  "z_transform_by_definition": {
+    "_comment": "変数の綴りは `{{symbol}}` に統一（2026-08-27）——「研究者は変数名をどう綴れるか」は1つの問いで、`tests/test_nl_symbol_fragment.py` がその性質を全数で押さえる。",
+    "ja": "^\\s*(?P<target>.+?)\\s*を\\s*定義に従って\\s*(?:(?P<nvar>{{symbol}})\\s*から\\s*(?P<zvar>{{symbol}})\\s*{{ja_map_to}}\\s*)?Z変換して\\s*$",
+    "en": "(?i)^\\s*(?:take\\s+the\\s+)?z[\\s-]?transform\\s+(?P<target>.+?)\\s*(?:from\\s+(?P<nvar>{{symbol}})\\s+to\\s+(?P<zvar>{{symbol}})\\s*)?by\\s+definition{{en_sentence_end}}"
+  },
+  "pair_bracket_nl": {
+    "ja": "(?P<a>E\\d+)\\s*(?:と|,|、)\\s*(?P<b>E\\d+)\\s*の\\s*(?P<kind>反交換関係|反交換子|交換関係|交換子)",
+    "en": "(?i)the\\s+(?P<kind>anticommutator|commutator)\\s+of\\s+(?P<a>E\\d+)\\s+and\\s+(?P<b>E\\d+)"
+  },
+  "_comment_binary_bracket": "A two-operand bracket phrase whose operands are SPANS, not tokens. The supervisor's positional mapper fills `a`/`b` from single whitespace-separated tokens, so a PRODUCT of operators — the most ordinary operand in operator algebra — was silently truncated: `c^\\dagger_{1\\uparrow} c_{1\\uparrow} と c^\\dagger_{1\\downarrow} c_{1\\downarrow} の交換子` computed [c†_{1↑}, c_{1↑}] and reported SUCCESS (measured 2026-08-22). The operand boundary is the PARTICLE (と / の) or the keyword (of / and), which is what the researcher actually wrote. `kind` selects commutator vs anticommutator; the caller maps it to the operation its backend supports.",
+  "binary_operation_phrase": {
+    "ja": "^\\s*(?P<a>.+?)\\s*と\\s*(?P<b>.+?)\\s*の\\s*(?P<kind>{{ja_binary_operation_kind}})(?:\\s*(?:を|は)?\\s*(?:{{compute_verb_ja}})?[ぁ-んァ-ヶー、。！？!?.\\s]*)$",
+    "en": "(?i)^\\s*(?:please\\s+)?(?:{{compute_verb_en}}|take)?\\s*(?:the\\s+)?(?P<kind>{{en_binary_operation_kind}})\\s+of\\s+(?P<a>.+?)\\s+and\\s+(?P<b>.+?){{en_sentence_end}}",
+    "_comment": "「A と B の交換子／反交換子／ポアソン括弧」。**二項括弧は1つの形**で、どの操作になるかは**ドメインが決める**（Phase 0 の `_try_bracket_parse` が既にそう書いている: `[X, Y]` は commutator と poisson_bracket が同じ記法・同じ `a`/`b` 欄を共有し、ドメインで相互排他）。読みの側で分ける理由が無いのにポアソン括弧だけ別のキー（`pb_bracket`）が読んでいて、そちらは動詞の省略も `は` も知らなかった——`A と B のポアソン括弧をとって` / `…は？` が落ちていた（実測 2026-09-06）。`とっ`（ひらがな）を自前で持っていたのも、共有一覧（`compute_verb_ja`）に無かったからで、そちらへ移した。"
+  },
+  "heisenberg_operator_nl": {
+    "_comment": "「A を En のもとで時間発展させて」/「the Heisenberg operator of A under En」。**方程式と演算子は同じ2欄・同じ助詞**なので、読みも1つの形である——`heisenberg_eom_*` が語順を助詞（`のもと` / `under`）で決めているのと同じ枝を、頭の名詞だけ変えて持つ。直す前は日本語が **`を…で時間発展させ` の1綴りだけ**、英語が **`evolve … under` の1綴りだけ**を読んでいて、残りは別名走査に落ちていた（実測 2026-09-06）。そこで返るのは値ではなく `heisenberg_operator` の**内部プロトコル文字列**で、`the Heisenberg operator of a(1) under E1` は `a_{1} \\vee 1 \\mathrel{\\ldotp\\mkern-2.5mu\\ldotp} - w` を `completed` として公開していた。日本語の `E1 のもとでの a(1) の Heisenberg 演算子` に至っては、別名 `heisenberg` が**方程式**を釣り上げて欄を位置で埋め、`dH/dt` を返していた。語順の枝は `pick_group` で読む。　**オペランドの綴りは fragment `operator_operand` ひとつに揃えた**（2026-09-11）。直す前はこの1つの鍵の中に3通りの自前クラスがあり、それぞれ別の場所で壊れていた——ja の語順① `[^\\s、,]+?` は `c(k,u)` を `u)` に**黙って切り**、ja の語順②③は `c_{1\\uparrow}` を、en の `\\S+?` は `c(1, u)`（空白入り。**系自身の `tex1` が印刷する形**）を受けられなかった。どれもコーパスか画面に実在する綴りである。",
+    "ja": "(?i)(?:(?P<op>{{operator_operand}})\\s*を\\s*(?P<eid>{{ham_ref}})\\s*(?:のもと|の下)?で\\s*(?:時刻\\s*(?P<time>[A-Za-z]\\w*)\\s*(?:まで|における|での)?\\s*)?時間発展させ|(?P<eid2>{{ham_ref}})\\s*(?:のもと|の下)で\\s*(?P<op2>{{operator_operand}})\\s*を\\s*(?:時刻\\s*(?P<time2>[A-Za-z]\\w*)\\s*(?:まで|における|での)?\\s*)?時間発展させ|(?P<eid3>{{ham_ref}})\\s*(?:のもと|の下)で(?:の)?\\s*(?P<op3>{{operator_operand}})\\s*の\\s*{{heisenberg_op_ja}}|(?P<op4>{{operator_operand}})\\s*の\\s*(?P<eid4>{{ham_ref}})\\s*(?:のもと|の下)で(?:の)?\\s*{{heisenberg_op_ja}}|(?P<op5>{{operator_operand}})\\s*の\\s*{{heisenberg_op_ja}}\\s*を\\s*(?P<eid5>{{ham_ref}})\\s*(?:のもと|の下)で)",
+    "en": "(?i)(?:evolve\\s+(?P<op>{{operator_operand}})\\s+(?:in\\s+time\\s+(?P<time>[A-Za-z]\\w*)\\s+)?under\\s+(?P<eid>{{ham_ref}}){{en_sentence_end}}|(?:{{compute_verb_en}}\\s+)?(?:the\\s+)?{{heisenberg_op_en}}\\s+(?:of|for)\\s+(?P<op2>{{operator_operand}})\\s+under\\s+(?P<eid2>{{ham_ref}}){{en_sentence_end}})"
+  },
+  "solve_single": {
+    "_comment": "「En を X について解いて」/「solve En for X」。**変数の前置詞は共有 fragment `en_op_var_head`**（`with respect to`/`w.r.t.`/`for`）で、`for` だけを自前で綴らない。**主語の前の名詞句を許す**——`solve the equation E1 for x` は直す前、別名走査が `equation` を変数に取り、Maxima が解けずに**「この方程式に解はありません」と研究者の式について偽を述べていた**（実測 2026-09-06）。日本語側の助詞と動詞は fragment `ja_solve_var_particle` / `ja_solve_verb` で、**guard `ja_op_var_tail` も同じものを見る**（二十二問目と同じ形）。",
+    "ja": "(?P<eid>E\\d+)\\s*を\\s*(?P<var>{{symbol}})\\s*{{ja_solve_var_particle}}\\s*{{ja_solve_verb}}|^\\s*(?P<var2>{{symbol}})\\s*{{ja_solve_var_particle}}\\s*(?P<eid2>E\\d+)\\s*を\\s*{{ja_solve_verb}}",
+    "en": "(?i)(?:{{en_solve_verb}}\\s+(?:the\\s+(?:equation|system|expression)\\s+)?(?P<eid>E\\d+)\\s+{{en_solve_var_head}}\\s+(?P<var>{{symbol}})|{{en_solve_verb}}\\s+{{en_solve_var_head}}\\s+(?P<var2>{{symbol}})\\s+in\\s+(?P<eid2>E\\d+)){{en_sentence_end}}"
+  },
+  "rhs_set": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*{{ja_side_word}}\\s*を\\s*(?P<value>.+?)\\s*(?:と(?:{{ja_suru_infl}}|みなす|みなします|みなして)|とお{{ja_oku_infl}}|と置{{ja_oku_infl}}|に等しいと{{ja_suru_infl}}|として|と等しいと{{ja_suru_infl}})(?:\\s|$)",
+    "en": "(?i)^\\s*(?:(?:set|put)\\s+{{en_side_phrase}}\\s+of\\s+(?P<eid>E\\d+)\\s+(?:to|=)\\s+(?P<value>.+?)|(?:let|take|regard)\\s+{{en_side_phrase2}}\\s+of\\s+(?P<eid2>E\\d+)\\s+(?:be|to\\s+be|as|equal\\s+to)\\s+(?P<value2>.+?)){{en_sentence_end}}"
+  },
+  "_comment_l1": "L-1 linear basis transforms (ui/interpret_l1.py). Migrated from hardcoded dual-language regex pairs (所見G) as pure-duplicate (b)-category sites.",
+  "inv_transform_vars": {
+    "ja": "(?P<eids>E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*を\\s*(?P<vars>.+?)\\s*について\\s*(?:の\\s*)?(?P<namedV>逆(?:基底)?変換)",
+    "en": "(?i)(?:invert|(?P<namedV>build\\s+the\\s+inverse(?:\\s+basis)?\\s+transform\\s+of))\\s+(?P<eids>E\\d+(?:{{list_sep_en}}E\\d+)*)\\s+for\\s+(?P<vars>.+?){{en_sentence_end}}"
+  },
+  "inv_transform": {
+    "_comment": "**並びの区切りは共有 fragment**（`list_sep_ja` / `list_sep_en`）で自前で綴らない——兄弟の `inv_transform_vars` は既にそれを使っており、こちらだけ `\\s*[と,、]` / `\\s*,\\s*` と書いていたので、`および` / `and` で並べると**式番号を黙って落として**いた（実測 2026-09-06: `…constraints of E1 and E2` が `E1` だけを捕まえ、`Invert E1 and E2` は生の `Maxima evaluation error`、`E1 および E2 の逆変換を求めて` は「変換式が2本以上必要です」と**2本書いてある入力に対して**言っていた）。 動詞も任意にした——兄弟は要求しないので、`E1, E2 の逆変換` だけが落ちていた。 **`named` は「研究者が逆変換と名指したか」**。日本語は `逆変換` という名詞を必ず書くので常に埋まるが、英語は裸の動詞 `invert` でも当たる——そして `invert` は`inverse_matrix` の別名でもある（スキーマ）。名指していないうえ E-id が1つしか無ければ逆基底変換ではありえないので、**claim せずに降りる**。実測 2026-09-07、`invert E1` は行列の逆行列を求めたのに「逆変換には最低2つの変換式が必要です」——研究者が書いていない変換について語る断り文が返っていた。",
+    "ja": "(?P<eids>E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*の\\s*(?P<named>逆(?:基底)?変換)\\s*を?\\s*(?:{{compute_verb_ja}}|{{derive_verb_ja}})?\\s*$",
+    "en": "(?i)(?:invert|(?P<named>build\\s+the\\s+inverse(?:\\s+basis)?\\s+transform\\s+of))\\s+(?P<eids>E\\d+(?:{{list_sep_en}}E\\d+)*){{en_sentence_end}}"
+  },
+  "_comment_rules": "ui/interpret_rules.py rule-based short-circuits. Migrated from hardcoded dual-language regex pairs (所見G) as pure-duplicate (b)-category sites. Multi-branch group names (eid1/var1, eid2/var2, ...) avoid Python re's duplicate-group-name restriction across alternation branches; callers extract via m.groupdict().get(name1) or m.groupdict().get(name2).",
+  "diff_rule": {
+    "ja": "(?i)(?:(?P<eid1>E(?:\\d+|_\\{[^}]+\\}|_[A-Za-z0-9]+))\\s*を\\s*(?P<var1>{{symbol}})\\s*{{ja_op_var_particle}}\\s*(?:(?:{{ordinal_token}})\\s*[階次回]\\s*)?{{ja_deriv_word}}|(?P<eid2>E(?:\\d+|_\\{[^}]+\\}|_[A-Za-z0-9]+))\\s*の\\s*(?P<var2>{{symbol}})\\s*{{ja_op_var_particle}}\\s*{{ja_deriv_word}})",
+    "en": "(?i)(?:differentiate|(?:take\\s+)?(?:the\\s+)?(?:{{deriv_kind_total_en}}|{{deriv_kind_partial_en}})?\\s*{{deriv_word_plain_en}}\\s+of)\\s+(?P<eid1>E(?:\\d+|_\\{[^}]+\\}|_[A-Za-z0-9]+))\\s*(?:\\s*(?:{{deriv_kind_total_adv_en}}|{{deriv_kind_partial_adv_en}}))?\\s*{{en_op_var_head_wide}}\\s+(?P<var1>{{symbol}})",
+    "_comment": "「E1 を x で微分」/「differentiate E1 with respect to x」。**変数の前置詞は共有 fragment `en_op_var_head_wide`**（＝`en_op_var_head` ＋ この操作だけの `by|in|over`）で、自前で綴らない——実測 2026-09-06、自前綴りは `for` を知らず、`for`/`in`/`over` では当たらないので**種別の語がそのまま変数になっていた**（`take the total derivative of E1 for t` → `var='total'`）。副詞形（`differentiate E1 totally with respect to t`）は E-id と前置詞の間に入るので、そこも許す。種別そのものは `total_derivative_marker` / `partial_derivative_marker` が決める——**その語彙は共有 fragment `deriv_kind_*` にだけ在り、ここでも自前で綴らない**（実測 2026-09-07、自前綴りだけが `ordinarily` を知っていて marker が知らず、種別を書いた文が「どちらか言ってください」で失敗していた）。"
+  },
+  "qdot_eid": {
+    "ja": "(?P<eid1>E\\d+)\\s*を",
+    "en": "(?i)(?:\\bof\\s+(?P<eid1>E\\d+)\\b|(?P<eid2>E\\d+)\\s*(?:with\\s+respect\\s+to|w\\.?r\\.?t\\.?))"
+  },
+  "total_derivative_marker": {
+    "ja": "{{deriv_kind_total_ja}}",
+    "en": "(?i)\\b{{deriv_kind_total_en}}\\s+{{deriv_word_plain_en}}\\b|\\b{{deriv_kind_total_adv_en}}\\b",
+    "_comment": "全微分 / total（常微分・全導関数・副詞形 totally・ordinarily も同じ種別を名指す）。**語彙が狭いと、その語がオペランドになる**——実測 2026-09-06、`differentiate E1 totally with respect to t` は `var='totally'` だった。**種別の語彙は fragment `deriv_kind_*` にだけ在る**——実測 2026-09-07、同じ語彙が4箇所（`diff_rule` の自前綴り／この marker ／`operand_stopwords`）に別々に書かれていて食い違っていた。`diff_rule` は副詞 `ordinarily` を受けるのに marker が知らないので、`differentiate E1 ordinarily with respect to t` は**研究者が種別を書いているのに「どちらか言ってください」と訊き返していた**（前置詞4種×語順2種＝8綴りすべて）。"
+  },
+  "partial_derivative_marker": {
+    "ja": "{{deriv_kind_partial_ja}}",
+    "en": "(?i)\\b{{deriv_kind_partial_en}}\\s+{{deriv_word_plain_en}}\\b|\\b{{deriv_kind_partial_adv_en}}\\b",
+    "_comment": "偏微分 / partial（偏導関数・副詞形 partially も同じ種別を名指す）。**語彙が狭いと、その語がオペランドになる**——実測 2026-09-06、`differentiate E1 totally with respect to t` は `var='totally'` だった。**種別の語彙は fragment `deriv_kind_*` にだけ在る**——実測 2026-09-07、同じ語彙が4箇所（`diff_rule` の自前綴り／この marker ／`operand_stopwords`）に別々に書かれていて食い違っていた。`diff_rule` は副詞 `ordinarily` を受けるのに marker が知らないので、`differentiate E1 ordinarily with respect to t` は**研究者が種別を書いているのに「どちらか言ってください」と訊き返していた**（前置詞4種×語順2種＝8綴りすべて）。"
+  },
+  "chained_subst_guard": {
+    "ja": "、.*に",
+    "en": "(?i)\\band\\b.*\\bfor\\b"
+  },
+  "_comment_free_params": "FREE-PARAM general-solution/specialization/Laplace family (ui/interpret_free_params.py). Migrated from hardcoded dual-language regex pairs (所見G) as pure-duplicate (b)-category sites. specialize_multi and ode_general use per-branch group names (eid1/cond1, eid2/cond2, ...) for the same reason as diff_rule above.",
+  "fp_subst": {
+    "ja": "^\\s*(?:(?P<eid>E\\d+)\\s*(?:で|の)\\s*)?(?P<body>.+?)\\s*(?:と{{ja_suru_infl}}|として|を代入して?|と置{{ja_oku_infl}})\\s*$",
+    "en": "(?i)^\\s*set\\s+(?P<body>.+?)\\s*(?:in\\s+(?P<eid>E\\d+))?{{en_sentence_end}}"
+  },
+  "specialize_condition": {
+    "_comment": "条件による特殊化。変数は `{{symbol}}`——**1文字** `[A-Za-z]` だったので、12綴りのうち11が通らなかった（実測 2026-08-27）。",
+    "ja": "^\\s*(?:(?P<eid>E\\d+)\\s*(?:で|の)\\s*)?(?P<var>{{symbol}})\\s*=\\s*(?P<point>[^,\\s]+)\\s*(?:で|のとき)\\s*(?P<value>[^,\\s]+)\\s*(?:という条件|になる条件|として)[^。]*?(?:決めて|決める|定めて|定める|決定して|決定する|特殊化して|特殊化する)\\s*$",
+    "en": "(?i)^\\s*(?:in\\s+(?P<eid>E\\d+)\\s*,\\s*)?when\\s+(?P<var>{{symbol}})\\s*=\\s*(?P<point>[^,\\s]+)\\s*,\\s*determine\\s+\\S+\\s+such\\s+that\\s+(?:this|it)\\s+equals\\s+(?P<value>[^,\\s.]+)\\s*\\.?{{en_sentence_end}}"
+  },
+  "specialize_multi": {
+    "ja": "^\\s*(?:(?P<eid1>E\\d+)\\s*を\\s*(?P<cond1>.+?)\\s*(?:という条件で|で|のとき)\\s*(?:特殊化(?:して|する)?|決定(?:して|する)?|決めて|決める|定めて|定める)|(?P<eid2>E\\d+)\\s*の\\s*(?:初期条件|境界条件)を\\s*(?P<cond2>.+?)\\s*とする)\\s*$",
+    "en": "(?i)^\\s*(?:determine\\s+the\\s+constants?\\s+in\\s+(?P<eid1>E\\d+)\\s+(?:from|using|with)\\s+(?P<cond1>.+?)|specialize\\s+(?P<eid2>E\\d+)\\s+(?:with|using|by|from)\\s+(?P<cond2>.+?)|set\\s+the\\s+(?:initial|boundary)\\s+conditions?\\s+of\\s+(?P<eid3>E\\d+)\\s+to\\s+(?P<cond3>.+?))\\s*\\.?{{en_sentence_end}}"
+  },
+  "ode_general": {
+    "_comment": "微分方程式の一般解。**変数の綴りは `{{symbol}}` 一択**——ここだけ裸の識別子`[A-Za-z]\\w*` だったため、`\\theta`（振り子の変数そのもの）や `x_{1}` を書くとこの規則が降り、**別の操作が答えていた**（実測 2026-08-27、実パイプライン）: `E1 を \\theta について微分方程式として解いて` は `differentiate` が横取りして**成功を返し**、`solve E1 for \\theta in general` は `solve_single` が拾って`var` を英単語 `general` と読んでいた。12綴りのうち7つが通らなかった。  **助詞は動詞句ではなく前の節に属する。** 動詞の選択肢が `を…`／`の…` を抱え込んでいたため、変数節（`を X について`）が既にその助詞を消費した後はどれも当たらず、`E1 を \\theta について微分方程式として解いて` は `differentiate` に横取りされて**成功を返していた**。`一般に解いて` と `一般解を求めて` にだけ助詞なしの兄弟があり、微分方程式側には無かったのがその非対称の正体（実測 2026-08-27: 助詞を前置きの省略可能な部品にすると9綴りが通り、失うものは0）。",
+    "ja": "^\\s*(?P<eid1>E\\d+)\\s*(?:を\\s*(?P<var1>{{symbol}})\\s*について)?\\s*(?:[をの]\\s*)?(?:一般に{{ja_solve_verb}}て?|一般解を求めて?|微分方程式として{{ja_solve_verb}}て?|微分方程式を{{ja_solve_verb}}て?|微分方程式の解を求めて?)\\s*$",
+    "en": "(?i)^\\s*(?:solve\\s+(?P<eid2>E\\d+)(?:\\s+for\\s+(?P<var2>{{symbol}}))?\\s+(?:in\\s+general|generally|as\\s+a\\s+differential\\s+equation)|find\\s+the\\s+general\\s+solution\\s+of\\s+(?P<eid3>E\\d+)(?:\\s+for\\s+(?P<var3>{{symbol}}))?|solve\\s+the\\s+differential\\s+equation\\s+(?P<eid4>E\\d+)(?:\\s+for\\s+(?P<var4>{{symbol}}))?)\\s*\\.?{{en_sentence_end}}"
+  },
+  "assume_condition": {
+    "ja": "^\\s*(?P<condition>.+?)\\s*(?:と|を)\\s*仮定(?:する|します|して)?\\s*$",
+    "en": "(?i)^\\s*assume\\s+(?:that\\s+)?(?P<condition>.+?)\\s*\\.?{{en_sentence_end}}"
+  },
+  "laplace_define": {
+    "ja": "^\\s*(?P<base>[A-Za-z]\\w*)\\s*の\\s*(?:定義)?ラプラス変換を\\s*(?P<cap>[A-Za-z]\\w*){{ja_decl_suffix_named}}\\s*$",
+    "en": "(?i)^\\s*(?:{{en_decl_verb}}\\s+)?(?P<cap>[A-Za-z]\\w*)\\s+{{en_decl_copula}}\\s+(?:the\\s+)?Laplace\\s+transform\\s+of\\s+(?P<base>[A-Za-z]\\w*){{en_sentence_end}}"
+  },
+  "_comment_poisson": "P-1 Poisson-bracket support (ui/interpret_pipeline.py, _try_poisson). Migrated from hardcoded dual-language regex pairs (所見G) as pure-duplicate (b)-category sites. pb_bracket_verb_guard has NO 'en' entry deliberately: English 'Poisson bracket of f and g' is unambiguous on its own (per the code comment at _try_poisson), so the guard only ever applies when lang=='ja' — the code short-circuits before ever requesting the 'en' variant, so nlp()'s ja-fallback-when-missing never fires here.",
+  "pb_pair_momentum": {
+    "ja": "(?P<momentum>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*を\\s*(?P<coordinate>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*の\\s*(?:正準)?共役運動量{{ja_decl_suffix_named}}",
+    "en": "(?i)(?:define\\s+)?(?P<momentum>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s+{{en_decl_copula}}\\s+(?:the\\s+)?(?:canonical|conjugate)\\s+momentum\\s+of\\s+(?P<coordinate>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))"
+  },
+  "pb_pair_canonical": {
+    "ja": "(?P<coordinate>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*と\\s*(?P<momentum>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*を\\s*正準(?:共役)?(?:座標)?(?:対|ペア)?{{ja_decl_suffix_named}}",
+    "en": "(?i)(?:define\\s+)?(?P<coordinate>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s+and\\s+(?P<momentum>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s+{{en_decl_copula}}\\s+(?:a\\s+|the\\s+)?canonical\\s+pair",
+    "_comment": "「q と p を正準共役対とする」/「define q and p as a canonical pair」。**語を並べた選択肢では合成語が落ちる**——`正準(?:共役|座標対|対|ペア)` は `共役` で止まり、続く `対` が余るので **`正準共役対`・`正準共役ペア` が落ちていた**（実測 2026-09-06）。修飾を積む形にすると6綴りすべて通る。落ちると正準対が登録されず、**ポアソン括弧が `__no_canonical_pairs__` で失敗する**——交換子の族を測っていて、原因が宣言側だったもの。"
+  },
+  "pb_bracket": {
+    "ja": "(?P<f>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*と\\s*(?P<g>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s*の\\s*ポ[アワ]ソン(?:の)?括弧",
+    "en": "(?i)Poisson\\s+bracket\\s+of\\s+(?P<f>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))\\s+and\\s+(?P<g>(?:E\\d+|\\\\[A-Za-z]+(?:_[A-Za-z0-9]+)?|[A-Za-z_][A-Za-z0-9_]*(?:_[A-Za-z0-9]+)?))"
+  },
+  "pb_bracket_verb_guard": {
+    "ja": "{{compute_verb_ja}}"
+  },
+  "order_clause": {
+    "ja": "(?P<digit>{{ordinal_token}})\\s*[階次回](?=\\s*(?:{{ja_deriv_word}}|$))",
+    "en": "(?i)\\b(?P<word>{{times_adverb_en}})\\b|\\b(?P<ntimes>{{ordinal_token}})\\s*times\\b",
+    "_comment": "微分の階数。**語彙は fragment に1つだけ置く**（`ordinal_token` / `ja_deriv_word`）——先読みが `偏微分|微分` だけを列挙していたので `全微分` の前では発火せず、`diff_rule` 側の予備は ASCII 数字しか読めないため、`二階全微分` は**どちらにも読まれずに失敗していた**（実測 2026-08-27、実パイプラインで33綴り中2件）。英語は語順で決まるので**綴りは別**（副詞 `once/twice/thrice`、または「数＋times」）だが、**数の表そのものは日英で同じ**——ここだけが`twice|once` と `\\d+` を自前で綴っており、`ordinal_token` に載っている`thrice` と、日本語なら通る「語の数＋回」（`三回`↔`three times`）が**どこにも届かず 1階を `completed` で返していた**（実測 2026-09-10）。倍数副詞は3語で閉じた集合なので fragment `times_adverb_en` に置き、`ordinal_token` はそれを引く——同じ3語が2箇所に並ぶのが、`thrice` が片方から漏れた原因である。この読みが当たると呼び出し側は「n階」だけを削り、微分語は残して下流に渡す。"
+  },
+  "_comment_numeric_fork": "N-1 numeric-fork NL trigger (_try_numeric_fork_nl, ui/interpret_numeric.py). Deliberately narrow: single sweep variable only (min/max, optional points), optional E-id target (falls back to _find_target). Anything needing multiple variables or fixed-value substitution falls through to the existing numeric modal.",
+  "numeric_fork_sweep_nl": {
+    "_comment": "変数の綴りは `{{symbol}}` に統一（2026-08-27）——「研究者は変数名をどう綴れるか」は1つの問いで、`tests/test_nl_symbol_fragment.py` がその性質を全数で押さえる。　**活用の表は動詞の種類ごと**（2026-09-10）: `掃引` はサ変なので末尾の `(?:して|する)?` で足りるが、`振る` は五段で、て形は `振って`。同じ語尾を共有させていたので `振っ` は**表に載っているのにどの活用形からも届かず**、`振って`（いちばん普通の綴り）が「解釈できません」で落ちていた。`{{ja_ru_infl}}` は `ja_oku_infl`（置く）の五段る型である。",
+    "ja": "^\\s*(?:(?P<target>E\\d+)\\s*(?:の|で)\\s*)?(?P<var>{{symbol}})\\s*を\\s*(?P<min>-?[0-9０-９]+(?:\\.[0-9０-９]+)?)\\s*から\\s*(?P<max>-?[0-9０-９]+(?:\\.[0-9０-９]+)?)\\s*まで\\s*(?:(?P<points>[0-9０-９]+)\\s*点で\\s*)?(?:数値的に)?\\s*(?:掃引|振{{ja_ru_infl}})\\s*(?:評価|計算)?\\s*(?:して|する)?\\s*$",
+    "en": "(?i)^\\s*sweep\\s+(?P<var>{{symbol}})\\s+from\\s+(?P<min>-?[0-9]+(?:\\.[0-9]+)?)\\s+{{en_upto}}\\s+(?P<max>-?[0-9]+(?:\\.[0-9]+)?)(?:\\s+with\\s+(?P<points>[0-9]+)\\s+points)?(?:\\s+for\\s+(?P<target>E\\d+))?{{en_sentence_end}}"
+  },
+  "scalar_handoff_nl": {
+    "ja": "^\\s*(?P<target>E\\d+)\\s*を\\s*(?:(?P<backend>maxima|Maxima|julia|Julia)\\s*(?:の)?\\s*)?(?:新しい)?\\s*セッション\\s*(?:に|へ)\\s*(?:渡す|渡し|引き継ぐ|引き継い|持ち出す|持ち出し|移す|移し)\\s*(?:で|て)?\\s*(?:ください)?\\s*$",
+    "en": "(?i)^\\s*hand\\s+(?P<target>E\\d+)\\s+(?:off\\s+)?to\\s+(?:a\\s+|the\\s+)?(?:new\\s+)?(?P<backend>maxima|julia)?\\s*session{{en_sentence_end}}"
+  },
+  "_comment_l1_constraints": "L-1 (docs/27 所見G stage 1): canonical/metric constraint derivation & verification, constraint application, and transform substitution. Parsers in ui/interpret_l1.py use nlp(key, lang) (session-language only, per docs/28 §3.1). The explicit-matrix old/new-basis path stays content-based in code (docs/28 §4, same rationale as interpret_f1).",
+  "canon_constraint": {
+    "ja": "(E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*の\\s*(?:正準(?:交換)?(?:関係)?拘束|正準性?の?条件|交換関係を保つ条件|Bogoliubov\\s*(?:変換の)?(?:拘束|条件))\\s*を?\\s*(?:{{compute_verb_ja}}|{{derive_verb_ja}})?",
+    "en": "(?i)(?:{{derive_verb_en}}|{{compute_verb_en}})\\s+the\\s+(?:canonical(?:\\s+commutation)?|Bogoliubov)\\s+constraints?\\s+(?:of|for)\\s+(E\\d+(?:{{list_sep_en}}E\\d+)*)"
+  },
+  "verify_canon": {
+    "ja": "(E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*(?:は|が)?\\s*(?:正準(?:変換|性)?|para[-\\s]?unitary|ユニタリ)\\s*(?:変換)?(?:です|で)?\\s*(?:か|？|\\?|を?\\s*(?:検証|確認))",
+    "en": "(?i)(?:is|are)\\s+(E\\d+(?:{{list_sep_en}}E\\d+)*)\\s+(?:a\\s+)?(?:canonical|para[-\\s]?unitary|unitary)(?:\\s+transformations?)?\\s*\\??{{en_sentence_end}}|(?:verify|check)\\s+(?:that\\s+|whether\\s+|if\\s+)?(E\\d+(?:{{list_sep_en}}E\\d+)*)\\s+(?:is|are)\\s+(?:canonical|para[-\\s]?unitary|unitary)"
+  },
+  "apply_constraints": {
+    "ja": "(E\\d+)\\s*を\\s*(E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*の\\s*(?:正準)?(?:拘束|関係)\\s*(?:の\\s*もと\\s*で|で|を\\s*使っ?て|を\\s*適用\\s*し?て)?\\s*(?:{{simplify_verb_ja}}|整理)",
+    "en": "(?i){{simplify_verb_en}}\\s+(E\\d+)\\s+(?:under|using|with|by)\\s+(?:the\\s+)?(?:canonical\\s+)?(?:constraints?|relations?)\\s+(?:of\\s+|in\\s+|from\\s+)?(E\\d+(?:{{list_sep_en}}E\\d+)*)"
+  },
+  "constr_simplify_verb": {
+    "ja": "{{simplify_verb_ja}}|整理",
+    "en": "(?i)\\b{{simplify_verb_en}}\\b"
+  },
+  "constr_keyword": {
+    "ja": "拘束|正準",
+    "en": "(?i)\\b(?:constraints?|canonical|relations?)\\b"
+  },
+  "metric_constraint": {
+    "ja": "(?P<eids>E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*の\\s*(?:計量(?:保存)?条件|計量を?保つ条件|直交(?:化)?条件)\\s*を?\\s*(?:{{compute_verb_ja}}|{{derive_verb_ja}})?",
+    "en": "(?i)(?:{{derive_verb_en}}|{{compute_verb_en}})\\s+the\\s+(?:metric(?:[-\\s]?preserv(?:ing|ation))?|orthogonality|orthonormaliz\\w*)\\s+(?:constraints?|conditions?)\\s+(?:of|for)\\s+(?P<eids>E\\d+(?:{{list_sep_en}}E\\d+)*)"
+  },
+  "transform_subst": {
+    "_comment": "「E5, E6 を E10 に代入して」/「substitute E5, E6 into E10」。**動詞と前置詞は共有 fragment**（`en_subst_apply_verb` / `en_subst_into` / `ja_subst_apply_verb`）で、自前で綴らない——この鍵の消費者は**複数ソース／演算子のときだけ**受け、単一ソースの可換な場合は `dainyu` へ素通りさせるので、**同じ問いに2箇所が答えている**。直す前は英語だけが割れていて（ここは `substitute|apply|plug`、`dainyu` は `substitute` のみ）、`apply E1 to E2` と `plug E1 into E2` が落ちていた——日本語の `E2 に E1 を適用して` は通るのに（実測 2026-09-06）。目的語が先に来る語順も両方に足してある。",
+    "ja": "(?P<srcs1>E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*を\\s*(?P<tgt1>E\\d+)\\s*に\\s*{{ja_subst_apply_verb}}|(?P<tgt2>E\\d+)\\s*に\\s*(?P<srcs2>E\\d+(?:{{list_sep_ja}}E\\d+)*)\\s*を\\s*{{ja_subst_apply_verb}}",
+    "en": "(?i)(?:{{en_subst_apply_verb}}\\s+(?P<srcs1>E\\d+(?:{{list_sep_en}}E\\d+)*)\\s+{{en_subst_into}}\\s+(?P<tgt1>E\\d+)|in\\s+(?P<tgt2>E\\d+),?\\s*{{en_subst_apply_verb}}\\s+(?P<srcs2>E\\d+(?:{{list_sep_en}}E\\d+)*){{en_sentence_end}})"
+  },
+  "_comment_stage2": "所見G stage 2: imperative result-naming (ui/interpret_pipeline._try_name_assignment) and notation-format / LaTeX-name keyword detectors (ui/interpret_rules set_notation / set_latex_name short-circuits). Session-language lookup (docs/28 §3.1); shared named groups eid/name.",
+  "name_assign": {
+    "ja": "(?P<eid>E\\d+)\\s*を\\s*(?P<name>[A-Za-z_][A-Za-z0-9_]*)\\s*(?:と{{ja_suru_infl}}|と置{{ja_oku_infl}}|とお{{ja_oku_infl}}|に代入(?:する)?|と命名(?:する)?|に格納(?:する)?)",
+    "en": "(?i)(?:(?:call|name)\\s+(?P<eid>E\\d+)\\s+(?P<name>[A-Za-z_][A-Za-z0-9_]*)|store\\s+(?P<eid2>E\\d+)\\s+as\\s+(?P<name2>[A-Za-z_][A-Za-z0-9_]*))\\b"
+  },
+  "notation_leibniz_kw": {
+    "ja": "(?i)Leibniz|ライプニッツ|d/dt記法",
+    "en": "(?i)\\bleibniz\\b|d/dt\\s*notation\\b",
+    "_comment": "**`d/dt` は記法の語と一緒のときだけ記法の名前である**——日本語が `d/dt記法` と書くのと同じ。英語だけ `notation` を任意にしていたので `take d/dt of E1` が**時間微分の依頼ではなく記法の切替**として読まれ、登録済みの量が1つのときの fallback で `L` の微分表示を Leibniz に書き換えて `confirmed` を返していた（実測 2026-09-17、VEC-BINARY-OPERAND-WHITESPACE を族ごと測って出た）。裸の `leibniz` は日英とも受ける——対称なのでこの修正の範囲ではない。"
+  },
+  "notation_dot_kw": {
+    "ja": "dot記法|ドット記法",
+    "en": "(?i)\\bdot\\s+notation\\b",
+    "_comment": "**`dot` は `notation` と一緒のときだけ記法の名前である**——日本語は `記法` を必須にしている。英語は `notation` を任意にし語境界も無かったので、`the dot product of A and B` の `dot` で発火して**内積の代わりに A の微分表示をドット記法へ切り替え** `confirmed` を返していた（実測 2026-09-17、英語の内積 6綴り中6）。語境界が無いので解析力学の英語行の `\\dot{x}` にも当たっており、それが発火しなかったのは先に別の規則が取っていたからにすぎない。"
+  },
+  "latex_name_kw": {
+    "ja": "(?i)LaTeX名?|ラテックス名?",
+    "en": "(?i)latex(?:\\s*name)?"
+  },
+  "_comment_stage3": "所見G stage 3: single-variable definite integral (ui/interpret_integral._try_definite_integral) and the wrt-q̇ differentiation keyword detector (ui/interpret_rules). Both session-language.",
+  "_comment_def_integral": "**変数の前置詞・助詞は共有 fragment**（`en_op_var_head_wide` / `ja_op_var_particle`）で自前で綴らない。直す前は英語が `over|with respect to|w.r.t.|by` を自前で持ち `for`/`in` を知らず、**範囲が黙って落ちて不定積分が返っていた**（実測 2026-09-06: `integrate x^2 in x from 0 to 1` → `x^3/3 + C` を `completed`）。日本語は `で` だけで `について` が落ちていた。fragment の名前を `en_deriv_var_head` / `ja_deriv_var_particle` から変えたのは、**微分だけのものではなくなった**からである——名前が嘘をつくと次の人が3つ目のコピーを書く。",
+  "_comment_integral_in_coordinates": "`in <名前> coordinates` / `<名前>座標で` は**副詞句であって「前置詞＋変数」ではない**。共有の前置詞表が `in` を持つ（`integrate f in x` は読めるべき綴り）ので、`polar` が変数の欄に入り `polar*x^2+C` が `completed` で返っていた——研究者が変数として書いていない記号が答えに立つ（実測 2026-09-18、極・球・円筒の3系、HEAD でも同じ）。日本語は同じ綴りが**声を上げて**失敗していた。**判別は語彙ではなく性質**——`coordinates` / `座標` が後ろに付く語は座標系であって変数ではない。語彙の表を持つと、研究者が定義した座標系（`define_coordinate_system`）の名前が漏れる。**通る道は実測したもの**: 定積分フォームへ登録してから `Change variables in E1 from x,y to r,theta via …`（日英とも `%pi/2` に落ちる、シナリオ `scenario_coordinate_jacobian` の綴り）。",
+  "integral_in_coordinates": {
+    "ja": "(?s)^\\s*(?P<integrand>.+?)\\s*を\\s*(?P<system>[^\\s、,]+?)座標(?:系)?\\s*で\\s*(?:定)?積分\\s*(?:して|する)?\\s*$",
+    "en": "(?is)^\\s*(?:(?:definite[-\\s]?)?integrate|(?:take\\s+)?(?:the\\s+)?integral\\s+of)\\s+(?P<integrand>.+?)\\s+in\\s+(?P<system>[A-Za-z_]\\w*)\\s+coordinates?\\b.*$"
+  },
+  "_comment_diff_inline_formula": "英語の微分の inline 枠。2026-08-22 に Python の中で書かれ、前置詞を**手書き**で持っていた（`with respect to|w.r.t.|by`）。2026-09-18 に共有表 `en_op_var_head_wide` へ移した（**種別の語も同じく `deriv_kind_*` から取る**——Python の中に在ったあいだ、`total|partial` を自前で綴っていることは語彙のラチェットから見えていなかった）——`def_integral[en]` と積分の枠が読んでいるのと同じ問いで、割れていた代償は `differentiate a x^2 in x` / `for x` / `over x` が枠に当たらず `differentiate(expr='x^2', var='a')` → `0` を completed で返すことだった（6前置詞中3）。日本語は字種の変わり目が式を切るので枠を持たない。",
+  "diff_inline_formula": {
+    "en": "(?i)^(?P<leadin>(?:differentiate|(?:take\\s+)?(?:the\\s+)?(?:{{deriv_kind_total_en}}|{{deriv_kind_partial_en}})?\\s*derivative\\s+of))\\s+(?P<formula>.+?)\\s+(?P<trailing>{{en_op_var_head_wide}}\\s+[A-Za-z_]\\w*.*)$"
+  },
+  "_comment_integrate_inline_formula": "英語の `integrate <式> over <変数>` を切る枠。日本語は字種の変わり目（`_FORMULA_OP_RE`）が式を切り出すので要らない。無いあいだ、被積分関数が式として登録されず、欄が位置で埋まって**変数と入れ替わって**いた——`integrate a x^2 over x` が `integrate(expr='x^2', var='a')` を completed で返す（実測 2026-09-18、英語15セル中 正しいのは3、6が黙って誤答）。前置詞は**共有の表** `en_op_var_head_wide` を読む——`def_integral[en]` が読んでいるのと同じ問いで、微分の枠だけが手書きの部分集合を持っていた。**境界つきの綴り（`from … to …` / `over the region …`）には当たらない**: そちらは専用のインターセプタが在り、実測で正しく動く（E-id の被積分関数も受ける）。",
+  "integrate_inline_formula": {
+    "en": "(?is)^\\s*(?P<leadin>(?:definite[-\\s]?)?integrate|(?:take\\s+)?(?:the\\s+)?integral\\s+of)\\s+(?P<formula>.+?)\\s+(?P<trailing>{{en_op_var_head_wide}}\\s+{{symbol}}.*)$"
+  },
+  "def_integral": {
+    "ja": "(?s)^\\s*(?P<integrand>.+?)\\s*を\\s*(?P<var>{{symbol}})\\s*{{ja_op_var_particle}}\\s*(?P<lower>.+?)\\s*から\\s*(?P<upper>.+?)\\s*まで\\s*定積分\\s*(?:して|する)?\\s*$",
+    "en": "(?is)^\\s*(?:definite[- ]?integrate|integrate)\\s+(?P<integrand>.+?)\\s+{{en_op_var_head_wide}}\\s+(?P<var>{{symbol}})\\s+from\\s+(?P<lower>.+?)\\s+to\\s+(?P<upper>.+?){{en_sentence_end}}"
+  },
+  "qdot_diff_kw": {
+    "ja": "(?is)∂.{0,8}∂.{0,4}(?:dot|ドット|q̇)|(?:q̇|qdot|q_dot|一般速度)\\s*(?:で|について)?\\s*(?:偏)?微分|\\\\dot\\{[A-Za-z\\\\]+\\}\\s*(?:で|について)?\\s*(?:偏)?微分|(?:偏)?微分\\s*[（(]?\\s*(?:速度|q̇|qdot|\\\\dot)|速度\\s*(?:で|について)\\s*(?:偏)?微分",
+    "en": "(?is)(?:differentiate|derivative)\\b.{0,40}\\\\dot\\{[A-Za-z\\\\]+\\}|\\\\dot\\{[A-Za-z\\\\]+\\}.{0,40}\\b(?:differentiate|derivative)"
+  },
+  "_comment_stage4_plan": "所見G stage 4: fixed-workflow / adviser plan triggers (ui/interpret_plan). Session-language. Heisenberg base operator uses shared group 'base'; site/var use positional group 1 in both languages.",
+  "plan_eigensystem": {
+    "ja": "固有状態|固有系|固有値と固有ベクトル",
+    "en": "(?i)eigenstates?\\b|eigensystem\\b|eigenvalues\\s+and\\s+eigenvectors"
+  },
+  "plan_heisenberg_all": {
+    "ja": "(?:(?P<base>[A-Za-z])\\s*の)?(?:各|全)成分の\\s*ハイゼンベルク(?:運動)?方程式",
+    "en": "(?i)heisenberg\\s+equations?\\s+for\\s+(?:all|each)\\s+components?(?:\\s+of\\s+(?P<base>[A-Za-z])\\b)?"
+  },
+  "plan_site": {
+    "ja": "サイト\\s*([0-9０-９]+)",
+    "en": "(?i)site\\s*([0-9０-９]+)"
+  },
+  "plan_var": {
+    "ja": "変数\\s*([A-Za-z][A-Za-z0-9_]*)\\s*で",
+    "en": "(?i)(?:with|using)\\s+variable\\s+([A-Za-z][A-Za-z0-9_]*)"
+  },
+  "plan_candidates": {
+    "ja": "解法の?候補|解き方の?候補",
+    "en": "(?i)solution\\s+candidates|candidate\\s+plans"
+  },
+  "plan_freeform": {
+    "ja": "計画を立てて|手順を計画して",
+    "en": "(?i)plan\\s+this|make\\s+a\\s+plan|propose\\s+a\\s+plan"
+  },
+  "plan_auto_select": {
+    "ja": "(?:解法|解き方|方法)を自動(?:で)?選(?:んで|択して)|自動選択して",
+    "en": "(?i)auto[- ]?select(?:\\s+the\\s+best)?|automatically\\s+(?:pick|choose|select)(?:\\s+the\\s+best)?"
+  },
+  "_comment_stage5": "所見G stage 5 (2026-07-19): the JA-only combine / component-substitute grammars and the already-bilingual E→E substitution. JA fields are the pre-existing regexes VERBATIM (named-grouped); EN is added. Word order reverses in EN (subtract B from A, divide A by B, substitute B for A) — the parser assigns operands from named groups, pinned by JA+EN tests. combine JA groups a/b/kw (op via _combine_kw_to_op); EN groups a_<op>/b_<op>. subst_replace = the primary (を…で置き換え) form; subst_replace_alt = the arrow/= fallback (kept ja-only — arrows are language-neutral, matched with lang='ja').",
+  "combine": {
+    "ja": "(?i)(?P<a>E\\d+)\\s*(?:と|から)\\s*(?P<b>E\\d+)\\s*(?:の?両辺を?)?\\s*(?:を\\s*)?(?P<kw>足す|足して?|たす|プラス|加えて?|加算|\\+|引く|引いて?|ひく|マイナス|\\-|掛ける?|掛けて?|かける?|かけて?|×|割る|割って?|わる?|÷)",
+    "en": "(?i)(?:add\\s+(?P<a_add>E\\d+)\\s+and\\s+(?P<b_add>E\\d+)|multiply\\s+(?P<a_mul>E\\d+)\\s+and\\s+(?P<b_mul>E\\d+)|subtract\\s+(?P<b_sub>E\\d+)\\s+from\\s+(?P<a_sub>E\\d+)|divide\\s+(?P<a_div>E\\d+)\\s+by\\s+(?P<b_div>E\\d+))"
+  },
+  "subst_replace": {
+    "ja": "(?i)(?P<eid>E\\d+)\\s*(?:の|で)?\\s*(?P<lhs>(?:\\\\[A-Za-z]+(?:\\{[^}]*\\})*(?:_\\{?[^}]*\\}?)?|[^\\s→＝を]+?))\\s*を\\s*(?P<rhs>.+?)\\s*で置き換え",
+    "en": "(?i)(?:replace\\s+(?P<lhsA>.+?)\\s+with\\s+(?P<rhsA>.+?)\\s+in\\s+(?P<eidA>E\\d+){{en_sentence_end}}|in\\s+(?P<eidB>E\\d+),?\\s*replace\\s+(?P<lhsB>.+?)\\s+with\\s+(?P<rhsB>.+?){{en_sentence_end}}|substitute\\s+(?P<rhsC>.+?)\\s+for\\s+(?P<lhsC>.+?)\\s+in\\s+(?P<eidC>E\\d+){{en_sentence_end}}|in\\s+(?P<eidD>E\\d+),?\\s*substitute\\s+(?P<rhsD>.+?)\\s+for\\s+(?P<lhsD>.+?){{en_sentence_end}}|(?:set|let|put)\\s+(?P<lhsE>.+?)\\s*(?:=|\\bto\\b)\\s*(?P<rhsE>.+?)\\s+in\\s+(?P<eidE>E\\d+){{en_sentence_end}}|in\\s+(?P<eidF>E\\d+),?\\s*(?:set|let|put)\\s+(?P<lhsF>.+?)\\s*(?:=|\\bto\\b)\\s*(?P<rhsF>.+?){{en_sentence_end}})"
+  },
+  "subst_replace_alt": {
+    "ja": "(?i)(?:(?P<eid>E\\d+)\\s*(?:の|で|に対して|において)?\\s*(?P<lhs>(?:\\\\[A-Za-z]+(?:\\{[^}]*\\})*(?:_\\{?[^}]*\\}?)?|[^\\s→＝]+?))\\s*(?:を\\s*|→|＝|=)\\s*(?P<rhs>.+?)\\s*(?:で置き換え|で置換|と置換|に置換|に置き換え|→|とお{{ja_oku_infl}}|とおく|と置{{ja_oku_infl}}|と置く)|(?P<eid2>E\\d+)\\s*(?:の|で|に対して|において)?\\s*(?P<lhs2>(?:\\\\[A-Za-z]+(?:\\{[^}]*\\})*(?:_\\{?[^}]*\\}?)?|[^\\s→＝]+?))\\s*(?:→|＝|=)\\s*(?P<rhs2>.+?)\\s*(?:と{{ja_suru_infl}}|として))",
+    "_comment": "矢印・`=` の代入。**`とする`/`として` は別の枝にしてある**（起票 SUBST-TOSHITE、2026-09-10）。この語尾は宣言（`x をスカラーとする`）・H-5z（`E20 の右辺を 0 とする`）・初期条件・`fp_subst` と共有されているので、既存の枝にただ足すと横取りになる。**判別子は区切りの記号である**——`を` は助詞で、その後ろには型の名詞が来うる（`スカラー`・`正の実数`・`r の共役運動量`）。`=`／`＝`／`→` は**書かれた数式**で、型の名詞がその形を取ることはない。だから新しい枝は `を` を受けない。　**素朴に足したときに何が壊れるかは、パイプラインで測って初めて出た**: コーパスの文だけを見ると H-5z の6行と初期条件の1行が当たるように見えるが、経路の順では `rhs_set` が先に走るので実害は無い。実際に壊れたのは**宣言**で（`x をスカラーとする` が「文字 `ス` は数式として読めません」になる）、**式番号を持たない文に足場 `E1 に対して` が前置される**ため、この鍵から見ると E-id つきの文に見えるからである。コーパスの生の文を走査しても、この形は出ない。　枝の接尾辞（`eid2`/`lhs2`/`rhs2`）は `_sr_pick`（`pick_group`）が読むので、読む側に並べる必要は無い。"
+  },
+  "dainyu": {
+    "_comment": "単一ソースの可換な代入（`transform_subst` の消費者が素通りさせる場合）。**動詞と前置詞は `transform_subst` と同じ共有 fragment を読む**——同じ問いなので、片方だけに動詞を足せる形にしない。直す前はここだけ `substitute` + `into` で、`apply E1 to E2` / `plug E1 into E2` / `substitute E1 in E2` / `In E2, substitute E1` が落ちていた（実測 2026-09-06、日本語側は4綴りとも通る）。",
+    "ja": "(?P<src1>E\\d+)\\s*を\\s*(?P<tgt1>E\\d+)(?:\\s*の(?P<idx1>\\S+))?\\s*に{{ja_subst_apply_verb}}|(?P<tgt2>E\\d+)(?:\\s*の(?P<idx2>\\S+))?\\s*に\\s*(?P<src2>E\\d+)\\s*を{{ja_subst_apply_verb}}",
+    "en": "(?i)(?:{{en_subst_apply_verb}}\\s+(?P<src3>E\\d+)\\s+{{en_subst_into}}\\s+(?P<tgt3>E\\d+)\\b|in\\s+(?P<tgt4>E\\d+),?\\s*{{en_subst_apply_verb}}\\s+(?P<src4>E\\d+){{en_sentence_end}})"
+  },
+  "diff_order_ordinal": {
+    "_comment": "**序数の綴りは共有 fragment `ordinal_token`、変換は `number_word` に統一。**「序数はどう書かれるか」の答えは `number_word`（`3`/`３`/`三`/`third`/`3rd` を読み、読めなければ None で推測しない）に既にあったのに、訊いているのは `order_clause` だけで、他の鍵は自前の文字クラス＋`int()` だった。だから語の序数がどこにも届かず、`take the third order derivative` が**1階**、`second order commutator` が**1重**、`up to fourth order` が**既定の3次**を `completed` で返していた（実測 2026-09-06）。　**英語は `order` という語を要求していた。** 日本語は数え上げの助数詞（`[階次回]`）で決まるので `3階微分` が読めるのに、英語は `third order derivative` しか読めず、**英語で一番ふつうの言い方である `the third derivative` は階数が黙って落ちて1階微分が `completed` で返っていた**（実測 2026-09-11、`the second derivative` / `take the 3rd derivative` / `the tenth derivative` も同じ）。`order` を任意にするだけでは `the third expression` のような文まで読んでしまうので、**後ろに微分の名詞が来ることを先読みで要求する**——日本語側が助数詞で果たしている役目を、英語では名詞が果たす。名詞の綴りは fragment `deriv_word_plain_en` に置いた（日本語の `deriv_word_plain_ja` の鏡）。",
+    "ja": "({{ordinal_token}})\\s*[階次回]",
+    "en": "(?i)({{ordinal_token}})[\\s-]*(?:order\\b|(?=\\s*{{en_deriv_word}}\\b))"
+  },
+  "declare_bracket_functional": {
+    "ja": "(?P<sym>[A-Za-z][A-Za-z0-9_]*)\\s*(?:\\[[^\\]]*\\])?\\s*を\\s*(?P<exp>期待値)?の?\\s*汎[函関]数{{ja_decl_suffix_named}}",
+    "en": "(?i)(?:{{en_decl_verb}}\\s+)?(?P<sym>[A-Za-z][A-Za-z0-9_]*)\\s*(?:\\[[^\\]]*\\])?\\s+{{en_decl_copula}}\\s+(?:an?\\s+)?(?P<exp>expectation\\s+)?(?:bracket\\s+)?functional"
+  },
+  "_comment_f1_lattice": "F-1 (所見G stage f1, 2026-07-19): condensed-matter lattice/dispersion/graph/spin NL grammar externalized from ui/interpret_f1.py. Shared lattice primitives (f1_ns_lattice/f1_ns_nsite/f1_ns_site/f1_dispersion/f1_kagome/f1_lieb/f1_lattice_mention[_safe]) thread through neighbor-sum, dispersion, graph, crystal, ssh via nlp(key, lang). f1_ns_lattice keeps shared groups sq/tri/hc; site/shape use positional group(s). A few genuinely content-based body-extraction spots (f1_ns_body etc.) are queried in BOTH languages to preserve the file's content-based robustness (docs/28 §4).",
+  "f1_ns_lattice": {
+    "ja": "(?P<sq>正方格子)|(?P<tri>三角格子)|(?P<hc>ハニカム|蜂の巣格子)",
+    "en": "(?i)(?P<sq>square[\\s-]*lattice)|(?P<tri>triangular[\\s-]*lattice)|(?P<hc>honeycomb)"
+  },
+  "f1_ns_nsite": {
+    "ja": "([0-9０-９]+)[\\s-]*サイト",
+    "en": "(?i)([0-9]+)[\\s-]*site"
+  },
+  "f1_ns_site": {
+    "ja": "サイト\\s*([0-9０-９]+)",
+    "en": "(?i)site\\s*([0-9]+)"
+  },
+  "f1_dispersion": {
+    "ja": "分散関係|分散|バンド構造",
+    "en": "(?i)dispersion|band\\s*structure"
+  },
+  "f1_kagome": {
+    "ja": "(?i)カゴメ|かごめ|籠目|kagome",
+    "en": "(?i)kagome"
+  },
+  "f1_lieb": {
+    "ja": "(?i)リーブ|Lieb",
+    "en": "(?i)Lieb"
+  },
+  "f1_lattice_mention": {
+    "ja": "(?P<ja>[^\\s、,。の]+?)格子",
+    "en": "(?i)(?P<en>[A-Za-z][A-Za-z\\-]*)\\s+lattice\\b"
+  },
+  "f1_lattice_mention_safe": {
+    "ja": "格子和|格子図|格子の図|副格子|サブ格子",
+    "en": "(?i)sublattice|lattice\\s*(?:sum|figure)"
+  },
+  "f1_crystal_kw": {
+    "ja": "結晶|クリスタル",
+    "en": "(?i)crystal|tight[\\s-]*binding"
+  },
+  "f1_nnn": {
+    "ja": "(?:次近接|第二近接|NNN)\\s*(?:ホッピング)?\\s*(?P<amp>-?\\\\?[A-Za-z][\\w'^{}\\\\]*)?(?:\\s*[,、]\\s*(?P<amp2>-?\\\\?[A-Za-z][\\w'^{}\\\\]*))?",
+    "en": "(?i)(?:second[\\s-]*neighbou?r|next[\\s-]*nearest(?:[\\s-]*neighbou?r)?|NNN)\\s*(?:hopping)?\\s*(?P<amp>-?\\\\?[A-Za-z][\\w'^{}\\\\]*)?(?:\\s*[,]\\s*(?P<amp2>-?\\\\?[A-Za-z][\\w'^{}\\\\]*))?"
+  },
+  "f1_onsite": {
+    "ja": "(?:副格子ポテンシャル|サブ格子ポテンシャル|質量項|質量)\\s*(?P<amp>-?\\\\?[A-Za-z][\\w'^{}\\\\]*)?",
+    "en": "(?i)(?:mass|staggered|sublattice\\s*potential)\\s*(?P<amp>-?\\\\?[A-Za-z][\\w'^{}\\\\]*)?"
+  },
+  "_comment_f1_graph_spin": "F-1 graph / spin / spectral / energy-moment / specific-heat NL grammar. Model names (Heisenberg/Ising/XXZ/XY) are romanized proper nouns kept in BOTH ja and en fields (JP physicists type them directly). f1_spec_depth uses named groups d1/d2/d3.",
+  "f1_graph_edge": {
+    "ja": "グラフ",
+    "en": "(?i)graph"
+  },
+  "f1_graph_allpairs": {
+    "ja": "完全グラフ|全ペア",
+    "en": "(?i)complete\\s*graph"
+  },
+  "f1_boundary_cylinder": {
+    "ja": "円筒|シリンダー",
+    "en": "(?i)cylinder"
+  },
+  "f1_boundary_periodic": {
+    "ja": "周期|トーラス",
+    "en": "(?i)periodic|torus"
+  },
+  "f1_adjacency": {
+    "ja": "隣接行列",
+    "en": "(?i)adjacency"
+  },
+  "f1_degree": {
+    "ja": "次数列|配位数列|次数|配位数",
+    "en": "(?i)degree"
+  },
+  "f1_triangle": {
+    "ja": "三角形の数|三角形数|三角形",
+    "en": "(?i)triangle"
+  },
+  "f1_spectrum": {
+    "ja": "固有値|スペクトル",
+    "en": "(?i)spectrum|eigenvalue"
+  },
+  "f1_identity": {
+    "ja": "恒等式",
+    "en": "(?i)identity"
+  },
+  "f1_spin_model": {
+    "ja": "(?i)ハイゼンベルク|ハイゼンベルグ|heisenberg|イジング|ising|XXZ|ＸＸＺ|XY|ＸＹ",
+    "en": "(?i)heisenberg|ising|XXZ|XY"
+  },
+  "f1_commut": {
+    "ja": "交換子|運動方程式",
+    "en": "(?i)commutator|EOM"
+  },
+  "_comment_f1_order2": "`二重|二段|…|加速度`。数字の側は `f1_order_n` が `ordinal_token` で読むので**重複している**が、`加速度`（＝2階の時間微分）は 数ではない別名なので、この鍵は残る。数字の綴りをここに足さないこと——序数の答えは `number_word` 1つである。",
+  "f1_order2": {
+    "ja": "二重|二段|2段|2重|二次|2次|加速度",
+    "en": "(?i)double"
+  },
+  "f1_order_n": {
+    "ja": "({{ordinal_token}})\\s*(?:段|次|重)\\s*(?:の)?\\s*交換子",
+    "en": "(?i)({{ordinal_token}})[\\s-]*(?:order|fold)\\s*commutator"
+  },
+  "f1_field_transverse": {
+    "_comment": "横磁場（F-1 スピン模型）。**「磁場があるか」と「どの向きか」は別の問い**——向きの鍵はこれと `f1_field_longitudinal`、在ることの鍵は `f1_field_mention`。直す前は向きの鍵しか無く、向きの書かれていない磁場が**磁場なしと区別できなかった**（実測 2026-09-07、`磁場中のイジング模型` が磁場の項の落ちたハミルトニアンを組み `[H,S^z]=0` を completed で返していた）。",
+    "ja": "横磁場|横方向磁場",
+    "en": "(?i)transverse"
+  },
+  "f1_field_longitudinal": {
+    "_comment": "縦磁場。向きの鍵——`f1_field_transverse` の対。",
+    "ja": "縦磁場|縦方向磁場",
+    "en": "(?i)longitudinal"
+  },
+  "f1_field_mention": {
+    "_comment": "**磁場が書かれているか**（向きは問わない）。`横磁場` も含むので、判定は「向きが読めたか → その向き／読めないが在ると書いてある → 訊く／何も書いていない → 磁場なし」の順。向きを既定しないのは、それが**物理の選択**だから（CLAUDE.md「問題依存の物理の選択を共有コードに焼き込まない」）——微分の種別（∂ か d か）と同じ形で、読めなければ訊く。",
+    "ja": "磁場|外場",
+    "en": "(?i)\\bfields?\\b"
+  },
+  "f1_moment": {
+    "ja": "モーメント",
+    "en": "(?i)moment"
+  },
+  "f1_contfrac": {
+    "ja": "連分数",
+    "en": "(?i)continued\\s*fraction|recursion"
+  },
+  "f1_spec_depth": {
+    "ja": "(?:(?P<order>{{ordinal_token}})\\s*次|(?P<depth>{{ordinal_token}})\\s*段|深さ\\s*(?P<depth2>{{ordinal_token}}))",
+    "en": "(?i){{en_upto}}\\s+(?:the\\s+)?(?:order\\s+(?P<order2>{{ordinal_token}})|(?P<order3>{{ordinal_token}})\\s*order)|depth\\s+(?P<depth3>{{ordinal_token}})",
+    "_comment": "**`次`（次数）と `段`/`深さ`（段数）は別の量である。** モーメントは $M_0, M_2, M_4, \\dots$ と**偶数次**しか無いので、`2次まで` は $M_0, M_2$ を指し、recursion を 2 段回すと $M_4$ まで出る——**同じ「2」が2つの量**になる。実測 2026-09-10（起票 MOMENT-ORDER-MEANING）: 具体格子の枝が書かれた数を**段数として**使っており、`2次までのモーメント` が $M_0, M_2, M_4$ を返していた。一方 一般式の枝と断り文（`order.general_moment_beyond`、上限 2）と**表示のラベル `M_{2k}` 自身**は次数として扱っており、断り文が名指す回避策「格子を具体的に書いて `4次まで`」に従うと $M_8$ まで返っていた。　群名は**意味で付ける**（`order` / `depth`）——英語側は最初から `order` と `depth` を別の枝で綴っており、**判別子はデータに在って読む側が捨てていた**。　`深さ` は日本語では数の**前**に置く（`深さ2`）。直す前は数の後ろ（`2深さ`）しか受けておらず、**誰も打てない綴り**だった（綴り空間の ratchet は「`深さ` はどこかに書かれている」としか見ないので、これは捕まえない——道具自身が docstring に「部分一致は経路ではない」と書いている 5 つの盲点の1つ）。"
+  },
+  "f1_general": {
+    "ja": "一般|配位数",
+    "en": "(?i)general|coordination"
+  },
+  "f1_general_spin": {
+    "ja": "一般スピン|一般の?スピン|任意のスピン|スピン\\s*S\\b",
+    "en": "(?i)general\\s*spin|spin[-\\s]*S\\b|arbitrary\\s*spin"
+  },
+  "f1_specfn": {
+    "ja": "スペクトル関数|グリーン関数",
+    "en": "(?i)spectral\\s*function|green"
+  },
+  "f1_terminator": {
+    "ja": "平方根終端|√\\s*終端|連続スペクトル|半円スペクトル|半円則",
+    "en": "(?i)terminator|continuous\\s*spectrum"
+  },
+  "f1_energy": {
+    "ja": "高温展開|エネルギー\\s*モーメント",
+    "en": "(?i)energy\\s*moment|high.?temperature"
+  },
+  "f1_heat": {
+    "ja": "比熱",
+    "en": "(?i)specific\\s*heat"
+  },
+  "_comment_f1_neighbor": "F-1 neighbour-sum / bond-sum grammar. Trigger + body share the content-based body-extraction flow (docs/28 §4): f1_ns_body ja/en are queried per the の-presence heuristic, which is left in code (it detects JP particles in the actual input, not the session language). f1_bond_comm_kw / f1_ns_allpairs_body are ja-only (EN uses the language-neutral bracket / f1_ns_body 'of' forms).",
+  "f1_ns_trigger": {
+    "ja": "{{nn_sum_kw_ja}}",
+    "en": "(?i){{nn_sum_kw_en}}",
+    "_comment": "近接和の引き金。**語彙は fragment**（`nn_sum_kw_ja` / `nn_sum_kw_en`）。2026-09-08 に `nearest neighbour`（英式）を足し二重綴りを畳んだが、**畳んだ相手が違う問いに答えていた**——日本語側は「和の名詞」（最近接相互作用和・最近接和・隣接和・格子和）、英語側は `nearest neighbou?r` という**形容詞だけ**で、`sum` と `lattice sum` は鍵の中に直書きされていた。だから **隣接和の鏡（`neighbour sum`）がどこにも無く**、`Expand the neighbor sum of Sz_i Sz_j over a 3x3 honeycomb lattice` は本体が読めず**英文まるごとが被和関数**になって `completed` を返していた（実測 2026-09-24、五十五問目）。英語側も「和の名詞」にして `nn_sum_kw_en` と名乗る。**`sum` 無しの引き金は削除**——`Expand the nearest-neighbor of …` は本体（`… sum of …`）が読めないので直す前も後も F-1 は答えておらず、実測で不変だった。綴り空間の読みは ja 10/10・en 9/9 と満点を返していた（誰かが打っているか、しか訊かない）。"
+  },
+  "f1_ns_body": {
+    "ja": "^(?P<body>.+?)\\s*の\\s*{{nn_sum_kw_ja}}",
+    "en": "(?i)(?:{{nn_sum_kw_en}}|all[\\s-]*pairs\\s+sum)\\s+of\\s+(?P<body>.+?)\\s*(?:\\bover\\b|\\bon\\b|\\bin\\b|\\bfor\\b|,|$)",
+    "_comment": "和の本体。引き金の語彙は `f1_ns_trigger` と**同じもの**なので fragment を差し込む。日本語の本体の境界は位置ではなく**指定が始まる手前**——`ui/interpret_f1.py` の `_ja_body_end` を見よ。**英語の境界は語彙**（全 ASCII の文では字種の変わり目が原理的に発火しないので、英語は枠が要る——ENGLISH-INLINE-INTEGRAL と同じ理由）。だから終端の前置詞も語彙であり、`in` が抜けていた: `… of Sz_i Sz_j in a 3x3 honeycomb lattice` は本体が `Sz_i Sz_j in a 3x3 honeycomb lattice` になり、`a honeycomb in lattice` が因子として答えに入って `completed` が返っていた（実測 2026-09-24）。"
+  },
+  "f1_ns_allpairs_kw": {
+    "ja": "全ペア和|全対和|全ペアの和",
+    "en": "(?i)all[\\s-]*pairs"
+  },
+  "f1_ns_allpairs_body": {
+    "ja": "^(?P<body>.+?)\\s*の\\s*(?:全ペア和|全対和|全ペアの和)"
+  },
+  "f1_save_fig_noun": {
+    "ja": "格子図|格子の図|ラティス図",
+    "en": "(?i)lattice\\s*figure"
+  },
+  "f1_save_fig_verb": {
+    "ja": "保存|出力",
+    "en": "(?i)save"
+  },
+  "f1_expand": {
+    "ja": "展開",
+    "en": "(?i)expand"
+  },
+  "f1_concretize_verb": {
+    "ja": "展開|具体化",
+    "en": "(?i)expand"
+  },
+  "f1_body_boundary": {
+    "ja": "[をの]",
+    "en": "(?i)\\b(?:over|on|for)\\b"
+  },
+  "f1_bond_comm_kw": {
+    "ja": "(?P<ref>E\\d+|[A-Za-z][A-Za-z0-9_]*)\\s*と\\s*S\\^?(?P<comp>[xyzpm])_(?P<site>[a-z])\\s*の?\\s*交換子"
+  },
+  "f1_bond_subst": {
+    "ja": "(?P<ref>E\\d+|[A-Za-z][A-Za-z0-9_]*)\\s*(?:の|で)\\s*(?P<lhs>\\\\?[A-Za-z][A-Za-z0-9_{}\\\\^]*)\\s*を\\s*(?P<rhs>\\S+?)\\s*(?:で置き換え|に置き換え|で置換|に置換|にする|に変え)",
+    "en": "(?i)replace\\s+(?P<lhs>\\\\?[A-Za-z][A-Za-z0-9_{}\\\\^]*)\\s+with\\s+(?P<rhs>\\S+?)\\s+in\\s+(?P<ref>E\\d+|[A-Za-z][A-Za-z0-9_]*)\\b"
+  },
+  "_comment_angular_momentum": "F-9 angular-momentum coupling (Clebsch-Gordan, Wigner 3j/6j/9j, coupling decomposition, Lande g, Wigner-Eckart).  Rule-based, never LLM-routed: these carry up to six quantum numbers per call and BP-6 records that the local supervisor mis-extracts fields once an operation has four or more.  Most of these patterns match the TRIGGER PHRASE ONLY; the quantum numbers are pulled out of the whole instruction by ui/interpret_angular.py's key=value scanner, so 'j1=…, J=1 の CG 係数' and 'CG coefficient for j1=…, J=1' need no word-order-specific capture and an interposed particle cannot split the list.",
+  "angular_clebsch_gordan": {
+    "ja": "(?:クレブシュ[・\\-–ー]?ゴルダン|ＣＧ|CG)\\s*係数",
+    "en": "(?i)(?:clebsch[-\\s]?gordan|\\bCG\\b)\\s+coefficients?"
+  },
+  "angular_wigner_symbol": {
+    "ja": "(?P<kind>[369３６９])\\s*[jJｊＪ]\\s*(?:記号|シンボル)\\s*[\\(\\{\\[（｛]\\s*(?P<body>[^)\\}\\]）｝]+?)\\s*[\\)\\}\\]）｝]",
+    "en": "(?i)(?P<kind>[369])\\s*-?\\s*j\\s*symbol\\s*[\\(\\{\\[]\\s*(?P<body>[^)\\}\\]]+?)\\s*[\\)\\}\\]]"
+  },
+  "angular_couple": {
+    "ja": "(?:(?P<s1>[A-Za-z]\\w*)\\s*[=＝]\\s*)?(?P<j1>[-+−]?[\\d０-９]+(?:\\s*/\\s*[\\d０-９]+)?)\\s*(?:と|、)\\s*(?:(?P<s2>[A-Za-z]\\w*)\\s*[=＝]\\s*)?(?P<j2>[-+−]?[\\d０-９]+(?:\\s*/\\s*[\\d０-９]+)?)\\s*を?\\s*(?:の)?\\s*(?:角運動量を?)?\\s*(?:合成|結合)",
+    "en": "(?i)couple\\s+(?:the\\s+)?(?:angular\\s+momenta\\s+)?(?:(?P<s1>[A-Za-z]\\w*)\\s*=\\s*)?(?P<j1>[-+]?\\d+(?:\\s*/\\s*\\d+)?)\\s+and\\s+(?:(?P<s2>[A-Za-z]\\w*)\\s*=\\s*)?(?P<j2>[-+]?\\d+(?:\\s*/\\s*\\d+)?)"
+  },
+  "angular_coupled_state": {
+    "ja": "(?:(?P<b1>[A-Za-z]\\w*)\\s*(?:と|、)\\s*(?P<b2>[A-Za-z]\\w*)\\s*の\\s*)?(?:非結合基底|積基底|直積基底|非結合状態)\\s*(?:で|に)\\s*{{expand_verb_ja}}",
+    "en": "(?i){{expand_verb_en}}[^\\n]*?\\b(?:uncoupled|product)\\s+basis(?:\\s+(?P<b1>[A-Za-z]\\w*)\\s+and\\s+(?P<b2>[A-Za-z]\\w*))?"
+  },
+  "angular_lande_g": {
+    "ja": "(?P<spec>[^\\n。、]+?)\\s*の\\s*(?:ランデ(?:の)?|Land[ée](?:の)?)?\\s*[gｇ]\\s*[-－]?\\s*(?:因子|ファクター|値)",
+    "en": "(?i)(?:land[ée]\\s+)?g[-\\s]?(?:factor|value)\\s+(?:of|for)\\s+(?P<spec>[^\\n.]+?)\\s*[.]?{{en_sentence_end}}"
+  },
+  "angular_wigner_eckart": {
+    "ja": "(?:ウィグナー[・\\-–ー]?エッカルト|Wigner[-\\s]?Eckart)",
+    "en": "(?i)wigner[-\\s]?eckart"
+  },
+  "_comment_spin_species": "F-13 multi-species spin: per-site spin magnitudes (electron + nucleus, heteronuclear NMR, mixed-spin chains).  The DECLARE trigger only detects the instruction; the site->spin pairs are pulled out with the *_pair regex via finditer, which is language-specific because Japanese puts the site first ('サイト1のスピンを1/2') and English can put either first.",
+  "spin_site_spin_declare": {
+    "ja": "サイト\\s*[0-9０-９]+\\s*の\\s*スピン",
+    "en": "(?i)\\bsite\\s*\\d+\\s*(?:has\\s+|with\\s+|:\\s*)?spin\\b|\\bspin\\s+[\\d/]+\\s+(?:on|at)\\s+site\\s*\\d+"
+  },
+  "spin_site_spin_pair": {
+    "ja": "サイト\\s*(?P<site>[0-9０-９]+)\\s*の\\s*スピン(?:の大きさ)?\\s*(?:を|は|＝|=)?\\s*(?P<spin>[0-9０-９]+(?:\\s*[/／]\\s*[0-9０-９]+)?)",
+    "en": "(?i)(?:site\\s*(?P<site>\\d+)\\s*(?:has\\s+|with\\s+|:\\s*|=\\s*)?spin\\s*(?P<spin>\\d+(?:\\s*/\\s*\\d+)?)|spin\\s*(?P<spin2>\\d+(?:\\s*/\\s*\\d+)?)\\s+(?:on|at)\\s+site\\s*(?P<site2>\\d+))"
+  },
+  "_comment_spin_site_nuclide": "サイトのスピンを**核種**で書く（`サイト1のスピンは 13C` / `site 1 has spin 13C`）。大きさを言い直させないため: 核種を書けば $I$ は決まる（models/nuclides.json）。数字の綴りとは別のキーにしてあるのは、`13C` を分数として読もうとして壊れるのを避けるため——照合は spin_value_set.find_nuclide が境界つきで行う（`13C` は `113Cd` の部分文字列である）。",
+  "spin_site_nuclide_pair": {
+    "ja": "サイト\\s*(?P<site>[0-9０-９]+)\\s*(?:の\\s*スピン(?:の大きさ)?)?\\s*(?:を|は|＝|=|:)?\\s*(?P<nuclide>\\^?\\{?[0-9]{1,3}\\}?[A-Z][a-z]?|[A-Z][a-z]?-[0-9]{1,3}|[⁰¹²³⁴⁵⁶⁷⁸⁹]{1,3}[A-Z][a-z]?)",
+    "en": "(?i)site\\s*(?P<site>\\d+)\\s*(?:has\\s+|with\\s+|:\\s*|=\\s*)?(?:spin\\s*)?(?P<nuclide>\\^?\\{?\\d{1,3}\\}?[A-Z][a-z]?|[A-Z][a-z]?-\\d{1,3}|[⁰¹²³⁴⁵⁶⁷⁸⁹]{1,3}[A-Z][a-z]?)"
+  },
+  "spin_expectation": {
+    "ja": "(?P<eid>E\\d+)\\s*の\\s*(?:(?P<order>{{ordinal_token}})\\s*(?:次|乗)\\s*(?:の)?\\s*)?(?:モーメント|期待値|熱平均)",
+    "en": "(?i)(?:the\\s+)?(?:(?P<order>{{ordinal_token}})[-\\s]*(?:order\\s+)?moment|expectation(?:\\s+value)?|thermal\\s+average)\\s+of\\s+(?P<eid>E\\d+)"
+  },
+  "taylor_expand_nl": {
+    "_comment": "テイラー／マクローリン展開。**「テイラー」の語は必須ではない**——次数と変数が書かれていれば級数展開である（実測 2026-09-06: `E1 を x について 3次まで展開して` は代数 `expand` に落ちて `exp(x)` を `%e^x` のまま `completed` で返していた。英語側は `expand … to order N in x` だけで通っており、十三問目が英語で直したときに日本語が残っていた）。数字は `ordinal_token`（全角・漢数字・語の序数を含む）——ここに `[0-9０-９]+` と自前で書いていたので漢数字が落ち、次に `ja_digit` に寄せたが**その表には `十` が無く**、`十次まで展開して` だけが落ちたままだった（実測 2026-09-10）。",
+    "ja": "(?s)^\\s*(?P<expr>.+?)\\s*を\\s*(?P<var>{{symbol}})\\s*(?:{{ja_op_var_particle}}|のまわりで|の周りで)\\s*(?:(?P<point>[^\\s]+?)\\s*(?:のまわりで|の周りで|のまわり|の周り)\\s*)?(?P<order>{{ordinal_token}})\\s*(?:次|order)\\s*(?:まで|で)?\\s*(?:の)?\\s*{{ja_series_expand_word}}\\s*(?:を)?\\s*(?:して|{{ja_suru_infl}})?\\s*$",
+    "en": "(?is)^\\s*(?:(?:taylor|maclaurin)(?:[-\\s]*(?:expand|expansion|series))?|(?:series[-\\s]+)?(?:expand|expansion)|series)\\s+(?:of\\s+)?(?P<expr>.+?)\\s+{{en_op_var_head_wide}}\\s+(?P<var>{{symbol}})(?:\\s+(?:around|about|at)\\s+(?P<point>[^\\s]+))?\\s+{{en_upto}}\\s+(?:order\\s+)?(?P<order>{{ordinal_token}})(?:\\s+order)?{{en_sentence_end}}|^\\s*(?:(?:taylor|maclaurin)(?:[-\\s]*(?:expand|expansion|series))?|(?:series[-\\s]+)?(?:expand|expansion)|series)\\s+(?:of\\s+)?(?P<expr2>.+?)\\s+{{en_upto}}\\s+(?:order\\s+)?(?P<order2>{{ordinal_token}})(?:\\s+order)?\\s+{{en_op_var_head_wide}}\\s+(?P<var2>{{symbol}})(?:\\s+(?:around|about|at)\\s+(?P<point2>[^\\s]+))?{{en_sentence_end}}"
+  },
+  "_comment_operand_stopwords": "Tokens that are grammar, not operands.  The supervisor's positional field mapper fills required_fields from the leftover tokens, so in English 'Take the inverse Laplace transform of E7 from s to t' it assigned `the` and `to` as values and registered `delta(to)` as a success (open_items EN-ALIAS-MULTIWORD).  ja is `(?!)` — never matches — because _tokenize already strips Japanese particles, and a list there would only remove content words.  SINGLE LETTERS ARE NEVER LISTED: `a` is an article and also QuantumAlgebra's boson constructor, `i` an index; a one-letter token is an operand until proven otherwise.",
+  "operand_stopwords": {
+    "ja": "(?!)",
+    "en": "(?i)^(?:the|an|and|or|of|from|to|into|onto|with|respect|over|around|about|by|for|in|on|at|as|its|it|this|that|these|those|then|please|using|use|take|takes|apply|applies|compute|computes|calculate|find|finds|get|obtain|determine|determines|evaluate|evaluates|derive|derives|build|builds|construct|constructs|let|do|does|all|both|sides|side|left-hand|right-hand|lhs|rhs|w\\.r\\.t\\.?|wrt|{{deriv_kind_word_en}})$",
+    "_comment": "微分の種別語（total/ordinary/partial とその副詞形）は**列挙せず `deriv_kind_word_en` を差し込む**——実測 2026-09-07、ここだけ `ordinarily` を知らなかった。"
+  },
+  "op_subst_exact_index": {
+    "ja": "(?<=\\))\\s*(?:だけ|のみ)",
+    "en": "(?i)(?:\\bonly\\s+(?=[A-Za-z][A-Za-z0-9_']*\\s*\\()|(?<=\\))\\s+only\\b)"
+  },
+  "particle_operator_decl": {
+    "_comment": "Declare an operator as a named particle's annihilation/creation operator. Suffixed group names because one language has several spellings (the subst_replace precedent); the caller coalesces with _pick. The English PARTICLE-FIRST spelling (opC) is listed first because it is the Japanese word order in English and, before it existed, such a sentence fell through to the generic scalar declaration and REPORTED SUCCESS — so the operator was never a QuantumAlgebra operator and the commutator came back 0. **向きの語彙は `particle_ladder.py` の表**（fragment `ladder_dir_*`）。英語には枝が3つあり（`typeC`/`typeD`/`typeE`）、直したとき `typeE` を取りこぼした——**枝の数を数えてから置換する**。残存は `tests/test_ladder_operator_naming.py` が機械的に数えている。",
+    "ja": "(?P<opA>{{op_expr}})\\s*を\\s*(?P<particleA>.+?)の\\s*(?P<typeA>{{ladder_dir_ja}})\\s*演算子|(?P<particleB>.+?)の\\s*(?P<typeB>{{ladder_dir_ja}})\\s*演算子\\s*を\\s*(?P<opB>{{op_expr}})",
+    "en": "(?i)(?:define\\s+)?(?P<opC>{{op_expr}})\\s+{{en_decl_copula}}\\s+(?:an?\\s+|the\\s+)?(?P<particleC>(?!(?:an?|the)\\s+{{ladder_dir_en}}\\b).+?)\\s+(?P<typeC>{{ladder_dir_en}})\\s+operator\\b(?!\\s+(?:for|of)\\b)|(?:define\\s+)?(?P<opD>{{op_expr}})\\s+{{en_decl_copula}}\\s+(?:the\\s+)?(?P<typeD>{{ladder_dir_en}})\\s+operator\\s+(?:for|of)\\s+(?P<particleD>.+)|(?P<opE>{{op_expr}})\\s+{{en_decl_copula}}\\s+(?:the\\s+)?(?P<typeE>{{ladder_dir_en}})\\s+operator\\s+(?:for|of)\\s+(?P<particleE>.+)"
+  },
+  "bare_quantum_op_decl": {
+    "_comment": "Fermion/boson operator declaration with NO particle name. Must be read before the generic path, which would classify it as a scalar parameter.",
+    "ja": "(?:\\\\?(?P<name>[A-Za-z][A-Za-z0-9_]*(?:'*)?))\\s*を\\s*(?P<kind>フェルミオン演算子|フェルミ演算子|ボゾン演算子|ボソン演算子)",
+    "en": "(?i)(?:\\\\?(?P<name>[A-Za-z][A-Za-z0-9_]*(?:'*)?))\\s*(?:{{en_decl_copula}}\\s+(?:a\\s+|an\\s+|the\\s+)?)\\s*(?P<kind>fermion\\s+operator|boson\\s+operator)"
+  },
+  "particle_def_op_text": {
+    "_comment": "Does this instruction DECLARE a particle operator?  Asked by should_bypass_auto_register_formula so that `a'(k)` is not pre-registered as a formula before extra_pre_phase1 can read the declaration.",
+    "ja": "の\\s*{{ladder_dir_ja}}\\s*演算子|フェルミオン演算子|ボゾン演算子|ボソン演算子",
+    "en": "(?i)(?:{{ladder_dir_en}}|fermion|boson)\\s+operator"
+  },
+  "_comment_decl_copula": "**宣言の繋辞は1つの表である**（2026-09-12）。英語は `en_decl_copula`（`as|is|are|be|to be`）と `en_decl_verb`（`define|declare|let`）、日本語は総称の `ja_decl_suffix` と、**型語を模様の中に持つ鍵のための** `ja_decl_suffix_named`。畳む前は英語10鍵がそれぞれ自前の一覧を持ち、語彙は `as` だけ〜`as|is|are|be|to be` まで割れていた——**読めない綴りは失敗せず、いちばん語彙の広い `decl_stmt` に拾われて `define_scalar_parameter` をconfirmed で返す**（実測 100/180 → 180/180、日本語 88/108 → 108/108）。**素の `to` を足さないこと**（`convert E1 to polar coordinates` が宣言になる）。**`\\b` を外さないこと**（`describe a vector` の `…be` が繋辞になる。`decl_suffix` は型ラベルらしさだけで自動登録を迂回させる）。**`と置く`／`とおく` は `ja_decl_suffix_named` にだけ在る**——代入の綴りなので、型語を持たない総称の鍵は受けてはならない（SET-TO-UNDECIDED）。残存は `tests/test_english_declaration_copula.py` が機械的に数えている。",
+  "decl_stmt": {
+    "_comment": "「X を <型の説明> とする」/「define X as a <label>」。呼び出し側は言語を絞らず ja と en の両方を見る——ここは READING ではなく、宣言かどうかを見分ける側だからである（外すと define_scalar_parameter に落ち、「スピン演算子」と書いて「スカラー」が登録され成功が返る）。",
+    "ja": "{{decl_symbol}}(?:{{list_sep_ja}}{{decl_symbol}})*\\s*を\\s*(.+?){{ja_decl_suffix}}",
+    "en": "(?i)(?:define\\s+)?{{decl_symbol}}(?:{{list_sep_en}}{{decl_symbol}})*\\s+{{en_decl_copula}}\\s+(?:an?\\s+|the\\s+)?(.+)"
+  },
+  "value_definition": {
+    "_comment": "**同じ形の、もう一方の行き先。** `X を Y とする` / `set X to Y` / `let X be Y` は、Y が**型の語**なら宣言（`decl_stmt`）、**値や式**なら H-1 の `X = Y` である。判別子は既にあった——`_looks_like_type_label` の docstring が「`x を 0 とする`（代入）を弾くための guard」と自分で書いている。つまり系はこの場合を**知っていて、もう一方の枝を作っていなかった**: 日英とも「解釈できません」で落ちていた（実測 2026-09-10、`x を 3 とする` / `x を a + b とする` / `set x to 3` / `let x be 3`）。`set x to 3` に至っては `set` が `define_function` の裸の別名だったため、生の `Maxima evaluation error` が返っていた。　**行全体に錨を打つ**（`^…$`）のが `decl_stmt` との違いで、これは飾りではない。**錨が守っているのは、下の式番号 guard とは別の軸である**——文の頭に別の指示が立っている形（`結果を展開して x を 3 とする` / `expand the result and let x be 3`）で、錨を外すと後半だけを掴み、**前半の指示を黙って捨てて**成功を返す。この軸はテストに無く、変異試験（錨を外す）が生き残って初めて出た（2026-09-10）。　**式番号を含む文には当たらない**（`(?!.*E\\d+\\b)`）。理由は2つあり、どちらも実測である。(1) 素の `E1 を 0 とする` が「方程式全体を0にする」か「右辺を0にする」かは書かれていない（日本語側も落ちるので割れではなく、決めていないことである——`右辺を` と書けば通る）。(2) **代入の一族を横取りしていた**: `set X = V in En` / `let X = V in En` は `interpret_rules` が代入として読む綴りで、この鍵はそこから動詞を剥がしてしまうため、`let x = 2 in E1` が canonical `2*in(a*x+b)` として**登録**されていた（INSTRUCTION-MARKER-HANDLIST が直したのと同じ形の silent-wrong を、自分で作っていた）。　**語尾は `rhs_set[ja]` と同じ断片**（`ja_suru_infl` / `ja_oku_infl`）を読む。手で `する|します|おく|置く|おきます|置きます` と綴っていたときは、`せよ`/`しろ` が落ち、代わりに**どの鍵も受けない `おきます`/`置きます` が入っていた**——綴り空間のratchet が「一度も打たれていない綴り」として捕まえた（2026-09-10）。同じ語尾を2箇所で綴れば必ずずれる。",
+    "ja": "^\\s*(?!.*E\\d+\\b)(?P<name>{{decl_symbol}})\\s*を\\s*(?P<value>.+?)\\s*(?:と(?:{{ja_suru_infl}}|みなす|みなします)|とお{{ja_oku_infl}}|と置{{ja_oku_infl}})\\s*[。．]?\\s*$",
+    "en": "(?i)^\\s*(?:set|let)\\s+(?!.*E\\d+\\b)(?P<name>{{decl_symbol}})\\s+(?:to\\s+be|to|be|=)\\s+(?P<value>.+?){{en_sentence_end}}"
+  },
+  "decl_stmt_wa": {
+    "_comment": "後置定義「X は <型の説明>」。英語に対応する綴りは無い（`X is a matrix` は decl_stmt が取る）。^ で錨を打たないのは、式ID注入が 「E1 に対して 」を前置しうるため。",
+    "ja": "{{decl_symbol}}(?:{{list_sep_ja}}{{decl_symbol}})*\\s*(?:は|とは)\\s*(.+?){{ja_decl_wa_suffix}}"
+  },
+  "decl_suffix": {
+    "_comment": "式トークンを取り除いた後に残る接尾辞だけの形（bypass 判定用）。",
+    "ja": "を\\s*(.+?){{ja_decl_suffix}}",
+    "en": "(?i){{en_decl_copula}}\\s+(?:a\\s+)?(.*)"
+  },
+  "type_kw_tensor": {
+    "_comment": "型語彙: テンソル。優先順位と操作への対応は**構造**なので source 側（`_TYPE_KEYWORD_OPS`）にある。語だけがここ。",
+    "ja": "テンソル",
+    "en": "(?i)tensor"
+  },
+  "type_kw_matrix": {
+    "_comment": "型語彙: 行列。優先順位と操作への対応は**構造**なので source 側（`_TYPE_KEYWORD_OPS`）にある。語だけがここ。",
+    "ja": "行列|マトリックス|マトリクス",
+    "en": "(?i)matrix|matrices"
+  },
+  "type_kw_vector_field": {
+    "_comment": "型語彙: ベクトル場。優先順位と操作への対応は**構造**なので source 側（`_TYPE_KEYWORD_OPS`）にある。語だけがここ。",
+    "ja": "ベクトル\\s*場|ベクトル\\s*フィールド",
+    "en": "(?i)vector\\s*field"
+  },
+  "type_kw_scalar_field": {
+    "_comment": "型語彙: スカラー場。優先順位と操作への対応は**構造**なので source 側（`_TYPE_KEYWORD_OPS`）にある。語だけがここ。",
+    "ja": "スカラー\\s*場|スカラー\\s*フィールド",
+    "en": "(?i)scalar\\s*field"
+  },
+  "type_kw_vector": {
+    "_comment": "型語彙: ベクトル。優先順位と操作への対応は**構造**なので source 側（`_TYPE_KEYWORD_OPS`）にある。語だけがここ。",
+    "ja": "ベクトル",
+    "en": "(?i)vector"
+  },
+  "redeclare": {
+    "_comment": "「宣言し直して」——既定（型の変更を断る）を明示的に上書きする綴り。",
+    "ja": "宣言\\s*し\\s*(?:直|なお)|再\\s*宣言",
+    "en": "(?i)re-?declare|declar\\w*\\b[^.!?]*\\bagain\\b"
+  },
+  "time_dependent": {
+    "_comment": "型の説明が時間依存も求めているか（「時間依存のスカラー場」）。",
+    "ja": "時間依存",
+    "en": "(?i)time[-\\s]?dep|function\\s+of\\s+t\\b|depends?\\s+on\\s+t\\b"
+  },
+  "spin_operator_decl": {
+    "_comment": "「X を〈説明〉スピン演算子として定義」。**主語の境界は助詞（を／as）**であって型語そのものではない——「核」スピン演算子のように修飾が1つ挟まるだけで宣言が丸ごと落ち、スカラーとして登録されて成功が返っていた。`desc` は捨てない（NMR では核種 `^{13}C の` が入る）。",
+    "ja": "([A-Za-zσ][A-Za-z0-9_]*)(?:\\s*,\\s*[A-Za-zσ][A-Za-z0-9_]*)*\\s*を\\s*(?P<desc>[^、。]*?)(?:スピン演算子|パウリ演算子|パウリ行列|パウリ){{ja_decl_suffix_named}}",
+    "en": "(?i)(?:define\\s+)?([A-Za-zσ][A-Za-z0-9_]*)(?:\\s*,\\s*[A-Za-zσ][A-Za-z0-9_]*)*\\s+{{en_decl_copula}}\\s+(?:a\\s+|the\\s+)?(?P<desc>(?:[A-Za-z0-9^{}\\-]+\\s+)*?)(?:spin\\s+operator|Pauli\\s+operator|Pauli\\s+matrix|spin|Pauli)(?:s)?"
+  },
+  "heisenberg_eom_op_first": {
+    "_comment": "「c(k,u) の Heisenberg 方程式 E1」。専用の規則で読むのは、別名走査＋位置埋めが `c(k,u)` を**内側のカンマで切り刻む**ため（助詞が無い英語では operator='c(k'、hamiltonian='u)' が渡っていた）。",
+    "ja": "(?i)(?:^|\\s)({{operator_operand}})\\s*の\\s*{{heisenberg_eq_ja}}\\s*(E\\d+)"
+  },
+  "heisenberg_eom_eid_first": {
+    "_comment": "「E1 と c(k,u) の Heisenberg 方程式」——同じ要求の語順違い。",
+    "ja": "(?i)(E\\d+)\\s*と\\s*({{operator_operand}})\\s*の\\s*{{heisenberg_eq_ja}}"
+  },
+  "heisenberg_eom_verb_first": {
+    "_comment": "英語「Heisenberg equation of X for Y」。X と Y のどちらが E-id かは呼び出し側が見る。オペランドの綴りは fragment `operator_operand`（2026-09-11。直す前は `\\S+` で、空白入りの `c(1, u)` が受けられなかった）。　**どちらが演算子かは、値が E 番号に見えるかで決めている**（読み手 `julia_backend_handler`）。これは文法ではなく値からの推測で、2a-sym が先にハミルトニアンの名前を E 番号へ書き換えているから当たっている——`H` のまま届けば逆になる。群名で決める形へ畳むかは、**どの語順が実在するか**を測ってからにする（open_items NL-GRAMMAR ①）。",
+    "en": "(?i)Heisenberg\\s+equation\\s+of\\s+({{operator_operand}})\\s+for\\s+({{operator_operand}})"
+  },
+  "operator_substitute_single": {
+    "_comment": "Bogoliubov 型の演算子代入（単一）。日本語は「E1 の c(k) に RHS を代入して」と「E1 に c(k) = RHS を代入して」を1つの選択で受ける。",
+    "ja": "(?s)(E\\d+)\\s*[のにで]\\s*([A-Za-z][A-Za-z0-9_\\']*)\\s*\\(([^)]+)\\)\\s*(?:[=＝]\\s*(.+?)\\s*[をに](?:演算子)?{{ja_subst_verb}}|[をに]\\s*(.+?)\\s*[でをにと](?:演算子)?{{ja_subst_verb}})"
+  },
+  "operator_substitute_pair": {
+    "_comment": "二重代入（添字が英字）。"
+  },
+  "operator_substitute_multi": {
+    "_comment": "二重代入（一般形）。　**群名は日英で同じ**（`eid` / `op1` / `idx1` / `rhs1` …）——`nl_patterns.py` の docstring が言う設計そのもの。2026-09-10 まで日本語だけ `a1` / `r1a` と綴っており、読む側が `pick_group(m,\"a1\") or pick_group(m,\"idx1\")` と**両方を試して**いた。同じ問いに2つの答えがある形で、揃えたら読む側は1つになった。　添字の文字クラスは `[^)]`——`c(k,u)` のようにコンマを含む添字があるため。英語だけ `[^,)]` で止まっており、2つ目の代入が黙って捨てられていた（実測 2026-09-10、英語 3/6 → 6/6）。",
+    "ja": "(?s)(?P<eid>E\\d+)\\s*[のにで]\\s*(?P<op1>[A-Za-z][A-Za-z0-9_']*)\\s*\\((?P<idx1>[^)]+)\\)\\s*(?:[に=＝]\\s*(?P<rhs1a>.+?)\\s*を|を\\s*(?P<rhs1b>.+?)\\s*に)\\s*[,、]\\s*(?P<op2>[A-Za-z][A-Za-z0-9_']*)\\s*\\((?P<idx2>[^)]+)\\)\\s*(?:[に=＝]\\s*(?P<rhs2a>.+?)\\s*を|を\\s*(?P<rhs2b>.+?)\\s*に)\\s*(?:演算子)?{{ja_subst_verb}}",
+    "en": "(?i)in\\s+(?P<eid>E\\d+),?\\s*(?:{{en_subst_verb}}\\s+(?P<rhs1a>.+?)\\s+for\\s+(?P<op1a>[A-Za-z][A-Za-z0-9_']*)\\((?P<idx1a>[^)]+)\\)\\s*\\*?\\s+and\\s+(?P<rhs2a>.+?)\\s+for\\s+(?P<op2a>[A-Za-z][A-Za-z0-9_']*)\\((?P<idx2a>[^)]+)\\)|{{en_subst_verb}}\\s+(?P<op1b>[A-Za-z][A-Za-z0-9_']*)\\((?P<idx1b>[^)]+)\\)\\s+with\\s+(?P<rhs1b>.+?)\\s*\\*?\\s+and\\s+(?P<op2b>[A-Za-z][A-Za-z0-9_']*)\\((?P<idx2b>[^)]+)\\)\\s+with\\s+(?P<rhs2b>.+?)){{en_sentence_end}}"
+  },
+  "operator_substitute_in_form": {
+    "_comment": "英語「In E1, substitute RHS for op(idx)」。",
+    "en": "(?i)in\\s+(E\\d+),?\\s*(?:{{en_subst_verb}}\\s+(.+?)\\s+for\\s+([A-Za-z][A-Za-z0-9_']*)\\((.*?)\\)|{{en_subst_verb}}\\s+([A-Za-z][A-Za-z0-9_']*)\\((.*?)\\)\\s+with\\s+(.+?))\\s*\\*?{{en_sentence_end}}"
+  },
+  "relabel_index": {
+    "_comment": "指標の付け替え（k → -k）。**日英で同じ群名**（`eid` / `old` / `new`）——`nl_patterns.py` の docstring が言う設計そのもの。2026-09-10 まで位置引数で、しかも**並びが日英で逆**（ja は eid,old,new／en は old,new,eid）だったので、読む側が言語ごとに2回呼んで群番号を書き分けていた。群名を揃えると呼び出しは1回になり、**並びを取り違える余地が消える**（JULIA-HANDLER-LANG）。",
+    "ja": "(?i)(?P<eid>E\\d+)[のでにを\\s]*(?P<old>[A-Za-z])\\s*(?:を|→|->|=)\\s*(?P<new>-(?P=old))\\s*(?:に|で|と|by)?\\s*(?:指標変換|リラベル|置き換え|relabel)",
+    "en": "(?i)relabel\\s+(?P<old>[A-Za-z])\\s+(?:to|-)\\s+(?P<new>-?(?P=old))\\s+in\\s+(?P<eid>E\\d+)"
+  },
+  "collect_operator_terms": {
+    "_comment": "「演算子係数でまとめて」「同類項を整理して」/ 「collect operators in E3」。**英語は `en` 欄に、英語の語順で置く**——直す前は英語の綴りが `ja` のパターンに埋め込まれており、そこは E-id が先（日本語語順）を要求するので、**動詞が先に来る自然な英語は1つも当たらなかった**（実測 2026-09-07。コメント自身の例 `collect operators in E3` すら当たらない。当たるのは `E3 collect by operators` だけで、誰もそうは書かない）。読み手も `nlp(..., \"ja\")` と言語を直書きしていた。",
+    "ja": "(?i)(?P<eid>E\\d+)[のをでにとは\\s]*(?:演算子(?:係数|ごと)?で(?:まとめ|整理)|同類項(?:を|で)?(?:まとめ|整理))",
+    "en": "(?i)(?:(?:collect|group)\\s+(?:by\\s+|the\\s+)?(?:operators?|like\\s+terms?)\\s+(?:in|of|for)\\s+(?P<eid>E\\d+)\\b|(?:collect|group)\\s+(?P<eidB>E\\d+)\\s+by\\s+(?:operators?|like\\s+terms?)\\b)"
+  },
+  "scalar_substitute_op": {
+    "_comment": "演算子呼び出しを含むスカラー代入。",
+    "ja": "(E\\d+)[^A-Za-z0-9]+([A-Za-z][A-Za-z0-9_]*(?:\\(-?[A-Za-z0-9]+\\))?)\\s*[にをで]+\\s*([A-Za-z][A-Za-z0-9_]*(?:\\(-?[A-Za-z0-9]+\\))?)\\s*[にをでで]?\\s*{{ja_subst_verb}}"
+  },
+  "_comment_supervisor": "LLMSupervisor の語彙（NL-GRAMMAR 残件③・4ファイル目、2026-08-27）。トークナイザの助詞除去と する の活用は**基盤**として llm_supervisor.py に残す——操作が増えても増えないため。ここに来たのは操作名・フィールド名・フィールド値の語彙を持つものだけ。 数の領域と符号は**試す順序を呼び出し側が持つ**（`非正` を `正の` より先に見ないと「非正の実数」が positive になる）——順序は構造であって言語の内容ではない。 ∇族の4パターンは記号と両言語が1本に入っているので `ja` の1項だけを持つ（`nlp_search` は言語を union して重複を除くので、これで両言語から引ける）。",
+  "verb_tail_strip": {
+    "_comment": "計算・抽出の動詞句を語尾から落として操作の名詞形（実部・微分）を露出させる。別名は名詞形なので、これが無いと「実部を取り出して」は「実部を取り出す」に当たらない。長いものから順に並べる（「取り出して」を「出して」より先に消費させるため）。英語は語が空白で切れるので同型の兄弟を必要としない。",
+    "ja": "(?:を)?{{compute_verb_ja}}$"
+  },
+  "ordinal_prefix_strip": {
+    "_comment": "「次で/次まで/次の/次に」を先頭から落とす（「1 次までテイラー展開して」→「テイラー展開」）。次 は order フィールドの語で、token_field_mapping の `^(\\d+)次` が兄弟。",
+    "ja": "^次(?:で|まで|の|に)?"
+  },
+  "diff_var_particle": {
+    "_comment": "「X で (偏)?微分」の X は微分変数。位置による割り当てだと 「L を q で微分して」の最初の ASCII トークンは式の左辺（L）で、変数ではない。英語は with respect to が語順で決まるので兄弟を必要としない。",
+    "ja": "([A-Za-z_][A-Za-z0-9_]*)\\s*で\\s*(?:偏)?微分"
+  },
+  "domain_kind_natural": {
+    "_comment": "数の領域（自然数）。",
+    "ja": "自然数",
+    "en": "(?i)natural\\s*number|natural"
+  },
+  "domain_kind_integer": {
+    "_comment": "数の領域（整数）。",
+    "ja": "整数",
+    "en": "(?i)integer"
+  },
+  "domain_kind_real": {
+    "_comment": "数の領域（実数）。移行前の綴りは英語側に `(?:\\s*として|\\s*の)?` を抱えていたが、全体が省略可なので照合の有無を変えられない（実測で確認して落とした）。",
+    "ja": "実数",
+    "en": "(?i)real(?:\\s*scalar|\\s*number)?"
+  },
+  "domain_kind_complex": {
+    "_comment": "数の領域（複素数）。",
+    "ja": "複素数",
+    "en": "(?i)complex(?:\\s*scalar|\\s*number)?"
+  },
+  "domain_sign_nonneg": {
+    "_comment": "符号（非負）。",
+    "ja": "非負",
+    "en": "(?i)nonneg(?:ative)?|non[-\\s]?negative"
+  },
+  "domain_sign_nonpos": {
+    "_comment": "符号（非正）。",
+    "ja": "非正",
+    "en": "(?i)nonpos(?:itive)?|non[-\\s]?positive"
+  },
+  "domain_sign_positive": {
+    "_comment": "符号（正）。",
+    "ja": "正の",
+    "en": "(?i)positive|strictly\\s*positive"
+  },
+  "domain_sign_negative": {
+    "_comment": "符号（負）。",
+    "ja": "負の",
+    "en": "(?i)negative|strictly\\s*negative"
+  },
+  "nested_vec_chain": {
+    "_comment": "「の」連鎖: <field> の <inner> の <outer>（例「A の回転の発散」）と、その英語の鏡 the <outer> of the <inner> of <field>。**群名は日英で同じ**。英語は2026-09-17まで無く、`the curl of the curl of A` は別名走査が同じ語を1つの操作と読んで**回転を1回だけ**適用し `completed` を返していた（他の組は確認ダイアログ）。記号・LaTeX・名前を接頭に置く形は鍵ではなく `vector_op_spelling` が単項の表から組み立てる（NESTED-VEC-OP-LATEX）。日本語は移行前から大小文字を区別する。",
+    "ja": "(?P<field>[A-Za-z_][A-Za-z0-9_]*)\\s*の\\s*(?P<inner>{{vec_op_kw_chain}})\\s*の\\s*(?P<outer>{{vec_op_kw_chain}})",
+    "en": "(?i)^\\s*(?:please\\s+)?(?:(?:{{compute_verb_en}}|take)\\s+)?(?:the\\s+)?(?P<outer>{{vec_op_kw_chain}})\\s+of\\s+(?:the\\s+)?(?P<inner>{{vec_op_kw_chain}})\\s+of\\s+(?P<field>[A-Za-z_][A-Za-z0-9_]*){{en_sentence_end}}"
+  },
+  "ambiguous_tidy": {
+    "_comment": "「整理」——片付ける・簡約・まとめる・因数分解・有理化のどれでもありうる。 別名表に一意の対応が無い語なので、LLM に決めさせず**候補一覧**にして利用者に選ばせる（Phase 1.5）。候補の中身は言語ではなく操作なので呼び出し側が持つ。",
+    "ja": "整理"
+  },
+  "ambiguous_transform": {
+    "_comment": "「変形」——展開・因数分解・簡約のどれでもありうる。",
+    "ja": "変形"
+  },
+  "ambiguous_clean": {
+    "_comment": "「きれいに」——簡約の族のどれでもありうる。",
+    "ja": "きれい"
+  },
+  "ambiguous_collect": {
+    "_comment": "「まとめて」——collect か factor。",
+    "ja": "まとめ"
+  },
+  "spin_def_op_text": {
+    "_comment": "「この指示文はスピン演算子の型を名指しているか」——`should_bypass_auto_register_formula` が訊く**guard** なので、読みと違って言語を絞らない（`nlp_any`）。**`spin_operator_decl` は真の上位集合**で、裸の「パウリ」「spin」「Pauli」も列挙している（実測 2026-08-27）。畳まなかったのは、畳めばこの guard が広がるからで、広げるかどうかは測ってから決める別の一問である（open_items NL-GRAMMAR ①）。",
+    "ja": "スピン演算子|パウリ演算子|パウリ行列",
+    "en": "(?i)spin\\s+operator|Pauli\\s+operator|Pauli\\s+matrix"
+  },
+  "order_suffix_token": {
+    "_comment": "`ordinal_prefix_strip` が「次」を落としきれなかったトークン（`4次…`）から order を拾う予備の読み。**この族で いちばん狭い綴りである**（実測 2026-08-27）: `order_clause` は `[階次回]` と漢数字を、`diff_order_ordinal` は `[階次回]` を読むのに、ここは `次` と ASCII 数字だけ。結果、`4次までテイラー展開`は order=4 になり `4階まで`・`4回まで`・`四次まで` は **operation=None** で落ちる（誤答ではなく失敗）。3つ目の答えをここに置いたのは移行の等価性のためで、揃えるかどうかは open_items NL-GRAMMAR ① の一問。英語は空白で語が切れるのでこの予備を必要としない（素の数字は言語に依らない前段が拾う）。",
+    "ja": "^(\\d+)次"
+  },
+  "fermion_kind_kw": {
+    "_comment": "`bare_quantum_op_decl` が捕まえた `kind` が**フェルミ統計か**を決める語。列挙そのものは `bare_quantum_op_decl` の `kind` 側にあり、ここはその中を分類する——つまり同じ問いの2つ目の答えである。畳めないのは、`kind` の選択肢を増やすことと統計を判定することが別の変更だから（`ボソン演算子` を足しても分類は変わらない）。統計は物理であって言語ではないので、判定側が語を1つだけ持つ形にした。",
+    "ja": "フェルミ",
+    "en": "(?i)fermion"
+  },
+  "solve_single_novar": {
+    "_comment": "変数を書かずに単一方程式を解く。**連立側は最初からこれを持っていた**（`solve_system` が変数なしで確認ダイアログに行く）のに、単一側はどの規則も取らず「解釈できません」だった。英語は `solve E1` が別名走査で操作に届き「必須の引数が足りません」と言う——つまり3つのうち日本語の単一だけが違う答えを返していた（実測 2026-09-05）。`の解を求め` も同じ要求である。  英語の `solve E1` は別名走査で操作に届くものの、そこでは足りない引数が**失敗**になって確認に行かない。この規則が先に取ることで、`find the solution of E1` と同じ確認ダイアログに揃う（実測 2026-09-05）。`solve E2 and E3` は上の `solve_system` が先に取るので影響しない。",
+    "ja": "^\\s*(?P<eid>E\\d+)\\s*(?:を\\s*{{ja_solve_verb}}|の\\s*解を\\s*{{compute_verb_ja}})",
+    "en": "(?i)^\\s*(?:{{compute_verb_en}}\\s+the\\s+solution\\s+(?:of|to)\\s+(?P<eid>E\\d+)|solve\\s+(?P<eid2>E\\d+))\\s*\\.?{{en_sentence_end}}"
+  },
+  "pending_var_answer": {
+    "_comment": "確認ダイアログ「どの変数について解きますか？」への**答え**。読み方は `{{symbol}}` ——変数の綴りを訊く他の10キーと同じ（`tests/test_nl_symbol_fragment.py`）。ここだけ `^[A-Za-z]$` の1文字で、**答えが1文字でないと確認そのものが捨てられ、入力が別の式として登録されていた**（実測 2026-09-05: `\\theta` は status=registered、`x_1` は「解釈できません」）。",
+    "ja": "^\\s*(?P<var>{{symbol}})\\s*$",
+    "en": "^\\s*(?P<var>{{symbol}}){{en_sentence_end}}"
+  },
+  "_comment_list_sep": "How a LIST of names / E-ids is separated — ONE answer, used by decl_stmt, decl_stmt_wa, solve_system_vars, inv_transform_vars and (Python side) operand_boundary.split_name_list. Counted 2026-09-05: the question had six different answers and each knew a different subset, so an unknown separator silently dropped every earlier name and still reported success ('a、b および c をスカラーとする' registered only c; 'Define a, b and c as scalars' only c). The Oxford-comma branch is written first for readability, NOT because the order is load-bearing — measured, reversing it only produces an empty piece, which the splitter filters (a mutation of the order passes, and that is correct).",
+  "_comment_compute_verb": "The verbs that mean 'compute this' (compute_verb_*) and 'derive/build this' (derive_verb_*) — ONE list per class per language. Counted 2026-09-05: the question 'is this a request to compute?' was answered in NINE ja places and EIGHT en places, each knowing a different subset (`determine` was in none; `求めよ`/`評価して` reached nothing outside verb_tail_strip). Measured over four families x the verbs, 15/28 ja and 19/32 en spellings did not reach the same operation as the baseline verb. The two classes are kept apart deliberately: nobody writes 'E1 の逆行列を作って' / 'build the inverse of E1', so a family names the class(es) it accepts. The ja list is written longest-first for READABILITY, not because the order is load-bearing: verb_tail_strip's own comment claimed 取り出して had to precede its own 出して suffix, and measured 2026-09-05 that is false — the `$` anchor plus leftmost-match and backtracking give the same result either way (a mutation that reverses the order passes, and that is correct). Used as a bare guard (matrix_trigger) the order cannot matter at all, since any match answers the same question.",
+  "_comment_operator_substitute": "The operator-substitution family. Counted 2026-09-05: FIVE patterns here plus a SIXTH hardcoded in julia_backend_handler.py, and they knew different verbs AND different particle orders — `multi`/`pair`/`spin_pair` accepted only 代入 (whose order is `X に Y を`), so the 置き換え order (`X を Y に`) fell through to `single`, which read a TWO-substitution sentence as ONE with a garbage replacement and failed at the CAS. Measured: 6 of 13 spellings did not work. The verbs are now one list (`ja_subst_verb`, renamed from `op_subst_verb_ja` on 2026-09-12 when `substitute_into` and `scalar_substitute_op` were made to read it too), both particle orders are read, and the English multi pattern moved here from source (it is an NL pattern; that is what this file is). `operator_substitute_single[en]` was DELETED: its spelling was `operator_substitute E1 a(1) with E2` — the operation's own name with an underscore, which the scenario doc itself calls \"unnatural, CAS-syntax-like phrasing\" and which Core Principle #1 forbids in the user-facing UI. Measured 2026-09-05 it did not work either: the sentence was REGISTERED AS AN EXPRESSION. The natural form (`In E1, substitute E2 for a(1)` / `replace a(1) with E2`) is `operator_substitute_in_form`, which does work. Deleting an alias that is simply wrong rather than maintaining it is the `laplace` precedent. 2026-09-05 (2): the THREE Japanese two-rule patterns (spin_pair / pair / multi) became ONE, because that is what the English side already does — its own comment says \"English writes all three shapes the same way, so ONE pattern reads it and the SHAPE decides where it goes\". Japanese had not caught up. The shape test is now shared by both languages (`_two_rule_substitute_result`): same operator with `X` and `-X` is the Nambu pair (its own operation), `(index, spin)` arguments carry a spin_label, anything else is two independent rules. `single` stays separate in BOTH languages — it is a different shape (no comma), not a third answer.",
+  "_comment_ja_decl_suffix": "The Japanese declaration suffix. Measured 2026-09-05 in the real pipeline: English accepts SEVEN spellings (`Define` / `Let … be` / `is` / `Declare` / `Please define` / `Regard … as` / `Take … to be`) and Japanese refused three of their mirrors — `とします` (polite), `とみなす` (regard as), `とせよ` (imperative). The first was an inconsistency INSIDE this fragment: every stem carried `(?:する|します|して)?` except the bare `とする`, so `と定義します` worked and `とします` did not. The inflection is now one list (`ja_decl_infl`) instead of four copies. `として` alone is deliberately NOT a declaration: in Japanese it is a connective, and `A をスカラーとして` is not a finished sentence — only the spellings measured as failing were added.",
+  "_comment_ja_set_inflection": "The inflections of the 'make it be X' verbs (`とする` / `と置く` / `とおく`). Counted 2026-09-05: SIX keys spell these tails and none carried the inflections — `E1 の右辺を 0 とする` worked, `とします` / `とせよ` / `とみなす` did not (the same hole 十八問目 found inside `ja_decl_suffix`, in six more places). **Only the INFLECTIONS are shared, not the verb set.** Sharing the verbs was tried first and measured wrong: giving `subst_replace_alt` the verb `とする` made it claim H-5z's own sentences (`E20 の右辺を 0 とする`), and giving `fp_subst` the verb `とおく` made it claim `laplace_define`'s — 10 corpus rows, every one a pattern stealing a line another pattern already handled. A 'gain' at the pattern level can be a LOSS at the pipeline level. With inflections only: 35 spellings gained, 0 lost, 0 corpus rows changed.",
+  "symmetry_kw": {
+    "_comment": "`declare_symmetry` の `symmetry` 欄の値を読む語。値は CAS 側の語彙そのもの（symmetric / antisymmetric / hermitian）なのでグループ名がそのまま答えになる。　`対称性`／`symmetry` は**どの対称性かを言っていない**ので読まない（`性` を否定先読みで外す）——読むと `対称性を宣言` が黙って symmetric になる。　**並びは効かない（実測 2026-09-05）。** `反対称` を後ろに回す変異はテストを1件も落とさず、7綴り×日英で読みが完全に一致した——`反`/`anti` が識別接頭辞で、`re` は走査位置ごとに選択肢を試すので、短い側がその位置で当たることがない。長い順に並べてあるのは可読性のためで、規則ではない。",
+    "ja": "(?P<symmetric>対称(?!性))|(?P<hermitian>エルミート)|(?P<antisymmetric>反対称(?!性))",
+    "en": "(?i)(?P<antisymmetric>anti[-\\s]?symmetric)|(?P<hermitian>hermitian)|(?P<symmetric>symmetric)"
+  },
+  "series_expand_no_var": {
+    "_comment": "**次数を書いた展開なのに変数が書かれていない**綴り。`E1 を 3次まで展開して` / `expand E1 to 3rd order`。黙って代数展開に落ちて `exp(x)` が `%e^x` のまま `completed` で返っていた（実測 2026-09-06）。`taylor_expand` は `var` を要求するので、ここへ回せば**検証器が「var が要る」と言う**——推測して変数を決めるより、書かれていないと言うほうがよい。　**主語は E-id に限る。** コーパスの `イジング模型 正方格子 2x2 の高温展開を4次まで求めて` は式として登録される行で、`展開` と `4次` を含む——自由な主語を許すと横取りする。",
+    "ja": "(?s)^\\s*(?P<eid>E\\d+)\\s*を\\s*(?P<order>{{ordinal_token}})\\s*次\\s*(?:まで|で)?\\s*(?:の)?\\s*{{ja_series_expand_word}}\\s*(?:を)?\\s*(?:して|{{ja_suru_infl}})?\\s*$",
+    "en": "(?i)^\\s*(?:series[-\\s]+)?(?:expand|expansion)\\s+(?:of\\s+)?(?P<eid>E\\d+)\\s+{{en_upto}}\\s+(?:order\\s+)?(?P<order>{{ordinal_token}})(?:\\s+order)?{{en_sentence_end}}"
+  },
+  "expr_with_assignment": {
+    "_comment": "`E1 with x = 2` —— 式番号のあとに `with <名前> = <値>` が続く形。**語ではなく形で絞る。** `with` を `instruction_marker` に足すのは誤りで、式として登録される行に6件出る（`the Ising model with 2 sites` など）——ただしそれらは `=` を**含まない**ので、この形なら安全（実測 2026-09-06）。直す前は `expr_id_formula` が拾って canonical `(a*x + b)*with*x = 2` を登録し、`registered` を返していた。",
+    "en": "(?i)^\\s*(?P<eid>E\\d+)\\s+with\\s+(?P<lhs>[^\\s=]+)\\s*=\\s*(?P<rhs>.+?){{en_sentence_end}}",
+    "ja": "(?!)"
+  },
+  "evaluate_at_point": {
+    "_comment": "`evaluate E1 at x = 2` / `E1 を x = 2 で評価して`。**点で評価する**は数学の日英とも標準の言い方で、実体は代入である。直す前はどちらも `failed`（安全だが読めない）。`at` を `instruction_marker` に足す必要はない——`evaluate` は既に在り、落ちていたのは**読み**のほうだった。",
+    "en": "(?i)^\\s*evaluate\\s+(?P<eid>E\\d+)\\s+at\\s+(?P<lhs>[^\\s=]+)\\s*=\\s*(?P<rhs>.+?){{en_sentence_end}}",
+    "ja": "^\\s*(?P<eid>E\\d+)\\s*を\\s*(?P<lhs>[^\\s=]+)\\s*=\\s*(?P<rhs>.+?)\\s*で\\s*評価\\s*(?:して|{{ja_suru_infl}})?\\s*$"
+  },
+  "solve_from_expr": {
+    "_comment": "「E1 から x を求めて」/「find x from E1」。実在する言い方だがどの規則も読めず失敗していた（実測 2026-09-06）。",
+    "ja": "^\\s*(?P<eid>E\\d+)\\s*から\\s*(?P<var>{{symbol}})\\s*を\\s*(?:{{compute_verb_ja}}|{{ja_solve_verb}}(?:て|た|ます|ました)?)\\s*$",
+    "en": "(?i)^\\s*{{compute_verb_en}}\\s+(?P<var>{{symbol}})\\s+from\\s+(?P<eid>E\\d+)\\s*\\.?{{en_sentence_end}}"
+  },
+  "solve_solution_of_var": {
+    "_comment": "「En の解を X について求めて」/「find the solution of En for X」。変数**なし**の同じ言い方（`solve_single_novar`）は通っていたのに、変数を書き足すと落ちていた——1つの鍵が片方の形だけ知っていた。",
+    "ja": "^\\s*(?P<eid>E\\d+)\\s*の\\s*解を\\s*(?P<var>{{symbol}})\\s*{{ja_solve_var_particle}}\\s*{{compute_verb_ja}}\\s*$",
+    "en": "(?i)^\\s*{{compute_verb_en}}\\s+the\\s+solution\\s+(?:of|to)\\s+(?P<eid>E\\d+)\\s+{{en_solve_var_head}}\\s+(?P<var>{{symbol}})\\s*\\.?{{en_sentence_end}}"
+  },
+  "bare_ladder_op_decl": {
+    "_comment": "粒子を書かない「c を消滅演算子とする」/「define c as an annihilation operator」。**フェルミオンかボソンかは書かれていないので決めない**——この綴りが言っているのは「粒子演算子の宣言である」ことだけ。直す前は型ラベルの既定に落ちて `define_scalar_parameter` を登録し成功を返していた（実測 2026-09-06）。 **呼び名は `notebook/runtime/particle_ladder.py` の表**（`下降`/`lowering` も同じ対象の別の呼び名）。族の名前 `昇降`/`ladder` もここは受ける——向きを言っていないが、この鍵が返すのは「統計が書かれていない」という断りだけなので。 **名前の綴りは共有 `op_expr`**——直す前は自前で `'*` と綴っており、`particle_operator_decl`（`op_expr` を読む）は `c†` を読めるのにこちらは読めない、という割れになっていた。",
+    "ja": "(?:\\\\?(?P<name>{{op_expr}}))\\s*を\\s*{{ladder_any_ja}}\\s*演算子",
+    "en": "(?i)(?:\\\\?(?P<name>{{op_expr}}))\\s*{{en_decl_copula}}\\s+(?:an?\\s+|the\\s+)?{{ladder_any_en}}\\s+operator"
+  },
+  "heisenberg_eom_under_first": {
+    "_comment": "`E1 のもとでの a(1) のハイゼンベルク方程式`。ハミルトニアンが先に来る語順で、**`のもと` がそれを名指す**——位置ではなく助詞が決める。直す前は専用パターンに当たらず別名走査に落ち、**引数が位置で割り当てられて演算子とハミルトニアンが入れ替わり**、`dH/dt = +i w a₁` という符号まで逆の式が `completed` で返っていた（実測 2026-09-06）。`dH/dt` は保存量なので本来 0 である。ハミルトニアン欄が `{{operator_operand}}`（`{{ham_ref}}` より広い）なのは、こちらの消費者が `heisenberg_equation` で `ir_args` から解くため——`heisenberg_operator_nl` の消費者は登録済みの式しか受けないので、そちらは狭いままでよい。`E\\d+` を並べていたのは重複だった（`operator_operand` が `E1` に当たる）。　**オペランドは `operator_operand`。** 同じ鍵の中で `ham` は fragment を引き `op` だけ `\\S+` を自前で綴っており、空白入りの `c(1, u)`（系の `tex1` が印刷する形）が受けられなかった（実測 2026-09-11）。",
+    "ja": "(?i)(?P<ham>{{operator_operand}})\\s*の(?:もと|下)で(?:の)?\\s*(?P<op>{{operator_operand}})\\s*の\\s*{{heisenberg_eq_ja}}",
+    "en": "(?i)(?:{{compute_verb_en}}\\s+)?(?:the\\s+)?Heisenberg\\s+equation\\s+(?:of|for)\\s+(?P<op>{{operator_operand}})\\s+under\\s+(?P<ham>{{operator_operand}})"
+  },
+  "norm_kind": {
+    "_comment": "行列ノルムの**種類**。**群の名前が正準の種類名そのもの**なので、綴り→種類の対応表を別に持たずに済む（表を2枚持つと片方だけに綴りが足される、というのがこのプロジェクトが繰り返し閉じてきた形）。読む側は当たった群の名前を取るだけ。　**既定は無い**——行列の `\\|A\\|` は種類を言わなければ定まらず、既定を1つ置くのは問題依存の数学の選択を焼き込むことである（CLAUDE.md「No hardcoded modeling choices」）。書かれていなければ `norm` が種類を名指して断る。　ベクトルには種類が要らない（`\\|v\\|` は大きさ＝2ノルムで、これは記法の慣用であってモデルの選択ではない）ので、`euclidean` は「書いてもよい」だけの綴りである。　**ローマ字の綴りを日本語側に写さない。** 日本語の文中の `Frobenius` は英語側の枝が読む——読み手（`_norm_kind_written`）は `nlp_search` で**全言語を試す**からで、これはこのプロジェクトの明文の立場（「guard は言語で絞らない」）である。一度は写しを日本語側にも置いたが、**変異試験で生き残った**（外しても全部通る）ので削った——写しは、片方だけに綴りが足される場所になる。",
+    "ja": "(?i)(?P<frobenius>フロベニウス)|(?P<spectral>スペクトル|作用素)|(?P<max_col_sum>最大絶対列和|列和|1\\s*ノルム)|(?P<max_row_sum>最大絶対行和|行和|∞\\s*ノルム|無限大\\s*ノルム)|(?P<euclidean>ユークリッド|2\\s*ノルム)",
+    "en": "(?i)(?P<frobenius>frobenius)|(?P<spectral>spectral|operator\\s+norm)|(?P<max_col_sum>maximum\\s+absolute\\s+column\\s+sum|column\\s+sum|1[\\s-]*norm)|(?P<max_row_sum>maximum\\s+absolute\\s+row\\s+sum|row\\s+sum|infinity[\\s-]*norm|inf[\\s-]*norm)|(?P<euclidean>euclidean|2[\\s-]*norm)"
+  },
+  "norm_notation": {
+    "_comment": "ノルムの**二重縦棒**の中身。`\\\\|X\\\\|`（LaTeX の ‖）と `||X||`（縦棒2本）は同じものの2つの綴りで、どちらも**中身のノルムを求めよ**という要求である。　言語で分けない——記法だからで、`subst_replace_alt` の矢印と同じ理由。　`\\\\begin{Vmatrix}…\\\\end{Vmatrix}` は縦棒の**文字**を持たないのでここには当たらない。環境の綴りを知っているのは `matrix_environment` なので、中身はそちらの `norm_environment_operand` から取る（読む側で `\\\\begin`/`\\\\end` を数え直さない）。　**単一の縦棒はここに当たってはいけない**（絶対値か行列式かのダイアログが答える別の問い）ので、`\\\\|` と `||` だけを綴る。",
+    "ja": "\\\\\\|\\s*(?P<inner>.+?)\\s*\\\\\\||\\|\\|\\s*(?P<inner2>[^|]+?)\\s*\\|\\|",
+    "en": "\\\\\\|\\s*(?P<inner>.+?)\\s*\\\\\\||\\|\\|\\s*(?P<inner2>[^|]+?)\\s*\\|\\|"
+  },
+  "limit_direction": {
+    "ja": "(?P<plus>右極限|右側極限)|(?P<minus>左極限|左側極限)",
+    "en": "(?i)(?P<plus>right[-\\s]?hand\\s+limit|from\\s+the\\s+right|from\\s+above)|(?P<minus>left[-\\s]?hand\\s+limit|from\\s+the\\s+left|from\\s+below)",
+    "_comment": "片側極限の向き。**群の名前が正準の値そのもの**（`plus` / `minus`）なので、綴り→値の対応表は要らない——`norm_kind` と同じ形。読む側は `pick_group` でどちらが当たったかだけを見る。　`direction` を持つ操作は `limit` だけなので、読み取りは「その操作が `direction` を持つか」で閉じている（欄の名前が判別子）。　**片側は表示の飾りではない**——実測、`limit(abs(x)/x, x, 0)` は `ind` で、両側は `1` と `-1`。向きが届かないと、別の問いに答えることになる。　**走査は文の全体に当てる**——向きを言う語は操作を名指す別名でもあるので、別名走査が先に食べており、残りトークンを見ると当たらない（実測 2026-09-11）。　日本語の副詞形（`上から` / `下から`）は**入れていない**。実測すると`極限を上から求めて` はトークナイザが `極限を上から` を1語にするため別名 `極限` が当たらず、操作にすら届かない——**通らない綴りを文法に入れると、綴り空間の検査がそれを「打たれていない」と数え、打てば壊れていることが分かるだけ**である。英語の `from the right` / `from above` は実測で通るので入れてある。"
+  }
+}

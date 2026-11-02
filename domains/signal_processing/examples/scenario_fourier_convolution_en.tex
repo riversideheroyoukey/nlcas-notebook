@@ -1,0 +1,100 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_fourier\_convolution}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Write the Fourier transform of the Gaussian $e^{-t^2}$ as the definition's own definite integral, $F(\omega)=\int_{-\infty}^{\infty} f(t)e^{-i\omega t}dt$. No dedicated operation is used.
+
+$F = \int_{-\infty}^{\infty} e^{-t^2} e^{-i \omega t} dt$
+
+\begin{equation}
+  F = \int_{-\infty}^{\infty} e^{-t^2} e^{-i \omega t} dt
+  \label{eq:E1}
+\end{equation}
+
+Evaluate the right-hand side.
+
+compute the right-hand side of E1
+
+\begin{equation}
+  F = e^ {- \left(\frac{\omega^2}{4}\right) } \sqrt{\pi}
+  \label{eq:E2}
+\end{equation}
+
+Write the inverse from its definition too, $\frac{1}{2\pi}\int F(\omega)e^{i\omega t}d\omega$.
+
+$f = \frac{1}{2\pi}\int_{-\infty}^{\infty} \sqrt{\pi} e^{-\frac{\omega^2}{4}} e^{i \omega t} d\omega$
+
+\begin{equation}
+  f = \frac{1}{2\pi}\int_{-\infty}^{\infty} \sqrt{\pi} e^{-\frac{\omega^2}{4}} e^{i \omega t} d\omega
+  \label{eq:E3}
+\end{equation}
+
+Evaluating returns exactly the original $e^{-t^2}$ — the round trip closes.
+
+compute the right-hand side of E3
+
+\begin{equation}
+  f = e^ {- t^2 }
+  \label{eq:E4}
+\end{equation}
+
+Before the parametrised Gaussian, state the convergence condition $a>0$ explicitly. The macro silently assumed every symbolic parameter in the expression positive, but that is a problem-dependent judgement and does not belong in shared code. Omit it and Maxima asks about the sign of $a$, and the operation fails with that reason — which is correct, since the integral diverges for $a<0$.
+
+Assume a $>$ 0
+
+\noindent\textbf{Assumption:}\ $\displaystyle a > 0$\par
+
+The Fourier transform of a parametrised Gaussian.
+
+$G = \int_{-\infty}^{\infty} e^{-a t^2} e^{-i \omega t} dt$
+
+\begin{equation}
+  G = \int_{-\infty}^{\infty} e^{-a t^2} e^{-i \omega t} dt
+  \label{eq:E5}
+\end{equation}
+
+Evaluate the right-hand side.
+
+compute the right-hand side of E5
+
+\begin{equation}
+  G = {{e^ {- \left(\frac{\omega^2}{4 a}\right) } \sqrt{\pi}}\over{\sqrt{a}}}
+  \label{eq:E6}
+\end{equation}
+
+Write the convolution of two Gaussians as the definition's own integral, $\int f(\tau)g(t-\tau)d\tau$.
+
+$C = \int_{-\infty}^{\infty} e^{-\tau^2} e^{-(t-\tau)^2} d\tau$
+
+\begin{equation}
+  C = \int_{-\infty}^{\infty} e^{-\tau^2} e^{-(t-\tau)^2} d\tau
+  \label{eq:E7}
+\end{equation}
+
+Evaluating gives a Gaussian of twice the variance.
+
+compute the right-hand side of E7
+
+\begin{equation}
+  C = {{e^ {- \left(\frac{t^2}{2}\right) } \sqrt{\pi}}\over{\sqrt{2}}}
+  \label{eq:E8}
+\end{equation}
+
+The Z transform of the discrete signal $(1/2)^n$. This is the kept primitive: inside is Maxima's `nusum` (closed-form infinite summation), which no general operation expresses — measured, writing `\textbackslash{}sum\_\{n=0\}\^{}\{\textbackslash{}infty\}` does not close.
+
+z transform (1/2)\^{}n by definition
+
+\begin{equation}
+  \mathcal{Z}\{\frac{1}{2^{n}}\}(z) = \sum_{n=0}^{\infty} \frac{1}{2^{n}}\, z^{-n} = \frac{2 z}{2 z-1}-\frac{1}{2^{\infty } z^{\infty } \left(2 z-1\right)}
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

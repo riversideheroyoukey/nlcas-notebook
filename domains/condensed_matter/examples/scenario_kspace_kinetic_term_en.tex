@@ -1,0 +1,78 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_kspace\_kinetic\_term}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Check that the most ordinary condensed-matter kinetic term $\xi_k c^\dagger_k c_k$ can be written. $\xi_k$ is one quantity ("the kinetic energy at $k$"), so its subscript is declared as part of the name, not as a component index.
+
+c as the annihilation operator for electron
+
+\[
+  c
+\]
+
+Define $\xi_{k}$ as a scalar
+
+\[
+  \xi_{k}
+\]
+
+Define Delta as a scalar
+
+\[
+  \Delta
+\]
+
+Write the kinetic term. An indexed scalar multiplying QA operators reaches the CAS as written.
+
+$\xi_{k}$ c'(k) c(k)
+
+\begin{equation}
+  \xi_{k} c^{\dagger}(k) c(k)
+  \label{eq:E1}
+\end{equation}
+
+Normal order it. The expression is already ordered, so nothing changes — the point is that the display keeps the researcher's own subscript $\xi_k$ and no CAS syntax leaks out.
+
+$normal_order$ E1
+
+\begin{equation}
+  \xi_{k} {c}_{k}^{\dagger} {c}_{k}
+  \label{eq:E2}
+\end{equation}
+
+Now a Hamiltonian with the product deliberately reversed, plus a pair term to commute with later.
+
+$H = \xi_{k} c(k) c'(k) + \Delta c'(k) c'(-k)$
+
+\begin{equation}
+  H = \xi_{k} c(k) c^{\dagger}(k) + \Delta c^{\dagger}(k) c^{\dagger}(-k)
+  \label{eq:E3}
+\end{equation}
+
+Normal order it. The anticommutator $c c^\dagger = 1 - c^\dagger c$ produces the constant term $\xi_k$ — evidence that the indexed scalar passes through the anticommutator intact.
+
+$normal_order$ E3
+
+\begin{equation}
+  H = \xi_{k} -  \xi_{k} c^{\dagger}_{k} c_{k} + \Delta c^{\dagger}_{k} c^{\dagger}_{-k}
+  \label{eq:E4}
+\end{equation}
+
+Take the commutator $[H, c_k]$, the backbone of the equation of motion. By hand $[c^\dagger_k c_k, c_k]=-c_k$ and $[c^\dagger_k c^\dagger_{-k}, c_k]=-c^\dagger_{-k}$, so the answer should be $\xi_k c_k - \Delta c^\dagger_{-k}$.
+
+commutator of E3 and c(k)
+
+\begin{equation}
+  - \Delta c^{\dagger}_{-k} + \xi_{k} c_{k}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

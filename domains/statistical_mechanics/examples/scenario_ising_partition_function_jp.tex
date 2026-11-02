@@ -1,0 +1,68 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ising\_partition\_function}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+イジング模型 $H=-J\sum_{\langle ij\rangle}s_is_j$（$s=\pm\frac12$）の無限温度エネルギーモーメント $\langle H^2\rangle,\langle H^3\rangle$ を、格子の形状を指定せず一般式（辺数 $|E|$・三角形数 $N_\triangle$ のようなグラフ不変量）として求める。イジングでは $\langle H^3\rangle$ が三角形数 $N_\triangle$ のみに比例する。
+
+イジング模型の高温展開を一般式で求めて
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{16} J^{2} |E|,\ \langle H^3 \rangle = \frac{3}{32} J^{3} N_\triangle
+  \label{eq:E1}
+\end{equation}
+
+一般式を具体的な格子（周期境界の正方格子 $2\times2$）に当てはめる。この格子は4-cycle（$|E|=4$、三角形なし＝$N_\triangle=0$）なので、$\langle H^3\rangle=0$ になるはずである。
+
+イジング模型 正方格子 2x2 の高温展開を求めて
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{4} J^{2},\ \langle H^3 \rangle = 0 \quad (|E| = 4,\ N_\triangle = 0)
+  \label{eq:E2}
+\end{equation}
+
+エネルギーモーメントから、比熱 $C(\beta)=\beta^2\,\partial^2(\ln Z/N)/\partial\beta^2$ の高温展開（$\beta$ の冪級数）を求める。これはMaximaへの直接のコマンドではない——再帰法・モーメント法にはCASの汎用ルーチンが存在しないため、この計算は本プロジェクト独自の spin-algebra モジュール（`notebook/runtime/spin\_algebra.py`）による厳密で決定論的な閉形式計算として実行される。前段で求めたグラフ不変量によるエネルギーモーメント $\langle H^2\rangle,\langle H^3\rangle,\langle H^4\rangle$ を連結キュムラント $\kappa_n$（$\kappa_2=\langle H^2\rangle$、$\langle H\rangle=0$ より $\kappa_4=\langle H^4\rangle-3\langle H^2\rangle^2$）に変換し、冪級数 $C(\beta)=\kappa_2\beta^2-\tfrac1{3!}\kappa_3\beta^3+\tfrac1{2\cdot2!}\kappa_4\beta^4+\cdots$ として組み立てる。この $2\times2$ 格子では $\kappa_2=\langle H^2\rangle=\tfrac14J^2$、$\kappa_4=\tfrac14J^4-3(\tfrac14J^2)^2=\tfrac1{16}J^4$ となり、以下の $\beta^2$・$\beta^4$ 係数は誰でも手計算で検算できる——ブラックボックスではない。三角形がない格子なので、奇数次の $\beta^3$ 項が現れないはずである。
+
+イジング模型 正方格子 2x2 の比熱の高温展開を求めて
+
+\begin{equation}
+  C(\beta) = \frac{1}{4} J^{2} \beta^{2} + \frac{1}{32} J^{4} \beta^{4} + O(\beta^5)
+  \label{eq:E3}
+\end{equation}
+
+展開を4次まで求める。$2\times2$ 格子には唯一の4-cycle（四角形数 $N_\square=1$）が存在し、これが $\beta^4$ 項の起源になる。
+
+イジング模型 正方格子 2x2 の高温展開を4次まで求めて
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{4} J^{2},\ \langle H^3 \rangle = 0,\ \langle H^4 \rangle = \frac{1}{4} J^{4} \quad (|E| = 4,\ N_\triangle = 0,\ N_\square = 1)
+  \label{eq:E4}
+\end{equation}
+
+今度は三角格子 $3\times3$ で同じ計算をする。この格子には三角形が存在する（$N_\triangle=8$）ため、$\langle H^3\rangle$ がゼロでない値を持つはずである（幾何学的フラストレーション）。
+
+イジング模型 三角格子 3x3 の高温展開を求めて
+
+\begin{equation}
+  \langle H^2 \rangle = J^{2},\ \langle H^3 \rangle = \frac{3}{4} J^{3} \quad (|E| = 16,\ N_\triangle = 8)
+  \label{eq:E5}
+\end{equation}
+
+三角格子について、同じ「モーメント$\to$キュムラント$\to$冪級数」の計算を繰り返す（上記の正方格子の比熱の注釈を参照——同じ spin-algebra モジュールによる計算であり、CASコマンドは経由しない）。正方格子（三角形なし）とは対照的に、奇数次の $\beta^3$ 項が実際に現れ、その係数は $-\kappa_3\beta^3=-\langle H^3\rangle\beta^3=-\tfrac34J^3\beta^3$ となる（イジング模型では $\langle H\rangle=0$ より $\kappa_3=\langle H^3\rangle$ が厳密に成り立つ）。
+
+イジング模型 三角格子 3x3 の比熱の高温展開を求めて
+
+\begin{equation}
+  C(\beta) = J^{2} \beta^{2} - \frac{3}{4} J^{3} \beta^{3} + \frac{5}{16} J^{4} \beta^{4} + O(\beta^5)
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,54 @@
+## Domain: Magnetic Resonance (NMR / ESR)
+
+Spin dynamics of one or a few spins in a magnetic field. Uses the Julia backend
+with QuantumAlgebra for spin operators and commutators; the spin algebra handles
+equations of motion (precession), moments and spectra.
+
+Common symbols and their roles:
+- Sx, Sy, Sz: spin operators ([Si, Sj] = i ε_ijk Sk). I, Ix, Iy, Iz: nuclear spin.
+- S+, S-: raising/lowering operators (S± = Sx ± i Sy)
+- γ (gamma): gyromagnetic ratio. B0: static field. B1: RF / microwave field.
+- ω0 = γ B0: Larmor (resonance) frequency. ω (or ω_rf): drive frequency.
+- Ω = ω0 − ω: resonance offset / detuning. ω1 = γ B1: Rabi / nutation frequency.
+- T1, T2: longitudinal / transverse relaxation times.
+- δ, σ: chemical shift (NMR). J or J_ij: scalar (J-)coupling.
+- A: hyperfine coupling (ESR). g: g-factor. μ_B: Bohr magneton. μ_N: nuclear magneton.
+- M, Mx, My, Mz: magnetization vector. M0: equilibrium magnetization.
+- ρ: density matrix. B_eff: effective field (rotating frame).
+
+Typical Hamiltonians (ħ = 1):
+- Zeeman (single spin): H = −γ B0 Sz = −ω0 Sz  → Larmor precession of Sx, Sy.
+- With RF (lab frame): H = −ω0 Sz − ω1 (Sx cos ωt + Sy sin ωt).
+- Rotating frame (on/near resonance): H_rot = −Ω Sz − ω1 Sx  (Ω = ω0 − ω).
+- Chemical shift (NMR, many spins): H = Σ_i ω_i Sz_i, ω_i = γ B0 (1 − σ_i).
+- Weak J-coupling: H_J = 2π J_ij Iz_i Iz_j  (strong: 2π J_ij I_i·I_j).
+- ESR/EPR: H = g μ_B B·S + S·A·I (Zeeman + hyperfine).
+
+Single-spin convention: in a one-spin model the site index may be omitted in paper
+notation (e.g. S_x); the system completes it to the unique site (A-11). Define the
+spin first (`S をスピン演算子として定義`), then write H and the equation of motion.
+
+Operation mapping (natural language → operation):
+- Larmor 歳差 / 運動方程式 dS/dt = i[H, S] → commutator(H, S) （または heisenberg_eom）
+- スピン交換子 → commutator(A, B)
+- 横磁化の時間発展・歳差 → 交換子から d/dt を組み立て、積分
+- 回転座標系へ移る → 「回転座標系の有効ハミルトニアンを求めて」で
+  H_rot = −Ω Sz − ω1 Sx（Ω=ω0−ω）・有効磁場 ω_eff=√(Ω²+ω1²)・回転系 EOM を出す（F-4 実装済み）
+- 緩和（Bloch 方程式）→ 現象論的に dMx/dt = … − Mx/T2 等を式として登録・微分
+- 角運動量の合成（超微細構造）→「I=3/2 と S=1/2 を合成して」で、許される全角運動量
+  F と I·S の厳密な恒等式 ⟨I·S⟩=½[F(F+1)−I(I+1)−S(S+1)] を登録（F-9、CAS 非経由）。
+  そこから H_hf=A I·S の準位は一般操作で出す：両辺に A を掛け、F に値を代入する
+  （＝ランデの間隔則）。結合定数もハミルトニアンも研究者が与える。
+- ESR の g 因子 →「^2P_{3/2} のランデのg因子」/「L=1, S=1/2, J=3/2 のg因子」（F-9）
+- クレブシュ・ゴルダン係数・3j/6j/9j 記号 → F-9（バックエンド非依存で使える）
+- 多スピン種の期待値（F-13）→「サイト1のスピンを1/2、サイト2のスピンを1とする」で
+  サイト別スピンを宣言し、「E1 の2次モーメントを求めて」で ⟨H²⟩ を無限温度トレースで
+  評価する（CAS 非経由・厳密）。1次モーメントは常に 0（各因子がトレースレス）なので、
+  物理は 2次モーメントに出る：超微細構造の ⟨H_hf²⟩、異核 NMR の Van Vleck 第二モーメント。
+  宣言しなければ従来どおり全サイト共通の x=S(S+1) で評価される。
+
+Notes:
+- SU(2) spin algebra is not built into QuantumAlgebra.jl; work with commutation
+  relations symbolically or via boson/fermion mappings.
+- The rotating-frame transformation is implemented (F-4): the frame term +ω S^z is
+  added to the lab Hamiltonian, giving the time-independent H_rot = −Ω S^z − ω1 S^x.

@@ -1,0 +1,33 @@
+# Build context hygiene — keep the image small and reproducible.
+.git
+.gitignore
+.venv
+.venv-numeric
+__pycache__
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.coverage
+.DS_Store
+**/.DS_Store
+
+# Host-built Julia sysimage is arch-specific — the image rebuilds its own.
+notebook/runtime/sysimage.dylib
+notebook/runtime/*.so
+notebook/runtime/*.dll
+
+# Runtime workspace / research data — never bake into the image.
+sessions/
+docs/temp/
+debug_preprocessed.png
+
+# Downloaded-at-runtime assets.
+ui/static/lib/katex/
+ui/static/lib/html2canvas.min.js
+
+# Docs/manuals are not needed to run the app (keep context lean).
+PROGRESS.md
+
+# Windows/Docker-Desktop model-endpoint overrides — bind-mounted at runtime by
+# docker-compose.windows.yml, never baked into the image.
+models.windows/

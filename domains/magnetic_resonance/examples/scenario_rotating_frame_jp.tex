@@ -1,0 +1,50 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_rotating\_frame}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+実験室系のスピンハミルトニアン $H_{\rm lab}=-\omega_0S^z_1-\omega_1S^x_1$（$\omega_0$: Zeeman周波数、$\omega_1$: 回転磁場の強さ）を登録する。
+
+$H_{lab} = -\omega_0 S^z_1 - \omega_1 S^x_1$
+
+\begin{equation}
+  H_{lab} = -\omega_0 S^{z}_{1} - \omega_1 S^{x}_{1}
+  \label{eq:E1}
+\end{equation}
+
+角周波数 $\omega$ で回転する座標系に移るため、フレーム項 $+\omega S^z$ を実験室系のハミルトニアンに足し、回転系でのハミルトニアン $H_{\rm rot}$ を得る。
+
+$H_{rot} = E1 + \omega S^z_1$
+
+\begin{equation}
+  H_{rot} = \left( \omega - \omega_0 \right) S^{z}_{1} - \omega_1 S^{x}_{1}
+  \label{eq:E2}
+\end{equation}
+
+$H_{\rm rot}=-\mathbf B\cdot\mathbf S$ の形の係数（場の成分）から、スピンが感じる有効磁場の大きさ $\omega_{\rm eff}=\sqrt{(\omega-\omega_0)^2+\omega_1^2}$ を直接求める。
+
+E2 の有効磁場の大きさを求めて
+
+\begin{equation}
+  \omega_{\mathrm{eff}} = \sqrt{ \left(\omega - \omega_0\right)^2 + \omega_1^2 }
+  \label{eq:E3}
+\end{equation}
+
+回転系でのハミルトニアン $H_{\rm rot}$ と $S^z$ の交換子を求め、回転系での歳差運動の運動方程式を得る。
+
+E2 と $S^z_1$ の交換子を求めて
+
+\begin{equation}
+  [H_{rot}, S^z_1] = i \omega_1 S^{y}_{1}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

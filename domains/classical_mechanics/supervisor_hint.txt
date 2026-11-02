@@ -1,0 +1,33 @@
+## Domain: Classical (Newtonian) Mechanics
+
+### Model: q̇ = dq/dt — velocity is the time-derivative of position
+
+Unlike analytical mechanics, this domain treats q as a function of time q(t) and
+its velocity q̇ as the genuine time-derivative dq/dt (DEPENDENT on q).  Use this
+domain for Newtonian problems: equations of motion integrated directly,
+trajectories, collisions, projectile motion, orbits, conservation laws checked
+by direct time-differentiation.
+
+**Declare moving quantities as time-dependent**, e.g.
+"x を時間依存関数として定義する".  Then `\dot{x}` means dx/dt and d/dt of any
+expression follows the ordinary chain rule through x(t).
+
+Common symbols and their roles:
+- x, y, r, q: positions — functions of t
+- ẋ (input `\dot{x}`): velocity = dx/dt
+- ẍ (input `\ddot{x}`): acceleration = d²x/dt²
+- v: velocity;  a: acceleration;  p = m v: momentum
+- F: force;  m: mass;  g: gravitational acceleration
+- T: kinetic energy;  V/U: potential energy;  E: total energy
+
+Input velocities with the math notation `\dot{x}`.  Never ask the user to type
+CAS syntax such as `diff(x,t)` — that violates Core Principle #1.
+
+When the user writes "x を t で微分", interpret as the ordinary time-derivative
+d/dt (chain rule through x(t)), NOT a Lagrangian total derivative over
+independent atoms.
+
+This domain deliberately does NOT enable the analytical-mechanics independent
+velocity model.  Choose `analytical_mechanics` instead when working with
+Lagrangians/Hamiltonians and Euler-Lagrange equations.
+See docs/19_analytical_mechanics_independent_variables.md for the distinction.

@@ -1,0 +1,70 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_poisson\_bracket}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+To compute a Poisson bracket, the system must first know which coordinate and momentum are canonically conjugate. Declare $p_r$ as the momentum conjugate to the radial coordinate $r$.
+
+Define $p_r$ as the canonical momentum of r
+
+Registered canonical pair (r, p\_r). It is now used by "compute the Poisson bracket of f and g".
+
+Declare $p_\theta$ as the momentum conjugate to the angular coordinate $\theta$.
+
+Define $p_{\theta}$ as the canonical momentum of theta
+
+Registered canonical pair (theta, p\_theta). It is now used by "compute the Poisson bracket of f and g".
+
+Compute the basic Poisson bracket $\{r,p_r\}$. Since these are a canonical pair, the canonical commutation relation $\{q,p\}=1$ means this should equal 1.
+
+Find the Poisson bracket of r and $p_r$
+
+\begin{equation}
+  1
+  \label{eq:E1}
+\end{equation}
+
+Define the central-force Hamiltonian $H=p_r^2/(2m)+p_\theta^2/(2mr^2)+U(r)$ (the sum of the radial and angular kinetic energies and the potential $U(r)$).
+
+$H = p_r^2/(2 m) + p_{\theta}^2/(2 m r^2) + U(r)$
+
+\begin{equation}
+  H = p_r^2/(2 m) + p_{\theta}^2/(2 m r^2) + U(r)
+  \label{eq:E2}
+\end{equation}
+
+Define the angular momentum $L_z=p_\theta$ (which is simply the momentum conjugate to the angle).
+
+$L_z = p_{\theta}$
+
+\begin{equation}
+  L_z = p_{\theta}
+  \label{eq:E3}
+\end{equation}
+
+Compute the Poisson bracket of the Hamiltonian $H$ and the angular momentum $L_z$. Since $H$ does not depend on the angle $\theta$ (rotational symmetry), this vanishing confirms that $L_z$ is conserved.
+
+Find the Poisson bracket of H and $L_z$
+
+\begin{equation}
+  0
+  \label{eq:E4}
+\end{equation}
+
+Using Hamilton's equation of motion $\dot q=\{q,H\}$, compute the Poisson bracket of $H$ and the radial coordinate $r$ to find its time evolution.
+
+Find the Poisson bracket of H and r
+
+\begin{equation}
+  -\frac{p_{r}}{m}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

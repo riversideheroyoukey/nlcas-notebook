@@ -1,0 +1,21 @@
+## Domain: Signal Processing
+
+Common symbols and their roles:
+- x(t), y(t): continuous-time signals — functions of t
+- x[n], y[n]: discrete-time signals — functions of integer n
+- X(ω), X(f): Fourier transform of x (frequency domain)
+- X(z): Z-transform of x[n]
+- X(s): Laplace transform of x(t)
+- h(t), h[n]: impulse response — function of t or n
+- H(ω), H(s): transfer function (frequency/s-domain)
+- ω: angular frequency (rad/s)
+- f: frequency (Hz)
+- * : convolution operator (NOT multiplication)
+- δ(t), δ[n]: Dirac delta / Kronecker delta
+
+Typical dependency patterns:
+- Time-domain signals depend on t (continuous) or n (discrete)
+- Frequency-domain representations depend on ω or f (not t)
+- Convolution: y(t) = (x * h)(t) = ∫ x(τ)h(t-τ) dτ
+
+When the user writes "フーリエ変換して", interpret as X(ω) = ∫ x(t) e^{-iωt} dt.

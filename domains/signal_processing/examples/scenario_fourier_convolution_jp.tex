@@ -1,0 +1,101 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_fourier\_convolution}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+ガウス関数 $e^{-t^2}$ のフーリエ変換を、定義 $F(\omega)=\int_{-\infty}^{\infty} f(t)e^{-i\omega t}dt$ そのままの定積分として書く。専用操作は使わない。
+
+$F = \int_{-\infty}^{\infty} e^{-t^2} e^{-i \omega t} dt$
+
+\begin{equation}
+  F = \int_{-\infty}^{\infty} e^{-t^2} e^{-i \omega t} dt
+  \label{eq:E1}
+\end{equation}
+
+右辺を評価する。
+
+E1 の右辺を計算して
+
+\begin{equation}
+  F = e^ {- \left(\frac{\omega^2}{4}\right) } \sqrt{\pi}
+  \label{eq:E2}
+\end{equation}
+
+逆変換も定義そのまま書く。$\frac{1}{2\pi}\int F(\omega)e^{i\omega t}d\omega$。
+
+$f = \frac{1}{2\pi}\int_{-\infty}^{\infty} \sqrt{\pi} e^{-\frac{\omega^2}{4}} e^{i \omega t} d\omega$
+
+\begin{equation}
+  f = \frac{1}{2\pi}\int_{-\infty}^{\infty} \sqrt{\pi} e^{-\frac{\omega^2}{4}} e^{i \omega t} d\omega
+  \label{eq:E3}
+\end{equation}
+
+評価すると元の $e^{-t^2}$ に厳密に戻る——往復が閉じる。
+
+E3 の右辺を計算して
+
+\begin{equation}
+  f = e^ {- t^2 }
+  \label{eq:E4}
+\end{equation}
+
+パラメータ付きガウス関数に進む前に、収束条件 $a>0$ を明示的に仮定する。マクロは式中の記号パラメータを全部正と黙って仮定していたが、それは問題依存の判断であり、共有コードに焼き込むべきものではない。省くと Maxima が $a$ の符号を問い、操作は理由つきの失敗になる（それが正しい——$a<0$ なら発散する）。
+
+a $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle a > 0$\par
+
+パラメータ付きガウス関数のフーリエ変換。
+
+$G = \int_{-\infty}^{\infty} e^{-a t^2} e^{-i \omega t} dt$
+
+\begin{equation}
+  G = \int_{-\infty}^{\infty} e^{-a t^2} e^{-i \omega t} dt
+  \label{eq:E5}
+\end{equation}
+
+右辺を評価する。
+
+E5 の右辺を計算して
+
+\begin{equation}
+  G = {{e^ {- \left(\frac{\omega^2}{4 a}\right) } \sqrt{\pi}}\over{\sqrt{a}}}
+  \label{eq:E6}
+\end{equation}
+
+ガウス関数同士の畳み込みを、定義 $\int f(\tau)g(t-\tau)d\tau$ そのままの定積分として書く。
+
+$C = \int_{-\infty}^{\infty} e^{-\tau^2} e^{-(t-\tau)^2} d\tau$
+
+\begin{equation}
+  C = \int_{-\infty}^{\infty} e^{-\tau^2} e^{-(t-\tau)^2} d\tau
+  \label{eq:E7}
+\end{equation}
+
+評価すると分散が2倍のガウス関数になる。
+
+E7 の右辺を計算して
+
+\begin{equation}
+  C = {{e^ {- \left(\frac{t^2}{2}\right) } \sqrt{\pi}}\over{\sqrt{2}}}
+  \label{eq:E8}
+\end{equation}
+
+離散信号 $(1/2)^n$ の Z 変換。これは残した primitive で、中身は Maxima の `nusum`（無限和の閉形式）——一般操作では書けない（`\textbackslash{}sum\_\{n=0\}\^{}\{\textbackslash{}infty\}` と書いても閉じないことを実測済み）。
+
+(1/2)\^{}n を定義に従ってZ変換して
+
+\begin{equation}
+  \mathcal{Z}\{\frac{1}{2^{n}}\}(z) = \sum_{n=0}^{\infty} \frac{1}{2^{n}}\, z^{-n} = \frac{2 z}{2 z-1}-\frac{1}{2^{\infty } z^{\infty } \left(2 z-1\right)}
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

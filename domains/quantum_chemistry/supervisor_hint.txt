@@ -1,0 +1,19 @@
+## Domain: Quantum Chemistry
+
+Common symbols and their roles:
+- Ψ, ψ: molecular or atomic wavefunction — function of electron coordinates r
+- H, Ĥ: electronic Hamiltonian (Born-Oppenheimer approximation)
+- E: total energy or orbital energy (eigenvalue of H)
+- r, **r**: electron position coordinates
+- R: nuclear coordinates (parameters in Born-Oppenheimer)
+- α, β: spin functions (spin-up / spin-down)
+- φ: molecular orbital
+- ρ(r): electron density — function of r
+- ℏ: reduced Planck constant (treat as scalar constant)
+
+Typical dependency patterns:
+- Wavefunctions Ψ, ψ depend on electron coordinates r (and spin)
+- Electron density ρ depends on r
+- Energy E is a scalar eigenvalue — does not depend on r
+
+When the user writes "r で微分", interpret as ∂/∂r (gradient in 3D if **r** is a vector).

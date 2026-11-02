@@ -1,0 +1,36 @@
+# Research Notebook — Linux/Windows deployment (app container + host Ollama).
+#
+# Prerequisite: Ollama running HOST-NATIVE with the role models pulled:
+#     ollama serve &
+#     ollama pull gpt-oss:20b qwen2.5-coder:32b qwen3-vl:latest
+#
+# Then:  docker compose up --build   →   http://localhost:8000/notebook.html
+#
+# network_mode: host makes the container share the host network, so the model
+# endpoints' localhost:11434 reach the host's Ollama with NO config changes.
+# (Linux only. On Docker Desktop / macOS, prefer the native ./setup.sh path;
+#  if you must use Docker there, drop network_mode below, add
+#  `ports: ["8000:8000"]`, and point models/*/endpoint.json at
+#  host.docker.internal:11434.)
+#
+# Numeric layer (N-1): runs inside this container via a dedicated
+# low-privilege user + Landlock (network-only) — no cap_add needed at all.
+# bwrap is tried first (works on bare-metal Linux) but fails inside this
+# specific container image, so the fallback is what actually runs here. NOT
+# a real sandbox like macOS/bare-metal — accepted as better-than-nothing
+# isolation; see the Dockerfile comment + open_items.md G-2 for detail.
+
+services:
+  notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: research-notebook:latest
+    network_mode: host
+    environment:
+      - PYTHONPATH=/app
+      - MPLBACKEND=Agg
+    volumes:
+      # Persist saved sessions on the host (the sessions/ workspace).
+      - ./sessions:/app/sessions
+    restart: unless-stopped

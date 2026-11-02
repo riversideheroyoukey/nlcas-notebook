@@ -1,0 +1,15 @@
+{
+  "name": "ollama_qwen3_vl",
+  "scope": "local",
+  "base_url": "http://localhost:11434/v1",
+  "model": "qwen3-vl:latest",
+  "api_key_env": null,
+  "timeout": 120,
+  "roles": {
+    "vision_math_engine": { "temperature": 0.0 },
+    "command_parser": { "temperature": 0.0 },
+    "expression_extractor": { "temperature": 0.0 },
+    "supervisor": { "temperature": 0.0 },
+    "advisor": { "temperature": 0.2 }
+  }
+}

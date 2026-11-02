@@ -1,0 +1,88 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_pendulum\_lagrangian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider a simple pendulum (length $l$, angle $q$, mass $m$). Prepare $q$ as a time-dependent angle, and $m,l,g$ (gravitational acceleration) as scalar parameters.
+
+Define q as a time-dependent function
+
+$\checkmark$ Declared q as time-dependent (time variable: t)
+
+Define m, l, g as scalars
+
+\[
+  m, l, g
+\]
+
+Define the pendulum's Lagrangian $L=\frac12ml^2\dot q^2-mgl(1-\cos q)$ (kinetic energy minus potential energy).
+
+$L = (1/2) m l^2 \dot{q}^2 - m g l (1 - cos(q))$
+
+\begin{equation}
+  L = (1/2) m l^2 \dot{q}^2 - m g l (1 - \cos(q))
+  \label{eq:E1}
+\end{equation}
+
+Following the Euler-Lagrange equation $\frac{d}{dt}\frac{\partial L}{\partial\dot q}-\frac{\partial L}{\partial q}=0$, first find the generalized momentum $\partial L/\partial\dot q$.
+
+Take the partial derivative of E1 with respect to $\dot{q}$
+
+\begin{equation}
+  \frac{\partial L}{\partial \dot{q}} = m l^2 \dot{q}
+  \label{eq:E2}
+\end{equation}
+
+Take the total time derivative of the generalized momentum just found, to obtain $\frac{d}{dt}(\partial L/\partial\dot q)$.
+
+Take the total derivative of E2 with respect to t
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right) = m l^2 \ddot{q}
+  \label{eq:E3}
+\end{equation}
+
+Find the other term of the Euler-Lagrange equation, $\partial L/\partial q$.
+
+Take the partial derivative of E1 with respect to q
+
+\begin{equation}
+  \frac{\partial L}{\partial q} = -m g l \sin q
+  \label{eq:E4}
+\end{equation}
+
+Subtract $\partial L/\partial q$ from $\frac{d}{dt}(\partial L/\partial\dot q)$ to assemble the equation of motion.
+
+$EOM = E3 - E4$
+
+\begin{equation}
+  EOM = m l^2 \ddot{q}+m g l \sin q
+  \label{eq:E5}
+\end{equation}
+
+Divide both sides by $ml^2$ to drop the leading coefficient, moving toward the simple-harmonic-motion form.
+
+Divide both sides of E5 by m $l^2$
+
+\begin{equation}
+  \frac{EOM}{m l^2} = \frac{l \ddot{q}+g \sin q}{l}
+  \label{eq:E6}
+\end{equation}
+
+Apply the small-angle approximation $\sin q\approx q$, reducing the equation to simple harmonic motion $\ddot q+\omega^2q=0$ ($\omega=\sqrt{g/l}$).
+
+In E6, substitute q for sin(q)
+
+\begin{equation}
+  \frac{EOM}{m l^2} = \frac{l \ddot{q}+g q}{l}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

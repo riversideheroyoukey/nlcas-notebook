@@ -1,0 +1,14 @@
+## OCR Domain Hint: Operations Research
+
+Symbol recognition priorities:
+- λ (lambda) → arrival rate \lambda
+- μ (mu) → service rate \mu
+- ρ (rho) → utilization \rho
+- L, W, Lq, Wq → queue metrics (number / time, in system / in queue)
+- x, y, x_j → LP decision variables
+- a chain of ≤ inequalities → LP constraints Ax ≤ b
+
+Common expression patterns:
+- ρ = λ/μ → utilization
+- L = ρ/(1−ρ), W = 1/(μ−λ) → M/M/1 metrics
+- max z = c₁x + c₂y s.t. a₁x + b₁y ≤ d₁ → linear program

@@ -1,0 +1,7 @@
+{
+  "label_en": "Nuclear Physics",
+  "category": "second_quantization",
+  "label_ja": "核物理",
+  "status": "future",
+  "status_note": "Partially supported. Specialized tensor/operator operations not yet connected to CAS."
+}

@@ -1,0 +1,14 @@
+## OCR Domain Hint: Differential Geometry
+
+Symbol recognition priorities:
+- Γ with one upper and two lower indices → Christoffel symbol \Gamma^k_{ij}
+- ∇ with subscript μ or i → covariant derivative \nabla_\mu
+- ω with superscript → differential form \omega^i
+- ∧ between forms → wedge product \wedge
+- d before a symbol → exterior derivative d
+- T with mixed indices (upper and lower) → tensor T^r_s
+- g_{ij} (metric components) → \mathbf{g} with index notation
+
+Common expression patterns:
+- ∇_μ V^ν = ∂_μ V^ν + Γ^ν_{μλ} V^λ → covariant derivative of vector
+- dω = 0 → closed form (Poincaré lemma)

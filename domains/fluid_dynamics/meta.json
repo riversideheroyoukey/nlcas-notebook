@@ -1,0 +1,7 @@
+{
+  "label_en": "Fluid Dynamics",
+  "category": "physics",
+  "label_ja": "流体力学",
+  "status": "future",
+  "status_note": "Partially supported. Specialized tensor/operator operations not yet connected to CAS."
+}

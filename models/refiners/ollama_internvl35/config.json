@@ -1,0 +1,27 @@
+{
+  "_management": {
+    "file_name": "config.json",
+    "version": "1.0.0",
+    "last_updated": "2026-05-16",
+    "description": "InternVL3.5 refiner via Ollama for mathematical LaTeX correction.",
+    "status": "available"
+  },
+  "id": "ollama-internvl35",
+  "type": "refiner",
+  "vision_input": true,
+  "api_config": {
+    "model_name": "blaifa/InternVL3_5:8B",
+    "base_url": "http://127.0.0.1:11434",
+    "endpoint_type": "ollama",
+    "timeout": 120
+  },
+  "parameters": {
+    "temperature": 0.1,
+    "num_predict": 1024,
+    "top_p": 0.9,
+    "num_ctx": 8192
+  },
+  "paths": {
+    "prompt_file": "system_prompt.txt"
+  }
+}

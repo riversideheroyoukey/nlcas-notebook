@@ -1,0 +1,112 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_hyperfine\_structure}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+超微細相互作用 $H_{\rm hf}=A\,\mathbf I\cdot\mathbf S$ を2つの独立な経路で扱う。$A$ は超微細結合定数。
+
+A をスカラーパラメータとして定義して
+
+\[
+  A
+\]
+
+〔経路A〕核スピン $I=3/2$ と電子スピン $S=1/2$ を合成する。許される全角運動量 $F$ と、$\mathbf I\cdot\mathbf S$ を $F$ で表す恒等式が得られる。$F$ は記号のまま残るので、このあと通常の一般操作に乗せられる。
+
+I=3/2 と S=1/2 を合成して
+
+\begin{equation}
+  \left| \frac{3}{2} \right\rangle \otimes \left| \frac{1}{2} \right\rangle:\quad F = 1,\; 2
+  \label{eq:E1}
+\end{equation}
+
+\begin{equation}
+  \mathbf{I}\cdot\mathbf{S} = \frac{1}{2}\left[ F(F+1) - \frac{15}{4} - \frac{3}{4} \right]
+  \label{eq:E2}
+\end{equation}
+
+恒等式の両辺に結合定数 $A$ を掛けて、超微細ハミルトニアンの固有値の形にする。CAS を経由せずに作った恒等式が、通常の両辺操作にそのまま乗ることの確認でもある。
+
+E2 の両辺に A をかける
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = \frac{2 A F^2+2 A F-9 A}{4}
+  \label{eq:E3}
+\end{equation}
+
+上の準位 $F=2$ を代入する。
+
+E3 の F に 2 を代入する
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = \frac{3 A}{4}
+  \label{eq:E4}
+\end{equation}
+
+下の準位 $F=1$ を代入する。
+
+E3 の F に 1 を代入する
+
+\begin{equation}
+  A \mathbf{I}\cdot\mathbf{S} = -\frac{5 A}{4}
+  \label{eq:E5}
+\end{equation}
+
+2準位の間隔を取る。ランデの間隔則 $\Delta E = A\,F_{\rm max}$ より $2A$ になるはず。
+
+$E4 - E5$
+
+\begin{equation}
+  E4 - E5
+  \label{eq:E6}
+\end{equation}
+
+E6 を簡約して
+
+\begin{equation}
+  2 A
+  \label{eq:E7}
+\end{equation}
+
+〔経路B〕今度はスピン代数のトレースで、同じ $\mathbf I\cdot\mathbf S$ の無限温度モーメントを求める。まず各サイトのスピンの大きさを宣言する——どのスピンでトレースを取ったかは結果の意味の一部なので、これはタイムラインのステップとして残る。
+
+サイト1のスピンを1/2、サイト2のスピンを3/2とする
+
+\noindent\textbf{Assumption:}\ $\displaystyle $\par
+
+$\mathbf I\cdot\mathbf S$ を $x,y,z$ 成分の和として登録する。
+
+$S^x_1 S^x_2 + S^y_1 S^y_2 + S^z_1 S^z_2$
+
+\begin{equation}
+  S^x_1 S^x_2 + S^y_1 S^y_2 + S^z_1 S^z_2
+  \label{eq:E8}
+\end{equation}
+
+1次モーメント（期待値）。無限温度では 0 になるはず。
+
+E8 の期待値
+
+\begin{equation}
+  \langle E8 \rangle = 0
+  \label{eq:E9}
+\end{equation}
+
+2次モーメント。$\frac13 x_1x_2$（$x_i=S_i(S_i+1)$）に $x_1=3/4,\ x_2=15/4$ を入れて $15/16$ になるはず——サイトごとに違うスピンが効いていることの確認。
+
+E8 の2次のモーメント
+
+\begin{equation}
+  \langle {E8}^{2} \rangle = \frac{15}{16}
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

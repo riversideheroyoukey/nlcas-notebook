@@ -1,0 +1,15 @@
+## OCR Domain Hint: Statistical Mechanics & Thermodynamics
+
+Symbol recognition priorities:
+- Z (standalone, not a coordinate) → partition function Z
+- β → inverse temperature \beta = 1/(k_B T), NOT a coefficient
+- k_B or k with subscript B → Boltzmann constant k_B
+- μ in thermodynamics context → chemical potential \mu, NOT dynamic viscosity
+- ∂F/∂T, ∂G/∂P → thermodynamic partial derivatives
+- Σ_n exp(-βE_n) → partition function sum
+- 〈...〉 → thermal average \langle ... \rangle
+
+Common expression patterns:
+- F = -k_BT ln Z → Helmholtz free energy
+- S = -∂F/∂T → entropy from free energy
+- ⟨E⟩ = -∂ ln Z/∂β → average energy

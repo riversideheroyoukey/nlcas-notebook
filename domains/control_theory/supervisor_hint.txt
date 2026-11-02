@@ -1,0 +1,25 @@
+## Domain: Control Theory
+
+Common symbols and their roles:
+- G(s): plant transfer function — function of complex s
+- H(s): controller or feedback transfer function
+- C(s): compensator transfer function
+- Y(s), U(s): output and input in s-domain
+- e(t): error signal
+- T(s) = G(s)H(s)/(1 + G(s)H(s)): closed-loop transfer function
+- s: complex Laplace variable (σ + jω)
+- ω_n: natural frequency; ζ: damping ratio
+- State-space: ẋ = Ax + Bu, y = Cx + Du
+  - x: state vector, u: input, y: output
+  - A, B, C, D: system matrices
+
+Stability:
+- Poles of T(s) in left half-plane → stable
+- Gain margin, phase margin from Bode plot
+
+Typical dependency patterns:
+- Time-domain signals depend on t
+- Transfer functions are functions of s (frequency domain)
+- State x depends on t; A, B, C, D are constant matrices
+
+When the user writes "閉ループ伝達関数", compute G(s)/(1 + G(s)H(s)).

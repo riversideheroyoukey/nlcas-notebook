@@ -1,0 +1,27 @@
+# Environment-only manifest — pins the Julia dependencies for the app's
+# second-quantization backend (see notebook/runtime/julia_adapter.py). This
+# directory is never `using`-imported as a package (Julia code is driven via
+# _julia_driver.jl as a script, not a module), so deliberately no
+# name/uuid/version here: those make Julia treat the directory as an
+# installable PACKAGE requiring src/<Name>.jl, which breaks `Pkg.precompile()`
+# ("Missing source file for ... ResearchNotebook") since no such file exists
+# or is needed.
+[deps]
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
+QuantumAlgebra = "1b9008d5-2a9d-4901-8cfb-44bb87795b64"
+SymPy = "24249f21-da20-56a4-8eb1-6a02cf4ae2e6"
+SymbolicNumericIntegration = "78aadeae-fbc0-11eb-17b6-c7ec0477ba9e"
+Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
+
+# Exact pins ("=") so a fresh resolve reproduces the tested versions rather than
+# drifting to the newest caret-compatible release (Symbolics in particular moves
+# fast). The Manifest.toml is the real lock; these keep it stable on re-resolve.
+[compat]
+JSON3 = "=1.14.3"
+Latexify = "=0.16.10"
+QuantumAlgebra = "=1.6.0"
+SymPy = "=2.3.3"
+SymbolicNumericIntegration = "=1.10.0"
+Symbolics = "=7.19.0"
+julia = "1.12"

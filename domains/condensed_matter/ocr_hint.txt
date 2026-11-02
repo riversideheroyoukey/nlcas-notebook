@@ -1,0 +1,17 @@
+## OCR Domain Hint: Condensed Matter Physics
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- k with arrow overhead → wave vector \mathbf{k}
+- ε or ξ (cursive) → energy/dispersion \varepsilon or \xi, NOT e
+- † (dagger) after letter → creation operator a^{\dagger}, c^{\dagger}
+- ↑↓ subscripts → spin indices \uparrow, \downarrow
+- ℏ (h-bar) → \hbar, NOT h alone
+- Σ with subscript k → summation \sum_{\mathbf{k}}
+- Square brackets [A, B] → commutator
+- Curly brackets {A, B} → anticommutator
+
+Common expression patterns:
+- Letter with dagger then same letter (a†a) → number operator \hat{n}
+- G with two arguments (k, ω) or (r, τ) → Green's function

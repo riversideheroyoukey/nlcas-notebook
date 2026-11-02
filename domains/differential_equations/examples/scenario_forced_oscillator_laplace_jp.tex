@@ -1,0 +1,118 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_forced\_oscillator\_laplace}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+外力を受ける無減衰調和振動子 $m\ddot x + kx = F_0\sin(\omega t)$ の初期値問題を解く。まず外力振幅 $F_0$ を（成分インデックスではなく）名前として宣言する。
+
+$F_0$ をスカラーとする
+
+\[
+  F_0
+\]
+
+変位 $x$ を時間 $t$ の関数として宣言する。
+
+x を時間依存関数として定義する
+
+$\checkmark$ x を時間依存として宣言しました（時間変数: t）
+
+$x$ のラプラス変換を $X$（s領域の量）と名付ける定義カードを作る。この対応は逆変換の結果ラベルが読む。
+
+x のラプラス変換を X とおく
+
+\begin{equation}
+  X(s) = \int_0^{\infty} x(t)\, e^{-s t}\, dt
+  \label{eq:E1}
+\end{equation}
+
+定義積分 $\int_0^\infty e^{-st}dt$ の収束条件を、見える段として置く。仮定が無いと CAS が符号を聞き返して段が失敗する（セッションは生きたまま）。
+
+s $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle s > 0$\par
+
+$\omega$ $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle \omega > 0$\par
+
+外力の像は明示関数なので定義積分そのものが計算できる。まず被積分関数 $\sin(\omega t)e^{-st}$ を登録する。
+
+$\sin(\omega t) e^{-s t}$
+
+\begin{equation}
+  \sin(\omega t) e^{-s t}
+  \label{eq:E2}
+\end{equation}
+
+定義に従って $0$ から $\infty$ まで積分し、$\mathcal L\{\sin(\omega t)\} = \omega/(s^2+\omega^2)$ を得る。組み込みの `laplace` は使わない。
+
+E2 を t で 0 から $\infty$ まで定積分して
+
+\begin{equation}
+  \int_{0}^{\infty} \sin(\omega t) e^{-s t} \, dt = \frac{\omega}{s^2+\omega^2}
+  \label{eq:E3}
+\end{equation}
+
+$s$ 領域の運動方程式を組み立てる。$\ddot x$ の像 $s^2X - s x(0) - \dot x(0)$ は部分積分が与える定理（$u=e^{-st}$ が構造で決まり選択が無い）なので研究者が書き、外力の像は上で計算した E 番号を参照して組み込む。
+
+$m (s^2 X - s x_0 - v_0) + k X = F_0 E3$
+
+\begin{equation}
+  m \left(-\left(s x_{0}\right)-v_{0}+X s^2\right)+X k=\frac{F_{0} \omega}{s^2+\omega^2}
+  \label{eq:E4}
+\end{equation}
+
+初期条件を置く。伝達関数を得る RLC のようにゼロにするのではなく、静止状態から単位変位で放す $x(0)=1,\ \dot x(0)=0$ を入れる。H-1 の定義は登録時に CAS へ送られるので以降に効く。
+
+$x_0 = 1$
+
+\begin{equation}
+  x_0 = 1
+  \label{eq:E5}
+\end{equation}
+
+$v_0 = 0$
+
+\begin{equation}
+  v_0 = 0
+  \label{eq:E6}
+\end{equation}
+
+$s$ 領域の方程式を $X$ について解き、閉じた形を得る。初期条件は既に効いている。
+
+E4 を X について解いて
+
+\begin{equation}
+  X = \frac{m s^3+m \omega^2 s+F_{0} \omega}{m s^4+\left(m \omega^2+k\right) s^2+k \omega^2}
+  \label{eq:E7}
+\end{equation}
+
+逆変換の前に、物理的に正である量の符号を明示的に仮定する。符号が未知だと CAS が対話質問を出して操作が中断する。
+
+m $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle m > 0$\par
+
+k $>$ 0 と仮定する
+
+\noindent\textbf{Assumption:}\ $\displaystyle k > 0$\par
+
+$s$ 領域の解を $t$ 領域へ戻し、往復を閉じる。固有振動数 $\sqrt{k/m}$ の自由項と駆動振動数 $\omega$ の強制項の和になる（$m\omega^2 \ne k$、すなわち非共鳴を前提とする）。$t=0$ で $x=1$ となり、置いた初期条件と合う。
+
+E7 を s から t へ逆ラプラス変換して
+
+\begin{equation}
+  x(t) = {{{{F_{0} m^{\frac{3}{2}} \omega \sin \left(\frac{\sqrt{k} t}{\sqrt{m}}\right)}\over{\sqrt{k} \left(m \omega^2-k\right)}}+m \cos \left(\frac{\sqrt{k} t}{\sqrt{m}}\right)}\over{m}}-\frac{F_{0} \sin \left(\omega t\right)}{m \omega^2-k}
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

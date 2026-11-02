@@ -1,0 +1,74 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_spinful\_matrix\_elements}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Expand a field operator in a \textbf{spin-dependent basis}: $\hat\psi_\sigma(\mathbf x)=\sum_m \varphi_{m\sigma}(\mathbf x)\hat c_{m\sigma}$. The coefficients are then all-space integrals BY DEFINITION. The basis is arbitrary, so there is nothing to carry out — the integral IS the definition. What the notebook has to offer is not "it computes" but "it can be written down and used afterwards".
+
+Orthonormality first. $\int d^3x$ is a volume measure, not a one-variable integral.
+
+$\int d^3x \varphi^{\ast}_{m,s}(x) \varphi_{n,t}(x)$
+
+\begin{equation}
+  \int d^3x \varphi^{\ast}_{m,s}(x) \varphi_{n,t}(x)
+  \label{eq:E1}
+\end{equation}
+
+Open it into components. A threefold iterated integral, over all space even though no range was written. Spin ($s$, $t$) rides along separated from the mode — without the separator it becomes "one index called ms", and the display can no longer be typed back in.
+
+expand into components
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E2}
+\end{equation}
+
+The one-body matrix element. $T$ is the one-body operator (kinetic plus external potential). The $\varphi_{m,s}$ in the integrand has to open into three arguments too — unopened, Maxima reads it as a constant in each component and returns $x_x x_y x_z \cdot \varphi$.
+
+$h_{m,s,n,t} = \int d^3x \varphi^{\ast}_{m,s}(x) T(x) \varphi_{n,t}(x)$
+
+\begin{equation}
+  h_{m,s,n,t} = \int d^3x \varphi^{\ast}_{m,s}(x) T(x) \varphi_{n,t}(x)
+  \label{eq:E3}
+\end{equation}
+
+expand into components
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{T\left(x_{x} , x_{y} , x_{z}\right) \varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E4}
+\end{equation}
+
+Now ask for it to be evaluated. \textbf{Unchanged is the right answer} — the basis is arbitrary, so this integral is a definition and stays one. An expansion that also evaluated would fall over here (measured: Maxima returns `ok=False` with an empty answer for an arbitrary-basis matrix element over all space).
+
+evaluate E4
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{T\left(x_{x} , x_{y} , x_{z}\right) \varphi_{n,t}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z})\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E5}
+\end{equation}
+
+The two-body matrix element: \textbf{six-dimensional} ($d^3x\,d^3y$), with four spins ($s,t,u,w$). Watch $x$ and $y$ open into separate triples without mixing.
+
+$V_{m,s,n,t,p,u,q,w} = \int d^3x \int d^3y \varphi^{\ast}_{m,s}(x) \varphi^{\ast}_{n,t}(y) v(x,y) \varphi_{p,u}(y) \varphi_{q,w}(x)$
+
+\begin{equation}
+  V_{m,s,n,t,p,u,q,w} = \int d^3x \int d^3y \varphi^{\ast}_{m,s}(x) \varphi^{\ast}_{n,t}(y) v(x,y) \varphi_{p,u}(y) \varphi_{q,w}(x)
+  \label{eq:E6}
+\end{equation}
+
+expand into components
+
+\begin{equation}
+  \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\varphi_{q,w}(x_{x},x_{y},x_{z}) \varphi^{\ast}_{m,s}(x_{x},x_{y},x_{z}) \int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{\int_{-\infty }^{\infty }{v\left(x_{x} , x_{y} , x_{z} , y_{x} , y_{y} , y_{z}\right) \varphi_{p,u}(y_{x},y_{y},y_{z}) \varphi^{\ast}_{n,t}(y_{x},y_{y},y_{z})\;dy_{z}}\;dy_{y}}\;dy_{x}}\;dx_{z}}\;dx_{y}}\;dx_{x}}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

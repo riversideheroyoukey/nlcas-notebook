@@ -1,0 +1,22 @@
+## Domain: Game Theory
+
+Common symbols and their roles:
+- N = {1, 2, ..., n}: set of players
+- Sᵢ: strategy set of player i
+- S = S₁ × S₂ × ... × Sₙ: strategy profile space
+- sᵢ ∈ Sᵢ: pure strategy of player i
+- σᵢ: mixed strategy (probability distribution over Sᵢ)
+- uᵢ(s), πᵢ(s): payoff function of player i
+- s* = (s₁*, ..., sₙ*): Nash equilibrium strategy profile
+- BR_i(s_{-i}): best response correspondence of player i
+- v(S): characteristic function (coalitional games)
+- Δ(Sᵢ): simplex of mixed strategies over Sᵢ
+
+Nash equilibrium condition:
+- uᵢ(sᵢ*, s_{-i}*) ≥ uᵢ(sᵢ, s_{-i}*) for all sᵢ ∈ Sᵢ
+
+Typical dependency patterns:
+- Payoffs uᵢ depend on the full strategy profile s = (s₁,...,sₙ)
+- Mixed strategy payoffs depend on σ = (σ₁,...,σₙ)
+
+When the user writes "ナッシュ均衡を求めて", set up best-response conditions for all players.

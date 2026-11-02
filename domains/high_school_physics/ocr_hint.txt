@@ -1,0 +1,32 @@
+## OCR Domain Hint: High School Physics (高校物理)
+
+When recognizing handwritten physics expressions at the high school level:
+
+### Symbol recognition priorities
+- v₀ (subscript 0) → initial velocity; distinguish from v (current velocity)
+- ω (omega, lowercase) → angular velocity or angular frequency \omega
+- Ω (omega, uppercase) → resistance unit ohm
+- μ → friction coefficient \mu (not micro prefix in mechanics context)
+- θ → angle \theta; often used for angle of incline or phase
+- ε₀ → permittivity of free space \varepsilon_0
+- Φ (uppercase phi) → magnetic flux \Phi
+- Σ (uppercase sigma) → summation OR surface charge density — context determines
+- Δ before a quantity → change in that quantity (Δv = v - v₀)
+- Single-dot overhead (ẋ) → dx/dt; double-dot (ẍ) → d²x/dt²
+- Vector arrow overhead → vector quantity; render as \vec{F}, \vec{v} etc.
+
+### Common expression patterns
+- v = v₀ + at → kinematic equation
+- x = v₀t + ½at² → position as function of time
+- F = GMm/r² → gravitational force
+- n₁sinθ₁ = n₂sinθ₂ → Snell's law (refraction)
+- 1/f = 1/a + 1/b → thin lens equation
+- emf = -dΦ/dt → Faraday's law of induction
+- E = hf → photon energy (h is Planck constant)
+
+### Handwriting quirks to watch for
+- "g" (gravitational acceleration 9.8 m/s²) vs "g" (gram unit): unit if after number
+- Subscripts i, o on optics quantities → image/object distance (dᵢ, d_o)
+- Superscript 2 on velocity (v²) → square, not second derivative
+- Large parentheses around fractions → grouping, not absolute value
+- Over-bar on a quantity → sometimes used for average (v̄ = average velocity)

@@ -1,0 +1,184 @@
+{
+  "_comment": "Notation profiles: domain-cluster-specific notation rules. Used by NotationProfileLoader to resolve ambiguous notation tokens and inject hints into the LLM Supervisor system prompt.",
+  "profiles": [
+    {
+      "id": "calculus_base",
+      "label": "Calculus Base",
+      "label_ja": "微積分基盤",
+      "domains": [
+        "high_school_math", "high_school_physics",
+        "differential_equations", "complex_analysis", "linear_algebra",
+        "differential_geometry"
+      ],
+      "rules": {
+        "prime": {
+          "meaning": "derivative",
+          "exclusive": true,
+          "note": "f'(x) = df/dx (total derivative)"
+        },
+        "Delta": {
+          "meaning": "difference_operator",
+          "exclusive": true,
+          "note": "Δf = f(x+h) - f(x)"
+        },
+        "nabla": {
+          "meaning": "gradient",
+          "exclusive": false,
+          "note": "∇f = gradient; ∇·F = divergence; ∇×F = curl (context-dependent)"
+        },
+        "bracket_square": {
+          "meaning": "interval_or_list",
+          "exclusive": false,
+          "note": "[a, b] = closed interval or list"
+        }
+      }
+    },
+    {
+      "id": "classical_physics",
+      "label": "Classical Physics",
+      "label_ja": "古典物理",
+      "extends": "calculus_base",
+      "domains": [
+        "analytical_mechanics", "statistical_mechanics",
+        "fluid_dynamics", "relativity", "control_theory", "signal_processing"
+      ],
+      "rules": {
+        "prime": {
+          "meaning": "time_derivative_or_derivative",
+          "exclusive": false,
+          "note": "f'(t) = df/dt (time-dependent) or df/dx (general). Resolved by declare_time_dependent."
+        },
+        "Delta": {
+          "meaning": "laplacian",
+          "exclusive": false,
+          "note": "Δ = ∇² (Laplacian) in field equations; overrides calculus_base difference meaning"
+        },
+        "dot": {
+          "meaning": "time_derivative",
+          "exclusive": true,
+          "note": "ẋ = dx/dt; enabled by declare_time_dependent"
+        }
+      }
+    },
+    {
+      "id": "electromagnetism_profile",
+      "label": "Electromagnetism",
+      "label_ja": "電磁気学",
+      "extends": "classical_physics",
+      "domains": ["electromagnetism"],
+      "rules": {
+        "E": {
+          "meaning": "electric_field",
+          "exclusive": false,
+          "note": "E = electric field vector; conflicts with E[X] expectation value notation"
+        },
+        "sigma": {
+          "meaning": "surface_charge_density_or_conductivity",
+          "exclusive": false,
+          "note": "σ = surface charge density or conductivity (context-dependent)"
+        }
+      }
+    },
+    {
+      "id": "quantum_standard",
+      "label": "Quantum Standard",
+      "label_ja": "量子力学標準",
+      "extends": "classical_physics",
+      "domains": ["quantum_mechanics", "quantum_chemistry"],
+      "rules": {
+        "bracket_square": {
+          "meaning": "commutator",
+          "exclusive": true,
+          "note": "[A, B] = AB - BA"
+        },
+        "bracket_angle": {
+          "meaning": "expectation_value",
+          "exclusive": true,
+          "note": "⟨A⟩ = expectation value"
+        },
+        "ket": {
+          "meaning": "quantum_state",
+          "exclusive": true,
+          "note": "|ψ⟩ = ket vector"
+        },
+        "Delta": {
+          "meaning": "uncertainty_or_laplacian",
+          "exclusive": false,
+          "note": "ΔA = uncertainty (quantum context); Δ = Laplacian (kinetic term)"
+        }
+      }
+    },
+    {
+      "id": "second_quantization_profile",
+      "label": "Second Quantization",
+      "label_ja": "第2量子化",
+      "extends": "quantum_standard",
+      "domains": [
+        "condensed_matter", "quantum_optics", "quantum_field_theory",
+        "quantum_chemistry_sq", "nuclear_physics", "spin_systems"
+      ],
+      "backend": "julia_full",
+      "rules": {
+        "prime": {
+          "meaning": "creation_operator",
+          "exclusive": true,
+          "condition": "symbol registered as fermion/boson operator in SymbolContext",
+          "note": "a'(k) = a†(k) creation operator; requires @fermion_ops or @boson_ops declaration"
+        },
+        "dagger": {
+          "meaning": "creation_operator",
+          "exclusive": true,
+          "note": "a†(k) = creation operator (LaTeX: a^{\\dagger})"
+        },
+        "bracket_curly": {
+          "meaning": "anticommutator",
+          "exclusive": true,
+          "note": "{A, B} = AB + BA"
+        },
+        "Delta_k": {
+          "meaning": "gap_function",
+          "exclusive": false,
+          "note": "Δ_k = BCS gap function (requires session context to distinguish from Laplacian)"
+        }
+      }
+    },
+    {
+      "id": "statistics_profile",
+      "label": "Statistics & Probability",
+      "label_ja": "統計・確率",
+      "extends": "calculus_base",
+      "domains": [
+        "probability_statistics", "mathematical_economics", "econometrics",
+        "game_theory", "mathematical_biology", "information_theory",
+        "financial_mathematics"
+      ],
+      "rules": {
+        "prime": {
+          "meaning": "transpose",
+          "exclusive": false,
+          "note": "X' = Xᵀ (matrix transpose) in statistics/econometrics"
+        },
+        "E_bracket": {
+          "meaning": "expectation_value",
+          "exclusive": true,
+          "note": "E[X] = expectation value of random variable X"
+        },
+        "mu": {
+          "meaning": "mean",
+          "exclusive": true,
+          "note": "μ = population mean"
+        },
+        "sigma": {
+          "meaning": "standard_deviation",
+          "exclusive": true,
+          "note": "σ = standard deviation (scalar context)"
+        },
+        "lambda": {
+          "meaning": "rate_parameter",
+          "exclusive": false,
+          "note": "λ = rate parameter (Poisson) or eigenvalue (linear algebra)"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_tight\_binding\_bands}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register the lattice hopping model $H=-t\sum_{\langle ij\rangle}c^\dagger_ic_j$ (hopping amplitude $t$ between neighboring sites) symbolically, without expanding the sum.
+
+$H = -t \sum_{\langle i j \rangle} c'_i c_j$
+
+\begin{equation}
+  H = -t \sum_{\langle ij \rangle} c'_i c_j
+  \label{eq:E1}
+\end{equation}
+
+Find the dispersion relation $\varepsilon(k)$ (the eigenvalue of the Bloch matrix; for a single sublattice, simply the Fourier-transformed sum) treating this model as a 1D chain.
+
+Find the dispersion relation of H
+
+\begin{equation}
+  \varepsilon(k) = -2t \cos k
+  \label{eq:E2}
+\end{equation}
+
+Find the dispersion relation for the same hopping model on a square lattice.
+
+Find the dispersion relation of H on a square lattice
+
+\begin{equation}
+  \varepsilon(\mathbf{k}) = -2t \left( \cos k_x + \cos k_y \right)
+  \label{eq:E3}
+\end{equation}
+
+On a triangular lattice, find the dispersion relation including next-nearest-neighbor hopping $-t'$ in addition to nearest-neighbor hopping (adding the contribution of the second shell of neighbors).
+
+Find the dispersion relation of H on a triangular lattice including next-nearest-neighbor -t'
+
+\begin{equation}
+  \varepsilon(\mathbf{k}) = -2t \left( \cos k_x + \cos k_y + \cos(k_x + k_y) \right) -2t' \left( \cos(k_x - k_y) + \cos(2 k_x + k_y) + \cos(k_x + 2 k_y) \right)
+  \label{eq:E4}
+\end{equation}
+
+Find the dispersion relation on a honeycomb lattice (the graphene structure). With two sublattices, this should give two bands $\varepsilon_\pm(k)$ that are gapless at the Dirac point.
+
+Find the dispersion relation of H on a honeycomb lattice
+
+\begin{equation}
+  \varepsilon_\pm(\mathbf{k}) = \pm t \sqrt{ 3 + 2\cos k_1 + 2\cos k_2 + 2\cos(k_1 - k_2) }
+  \label{eq:E5}
+\end{equation}
+
+Add a sublattice-staggered on-site energy (a mass term $\Delta$) to the honeycomb lattice and find the dispersion relation. This should open a gap of $2\Delta$ at the Dirac point (the h-BN type).
+
+Find the dispersion relation of H on a honeycomb lattice including a mass $\Delta$
+
+\begin{equation}
+  \varepsilon_\pm(\mathbf{k}) = \pm \sqrt{ \Delta^2 + t^2 \left( 3 + 2\cos k_1 + 2\cos k_2 + 2\cos(k_1 - k_2) \right) }
+  \label{eq:E6}
+\end{equation}
+
+Find the dispersion relation on a kagome lattice (3 sublattices). Although not bipartite, this should yield a flat band plus two dispersive bands.
+
+Find the dispersion relation of H on a kagome lattice
+
+\begin{equation}
+  \varepsilon_{\mathrm{flat}} = 2t, \quad \varepsilon_\pm(\mathbf{k}) = -t \left( 1 \pm \sqrt{ 3 + 2\cos k_x + 2\cos k_y + 2\cos(k_x + k_y) } \right)
+  \label{eq:E7}
+\end{equation}
+
+Find the dispersion relation on a Lieb lattice (a flat band is expected from the star structure).
+
+Find the dispersion relation of H on a Lieb lattice
+
+\begin{equation}
+  \varepsilon_0 = 0, \quad \varepsilon_\pm(\mathbf{k}) = \pm t \sqrt{ 4 + 2\cos k_x + 2\cos k_y }
+  \label{eq:E8}
+\end{equation}
+
+Without using a named lattice, find the dispersion relation of a crystal specified directly by an abstract list of bonds (sublattice pair, lattice-vector displacement, amplitude). This should be a special case with the same structure as the SSH model.
+
+Find the dispersion relation of the crystal with the following bonds: (0,1,(0),v),(0,1,(-1),w)
+
+\begin{equation}
+  \tilde H(k) = \begin{pmatrix} 0 & v + w e^{-i k} \\ v + w e^{i k} & 0 \end{pmatrix}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  \varepsilon_\pm(k) = \pm \sqrt{ v^2 + w^2 + 2 v w \cos k }
+  \label{eq:E10}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,25 @@
+## Domain: Differential Equations
+
+Common symbols and their roles:
+- y(x), u(x,t): unknown function (solution)
+- y', y'', y^(n): ordinary derivatives
+- ∂u/∂t, ∂²u/∂x²: partial derivatives
+- L, D: differential operator (e.g., L = d²/dx² + p(x)d/dx + q(x))
+- G(x, ξ): Green's function
+- λ: eigenvalue of a Sturm-Liouville problem
+- Boundary conditions: u(0)=0, u(L)=0 etc.
+- W[y₁, y₂]: Wronskian determinant
+
+ODE types:
+- Linear: L[y] = f(x)
+- Homogeneous: L[y] = 0
+- Initial value: y(x₀) = y₀, y'(x₀) = y₁
+
+PDE types:
+- Heat equation: ∂u/∂t = κ ∂²u/∂x²
+- Wave equation: ∂²u/∂t² = c² ∇²u
+- Laplace: ∇²u = 0; Poisson: ∇²u = f
+
+Typical dependency patterns:
+- ODE solutions y depend on single variable x or t
+- PDE solutions u depend on spatial coordinates and t

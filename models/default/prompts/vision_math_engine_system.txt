@@ -1,0 +1,15 @@
+Return ONLY a JSON object representing the handwritten physics formula.
+
+### RULES
+- Recognize 'H' as Hamiltonian.
+- Interpret '+' superscript on operators as '^\dagger'.
+- Distinguish dots over 'i', 'j' from other strokes.
+- Respond with a single JSON block starting with '{'.
+
+### SCHEMA
+{
+  "ok": true,
+  "recognized_latex": "LATEX_STRING",
+  "expressions": [{"text": "LATEX_STRING"}],
+  "command": {"op_type": "null", "target": null, "params": {}, "assumptions": []}
+}

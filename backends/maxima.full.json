@@ -1,0 +1,322 @@
+{
+  "_meta": {
+    "backend": "maxima",
+    "version": "0.2.0",
+    "description": "Maxima command templates for all supported common operations. Spec section 12.",
+    "startup_command": [
+      "maxima",
+      "--very-quiet",
+      "--disable-readline"
+    ],
+    "startup_init": "display2d:false$"
+  },
+  "operations": {
+    "substitute": {
+      "template": "subst({rhs},{lhs},{expr})"
+    },
+    "use_relation": {
+      "template": "subst({relation_ref},{expr})"
+    },
+    "simplify": {
+      "template": "trigsimp(ratsimp({expr}))",
+      "note": "General simplify = rational + trig (applies sin^2+cos^2=1). trigsimp is a no-op on trig-free expressions, so this only ADDS trig reduction. Use rational_simplify for ratsimp-only. Keeps the user keyword 簡約 backend-agnostic (Julia simplify also does trig)."
+    },
+    "rational_simplify": {
+      "template": "ratsimp({expr})"
+    },
+    "expand": {
+      "template": "expand({expr})"
+    },
+    "factor": {
+      "template": "factor({expr})"
+    },
+    "collect": {
+      "template": "collectterms({expr},{var})"
+    },
+    "radical_simplify": {
+      "template": "radcan({expr})"
+    },
+    "partial_fraction": {
+      "template": "partfrac({expr},{var})"
+    },
+    "log_contract": {
+      "template": "logcontract({expr})"
+    },
+    "trig_simplify": {
+      "template": "trigsimp({expr})"
+    },
+    "trig_expand": {
+      "template": "trigexpand({expr})"
+    },
+    "trig_reduce": {
+      "template": "trigreduce({expr})"
+    },
+    "trig_to_exponential": {
+      "template": "exponentialize({expr})"
+    },
+    "solve_equation": {
+      "template": "solve({equation},{var})"
+    },
+    "solve_system": {
+      "template": "solve([{equations}],[{vars}])"
+    },
+    "build_inverse_transform": {
+      "template": "block([{new_basis}],solve([{equations}],[{vars}]))"
+    },
+    "derive_metric_constraints": {
+      "template": "ratsimp(transpose({forward}).{gram}.{forward}-{gram})"
+    },
+    "apply_canonical_constraints": {
+      "template": "ratsubst(1,{relations},{expr})"
+    },
+    "differentiate": {
+      "template": "diff({expr},{var},{order})"
+    },
+    "integrate_indefinite": {
+      "template": "integrate({expr},{var})"
+    },
+    "integrate_definite": {
+      "template": "integrate({expr},{var},{lower},{upper})"
+    },
+    "limit": {
+      "template": "limit({expr},{var},{point})"
+    },
+    "summation": {
+      "template": "sum({expr},{var},{lower},{upper})"
+    },
+    "product_expr": {
+      "template": "product({expr},{var},{lower},{upper})"
+    },
+    "laplace_transform": {
+      "template": "laplace({expr},{t},{s})"
+    },
+    "inverse_laplace": {
+      "template": "ilt({expr},{s},{t})"
+    },
+    "taylor_expand": {
+      "template": "ratdisrep(taylor({expr},{var},{point},{order}))"
+    },
+    "extract_order": {
+      "template": "coeff(expand({expr}),{var},{order})",
+      "note": "Extract coefficient of var^order from polynomial"
+    },
+    "truncate_series": {
+      "template": "expand(taylor({expr},{var},0,{order}))",
+      "note": "Keep only terms up to var^order"
+    },
+    "real_part": {
+      "template": "realpart({expr})"
+    },
+    "imaginary_part": {
+      "template": "imagpart({expr})"
+    },
+    "complex_conjugate": {
+      "template": "conjugate({expr})"
+    },
+    "to_rectangular": {
+      "template": "rectform({expr})"
+    },
+    "to_polar": {
+      "template": "polarform({expr})"
+    },
+    "residue": {
+      "template": "residue({expr},{var},{point})"
+    },
+    "determinant": {
+      "template": "determinant({expr})"
+    },
+    "inverse_matrix": {
+      "template": "invert({expr})"
+    },
+    "transpose": {
+      "template": "transpose({expr})"
+    },
+    "trace": {
+      "template": "mattrace({expr})"
+    },
+    "matrix_multiply": {
+      "template": "{a} . {b}"
+    },
+    "eigenvalues": {
+      "template": "eigenvalues({expr})"
+    },
+    "eigenvectors": {
+      "template": "eigenvectors({expr})"
+    },
+    "diagonalize": {
+      "template": "transpose(apply(matrix, map(lambda([_v], _v/sqrt(_v . _v)), apply(append, second(eigenvectors({expr}))))))"
+    },
+    "diagonal_matrix": {
+      "template": "apply(diag_matrix, apply(append, map(lambda([_v,_m], makelist(_v,_i,1,_m)), first(eigenvalues({expr})), second(eigenvalues({expr})))))"
+    },
+    "add_assumption": {
+      "template": "assume({condition})"
+    },
+    "remove_assumption": {
+      "template": "forget({condition})"
+    },
+    "solve_ode": {
+      "template": "ode2({equation},{y},{x})"
+    },
+    "solve_ode_general": {
+      "template": "ode2({equation},{depvar},{indepvar})"
+    },
+    "numerical_eval": {
+      "template": "float({expr})"
+    },
+    "numerical_eval_hp": {
+      "template": "bfloat({expr})"
+    },
+    "to_latex": {
+      "template": "tex1({expr})"
+    },
+    "to_plain_text": {
+      "template": "string({expr})"
+    },
+    "define_function": {
+      "template": "{expr}"
+    },
+    "multiply_both_sides": {
+      "template": "ratsimp(({expr}) * ({factor}))"
+    },
+    "add_to_both_sides": {
+      "template": "ratsimp(({expr}) + ({term}))"
+    },
+    "subtract_from_both_sides": {
+      "template": "ratsimp(({expr}) - ({term}))"
+    },
+    "divide_both_sides": {
+      "template": "ratsimp(({expr}) / ({factor}))"
+    },
+    "multiply_expressions": {
+      "template": "ratsimp(({a}){op}({b}))",
+      "defaults": {
+        "op": " * "
+      }
+    },
+    "declare_time_dependent": {
+      "template": "depends([{name}],[{time_parameter}])",
+      "defaults": {
+        "time_parameter": "t"
+      }
+    },
+    "define_vector_field": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — emits depends([A_x,A_y,A_z],[x,y,z])."
+    },
+    "define_scalar_field": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — emits depends(f,[x,y,z])."
+    },
+    "define_coordinate_system": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — generates nb_div/curl/grad/laplacian from Lamé coefficients and redefines them in Maxima."
+    },
+    "poisson_bracket": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — builds Σ_i (diff(f,q_i)*diff(g,p_i) - diff(f,p_i)*diff(g,q_i)) over the session's declared canonical pairs."
+    },
+    "cross_product": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_cross(A,B)."
+    },
+    "dot_product": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_dot(A,B)."
+    },
+    "divergence": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_div(A_x,A_y,A_z)."
+    },
+    "curl": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_curl_*(A_x,A_y,A_z)."
+    },
+    "gradient": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_grad(f)."
+    },
+    "scalar_laplacian": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command — calls nb_laplacian_scalar(f)."
+    },
+    "re_evaluate_expr": {
+      "template": "subst([{substitutions}], {expr})",
+      "note": "Re-evaluate expr with symbol substitutions. Handled directly in MaximaBackendHandler.re_evaluate_expr(); this template is a fallback."
+    },
+    "declare_symmetry": {
+      "template": "declare({name}, {symmetry})",
+      "note": "Declares index symmetry of a 2-argument function. symmetry: antisymmetric | symmetric | hermitian"
+    },
+    "define_scalar_parameter": {
+      "template": "declare({name}, scalar)",
+      "note": "Declares a symbol as a scalar (commuting) parameter in Maxima and registers it in the notebook context."
+    },
+    "define_vector": {
+      "template": "declare({name}, nonscalar)",
+      "note": "Declares a symbol as a non-scalar (vector) quantity in Maxima."
+    },
+    "define_matrix": {
+      "template": "declare({name}, nonscalar)",
+      "note": "Declares a symbol as a non-scalar (matrix) quantity in Maxima."
+    },
+    "define_tensor": {
+      "template": "declare({name}, nonscalar)",
+      "note": "Declares a symbol as a non-scalar (tensor) quantity in Maxima."
+    },
+    "set_notation": {
+      "template": "true"
+    },
+    "set_latex_name": {
+      "template": "true"
+    },
+    "combine_expressions": {
+      "template": "ratsimp(({expr_a}) {op} ({expr_b}))"
+    },
+    "toggle_einstein_summation": {
+      "template": ""
+    },
+    "change_variable": {
+      "template": ""
+    },
+    "relabel_index": {
+      "template": ""
+    },
+    "characteristic_polynomial": {
+      "template": "expand(charpoly({expr},{var}))",
+      "note": "Characteristic polynomial via Maxima native charpoly (det(var*I - matrix))."
+    },
+    "change_integration_variables": {
+      "template": "",
+      "note": "Handler-built (MaximaBackendHandler.build_command): subst(old->transform, f) * determinant(jacobian(transform, new_vars))."
+    },
+    "expand_neighbor_sum": {
+      "template": "",
+      "note": "Handler-built (MaximaBackendHandler.build_command): expands a 1D-chain nearest-neighbor bond sum (scalar body) into the explicit per-site sum."
+    },
+    "pure_nash_equilibria": {
+      "template": "",
+      "note": "Handler-built (MaximaBackendHandler.build_command -> MaximaGameMixin._build_pure_nash_equilibria): sublist of [i,j] cells where each player's payoff is the row/column max."
+    },
+    "multiply_both_sides_left": {
+      "template": "ratsimp(({factor}) . ({expr}))"
+    },
+    "multiply_both_sides_right": {
+      "template": "ratsimp(({expr}) . ({factor}))"
+    },
+    "define_spin_operator": {
+      "template": "0",
+      "note": "CAS には何も伝えない——スピン代数はこのバックエンドでは CAS 非経由（notebook/runtime/spin_algebra.py）で、Maxima 側に演算子の概念が要らない。それでも宣言を受けるのは、**書けることと計算できることは別の層**だから（CLAUDE.md）。受けないと『スピン演算子として定義して』が既定のラベル推論に落ちて**スカラーとして登録され成功が返っていた**（実測 2026-08-22）。記録は SymbolContext に残り、F-9/F-13 の宣言（site_spins・角運動量合成）が読む先になる。"
+    },
+    "norm": {
+      "template": "true",
+      "note": "Intercepted by MaximaBackendHandler.build_command (_build_norm) — a vector gives sqrt(v . v); a matrix requires an explicit kind and uses Maxima's own mat_norm(A, frobenius|1|inf) or the spectral definition."
+    },
+    "limit_plus": {
+      "template": "limit({expr},{var},{point},plus)"
+    },
+    "limit_minus": {
+      "template": "limit({expr},{var},{point},minus)"
+    }
+  }
+}

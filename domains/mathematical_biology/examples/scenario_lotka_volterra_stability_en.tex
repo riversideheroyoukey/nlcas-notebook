@@ -1,0 +1,119 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_lotka\_volterra\_stability}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register the nullcline (the condition $\dot x=0$) of the Lotka-Volterra equation $\dot x=ax-bxy$ (the prey population's rate of change) as an equation.
+
+$a x - b x y = 0$
+
+\begin{equation}
+  a x - b x y = 0
+  \label{eq:E1}
+\end{equation}
+
+Register the nullcline of the other equation $\dot y=dxy-cy$ (the predator population's rate of change).
+
+$d x y - c y = 0$
+
+\begin{equation}
+  d x y - c y = 0
+  \label{eq:E2}
+\end{equation}
+
+Solve the two nullclines as a simultaneous system for $x,y$ to find the fixed points (where the populations do not change). A single call to Maxima's `solve([...],[x,y])` genuinely returns BOTH solution branches at once (confirmed directly against the raw Maxima output: `[[x=0,y=0],[x=c/d,y=a/b]]`) — this is not two separate answers stitched together by this project's own code; it is exactly how `solve` on a system of two low-degree polynomial equations behaves. This should give two fixed points: the extinction equilibrium $(0,0)$ and the coexistence equilibrium $(c/d,\,a/b)$.
+
+Solve E1 and E2 for x and y
+
+\begin{equation}
+  x = 0
+  \label{eq:E3}
+\end{equation}
+
+\begin{equation}
+  y = 0
+  \label{eq:E4}
+\end{equation}
+
+\begin{equation}
+  x = \frac{c}{d}
+  \label{eq:E5}
+\end{equation}
+
+\begin{equation}
+  y = \frac{a}{b}
+  \label{eq:E6}
+\end{equation}
+
+To examine stability at the coexistence equilibrium, find the components of the Jacobian matrix one at a time. First, differentiate $\dot x$ with respect to $x$. This command's operand ($a x-bxy$) is typed as a raw formula, not an existing $E_n$ reference — the pipeline registers it as its own numbered equation first (visible below as the equation immediately preceding the derivative), THEN differentiates it, so this one command produces two numbered equations, not one. Re-differentiating the same raw formula again below (with respect to $y$) reuses that same registration instead of duplicating it.
+
+Take the partial derivative of a*x - b*x*y with respect to x
+
+\begin{equation}
+  a x - b x y
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial}{\partial x}\left(a x - b x y\right) = a-b y
+  \label{eq:E8}
+\end{equation}
+
+Differentiate $\dot x$ with respect to $y$.
+
+Take the partial derivative of a*x - b*x*y with respect to y
+
+\begin{equation}
+  \frac{\partial}{\partial y}\left(a x - b x y\right) = -b x
+  \label{eq:E9}
+\end{equation}
+
+Differentiate $\dot y$ with respect to $x$. As with the first differentiation above, this command's raw-formula operand ($dxy-cy$) is registered as its own equation before being differentiated, so two numbered equations again appear from this one command.
+
+Take the partial derivative of d*x*y - c*y with respect to x
+
+\begin{equation}
+  d x y - c y
+  \label{eq:E10}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial}{\partial x}\left(d x y - c y\right) = d y
+  \label{eq:E11}
+\end{equation}
+
+Differentiate $\dot y$ with respect to $y$.
+
+Take the partial derivative of d*x*y - c*y with respect to y
+
+\begin{equation}
+  \frac{\partial}{\partial y}\left(d x y - c y\right) = d x-c
+  \label{eq:E12}
+\end{equation}
+
+Using the four partial derivatives just found, evaluated at the coexistence equilibrium $(c/d,a/b)$, assemble the Jacobian matrix $J=\begin{pmatrix}0&-bc/d\\ad/b&0\end{pmatrix}$.
+
+$[0, -b c/d; a d/b, 0]$
+
+\begin{equation}
+  \begin{pmatrix} 0 & -b c/d \\ a d/b & 0 \end{pmatrix}
+  \label{eq:E13}
+\end{equation}
+
+Find the eigenvalues of this Jacobian matrix. If they are purely imaginary, the coexistence equilibrium is a neutral center (populations orbit around the fixed point).
+
+Find the eigenvalues of E13
+
+\begin{equation}
+  \left\{ -\sqrt{-\left(a c\right)} , \sqrt{-\left(a c\right)} \right\}
+  \label{eq:E14}
+\end{equation}
+
+\end{document}

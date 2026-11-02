@@ -1,0 +1,93 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_central\_force\_conservation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+極座標 $(r,\theta)$ で中心力ポテンシャル中を運動する質量 $m$ の質点を扱う。$k$ はケプラーポテンシャル $U=-k/r$ の強さを表すパラメータ。
+
+r を時間依存関数として定義する
+
+$\checkmark$ r を時間依存として宣言しました（時間変数: t）
+
+theta を時間依存関数として定義する
+
+$\checkmark$ theta を時間依存として宣言しました（時間変数: t）
+
+m と k をスカラーとする
+
+\[
+  m, k
+\]
+
+角運動量 $L_z=mr^2\dot\theta$（質量$\times$動径の2乗$\times$角速度）を定義する。
+
+$L_z = m r^2 \dot{\theta}$
+
+\begin{equation}
+  L_z = m r^2 \dot{\theta}
+  \label{eq:E1}
+\end{equation}
+
+角運動量が保存量かどうかを調べるため、$L_z$ を時間 $t$ で全微分する（全微分は連鎖律を含み、$r,\theta$ の時間変化も考慮する）。
+
+E1 を t で全微分して
+
+\begin{equation}
+  \frac{dL_z}{dt} = m r^2 \left(\frac{d^2}{d t^2} \theta\right)+2 m r \dot{r} \left(\frac{d}{d t} \theta\right)
+  \label{eq:E2}
+\end{equation}
+
+運動方程式 $\ddot\theta=-2\dot r\dot\theta/r$ を $dL_z/dt$ に代入する。結果がゼロになれば角運動量は保存量である。
+
+E2 の $\ddot{\theta}$ を -2 $\dot{r}$ $\dot{\theta} / r$ に置換して
+
+\begin{equation}
+  \frac{dL_z}{dt} = 0
+  \label{eq:E3}
+\end{equation}
+
+エネルギー $E=\frac12 m(\dot r^2+r^2\dot\theta^2)-k/r$（運動エネルギーとケプラーポテンシャルの和）を定義する。
+
+$E_tot = (1/2) m (\dot{r}^2 + r^2 \dot{\theta}^2) - k / r$
+
+\begin{equation}
+  E_tot = (1/2) m (\dot{r}^2 + r^2 \dot{\theta}^2) - k / r
+  \label{eq:E4}
+\end{equation}
+
+エネルギーが保存量かどうかを調べるため、$E$ を時間 $t$ で全微分する。
+
+E4 を t で全微分して
+
+\begin{equation}
+  \frac{dE_tot}{dt} = \frac{m \left(2 r^2 \left(\frac{d}{d t} \theta\right) \left(\frac{d^2}{d t^2} \theta\right)+2 r \dot{r} \left(\frac{d}{d t} \theta\right)^2+2 \dot{r} \ddot{r}\right)}{2}+\frac{k \dot{r}}{r^2}
+  \label{eq:E5}
+\end{equation}
+
+運動方程式 $\ddot\theta=-2\dot r\dot\theta/r$ を代入する。
+
+E5 の $\ddot{\theta}$ を -2 $\dot{r}$ $\dot{\theta} / r$ に置換して
+
+\begin{equation}
+  \frac{dE_tot}{dt} = -\frac{m r^3 \dot{r} \left(\frac{d}{d t} \theta\right)^2-m r^2 \dot{r} \ddot{r}-k \dot{r}}{r^2}
+  \label{eq:E6}
+\end{equation}
+
+もう一方の運動方程式 $\ddot r=r\dot\theta^2-k/(mr^2)$ も代入する。両方代入した結果がゼロになれば、エネルギーは保存量である。
+
+E6 の $\ddot{r}$ を r $\dot{\theta}^2 - k$ / (m $r^2$) に置換して
+
+\begin{equation}
+  \frac{dE_tot}{dt} = 0
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

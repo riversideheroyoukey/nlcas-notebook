@@ -1,0 +1,23 @@
+{
+  "_management": {
+    "file_name": "config.json",
+    "version": "1.0.0",
+    "description": "GLM-OCR Engine configuration for high-fidelity LaTeX extraction.",
+    "status": "stable"
+  },
+  "id": "glm-ocr",
+  "type": "ocr_engine",
+  "api_config": {
+    "model_name": "glm-ocr:latest",
+    "base_url": "http://127.0.0.1:11434",
+    "endpoint_type": "ollama",
+    "timeout": 90
+  },
+  "parameters": {
+    "temperature": 0.0,
+    "num_predict": 1024
+  },
+  "paths": {
+    "prompt_file": "system_prompt.txt"
+  }
+}

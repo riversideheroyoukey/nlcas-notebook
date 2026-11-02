@@ -1,0 +1,50 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_risk\_pooling\_safety\_stock}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+安全在庫の一般式 $SS=z\sigma\sqrt{L}$（$z$: サービスレベル係数、$\sigma$: 需要の標準偏差、$L$: リードタイム）を定義する。
+
+$SS = z \sigma \sqrt{L}$
+
+\begin{equation}
+  SS = z \sigma \sqrt{L}
+  \label{eq:E1}
+\end{equation}
+
+$n$ 拠点分の需要を1つの中央倉庫にプールした場合を考える。独立同分布の仮定のもとで分散が加法的に効くため、実質的なリードタイム項が $L$ から $nL$ に置き換わる。この置き換えを元の式に代入する（元の式自体は単独拠点の場合として引き続き参照できる）。
+
+E1 の L に n * L を代入して
+
+\begin{equation}
+  SS = \sqrt{L n} \sigma z
+  \label{eq:E2}
+\end{equation}
+
+プールした場合の安全在庫と、$n$ 拠点それぞれの安全在庫の合計（元の式の $n$ 倍）との比を取り、リスクプーリングの効果（平方根則 $1/\sqrt n$ になるはず）を確認する。
+
+$ratio = E2 / (n E1)$
+
+\begin{equation}
+  ratio = \frac{\sqrt{L n}}{\sqrt{L} n}
+  \label{eq:E3}
+\end{equation}
+
+$E3=\sqrt{Ln}/(\sqrt{L}\,n)$ は代数的には $1/\sqrt{n}$ だが、Maxima の汎用 `simplify` は2つの別々の根号を自動ではまとめない。専用の根号簡約操作を適用し、見慣れた閉形式に約分する。
+
+E3 の根号を簡約して
+
+\begin{equation}
+  \frac{1}{\sqrt{n}}=\frac{1}{\sqrt{n}}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

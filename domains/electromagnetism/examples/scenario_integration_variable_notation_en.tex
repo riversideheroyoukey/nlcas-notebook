@@ -1,0 +1,79 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_integration\_variable\_notation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register $\iint(x^2+y^2)\,dx\,dy$ over the unit disc $x^2+y^2\le1$. The CAS is not called yet — this is a range-bearing, display-only object.
+
+definite-integrate $x^2$ + $y^2$ over the region $x^2$ + $y^2$ $\le$ 1
+
+\begin{equation}
+  \iint_{x^2+y^2 \le 1} (x^2 + y^2) \, dx \, dy
+  \label{eq:E1}
+\end{equation}
+
+Change to polar coordinates, writing the angle as the Greek letter typed straight from the keyboard — that is also what the notebook displays, so being able to type it back is the natural thing. The Jacobian $|J|=r$ multiplies the integrand and the new bounds are derived automatically.
+
+change of variables in E1 from x,y to r,θ via x=r*cos(θ), y=r*sin(θ)
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta
+  \label{eq:E2}
+\end{equation}
+
+Evaluate the transformed integral.
+
+evaluate this integral
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta = \frac{\pi}{2}
+  \label{eq:E3}
+\end{equation}
+
+Now the same calculation in TeX spelling, to confirm that typing the displayed form back in gives the same answer.
+
+definite-integrate $x^2$ + $y^2$ over the region $x^2$ + $y^2$ $\le$ 1
+
+\begin{equation}
+  \iint_{x^2+y^2 \le 1} (x^2 + y^2) \, dx \, dy
+  \label{eq:E4}
+\end{equation}
+
+change of variables in E4 from x,y to r,$\theta$ via x=r*$\cos$($\theta$), y=r*$\sin$($\theta$)
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta
+  \label{eq:E5}
+\end{equation}
+
+evaluate this integral
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta = \frac{\pi}{2}
+  \label{eq:E6}
+\end{equation}
+
+The same for a single-variable definite integral, with both the variable and the bound written as Greek letters.
+
+$sin(\theta )^2$
+
+\begin{equation}
+  \sin(\theta)^2
+  \label{eq:E7}
+\end{equation}
+
+integrate E7 with respect to θ from 0 to π
+
+\begin{equation}
+  \int_{0}^{\pi} \sin(\theta)^2 \, d\theta = \frac{\pi}{2}
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

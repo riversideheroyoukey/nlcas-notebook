@@ -1,0 +1,38 @@
+## Domain: Spin Systems
+
+This session uses the Julia backend with QuantumAlgebra.jl.
+
+Common symbols and their roles:
+- Sx, Sy, Sz: spin operators (satisfy [Si, Sj] = i ε_ijk Sk)
+- S+, S-: raising/lowering operators (S± = Sx ± i Sy)
+- σx, σy, σz: Pauli matrices (spin-1/2)
+- J, Jx, Jy, Jz: exchange coupling constant or total angular momentum
+- H: spin Hamiltonian (Heisenberg, Ising, XY, etc.)
+- |↑⟩, |↓⟩: spin-up / spin-down basis states
+- i, j: site indices on a lattice
+
+Typical Hamiltonians:
+- Heisenberg: H = J Σ_{⟨i,j⟩} (Sx_i Sx_j + Sy_i Sy_j + Sz_i Sz_j)
+- Ising: H = -J Σ_{⟨i,j⟩} Sz_i Sz_j - h Σ_i Sx_i
+- XXZ: H = J Σ_{⟨i,j⟩} (Sx_i Sx_j + Sy_i Sy_j + Δ Sz_i Sz_j)
+- Transverse field: H = -J Σ Sz_i Sz_{i+1} - Γ Σ Sx_i
+
+Jordan-Wigner / Holstein-Primakoff transformations convert spin operators
+to fermion/boson operators — use @fermion_ops or @boson_ops accordingly.
+
+Julia operation mapping:
+- 交換子を計算 → comm(A, B)
+- 正規順序 → normal_form(expr)
+- 真空期待値 → vacExpVal(expr)
+- Heisenberg運動方程式 → heisenberg_eom(op, H)
+- スピン波（マグノン）演算子を定義 → @boson_ops name  (Holstein-Primakoff)
+- フェルミオン演算子（Jordan-Wigner）→ @fermion_ops name
+
+Note: SU(2) spin algebra is not directly built into QuantumAlgebra.jl;
+represent S± via boson/fermion operators after applying a transformation,
+or work purely with commutation relations symbolically.
+
+多スピン種（F-13）: サイトごとにスピンの大きさが違う系（混合スピン鎖・電子＋核）は
+「サイト1のスピンを1/2、サイト2のスピンを1とする」で宣言してから期待値／モーメントを
+求める。トレースはサイト別の x_i = S_i(S_i+1) で厳密に評価される（CAS 非経由）。
+宣言しなければ全サイト共通の x=S(S+1)（従来どおり）。

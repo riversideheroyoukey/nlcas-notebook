@@ -1,0 +1,74 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_battle\_of\_the\_sexes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+The classic two-player game Battle of the Sexes. Register player 1's (row) payoff matrix $A$ and player 2's (column) payoff matrix $B$. Row 1 / column 1 is opera, row 2 / column 2 is ballet.
+
+$A = [2, 0; 0, 1]$
+
+\begin{equation}
+  A = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+$B = [1, 0; 0, 2]$
+
+\begin{equation}
+  B = \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
+  \label{eq:E2}
+\end{equation}
+
+Find the pure-strategy Nash equilibria. This scans the bimatrix for cells that are both a row and a column maximum — not expressible as a composition of general operations, so it is a genuine primitive and stays.
+
+find the pure Nash equilibria of E1 and E2
+
+\begin{equation}
+  \left\{ \left( 1 , 1 \right) , \left( 2 , 2 \right) \right\}
+  \label{eq:E3}
+\end{equation}
+
+The mixed equilibrium comes from the indifference conditions. With the opponent playing column 1 (opera) with probability $q$, player 1's rows 1 and 2 have equal expected payoff — the researcher writes that equation. Assembling it from $A$'s entries is game theory, not the system's job.
+
+$2 q + 0 (1-q) = 0 q + 1 (1-q)$
+
+\begin{equation}
+  2 q + 0 (1-q) = 0 q + 1 (1-q)
+  \label{eq:E4}
+\end{equation}
+
+Solve for $q$.
+
+solve E4 for q
+
+\begin{equation}
+  q = \frac{1}{3}
+  \label{eq:E5}
+\end{equation}
+
+Likewise, write player 2's indifference between columns from $B$'s entries.
+
+$1 p + 0 (1-p) = 0 p + 2 (1-p)$
+
+\begin{equation}
+  1 p + 0 (1-p) = 0 p + 2 (1-p)
+  \label{eq:E6}
+\end{equation}
+
+Solve for $p$. The mixed equilibrium is $(p,q)=(2/3, 1/3)$.
+
+solve E6 for p
+
+\begin{equation}
+  p = \frac{2}{3}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

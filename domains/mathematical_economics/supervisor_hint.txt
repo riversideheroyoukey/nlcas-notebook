@@ -1,0 +1,23 @@
+## Domain: Mathematical Economics
+
+Common symbols and their roles:
+- U(x), U(x₁, x₂, ...): utility function — depends on consumption bundle x
+- x = (x₁, x₂, ..., xₙ): consumption vector
+- p = (p₁, p₂, ..., pₙ): price vector (parameters)
+- m, I: income / budget (parameter)
+- ℒ: Lagrangian for constrained optimization
+- λ: Lagrange multiplier
+- MRS = -dx₂/dx₁: marginal rate of substitution
+- f(K, L): production function — depends on capital K and labor L
+- C(w, q): cost function — depends on input prices w and output q
+- π: profit
+
+KKT conditions:
+- ∂ℒ/∂xᵢ = 0 for each good i
+- Budget constraint: p·x = m (binding at optimum)
+
+Typical dependency patterns:
+- U depends on the consumption bundle (x₁, ..., xₙ)
+- f (production function) depends on (K, L) or factor inputs
+
+When the user writes "効用最大化", interpret as max U(x) subject to p·x = m.

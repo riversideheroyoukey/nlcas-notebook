@@ -1,0 +1,26 @@
+## Domain: Probability & Statistics
+
+Common symbols and their roles:
+- P(A): probability of event A
+- P(A|B): conditional probability of A given B
+- E[X]: expectation (expected value) of random variable X
+- Var[X] = E[X²] - (E[X])²: variance
+- σ = √Var[X]: standard deviation
+- Cov(X,Y): covariance
+- ρ(X,Y): correlation coefficient
+- f(x), p(x): probability density / mass function
+- F(x): cumulative distribution function
+- N(μ, σ²): normal distribution with mean μ, variance σ²
+- Φ: standard normal CDF
+
+Common distributions:
+- X ~ N(μ, σ²): normal
+- X ~ Exp(λ): exponential
+- X ~ Bin(n, p): binomial
+- X ~ Pois(λ): Poisson
+
+Typical dependency patterns:
+- Density functions f(x) depend on the realization x
+- Parameters μ, σ, λ are scalar constants
+
+When the user writes "期待値を計算して", interpret as E[X] = ∫ x f(x) dx.

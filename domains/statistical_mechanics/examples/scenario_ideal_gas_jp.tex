@@ -1,0 +1,151 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ideal\_gas}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+$N$ 粒子の単原子理想気体を扱う。粒子数 $N$、体積 $V$、温度 $T$、粒子の質量 $m$、プランク定数 $h$、ボルツマン定数 $k_B$ を正の実数パラメータとして準備する。
+
+N, V, T, m, h, $k_B$ を正の実数パラメータとして定義して
+
+\[
+  N, V, T, m, h, k_B
+\]
+
+\noindent\textbf{Assumption:}\ $\displaystyle N > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle V > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle T > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle m > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle h > 0$\par
+
+\noindent\textbf{Assumption:}\ $\displaystyle k_B > 0$\par
+
+熱的ド・ブロイ波長 $\lambda=\sqrt{h^2/(2\pi mk_BT)}$（量子効果が効き始める長さスケール）を定義する。
+
+$\lambda = \sqrt{h^2 / (2 \pi m k_B T)}$
+
+\begin{equation}
+  \lambda = \sqrt{h^2 / (2 \pi m k_B T)}
+  \label{eq:E1}
+\end{equation}
+
+1粒子分配関数 $Z_1=V/\lambda^3$ を定義する（体積を熱的ド・ブロイ波長の3乗で割ったもので、粒子が占めうる量子状態の数に対応する）。
+
+$Z_1 = V / E1^3$
+
+\begin{equation}
+  Z_1 = {{2^{\frac{3}{2}} \pi^{\frac{3}{2}} T^{\frac{3}{2}} V k_{B}^{\frac{3}{2}} m^{\frac{3}{2}}}\over{h^3}}
+  \label{eq:E2}
+\end{equation}
+
+$N$ 粒子系の分配関数 $Z_N=Z_1^N/N!$ を定義する。$N!$ で割るのは、区別できない粒子の入れ替えによる数え過ぎを補正する Gibbs の補正項。
+
+$Z_N = E2^N / N!$
+
+\begin{equation}
+  Z_N = {{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}
+  \label{eq:E3}
+\end{equation}
+
+ヘルムホルツ自由エネルギー $F=-k_BT\ln Z_N$ を定義する。
+
+$F = -k_B T \log(E3)$
+
+\begin{equation}
+  F = -T k_{B} \log \left({{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}\right)
+  \label{eq:E4}
+\end{equation}
+
+これまでに登録した $Z_N,Z_1,\lambda$ の定義を代入し、$F$ を展開して $N,V,T,m,h,k_B$ だけで表される閉じた式にする。
+
+F を展開して
+
+\begin{equation}
+  F = -T k_{B} \log \left({{2^{\frac{3 N}{2}} \pi^{\frac{3 N}{2}} T^{\frac{3 N}{2}} V^{N} k_{B}^{\frac{3 N}{2}} m^{\frac{3 N}{2}}}\over{N! h^{3 N}}}\right)
+  \label{eq:E5}
+\end{equation}
+
+圧力 $P=-(\partial F/\partial V)_T$ を求めるため、まず $F$ を体積 $V$ で偏微分する。
+
+F を V で偏微分して
+
+\begin{equation}
+  \frac{\partial F}{\partial V} = -\frac{N T k_{B}}{V}
+  \label{eq:E6}
+\end{equation}
+
+符号を反転し、圧力 $P$ として登録する。
+
+$P = -E6$
+
+\begin{equation}
+  P = \frac{N T k_{B}}{V}
+  \label{eq:E7}
+\end{equation}
+
+得られた式を整理する。
+
+E7 の右辺を整理して
+
+\begin{equation}
+  P = \frac{N T k_{B}}{V}
+  \label{eq:E8}
+\end{equation}
+
+内部エネルギー $U=-T^2\partial(F/T)/\partial T$（Gibbs–Helmholtz の関係）を求めるため、まず $F/T$ を新しい式として作る。
+
+$FoverT = F / T$
+
+\begin{equation}
+  FoverT = F / T
+  \label{eq:E9}
+\end{equation}
+
+$F/T$ を温度 $T$ で偏微分する。
+
+FoverT を T で偏微分して
+
+\begin{equation}
+  \frac{\partial FoverT}{\partial T} = -\frac{3 N k_{B}}{2 T}
+  \label{eq:E10}
+\end{equation}
+
+$-T^2$ を掛けて内部エネルギー $U$ として登録する。
+
+$U = -T^2 E10$
+
+\begin{equation}
+  U = \frac{3 N T k_{B}}{2}
+  \label{eq:E11}
+\end{equation}
+
+得られた式を整理する。
+
+E11 の右辺を整理して
+
+\begin{equation}
+  U = \frac{3 N T k_{B}}{2}
+  \label{eq:E12}
+\end{equation}
+
+定積熱容量 $C_V=(\partial U/\partial T)_V$ を求めるため、内部エネルギー $U$ を温度 $T$ で偏微分する。
+
+U を T で偏微分して
+
+\begin{equation}
+  \frac{\partial U}{\partial T} = \frac{3 N k_{B}}{2}
+  \label{eq:E13}
+\end{equation}
+
+\end{document}

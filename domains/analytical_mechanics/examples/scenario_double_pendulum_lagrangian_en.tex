@@ -1,0 +1,74 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_double\_pendulum\_lagrangian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Consider a double pendulum. To avoid subscripted symbols, the angles $\theta_1,\theta_2$ are written $a,b$, the masses $m_1,m_2$ as $M,m$, the pendulum lengths $l_1,l_2$ as $p,q$, and gravitational acceleration as $g$. $a,b$ are time-dependent angles.
+
+Define a as a time-dependent function
+
+$\checkmark$ Declared a as time-dependent (time variable: t)
+
+Define b as a time-dependent function
+
+$\checkmark$ Declared b as time-dependent (time variable: t)
+
+Define M, m, p, q, g as scalars
+
+\[
+  M, m, p, q, g
+\]
+
+Define the double-pendulum Lagrangian $L=$ kinetic energy $+$ potential energy. The kinetic-energy term includes the rotational energy of each pendulum plus a velocity-coupling term $\dot a\dot b\cos(a-b)$, proportional to the product of the two angular velocities.
+
+$Lag = (1/2) (M + m) p^2 \dot{a}^2 + (1/2) m q^2 \dot{b}^2 + m p q \dot{a} \dot{b} \cos(a - b) + (M + m) g p \cos(a) + m g q \cos(b)$
+
+\begin{equation}
+  Lag = (1/2) (M + m) p^2 \dot{a}^2 + (1/2) m q^2 \dot{b}^2 + m p q \dot{a} \dot{b} \cos(a - b) + (M + m) g p \cos(a) + m g q \cos(b)
+  \label{eq:E1}
+\end{equation}
+
+To obtain the generalized momentum $\partial L/\partial\dot\theta_1$, differentiate $L$ with respect to $\dot a$ ($\dot\theta_1$). The velocity-coupling term brings in a term involving $\dot b$ ($\dot\theta_2$).
+
+Take the partial derivative of E1 with respect to $\dot{a}$
+
+\begin{equation}
+  \frac{\partial Lag}{\partial \dot{a}} = \cos \left(b-a\right) \dot{b} m p q+\dot{a} \left(m+M\right) p^2
+  \label{eq:E2}
+\end{equation}
+
+Take the total time derivative of the generalized momentum just found, to obtain $\frac{d}{dt}(\partial L/\partial\dot\theta_1)$.
+
+Take the total derivative of E2 with respect to t
+
+\begin{equation}
+  \frac{d}{dt}\left(\frac{\partial Lag}{\partial \dot{a}}\right) = \left(-\left(\sin \left(b-a\right) \dot{b}^2\right)+\dot{a} \sin \left(b-a\right) \dot{b}+\cos \left(b-a\right) \ddot{b}\right) m p q+\left(\ddot{a} m+M \ddot{a}\right) p^2
+  \label{eq:E3}
+\end{equation}
+
+For the other term of the Euler-Lagrange equation, $\partial L/\partial\theta_1$, differentiate $L$ with respect to $a$ ($\theta_1$).
+
+Take the partial derivative of E1 with respect to a
+
+\begin{equation}
+  \frac{\partial Lag}{\partial a} = \dot{a} \sin \left(b-a\right) \dot{b} m p q-\sin a g \left(m+M\right) p
+  \label{eq:E4}
+\end{equation}
+
+Subtract $\partial L/\partial\theta_1$ from $\frac{d}{dt}(\partial L/\partial\dot\theta_1)$ to assemble the equation of motion for $\theta_1$.
+
+$EOMa = E3 - E4$
+
+\begin{equation}
+  EOMa = \left(\cos \left(b-a\right) \ddot{b}-\sin \left(b-a\right) \dot{b}^2\right) m p q+\left(\ddot{a} m+M \ddot{a}\right) p^2+\left(\sin a g m+M \sin a g\right) p
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

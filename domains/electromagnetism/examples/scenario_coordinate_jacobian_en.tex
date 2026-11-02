@@ -1,0 +1,94 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_coordinate\_jacobian}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register a range-bearing definite integral of $x^2+y^2$ over the unit disk $x^2+y^2\le1$. At this point it is not yet handed to the CAS — it is kept as a display-only, unevaluated object.
+
+Definite-integrate $x^2$+$y^2$ over the region $x^2$+$y^2$$\le$1
+
+\begin{equation}
+  \iint_{x^2+y^2 \le 1} (x^2+y^2) \, dx \, dy
+  \label{eq:E1}
+\end{equation}
+
+Change this integral from Cartesian coordinates $(x,y)$ to polar coordinates $(r,\theta)$ ($x=r\cos\theta,\ y=r\sin\theta$). The Jacobian determinant $|J|=r$ is multiplied into the integrand, and the bounds are automatically rewritten in terms of the new variables.
+
+Change variables in E1 from x,y to r,theta via x=r*cos(theta), y=r*sin(theta)
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta
+  \label{eq:E2}
+\end{equation}
+
+Evaluate the transformed integral to obtain a number.
+
+Evaluate this definite integral
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{1} r^3 \, dr \, d\theta = \frac{\pi}{2}
+  \label{eq:E3}
+\end{equation}
+
+Now register a range-bearing definite integral of $1$ (the volume itself) over the unit ball $x^2+y^2+z^2\le1$, again as a display-only object.
+
+Definite-integrate 1 over the region $x^2$+$y^2$+$z^2$$\le$1
+
+\begin{equation}
+  \iiint_{x^2+y^2+z^2 \le 1} (1) \, dx \, dy \, dz
+  \label{eq:E4}
+\end{equation}
+
+Change from Cartesian to spherical coordinates $(r,\theta,\phi)$ ($x=r\sin\theta\cos\phi,\ y=r\sin\theta\sin\phi,\ z=r\cos\theta$). The Jacobian determinant $|J|=r^2\sin\theta$ appears in the volume element.
+
+Change variables in E4 from x,y,z to r,theta,phi via x=r*sin(theta)*cos(phi), y=r*sin(theta)*sin(phi), z=r*cos(theta)
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{1} r^2 \sin \vartheta \, dr \, d\theta \, d\phi
+  \label{eq:E5}
+\end{equation}
+
+Evaluate the transformed integral to obtain the volume of the unit ball.
+
+Evaluate this definite integral
+
+\begin{equation}
+  \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{1} r^2 \sin \vartheta \, dr \, d\theta \, d\phi = \frac{4 \pi}{3}
+  \label{eq:E6}
+\end{equation}
+
+As an example where the coordinate-change formula is not a standard one, enter $\int_0^1\int_0^1(x+y)\,dx\,dy$ directly in LaTeX and register it as a display-only object.
+
+$\int_{0}^{1} \int_{0}^{1} (x+y) \, dx \, dy$
+
+\begin{equation}
+  \int_{0}^{1} \int_{0}^{1} x+y \, dx \, dy
+  \label{eq:E7}
+\end{equation}
+
+Change variables via the linear map $x=2u+v,\ y=u+3v$ from $(x,y)$ to $(u,v)$ (Jacobian determinant $\det J=5$). Since this is not a standard coordinate change, the new integration bounds $u:0..1,\ v:0..1$ must be given explicitly by the user here.
+
+Change variables in E7 from x,y to u:0..1, v:0..1 via x=2*u+v, y=u+3*v
+
+\begin{equation}
+  \int_{0}^{1} \int_{0}^{1} 20 v+15 u \, dv \, du
+  \label{eq:E8}
+\end{equation}
+
+Evaluate the transformed integral to obtain a number.
+
+Evaluate this definite integral
+
+\begin{equation}
+  \int_{0}^{1} \int_{0}^{1} 20 v+15 u \, dv \, du = \frac{35}{2}
+  \label{eq:E9}
+\end{equation}
+
+\end{document}

@@ -1,0 +1,786 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_7cd28fa4",
+    "title": "scenario_spinful_perturbation",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "en",
+      "ja"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:59:02.006697Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_fece91",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "\\sum_{m,s,n,t} h_{m,s,n,t} c^{\\dagger}_{m,s} c_{n,t}",
+      "canonical": "\\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}",
+      "created_by_step": "S7",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "m",
+        "s",
+        "n",
+        "t",
+        "h"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_aefd05",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\sum_{m,s,n,t} h_{m,s,n,t} {c}_{m,s}^{\\dagger} {c}_{n,t}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S11",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "∑₁₂₃₄ h(#₁#₂#₃#₄) c†(#₁#₂) c(#₃#₄)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}",
+      "sum_index_hint": "m,s,n,t",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_55eb6f",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c^{\\dagger}_{m,s} c^{\\dagger}_{n,t} c_{p,u} c_{q,w}",
+      "canonical": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}",
+      "created_by_step": "S14",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "m",
+        "s",
+        "n",
+        "t",
+        "p",
+        "u",
+        "q",
+        "w",
+        "V"
+      ],
+      "warnings": [],
+      "input_canonical": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_b683a0",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} {c}_{m,s}^{\\dagger} {c}_{n,t}^{\\dagger} {c}_{p,u} {c}_{q,w}",
+      "canonical": "_nb_E4",
+      "created_by_step": "S17",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "∑₁₂₃₄₅₆₇₈ V(#₁#₂#₃#₄#₅#₆#₇#₈) c†(#₁#₂) c†(#₃#₄) c(#₅#₆) c(#₇#₈)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}",
+      "sum_index_hint": "m,s,n,t,p,u,q,w",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_9e0880",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "- \\sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{q,w,m_{1},s_{1}} {c}_{m,s}^{\\dagger} {c}_{n,t}^{\\dagger} {c}_{p,u} {c}_{m_{1},s_{1}} + \\sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{p,u,m_{1},s_{1}} {c}_{m,s}^{\\dagger} {c}_{n,t}^{\\dagger} {c}_{q,w} {c}_{m_{1},s_{1}} + \\sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},n,t} {c}_{m,s}^{\\dagger} {c}_{m_{1},s_{1}}^{\\dagger} {c}_{p,u} {c}_{q,w} - \\sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},m,s} {c}_{n,t}^{\\dagger} {c}_{m_{1},s_{1}}^{\\dagger} {c}_{p,u} {c}_{q,w}",
+      "canonical": "_nb_E5",
+      "created_by_step": "S21",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-∑₁₂₃₄₅₆₇₈₉₁₀ V(#₁#₂#₃#₄#₅#₆#₇#₈) h(#₇#₈#₉#₁₀) c†(#₁#₂) c†(#₃#₄) c(#₅#₆) c(#₉#₁₀) + ∑₁₂₃₄₅₆₇₈₉₁₀ V(#₁#₂#₃#₄#₅#₆#₇#₈) h(#₅#₆#₉#₁₀) c†(#₁#₂) c†(#₃#₄) c(#₇#₈) c(#₉#₁₀) + ∑₁₂₃₄₅₆₇₈₉₁₀ V(#₁#₂#₃#₄#₅#₆#₇#₈) h(#₉#₁₀#₃#₄) c†(#₁#₂) c†(#₉#₁₀) c(#₅#₆) c(#₇#₈) - ∑₁₂₃₄₅₆₇₈₉₁₀ V(#₁#₂#₃#₄#₅#₆#₇#₈) h(#₉#₁₀#₁#₂) c†(#₃#₄) c†(#₉#₁₀) c(#₅#₆) c(#₇#₈)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "\\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}",
+      "sum_index_hint": "m,s,n,t,p,u,q,w",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:59:02.861379Z",
+      "user_text": "Using the coefficients defined in the first half, write the general Hamiltonian over an **arbitrary, spin-dependent** basis — not specialised to $k$-space — and take it to first order.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:02.861612Z",
+      "user_text": "c as the annihilation operator for electron",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:02.863070Z",
+      "user_text": "c as the annihilation operator for electron",
+      "visible_action": "LLM interpretation: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c",
+        "_op_expr_display": "c",
+        "_particle_name": "electron",
+        "_particle_key": "electron",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:59:03.079727Z",
+      "user_text": null,
+      "visible_action": "define fermion operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops c; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:59:03.079988Z",
+      "user_text": "The one-body term $\\hat H_0=\\sum_{m\\sigma,n\\sigma'} h_{m\\sigma,n\\sigma'} c^\\dagger_{m\\sigma}c_{n\\sigma'}$, with mode ($m,n$) and spin ($s,t$) written separated.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:59:03.080047Z",
+      "user_text": "\\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S5"
+      ],
+      "timestamp": "2026-09-25T11:59:03.081155Z",
+      "user_text": null,
+      "visible_action": "Register E1",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:59:03.081231Z",
+      "user_text": "Normal-order it. It is already normal-ordered so the expression does not change, but mode and spin must stay separated in the display — without the separator it becomes \"one index called $ms$\", and typing the display back in gives a different expression.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:59:03.081266Z",
+      "user_text": "normal_order E1",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:59:03.081872Z",
+      "user_text": "normal_order E1",
+      "visible_action": "LLM interpretation: normal_order",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S8"
+      ],
+      "timestamp": "2026-09-25T11:59:04.759083Z",
+      "user_text": null,
+      "visible_action": "normal order [E1]",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E1"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (_nb_eval_site_deltas(normal_form(_QA.∑(:m, _QA.∑(:s, _QA.∑(:n, _QA.∑(:t, param(:h, :m, :s, :n, :t) * c'(:m, :s) * c(:n, :t))))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S11"
+      ],
+      "timestamp": "2026-09-25T11:59:04.759653Z",
+      "user_text": "The interaction $\\hat V$: eight indices, four mode and four spin.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:59:04.759713Z",
+      "user_text": "\\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S12"
+      ],
+      "timestamp": "2026-09-25T11:59:04.761018Z",
+      "user_text": null,
+      "visible_action": "Register E3",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:59:04.761115Z",
+      "user_text": "normal_order E3",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:59:04.761641Z",
+      "user_text": "normal_order E3",
+      "visible_action": "LLM interpretation: normal_order",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:59:04.805796Z",
+      "user_text": null,
+      "visible_action": "normal order [E3]",
+      "operation": "normal_order",
+      "operation_args": {
+        "expr": "E3"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E4 = (_nb_eval_site_deltas(normal_form(_QA.∑(:m, _QA.∑(:s, _QA.∑(:n, _QA.∑(:t, _QA.∑(:p, _QA.∑(:u, _QA.∑(:q, _QA.∑(:w, param(:V, :m, :s, :n, :t, :p, :u, :q, :w) * c'(:m, :s) * c'(:n, :t) * c(:p, :u) * c(:q, :w))))))))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E3"
+      ],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:59:04.806360Z",
+      "user_text": "The first-order term $[\\hat H_0,\\hat V]$. Every contraction introduces a new bound index — watch it come out as the researcher's own letter plus a subscript ($m_1,s_1$). Spending the plain $r$, $s$, $t$ would shrink the alphabet left for actual quantities, for labels that live inside one sum.",
+      "visible_action": "Memo",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:59:04.806415Z",
+      "user_text": "commutator of E1 and E3",
+      "visible_action": "User input",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:59:04.807066Z",
+      "user_text": "commutator of E1 and E3",
+      "visible_action": "LLM interpretation: commutator",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E3"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S18"
+      ],
+      "timestamp": "2026-09-25T11:59:04.883765Z",
+      "user_text": null,
+      "visible_action": "compute commutator [[E1, E3]]",
+      "operation": "commutator",
+      "operation_args": {
+        "a": "E1",
+        "b": "E3"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E5 = (_nb_eval_site_deltas(normal_form(comm(_QA.∑(:m, _QA.∑(:s, _QA.∑(:n, _QA.∑(:t, param(:h, :m, :s, :n, :t) * c'(:m, :s) * c(:n, :t))))), _QA.∑(:m, _QA.∑(:s, _QA.∑(:n, _QA.∑(:t, _QA.∑(:p, _QA.∑(:u, _QA.∑(:q, _QA.∑(:w, param(:V, :m, :s, :n, :t, :p, :u, :q, :w) * c'(:m, :s) * c'(:n, :t) * c(:p, :u) * c(:q, :w)))))))))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1",
+        "E3"
+      ],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S21",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:59:02.006707Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "c": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "c'": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "c": [
+      -1,
+      1
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {},
+  "expr_counter": 5,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 21,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

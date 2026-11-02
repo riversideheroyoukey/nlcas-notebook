@@ -1,0 +1,17 @@
+## OCR Domain Hint: Linear Algebra
+
+Symbol recognition priorities:
+- Uppercase bold or bracketed array → matrix \mathbf{A} or A
+- Lowercase bold → column vector \mathbf{v}
+- Superscript T → transpose {}^T (NOT a power)
+- Superscript -1 → matrix inverse {}^{-1}
+- Superscript † or * → Hermitian adjoint {}^{\dagger}
+- λ near a matrix equation → eigenvalue \lambda
+- det(...) or |A| with matrix context → determinant \det
+- tr(...) → trace \text{tr}
+- I or I_n → identity matrix
+
+Common expression patterns:
+- Av = λv → eigenvalue equation
+- [A|b] (augmented matrix) → \left[ A \mid b \right]
+- Σ with two subscripts (singular values) → \Sigma in SVD

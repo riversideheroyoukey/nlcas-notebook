@@ -1,0 +1,76 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_line\_balancing}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+From the total work-element time $T$ and the cycle time $c$ (the time allowed per station), define the minimum number of stations $n=\lceil T/c\rceil$ (ceiling function, since fewer than $T/c$ stations cannot suffice).
+
+$n = ceiling(T / c)$
+
+\begin{equation}
+  n = ceiling(T / c)
+  \label{eq:E1}
+\end{equation}
+
+Define the line efficiency $\eta=T/(nc)$ (the ratio of the ideal total working time $T$ to the actual total available time $nc$).
+
+$\eta = T / (n c)$
+
+\begin{equation}
+  \eta = T / (n c)
+  \label{eq:E2}
+\end{equation}
+
+As a concrete example, substitute the total work time $T=88$ into the station-count expression.
+
+In E1, substitute 88 for T
+
+\begin{equation}
+  n = \left \lceil \frac{88}{c} \right \rceil
+  \label{eq:E3}
+\end{equation}
+
+Substitute the cycle time $c=15$ as well, to fix the minimum number of stations $n$ as a number.
+
+In E3, substitute 15 for c
+
+\begin{equation}
+  n = 6
+  \label{eq:E4}
+\end{equation}
+
+Substitute the same total work time $T=88$, this time into the efficiency expression.
+
+In E2, substitute 88 for T
+
+\begin{equation}
+  \eta = \frac{88}{\left \lceil \frac{88}{c} \right \rceil c}
+  \label{eq:E5}
+\end{equation}
+
+Substitute the same cycle time $c=15$, to fix the line efficiency $\eta$ as a number.
+
+In E5, substitute 15 for c
+
+\begin{equation}
+  \eta = \frac{44}{45}
+  \label{eq:E6}
+\end{equation}
+
+Compute the balance delay (idle ratio) $d=1-\eta$, plugging in the value of $\eta$ fixed in the previous step directly.
+
+$d = 1 - E6$
+
+\begin{equation}
+  d = \frac{1}{45}
+  \label{eq:E7}
+\end{equation}
+
+\end{document}

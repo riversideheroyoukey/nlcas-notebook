@@ -1,0 +1,2 @@
+Electrical engineering notation: `j` is the imaginary unit (not an index).
+`i` / `I` is usually electric current. `s` is the Laplace variable.

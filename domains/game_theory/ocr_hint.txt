@@ -1,0 +1,14 @@
+## OCR Domain Hint: Game Theory
+
+Symbol recognition priorities:
+- uᵢ or πᵢ → payoff function of player i u_i or \pi_i
+- s_{-i} (subscript -i) → strategy profile of all players except i s_{-i}
+- BR_i(...) → best response correspondence \text{BR}_i
+- Δ(S) → simplex of mixed strategies \Delta(S)
+- σᵢ (lowercase sigma with subscript) → mixed strategy \sigma_i
+- 2×2 matrix with payoff pairs → normal form game (use tabular or matrix notation)
+- ≥ in optimization context → preference or constraint
+
+Common expression patterns:
+- (s₁*, s₂*): uᵢ(sᵢ*, s_{-i}*) ≥ uᵢ(sᵢ, s_{-i}*) → Nash equilibrium condition
+- max_{sᵢ} uᵢ(sᵢ, s_{-i}) → best response problem

@@ -1,0 +1,7 @@
+{
+  "label_en": "Relativity",
+  "category": "physics",
+  "label_ja": "相対性理論",
+  "status": "future",
+  "status_note": "Partially supported. Specialized tensor/operator operations not yet connected to CAS."
+}

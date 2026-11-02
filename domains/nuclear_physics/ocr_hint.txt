@@ -1,0 +1,15 @@
+## OCR Domain Hint: Nuclear Physics
+
+Symbol recognition priorities:
+- † (dagger) after letter → creation operator a^{\dagger}, c^{\dagger}
+- τ with subscript z → isospin \tau_z
+- j with subscript → angular momentum quantum number j
+- ε (epsilon, subscript k or j) → single-particle energy \varepsilon_k
+- Δ (Delta, uppercase) in pairing context → gap parameter \Delta
+- α with † → quasiparticle creation \alpha^{\dagger}
+- ↑↓ subscripts → spin-up/spin-down \uparrow, \downarrow
+- G (italic, uppercase) in interaction context → pairing strength G
+- ℏ (h-bar) → \hbar
+- Curly brackets {A, B} → anticommutator
+- Square brackets [A, B] → commutator
+- ⟨...⟩ with 0 or HF subscript → vacuum / Hartree-Fock expectation value

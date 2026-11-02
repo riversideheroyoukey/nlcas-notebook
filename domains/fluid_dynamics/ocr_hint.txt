@@ -1,0 +1,16 @@
+## OCR Domain Hint: Fluid Dynamics
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- Bold u, v, w → vector fields \mathbf{u}, \mathbf{v}, \mathbf{w}
+- ∇ (nabla) → \nabla  — gradient/divergence/curl operator
+- ∇² or Δ → \nabla^2  — Laplacian
+- ρ (rho) → density \rho, NOT p
+- ν (nu) → kinematic viscosity \nu, NOT v
+- ∂/∂x, ∂/∂y, ∂/∂z → partial derivatives w.r.t. spatial coordinates
+
+Common expression patterns:
+- ∂u/∂t + (u·∇)u → Navier-Stokes convective term
+- Circled dot (⊗) or crossed arrows → tensor product
+- Contour integral symbol (∮) → line/surface integral

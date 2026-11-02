@@ -1,0 +1,24 @@
+## OCR Domain Hint: Quantum Statistical Mechanics
+
+When recognizing handwritten mathematical expressions in this domain:
+
+Symbol recognition priorities:
+- β (beta-like curve) → inverse temperature \beta, NOT b
+- μ (mu-like curve) → chemical potential \mu, NOT u
+- ρ̂ with hat → density matrix \hat{\rho}
+- Z with subscript G or no subscript → partition function Z
+- Ω (capital omega) → grand potential \Omega
+- † (dagger) after letter → creation operator a^{\dagger}, c^{\dagger}
+- ↑↓ subscripts → spin indices \uparrow, \downarrow
+- ℏ (h-bar) → \hbar, NOT h alone
+- n with subscript k or p → occupation number n_k
+- Angle brackets ⟨...⟩ → thermal expectation value \langle ... \rangle
+- Square brackets [A, B] → commutator
+- Curly brackets {A, B} → anticommutator
+- Tr[...] → trace operator \mathrm{Tr}[...]
+
+Common expression patterns:
+- exp(-β H) or e^{-βH} → Boltzmann factor in density matrix
+- Σ_k over letter with dagger then same letter → number operator \sum_k a_k^\dagger a_k
+- 1/(e^{...} ± 1) → Bose-Einstein (+: minus) or Fermi-Dirac (+: plus) distribution
+- iω_n (imaginary frequency) → Matsubara frequency i\omega_n

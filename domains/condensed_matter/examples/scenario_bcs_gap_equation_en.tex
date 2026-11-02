@@ -1,0 +1,149 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_bcs\_gap\_equation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Prepare the operators and parameters for the BCS Hamiltonian. $c$ is the electron annihilation operator with momentum $k$ and spin $\sigma$ ($u$ = up, $d$ = down); $g$ is the Bogoliubov quasiparticle. $u, v$ are the transformation coefficients, $\xi$ the kinetic energy, $\Delta$ the superconducting gap.
+
+c as the annihilation operator for electron
+
+\[
+  c
+\]
+
+g as a fermion operator
+
+\[
+  g
+\]
+
+Define u, v as scalars
+
+\[
+  u, v
+\]
+
+Define xi, Delta as scalars
+
+\[
+  \xi, \Delta
+\]
+
+Register the mean-field BCS Hamiltonian.
+
+$H_BCS = \xi (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + \Delta (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))$
+
+\begin{equation}
+  H_BCS = \xi (c^{\dagger}(k,u) c(k,u) + c^{\dagger}(-k,d) c(-k,d)) + \Delta (c^{\dagger}(k,u) c^{\dagger}(-k,d) + c(-k,d) c(k,u))
+  \label{eq:E1}
+\end{equation}
+
+The equation of motion shows how c(k,u) is coupled to H\_BCS.
+
+Heisenberg equation of E1 for c(k,u)
+
+\begin{equation}
+  \frac{d c(k,u)}{d t} = - \Delta \mathit{i} {c}_{-k,d}^{\dagger} - \xi \mathit{i} {c}_{ku}
+  \label{eq:E2}
+\end{equation}
+
+Define the Bogoliubov transformation as all four Nambu-spinor components together.
+
+$g(k,u) = u c(k,u) - v c'(-k,d)$
+
+\begin{equation}
+  g(k,u) = u c(k,u) - v c^{\dagger}(-k,d)
+  \label{eq:E3}
+\end{equation}
+
+$g(-k,d) = u c(-k,d) + v c'(k,u)$
+
+\begin{equation}
+  g(-k,d) = u c(-k,d) + v c^{\dagger}(k,u)
+  \label{eq:E4}
+\end{equation}
+
+$g'(k,u) = u c'(k,u) - v c(-k,d)$
+
+\begin{equation}
+  g^{\dagger}(k,u) = u c^{\dagger}(k,u) - v c(-k,d)
+  \label{eq:E5}
+\end{equation}
+
+$g'(-k,d) = u c'(-k,d) + v c(k,u)$
+
+\begin{equation}
+  g^{\dagger}(-k,d) = u c^{\dagger}(-k,d) + v c(k,u)
+  \label{eq:E6}
+\end{equation}
+
+Solve the four for the electron operators (the inverse transform).
+
+Invert E3, E4, E5, E6 for c(k,u), c(-k,d), c'(k,u), c'(-k,d)
+
+\begin{equation}
+  c_{k,u} = \frac{g^{\dagger}_{-k,d} \cdot v + g_{k,u} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E7}
+\end{equation}
+
+\begin{equation}
+  c_{-k,d} = \frac{ - g^{\dagger}_{k,u} \cdot v + g_{-k,d} \cdot u}{u^{2} + v^{2}}
+  \label{eq:E8}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{k,u} = \frac{g^{\dagger}_{k,u} \cdot u + g_{-k,d} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E9}
+\end{equation}
+
+\begin{equation}
+  c^{\dagger}_{-k,d} = \frac{g^{\dagger}_{-k,d} \cdot u - g_{k,u} \cdot v}{u^{2} + v^{2}}
+  \label{eq:E10}
+\end{equation}
+
+Substitute the inverse transform into the Hamiltonian. Choosing u, v so the pair-creation coefficient vanishes is the Bogoliubov condition.
+
+In E1, substitute E7 for c(k,u) and E8 for c(-k,d)
+
+\begin{equation}
+  H_BCS = \left(2 \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right)  + \left( - \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - u v \xi}{\left( u^{2} + v^{2} \right)^{2}} - \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} - \frac{2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{-k,d}^{\dagger} {g}_{-k,d} + \left(\frac{u^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - 2 \Delta u v}{\left( u^{2} + v^{2} \right)^{2}} + \frac{ - v^{2} \xi}{\left( u^{2} + v^{2} \right)^{2}}\right) {g}_{ku}^{\dagger} {g}_{ku} + \left(2 \frac{u v \xi}{\left( u^{2} + v^{2} \right)^{2}} + \Delta \left( \frac{ - v^{2}}{\left( u^{2} + v^{2} \right)^{2}} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} \right)\right) {g}_{-k,d} {g}_{ku}
+  \label{eq:E11}
+\end{equation}
+
+Now head for the gap equation. To get the Cooper-pair anomalous average, first register the pair product.
+
+c(-k,d) c(k,u)
+
+\begin{equation}
+  c(-k,d) c(k,u)
+  \label{eq:E12}
+\end{equation}
+
+Move it to the quasiparticle basis.
+
+In E12, substitute E7 for c(k,u) and E8 for c(-k,d)
+
+\begin{equation}
+  c(-k,d) c(k,u) = \frac{u v}{\left( u^{2} + v^{2} \right)^{2}}  + \frac{v^{2}}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d}^{\dagger} {g}_{ku}^{\dagger} + \frac{ - u v}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d}^{\dagger} {g}_{-k,d} + \frac{ - u v}{\left( u^{2} + v^{2} \right)^{2}} {g}_{ku}^{\dagger} {g}_{ku} + \frac{u^{2}}{\left( u^{2} + v^{2} \right)^{2}} {g}_{-k,d} {g}_{ku}
+  \label{eq:E13}
+\end{equation}
+
+Take the expectation value in the quasiparticle vacuum (the BCS ground state). Operator algebra ends here; everything after this is c-numbers.
+
+\begin{equation}
+  c(-k,d) c(k,u) = \frac{u v}{\left( u^{2} + v^{2} \right)^{2}}
+  \label{eq:E14}
+\end{equation}
+
+The operators are done, so the remaining scalar algebra belongs to Maxima. Cross the session boundary — a fork, not a switch: this session stays as it is and the target becomes a new file. What travels is the value on the right plus the declarations (signs included) needed to re-establish it. The operator label on the left has no meaning in a scalar CAS, so what the value is OF is recorded in the target's note.
+
+hand E14 off to a Maxima session
+
+\end{document}

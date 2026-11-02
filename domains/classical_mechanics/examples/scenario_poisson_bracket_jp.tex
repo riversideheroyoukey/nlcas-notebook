@@ -1,0 +1,71 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_poisson\_bracket}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+ポアソン括弧を計算するには、どの座標とどの運動量が共役（正準対）かをあらかじめ宣言しておく必要がある。動径座標 $r$ の共役運動量 $p_r$ を宣言する。
+
+$p_r$ を r の共役運動量とする
+
+正準座標対 (r, p\_r) を登録しました。以後「f と g のポアソン括弧を求めて」で利用できます。
+
+角度座標 $\theta$ の共役運動量 $p_\theta$ を宣言する。
+
+$p_{\theta}$ を theta の共役運動量とする
+
+正準座標対 (theta, p\_theta) を登録しました。以後「f と g のポアソン括弧を求めて」で利用できます。
+
+基本的なポアソン括弧 $\{r,p_r\}$ を求める。正準対どうしなので正準交換関係 $\{q,p\}=1$ により1になるはずである。
+
+r と $p_r$ のポアソン括弧を求めて
+
+\begin{equation}
+  1
+  \label{eq:E1}
+\end{equation}
+
+中心力ハミルトニアン $H=p_r^2/(2m)+p_\theta^2/(2mr^2)+U(r)$（動径・角度方向の運動エネルギーとポテンシャル $U(r)$ の和）を定義する。
+
+$H = p_r^2/(2 m) + p_{\theta}^2/(2 m r^2) + U(r)$
+
+\begin{equation}
+  H = p_r^2/(2 m) + p_{\theta}^2/(2 m r^2) + U(r)
+  \label{eq:E2}
+\end{equation}
+
+角運動量 $L_z=p_\theta$（角度の共役運動量そのもの）を定義する。
+
+$L_z = p_{\theta}$
+
+\begin{equation}
+  L_z = p_{\theta}
+  \label{eq:E3}
+\end{equation}
+
+ハミルトニアン $H$ と角運動量 $L_z$ のポアソン括弧を求める。$H$ が角度 $\theta$ に依らない（回転対称）ので、これがゼロになれば $L_z$ は保存量であることが確認できる。
+
+H と $L_z$ のポアソン括弧を求めて
+
+\begin{equation}
+  0
+  \label{eq:E4}
+\end{equation}
+
+ハミルトンの運動方程式 $\dot q=\{q,H\}$ を用いて動径座標 $r$ の時間発展を求めるため、$H$ と $r$ のポアソン括弧を求める。
+
+H と r のポアソン括弧を求めて
+
+\begin{equation}
+  -\frac{p_{r}}{m}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

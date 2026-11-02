@@ -1,0 +1,16 @@
+## OCR Domain Hint: Financial Mathematics
+
+Symbol recognition priorities:
+- dW, dWₜ, dB → stochastic differential \, dW_t (Wiener increment)
+- dS = ... dt + ... dW → stochastic differential equation
+- σ (lowercase) in finance context → volatility \sigma, NOT stress tensor
+- μ (lowercase) in SDE context → drift \mu, NOT chemical potential
+- S(t) or Sₜ → asset price process S_t
+- ∂V/∂S, ∂²V/∂S² → Greeks (Delta, Gamma)
+- e^{-rT} → discount factor
+- 𝔼[...] or E^Q[...] → risk-neutral expectation
+
+Common expression patterns:
+- dS = μS dt + σS dW → geometric Brownian motion
+- ∂V/∂t + ½σ²S²∂²V/∂S² + rS∂V/∂S - rV = 0 → Black-Scholes PDE
+- df = ∂f/∂t dt + ∂f/∂S dS + ½∂²f/∂S² (dS)² → Itô's formula applied

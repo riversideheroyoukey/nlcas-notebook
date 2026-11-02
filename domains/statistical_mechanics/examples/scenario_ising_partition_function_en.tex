@@ -1,0 +1,67 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_ising\_partition\_function}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+For the Ising model $H=-J\sum_{\langle ij\rangle}s_is_j$ ($s=\pm\frac12$), find the infinite-temperature energy moments $\langle H^2\rangle,\langle H^3\rangle$ without specifying a lattice shape, as a general formula in graph invariants (edge count $|E|$, triangle count $N_\triangle$). For the Ising model, $\langle H^3\rangle$ is proportional to the triangle count $N_\triangle$ alone.
+
+Find the high-temperature expansion of the Ising model in general form
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{16} J^{2} |E|,\ \langle H^3 \rangle = \frac{3}{32} J^{3} N_\triangle
+  \label{eq:E1}
+\end{equation}
+
+Apply the general formula to a specific lattice: a $2\times2$ square lattice with periodic boundaries. This lattice is a 4-cycle ($|E|=4$, no triangles, so $N_\triangle=0$), so $\langle H^3\rangle$ should vanish.
+
+Find the high-temperature expansion of the Ising model on a 2x2 square lattice
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{4} J^{2},\ \langle H^3 \rangle = 0 \quad (|E| = 4,\ N_\triangle = 0)
+  \label{eq:E2}
+\end{equation}
+
+From the energy moments, find the high-temperature expansion (power series in $\beta$) of the specific heat $C(\beta)=\beta^2\,\partial^2(\ln Z/N)/\partial\beta^2$. This is NOT a literal Maxima command: the recursion/moment method has no generic CAS routine for it, so it is computed by this project's own spin-algebra module (`notebook/runtime/spin\_algebra.py`) as an exact, deterministic closed-form calculation — the same graph-invariant energy moments $\langle H^2\rangle,\langle H^3\rangle,\langle H^4\rangle$ from the previous steps are converted to connected cumulants $\kappa_n$ ($\kappa_2=\langle H^2\rangle$, $\kappa_4=\langle H^4\rangle-3\langle H^2\rangle^2$ since $\langle H\rangle=0$) and assembled into the power series $C(\beta)=\kappa_2\beta^2-\tfrac1{3!}\kappa_3\beta^3+\tfrac1{2\cdot2!}\kappa_4\beta^4+\cdots$. For this $2\times2$ lattice, $\kappa_2=\langle H^2\rangle=\tfrac14J^2$ and $\kappa_4=\tfrac14J^4-3(\tfrac14J^2)^2=\tfrac1{16}J^4$, giving the $\beta^2$ and $\beta^4$ coefficients below by hand — a cross-check anyone can redo, not a black box. Since this lattice has no triangles, no odd-order $\beta^3$ term should appear.
+
+Find the high-temperature expansion of the specific heat of the Ising model on a 2x2 square lattice
+
+\begin{equation}
+  C(\beta) = \frac{1}{4} J^{2} \beta^{2} + \frac{1}{32} J^{4} \beta^{4} + O(\beta^5)
+  \label{eq:E3}
+\end{equation}
+
+Extend the expansion to 4th order. The $2\times2$ lattice has exactly one 4-cycle (square count $N_\square=1$), which is the origin of the $\beta^4$ term.
+
+Find the high-temperature expansion of the Ising model on a 2x2 square lattice up to 4th order
+
+\begin{equation}
+  \langle H^2 \rangle = \frac{1}{4} J^{2},\ \langle H^3 \rangle = 0,\ \langle H^4 \rangle = \frac{1}{4} J^{4} \quad (|E| = 4,\ N_\triangle = 0,\ N_\square = 1)
+  \label{eq:E4}
+\end{equation}
+
+Now repeat the calculation on a $3\times3$ triangular lattice. Since this lattice has triangles ($N_\triangle=8$), $\langle H^3\rangle$ should be nonzero (geometric frustration).
+
+Find the high-temperature expansion of the Ising model on a 3x3 triangular lattice
+
+\begin{equation}
+  \langle H^2 \rangle = J^{2},\ \langle H^3 \rangle = \frac{3}{4} J^{3} \quad (|E| = 16,\ N_\triangle = 8)
+  \label{eq:E5}
+\end{equation}
+
+Repeat the same moments-to-cumulants-to-power-series computation (see the note on the square-lattice specific heat above — same spin-algebra module, no CAS command involved) for the triangular lattice. In contrast to the square lattice (no triangles), an odd-order $\beta^3$ term should actually appear, with coefficient $-\kappa_3\beta^3=-\langle H^3\rangle\beta^3=-\tfrac34J^3\beta^3$ (for the Ising model $\kappa_3=\langle H^3\rangle$ exactly, since $\langle H\rangle=0$).
+
+Find the high-temperature expansion of the specific heat of the Ising model on a 3x3 triangular lattice
+
+\begin{equation}
+  C(\beta) = J^{2} \beta^{2} - \frac{3}{4} J^{3} \beta^{3} + \frac{5}{16} J^{4} \beta^{4} + O(\beta^5)
+  \label{eq:E6}
+\end{equation}
+
+\end{document}

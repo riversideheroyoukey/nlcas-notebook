@@ -1,0 +1,117 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_forced\_oscillator\_laplace}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Solve the initial-value problem for an undamped driven harmonic oscillator $m\ddot x + kx = F_0\sin(\omega t)$. First declare the drive amplitude $F_0$ as a name (not as a component index).
+
+Declare $F_0$ as a scalar
+
+\[
+  F_0
+\]
+
+Declare the displacement $x$ as a function of time $t$.
+
+Define x as a time-dependent function
+
+$\checkmark$ Declared x as time-dependent (time variable: t)
+
+Name the Laplace transform of $x$ as $X$ (an s-domain quantity) via a definition card. The inverse transform's result label reads this pairing.
+
+Let X be the Laplace transform of x
+
+\begin{equation}
+  X(s) = \int_0^{\infty} x(t)\, e^{-s t}\, dt
+  \label{eq:E1}
+\end{equation}
+
+State the convergence conditions of the definition integral $\int_0^\infty e^{-st}dt$ as visible steps. Without them the CAS asks about the sign and the step fails (the session survives).
+
+Assume s $>$ 0
+
+\noindent\textbf{Assumption:}\ $\displaystyle s > 0$\par
+
+$Assume \omega > 0$
+
+\noindent\textbf{Assumption:}\ $\displaystyle \omega > 0$\par
+
+The drive is an explicit function, so its definition integral can be computed. Register the integrand $\sin(\omega t)e^{-st}$ first.
+
+$\sin(\omega t) e^{-s t}$
+
+\begin{equation}
+  \sin(\omega t) e^{-s t}
+  \label{eq:E2}
+\end{equation}
+
+Integrate from $0$ to $\infty$ by definition to get $\mathcal L\{\sin(\omega t)\} = \omega/(s^2+\omega^2)$. The builtin `laplace` is not used.
+
+Integrate E2 with respect to t from 0 to $\infty$
+
+\begin{equation}
+  \int_{0}^{\infty} \sin(\omega t) e^{-s t} \, dt = \frac{\omega}{s^2+\omega^2}
+  \label{eq:E3}
+\end{equation}
+
+Assemble the s-domain equation of motion. The image of $\ddot x$, namely $s^2X - s x(0) - \dot x(0)$, is the theorem integration by parts gives (with $u=e^{-st}$ fixed by the structure, so no choice is made), so the researcher writes it; the drive's image is composed in by the E-id computed above.
+
+$m (s^2 X - s x_0 - v_0) + k X = F_0 E3$
+
+\begin{equation}
+  m \left(-\left(s x_{0}\right)-v_{0}+X s^2\right)+X k=\frac{F_{0} \omega}{s^2+\omega^2}
+  \label{eq:E4}
+\end{equation}
+
+State the initial conditions. Unlike RLC, which zeroes them to obtain a transfer function, release from rest at unit displacement: $x(0)=1,\ \dot x(0)=0$. An H-1 definition is sent to the CAS on registration, so these are in force from here on.
+
+$x_0 = 1$
+
+\begin{equation}
+  x_0 = 1
+  \label{eq:E5}
+\end{equation}
+
+$v_0 = 0$
+
+\begin{equation}
+  v_0 = 0
+  \label{eq:E6}
+\end{equation}
+
+Solve the s-domain equation for $X$ to get the closed form. The initial conditions are already in force.
+
+Solve E4 for X
+
+\begin{equation}
+  X = \frac{m s^3+m \omega^2 s+F_{0} \omega}{m s^4+\left(m \omega^2+k\right) s^2+k \omega^2}
+  \label{eq:E7}
+\end{equation}
+
+Before inverting, explicitly assume the physical positivity of the quantities. With unknown signs the CAS asks an interactive question and the operation stops.
+
+Assume m $>$ 0
+
+\noindent\textbf{Assumption:}\ $\displaystyle m > 0$\par
+
+Assume k $>$ 0
+
+\noindent\textbf{Assumption:}\ $\displaystyle k > 0$\par
+
+Take the s-domain solution back to the $t$ domain, closing the round trip: a free term at the natural frequency $\sqrt{k/m}$ plus a forced term at the drive frequency $\omega$ (assuming $m\omega^2 \ne k$, i.e. off resonance). At $t=0$ it gives $x=1$, matching the stated conditions.
+
+Take the inverse Laplace transform of E7 from s to t
+
+\begin{equation}
+  x(t) = {{{{F_{0} m^{\frac{3}{2}} \omega \sin \left(\frac{\sqrt{k} t}{\sqrt{m}}\right)}\over{\sqrt{k} \left(m \omega^2-k\right)}}+m \cos \left(\frac{\sqrt{k} t}{\sqrt{m}}\right)}\over{m}}-\frac{F_{0} \sin \left(\omega t\right)}{m \omega^2-k}
+  \label{eq:E8}
+\end{equation}
+
+\end{document}

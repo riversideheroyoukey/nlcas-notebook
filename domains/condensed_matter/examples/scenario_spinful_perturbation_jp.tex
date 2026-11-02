@@ -1,0 +1,65 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+%\documentclass[uplatex,dvipdfmx]{jsarticle}
+\documentclass[dvipdfmx,a4paper,11pt]{jsarticle}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_spinful\_perturbation}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+前半のシナリオで定義した係数を使って、\textbf{スピン依存・任意基底}の一般ハミルトニアンを書く。$k$ 空間に特殊化しない形で、摂動展開の1次まで通すのが目的。
+
+c を電子の消滅演算子として定義して
+
+\[
+  c
+\]
+
+1体項 $\hat H_0=\sum_{m\sigma,n\sigma'} h_{m\sigma,n\sigma'} c^\dagger_{m\sigma}c_{n\sigma'}$。モード（$m,n$）とスピン（$s,t$）を区切って書く。
+
+$\sum_{m,s,n,t} h_{m,s,n,t} c'_{m,s} c_{n,t}$
+
+\begin{equation}
+  \sum_{m,s,n,t} h_{m,s,n,t} c^{\dagger}_{m,s} c_{n,t}
+  \label{eq:E1}
+\end{equation}
+
+正規順序に置く。既に正規順序なので式は変わらないが、モードとスピンが区切られたまま表示されることを確認する——区切りが無いと「$ms$ という名の1添字」になり、表示を再入力すると別の式になる。
+
+E1 を正規順序にする
+
+\begin{equation}
+  \sum_{m,s,n,t} h_{m,s,n,t} {c}_{m,s}^{\dagger} {c}_{n,t}
+  \label{eq:E2}
+\end{equation}
+
+相互作用 $\hat V$。添字は8つ（モード4・スピン4）。
+
+$\sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c'_{m,s} c'_{n,t} c_{p,u} c_{q,w}$
+
+\begin{equation}
+  \sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} c^{\dagger}_{m,s} c^{\dagger}_{n,t} c_{p,u} c_{q,w}
+  \label{eq:E3}
+\end{equation}
+
+E3 を正規順序にする
+
+\begin{equation}
+  \sum_{m,s,n,t,p,u,q,w} V_{m,s,n,t,p,u,q,w} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{p,u} {c}_{q,w}
+  \label{eq:E4}
+\end{equation}
+
+摂動展開の1次で現れる $[\hat H_0,\hat V]$。縮約のたびに新しい束縛添字が生まれる——それが\textbf{利用者の文字＋添字}（$m_1,s_1$）で出ることを見る。素の $r$・$s$・$t$ を消費すれば、研究者が新しい量に使える文字が減っていく（束縛添字は和の中だけの使い捨てラベルなのに）。
+
+E1 と E3 の交換子
+
+\begin{equation}
+  - \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{q,w,m_{1},s_{1}} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{p,u} {c}_{m_{1},s_{1}} + \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{p,u,m_{1},s_{1}} {c}_{m,s}^{\dagger} {c}_{n,t}^{\dagger} {c}_{q,w} {c}_{m_{1},s_{1}} + \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},n,t} {c}_{m,s}^{\dagger} {c}_{m_{1},s_{1}}^{\dagger} {c}_{p,u} {c}_{q,w} - \sum_{m,s,n,t,p,u,q,w,m_{1},s_{1}} V_{m,s,n,t,p,u,q,w} h_{m_{1},s_{1},m,s} {c}_{n,t}^{\dagger} {c}_{m_{1},s_{1}}^{\dagger} {c}_{p,u} {c}_{q,w}
+  \label{eq:E5}
+\end{equation}
+
+\end{document}

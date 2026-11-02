@@ -1,0 +1,165 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_utility\_maximization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Maximise the Cobb–Douglas utility $U(x_1,x_2)=x_1^ax_2^b$ subject to $p_1x_1+p_2x_2=m$. First declare the subscripted symbols as NAMES — undeclared, they resolve at operation time as the component index $x(1)$ and the first-order conditions come out wrong.
+
+declare $x_1$ as a scalar
+
+\[
+  x_1
+\]
+
+declare $x_2$ as a scalar
+
+\[
+  x_2
+\]
+
+declare $p_1$ as a scalar
+
+\[
+  p_1
+\]
+
+declare $p_2$ as a scalar
+
+\[
+  p_2
+\]
+
+Register the utility function.
+
+$U = x_1^a x_2^b$
+
+\begin{equation}
+  U = x_1^a x_2^b
+  \label{eq:E1}
+\end{equation}
+
+The researcher writes the Lagrangian, and names the multiplier (the system need not auto-number one).
+
+$L = U - \lambda (p_1 x_1 + p_2 x_2 - m)$
+
+\begin{equation}
+  L = U - \lambda (p_1 x_1 + p_2 x_2 - m)
+  \label{eq:E2}
+\end{equation}
+
+For the first-order conditions, differentiate the Lagrangian with respect to each variable.
+
+take the partial derivative of E2 with respect to $x_1$
+
+\begin{equation}
+  \frac{\partial L}{\partial x_1} = x_{1}^{a-1} x_{2}^{b} a-p_{1} \lambda
+  \label{eq:E3}
+\end{equation}
+
+take the partial derivative of E2 with respect to $x_2$
+
+\begin{equation}
+  \frac{\partial L}{\partial x_2} = x_{1}^{a} x_{2}^{b-1} b-p_{2} \lambda
+  \label{eq:E4}
+\end{equation}
+
+take the partial derivative of E2 with respect to $\lambda$
+
+\begin{equation}
+  \frac{\partial L}{\partial \lambda} = m-p_{2} x_{2}-p_{1} x_{1}
+  \label{eq:E5}
+\end{equation}
+
+Set each right-hand side to zero to get the first-order conditions.
+
+set the right-hand side of E3 to 0
+
+\begin{equation}
+  x_{1}^{a-1} x_{2}^{b} a-p_{1} \lambda = 0
+  \label{eq:E6}
+\end{equation}
+
+set the right-hand side of E4 to 0
+
+\begin{equation}
+  x_{1}^{a} x_{2}^{b-1} b-p_{2} \lambda = 0
+  \label{eq:E7}
+\end{equation}
+
+set the right-hand side of E5 to 0
+
+\begin{equation}
+  m-p_{2} x_{2}-p_{1} x_{1} = 0
+  \label{eq:E8}
+\end{equation}
+
+Do the comparative statics FIRST. Write the demand relation explicitly as $F(x_1,m)=am-(a+b)p_1x_1=0$. This step must precede the solve: solving binds $x_1$ on the CAS side, which collapses $F$ identically to 0.
+
+$F = a m - (a+b) p_1 x_1$
+
+\begin{equation}
+  F = a m - (a+b) p_1 x_1
+  \label{eq:E9}
+\end{equation}
+
+Obtain the two partial derivatives the implicit function theorem needs.
+
+take the partial derivative of E9 with respect to m
+
+\begin{equation}
+  \frac{\partial F}{\partial m} = a
+  \label{eq:E10}
+\end{equation}
+
+take the partial derivative of E9 with respect to $x_1$
+
+\begin{equation}
+  \frac{\partial F}{\partial x_1} = -p_{1} \left(b+a\right)
+  \label{eq:E11}
+\end{equation}
+
+The researcher writes the implicit function theorem $dx_1/dm=-F_m/F_{x_1}$, pulling in the previous results by expression reference.
+
+$\frac{dx_1}{dm} = -\frac{E10}{E11}$
+
+\begin{equation}
+  \frac{d}{d m} x_{1}=\frac{a}{p_{1} \left(b+a\right)}
+  \label{eq:E12}
+\end{equation}
+
+Solve the first-order conditions for the demand functions. (Written with `and` rather than a comma list — see open\_items SOLVE-LIST-COMMA-EN.)
+
+solve E6, E7 and E8 for $x_1$, $x_2$, $\lambda$
+
+\begin{equation}
+  x_{1} = \frac{a m}{p_{1} b+p_{1} a}
+  \label{eq:E13}
+\end{equation}
+
+\begin{equation}
+  x_{2} = \frac{b m}{p_{2} b+p_{2} a}
+  \label{eq:E14}
+\end{equation}
+
+\begin{equation}
+  \lambda = {{b \left(\frac{a m}{p_{1} b+p_{1} a}\right)^{a} \left(\frac{b m}{p_{2} b+p_{2} a}\right)^{b}+a \left(\frac{a m}{p_{1} b+p_{1} a}\right)^{a} \left(\frac{b m}{p_{2} b+p_{2} a}\right)^{b}}\over{m}}
+  \label{eq:E15}
+\end{equation}
+
+Differentiate the solved demand function with respect to $m$ directly, and confirm it agrees with the implicit-function-theorem result. The macro returned one answer with nothing to compare it against.
+
+take the partial derivative of E13 with respect to m
+
+\begin{equation}
+  \frac{\partial x_1}{\partial m} = \frac{a}{p_{1} b+p_{1} a}
+  \label{eq:E16}
+\end{equation}
+
+\end{document}

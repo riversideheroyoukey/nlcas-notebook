@@ -1,0 +1,49 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_rotating\_frame}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register the lab-frame spin Hamiltonian $H_{\rm lab}=-\omega_0S^z_1-\omega_1S^x_1$ ($\omega_0$: the Zeeman frequency, $\omega_1$: the strength of the rotating field).
+
+$H_{lab} = -\omega_0 S^z_1 - \omega_1 S^x_1$
+
+\begin{equation}
+  H_{lab} = -\omega_0 S^{z}_{1} - \omega_1 S^{x}_{1}
+  \label{eq:E1}
+\end{equation}
+
+To move into a frame rotating at angular frequency $\omega$, add the frame term $+\omega S^z$ to the lab-frame Hamiltonian, giving the rotating-frame Hamiltonian $H_{\rm rot}$.
+
+$H_{rot} = E1 + \omega S^z_1$
+
+\begin{equation}
+  H_{rot} = \left( \omega - \omega_0 \right) S^{z}_{1} - \omega_1 S^{x}_{1}
+  \label{eq:E2}
+\end{equation}
+
+From the coefficients (field components) of $H_{\rm rot}=-\mathbf B\cdot\mathbf S$, directly find the magnitude of the effective field felt by the spin, $\omega_{\rm eff}=\sqrt{(\omega-\omega_0)^2+\omega_1^2}$.
+
+Find the magnitude of the effective field of E2
+
+\begin{equation}
+  \omega_{\mathrm{eff}} = \sqrt{ \left(\omega - \omega_0\right)^2 + \omega_1^2 }
+  \label{eq:E3}
+\end{equation}
+
+Compute the commutator of the rotating-frame Hamiltonian $H_{\rm rot}$ and $S^z$ to obtain the equation of motion for precession in the rotating frame.
+
+Find the commutator of E2 and $S^z_1$
+
+\begin{equation}
+  [H_{rot}, S^z_1] = i \omega_1 S^{y}_{1}
+  \label{eq:E4}
+\end{equation}
+
+\end{document}

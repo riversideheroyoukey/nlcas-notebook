@@ -1,0 +1,26 @@
+## OCR Domain Hint: Atomic Physics & Spectroscopy
+
+Symbol recognition priorities:
+- Term symbols: a digit superscript BEFORE a capital letter with a subscript
+  (²P₃⁄₂) → ^{2}P_{3/2}.  The letter is S, P, D, F, G, H, I — never a variable.
+- Half-integer subscripts (3/2, 5/2, 1/2) are quantum numbers, not fractions to
+  be simplified; keep them as written.
+- J, F, I, L, S (capitals) → angular-momentum quantum numbers, NOT current,
+  force, inductance or entropy in this domain.
+- m with subscript J or F → \m_J, \m_F (projection quantum number)
+- ⟨j₁m₁j₂m₂|JM⟩ → Clebsch-Gordan coefficient \langle j_1 m_1 j_2 m_2 | J M \rangle
+- A 2x3 array in ROUND brackets → Wigner 3j symbol; in CURLY braces → 6j symbol;
+  a 3x3 array in curly braces → 9j symbol.
+- ⟨j'‖T‖j⟩ with a DOUBLE bar → reduced matrix element (Wigner-Eckart), distinct
+  from the single-bar matrix element ⟨j'|T|j⟩.
+- ζ (zeta) → spin-orbit constant \zeta.  Do not confuse with ξ (xi).
+- μ_B → \mu_B (Bohr magneton); μ_N → \mu_N (nuclear magneton)
+- g with subscript J or F → Landé g factor \g_J, \g_F
+- α (alpha, standalone, no index) → fine-structure constant \alpha
+- ℏ (h-bar) → \hbar
+- Δ before a quantum number (ΔJ, Δm, Δl) → a selection-rule difference, keep the Δ
+
+Common expression patterns:
+- E = A/2 [F(F+1) − I(I+1) − J(J+1)] → hyperfine (Landé) interval rule
+- H = ζ L·S → spin-orbit coupling; the dot is a scalar product of vector operators
+- ΔE = g_J μ_B B m_J → Zeeman splitting

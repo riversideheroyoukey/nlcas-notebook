@@ -1,0 +1,1688 @@
+{
+  "version": "2",
+  "session": {
+    "session_id": "session_438bf962",
+    "title": "scenario_bcs_hamiltonian",
+    "mode": "second_quantization",
+    "primary_backend": "julia_full",
+    "fallback_policy": "ask_before_cross_backend",
+    "show_cas_syntax_to_user": false,
+    "language": [
+      "ja",
+      "en"
+    ],
+    "llm_supervision": {
+      "mode": "on_demand",
+      "model_location": "local",
+      "supervise_before_execution": true,
+      "supervise_after_execution": true,
+      "auto_execute_suggestions": false
+    },
+    "created_at": "2026-09-25T11:56:56.628356Z",
+    "active_branch_id": "main",
+    "domains": [
+      "condensed_matter"
+    ],
+    "coordinate_system": null,
+    "custom_coord_vars": null,
+    "custom_coord_lame": null
+  },
+  "expressions": {
+    "E1": {
+      "expr_uid": "expr_dbcdbc",
+      "display_id": "E1",
+      "branch_id": "main",
+      "latex": "H_BCS = \\xi (c^{\\dagger}(k,u) c(k,u) + c^{\\dagger}(-k,d) c(-k,d)) + \\Delta (c^{\\dagger}(k,u) c^{\\dagger}(-k,d) + c(-k,d) c(k,u))",
+      "canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "created_by_step": "S16",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E2": {
+      "expr_uid": "expr_85bf22",
+      "display_id": "E2",
+      "branch_id": "main",
+      "latex": "\\frac{d c(k,u)}{d t} = - \\Delta \\mathit{i} {c}_{-k,d}^{\\dagger} - \\xi \\mathit{i} {c}_{ku}",
+      "canonical": "_nb_E2",
+      "created_by_step": "S20",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "-Deltai c†(Kd) - xii c(ku)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "xi * (c'(k,u)*c(k,u) + c'(-k,d)*c(-k,d)) + Delta * (c'(k,u)*c'(-k,d) + c(-k,d)*c(k,u))",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E3": {
+      "expr_uid": "expr_ed2a82",
+      "display_id": "E3",
+      "branch_id": "main",
+      "latex": "g(k,u) = u * c(k,u) - v * c^{\\dagger}(-k,d)",
+      "canonical": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "created_by_step": "S23",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E4": {
+      "expr_uid": "expr_fc41e9",
+      "display_id": "E4",
+      "branch_id": "main",
+      "latex": "g(-k,d) = u * c(-k,d) + v * c^{\\dagger}(k,u)",
+      "canonical": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "created_by_step": "S25",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E5": {
+      "expr_uid": "expr_31313b",
+      "display_id": "E5",
+      "branch_id": "main",
+      "latex": "g^{\\dagger}(k,u) = u * c^{\\dagger}(k,u) - v * c(-k,d)",
+      "canonical": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "created_by_step": "S27",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E6": {
+      "expr_uid": "expr_449264",
+      "display_id": "E6",
+      "branch_id": "main",
+      "latex": "g^{\\dagger}(-k,d) = u * c^{\\dagger}(-k,d) + v * c(k,u)",
+      "canonical": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "created_by_step": "S29",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E7": {
+      "expr_uid": "expr_a223b4",
+      "display_id": "E7",
+      "branch_id": "main",
+      "latex": "c_{k,u} = \\frac{g^{\\dagger}_{-k,d} \\cdot v + g_{k,u} \\cdot u}{u^{2} + v^{2}}",
+      "canonical": "(g'(-k,d)*v + g(k,u)*u) / (u^2 + v^2)",
+      "created_by_step": "S33",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(-k,d)*v + g(k,u)*u) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E8": {
+      "expr_uid": "expr_8439c1",
+      "display_id": "E8",
+      "branch_id": "main",
+      "latex": "c_{-k,d} = \\frac{ - g^{\\dagger}_{k,u} \\cdot v + g_{-k,d} \\cdot u}{u^{2} + v^{2}}",
+      "canonical": "(-g'(k,u)*v + g(-k,d)*u) / (u^2 + v^2)",
+      "created_by_step": "S34",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(-g'(k,u)*v + g(-k,d)*u) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E9": {
+      "expr_uid": "expr_84891f",
+      "display_id": "E9",
+      "branch_id": "main",
+      "latex": "c^{\\dagger}_{k,u} = \\frac{g^{\\dagger}_{k,u} \\cdot u + g_{-k,d} \\cdot v}{u^{2} + v^{2}}",
+      "canonical": "(g'(k,u)*u + g(-k,d)*v) / (u^2 + v^2)",
+      "created_by_step": "S35",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(k,u)*u + g(-k,d)*v) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E10": {
+      "expr_uid": "expr_c658cb",
+      "display_id": "E10",
+      "branch_id": "main",
+      "latex": "c^{\\dagger}_{-k,d} = \\frac{g^{\\dagger}_{-k,d} \\cdot u - g_{k,u} \\cdot v}{u^{2} + v^{2}}",
+      "canonical": "(g'(-k,d)*u - g(k,u)*v) / (u^2 + v^2)",
+      "created_by_step": "S36",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": null,
+      "undefined_symbols": [
+        "k",
+        "d"
+      ],
+      "warnings": [],
+      "input_canonical": "(g'(-k,d)*u - g(k,u)*v) / (u^2 + v^2)",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    },
+    "E11": {
+      "expr_uid": "expr_86215c",
+      "display_id": "E11",
+      "branch_id": "main",
+      "latex": "H_BCS = \\left(2 \\frac{v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}}\\right)  + \\left( - \\frac{u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\Delta \\left( \\frac{ - v^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{u^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} \\right)\\right) {g}_{-k,d}^{\\dagger} {g}_{ku}^{\\dagger} + \\left(\\frac{u^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\frac{v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} - \\frac{2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}}\\right) {g}_{-k,d}^{\\dagger} {g}_{-k,d} + \\left(\\frac{u^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - 2 \\Delta u v}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{ - v^{2} \\xi}{\\left( u^{2} + v^{2} \\right)^{2}}\\right) {g}_{ku}^{\\dagger} {g}_{ku} + \\left(2 \\frac{u v \\xi}{\\left( u^{2} + v^{2} \\right)^{2}} + \\Delta \\left( \\frac{ - v^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} + \\frac{u^{2}}{\\left( u^{2} + v^{2} \\right)^{2}} \\right)\\right) {g}_{-k,d} {g}_{ku}",
+      "canonical": "_nb_E11",
+      "created_by_step": "S40",
+      "simplification_log": [],
+      "quantity_name": null,
+      "derivative_vars": [],
+      "derivative_is_partial": false,
+      "derivative_origin": null,
+      "cas_repr": "(2(((v^2)*xi) / ((u^2 + v^2)^2)) + (2Delta*u*v) / ((u^2 + v^2)^2)) + (-((u*v*xi) / ((u^2 + v^2)^2)) + (-u*v*xi) / ((u^2 + v^2)^2) - Delta*((-(v^2)) / ((u^2 + v^2)^2) + (u^2) / ((u^2 + v^2)^2))) g†(Kd) g†(ku) + (((u^2)*xi) / ((u^2 + v^2)^2) - (((v^2)*xi) / ((u^2 + v^2)^2)) - ((2Delta*u*v) / ((u^2 + v^2)^2))) g†(Kd) g(Kd) + (((u^2)*xi) / ((u^2 + v^2)^2) + (-2Delta*u*v) / ((u^2 + v^2)^2) + (-(v^2)*xi) / ((u^2 + v^2)^2)) g†(ku) g(ku) + (2((u*v*xi) / ((u^2 + v^2)^2)) + Delta*((-(v^2)) / ((u^2 + v^2)^2) + (u^2) / ((u^2 + v^2)^2))) g(Kd) g(ku)",
+      "undefined_symbols": [],
+      "warnings": [],
+      "input_canonical": "",
+      "sum_index_hint": "",
+      "sympy_canonical": null,
+      "hidden": false,
+      "internal": false,
+      "lattice_descriptor": null,
+      "integral_descriptor": null,
+      "pair_representation": null,
+      "extremum_descriptor": null,
+      "angular_descriptor": null,
+      "free_parameters": []
+    }
+  },
+  "assumptions": {},
+  "steps": {
+    "S1": {
+      "step_id": "S1",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [],
+      "timestamp": "2026-09-25T11:56:57.477377Z",
+      "user_text": "BCSハミルトニアンを組み立てるための演算子・パラメータを準備する。$c$ は運動量 $k$・スピン $\\sigma$（$u=\\uparrow$, $d=\\downarrow$）を持つ電子の消滅演算子。$g$ はこのあと Bogoliubov 変換で導入する準粒子の消滅演算子（特定の粒子種を持たないため、電子とは別に汎用フェルミオン演算子として宣言する）。$u, v$ は Bogoliubov 変換の係数（後で $u^2+v^2=1$ などの条件を課す）。$\\xi_k$（xi）は電子の運動エネルギー（化学ポテンシャルからの相対値）、$\\Delta$（Delta）はクーパー対を結びつけるペアポテンシャル（超伝導ギャップ）を表すスカラーパラメータ。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S2": {
+      "step_id": "S2",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:56:57.477616Z",
+      "user_text": "c を電子の消滅演算子として定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S3": {
+      "step_id": "S3",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:56:57.478879Z",
+      "user_text": "c を電子の消滅演算子として定義して",
+      "visible_action": "LLM解釈: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c",
+        "_op_expr_display": "c",
+        "_particle_name": "電子",
+        "_particle_key": "electron",
+        "_op_type_key": "annihilation"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S4": {
+      "step_id": "S4",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S1"
+      ],
+      "timestamp": "2026-09-25T11:56:57.695792Z",
+      "user_text": null,
+      "visible_action": "フェルミオン演算子を定義する",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "c"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops c; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S5": {
+      "step_id": "S5",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:56:57.696109Z",
+      "user_text": "g をフェルミオン演算子として定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S6": {
+      "step_id": "S6",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:56:57.696823Z",
+      "user_text": "g をフェルミオン演算子として定義して",
+      "visible_action": "LLM解釈: define_fermion_operator",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "g",
+        "_op_expr_display": "g",
+        "_op_kind": "fermion"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S7": {
+      "step_id": "S7",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S4"
+      ],
+      "timestamp": "2026-09-25T11:56:57.697826Z",
+      "user_text": null,
+      "visible_action": "フェルミオン演算子を定義する",
+      "operation": "define_fermion_operator",
+      "operation_args": {
+        "name": "g"
+      },
+      "backend": "julia_full",
+      "rendered_command": "@fermion_ops g; nothing",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S8": {
+      "step_id": "S8",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:56:57.697983Z",
+      "user_text": "u, v をスカラーパラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S9": {
+      "step_id": "S9",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:56:57.698576Z",
+      "user_text": "u, v をスカラーパラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "u",
+        "_all_names": [
+          "u",
+          "v"
+        ],
+        "_raw_names": [
+          "u",
+          "v"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S10": {
+      "step_id": "S10",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S7"
+      ],
+      "timestamp": "2026-09-25T11:56:58.200187Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "u",
+        "registered_names": [
+          "u",
+          "v"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables u",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S11": {
+      "step_id": "S11",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:56:58.200635Z",
+      "user_text": "xi, Delta をスカラーパラメータとして定義して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S12": {
+      "step_id": "S12",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:56:58.201433Z",
+      "user_text": "xi, Delta をスカラーパラメータとして定義して",
+      "visible_action": "LLM解釈: define_scalar_parameter",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "xi",
+        "_all_names": [
+          "xi",
+          "Delta"
+        ],
+        "_raw_names": [
+          "xi",
+          "Delta"
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S13": {
+      "step_id": "S13",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S10"
+      ],
+      "timestamp": "2026-09-25T11:56:58.203972Z",
+      "user_text": null,
+      "visible_action": "スカラーパラメータを定義する",
+      "operation": "define_scalar_parameter",
+      "operation_args": {
+        "name": "xi",
+        "registered_names": [
+          "xi",
+          "Delta"
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "@variables xi",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S14": {
+      "step_id": "S14",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S13"
+      ],
+      "timestamp": "2026-09-25T11:56:58.204288Z",
+      "user_text": "平均場BCSハミルトニアンを登録する。第1項 $\\xi_k(c^\\dagger_{k\\uparrow}c_{k\\uparrow}+c^\\dagger_{-k\\downarrow}c_{-k\\downarrow})$ は電子の運動エネルギー、第2項 $\\Delta(c^\\dagger_{k\\uparrow}c^\\dagger_{-k\\downarrow}+c_{-k\\downarrow}c_{k\\uparrow})$ はクーパー対の生成・消滅を表すペアポテンシャル項。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S15": {
+      "step_id": "S15",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:56:58.204341Z",
+      "user_text": "H_BCS = xi * (c'(k,u) c(k,u) + c'(-k,d) c(-k,d)) + Delta * (c'(k,u) c'(-k,d) + c(-k,d) c(k,u))",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S16": {
+      "step_id": "S16",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S14"
+      ],
+      "timestamp": "2026-09-25T11:56:58.206121Z",
+      "user_text": null,
+      "visible_action": "E1 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E1"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "h1_equation"
+    },
+    "S17": {
+      "step_id": "S17",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S16"
+      ],
+      "timestamp": "2026-09-25T11:56:58.206403Z",
+      "user_text": "運動方程式（ハイゼンベルク方程式 $dc/dt=i[H,c]$）を $c(k,u)$ について求め、この演算子が H_BCS とどのように結びついているかを確認する。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S18": {
+      "step_id": "S18",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:56:58.206443Z",
+      "user_text": "c(k,u) の Heisenberg 方程式 E1",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S19": {
+      "step_id": "S19",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:56:58.207844Z",
+      "user_text": "c(k,u) の Heisenberg 方程式 E1",
+      "visible_action": "LLM解釈: heisenberg_equation",
+      "operation": "heisenberg_equation",
+      "operation_args": {
+        "operator": "c(k,u)",
+        "hamiltonian": "E1"
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S20": {
+      "step_id": "S20",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S17"
+      ],
+      "timestamp": "2026-09-25T11:57:00.916193Z",
+      "user_text": null,
+      "visible_action": "c(k,u) のハイゼンベルク方程式を作る",
+      "operation": "heisenberg_equation",
+      "operation_args": {
+        "operator": "c(k,u)",
+        "hamiltonian": "E1"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E2 = (_nb_eval_site_deltas(normal_form(heisenberg_eom(c(:k, :u), xi * (c'(:k, :u) * c(:k, :u) + c'(_QA.QuIndex(\"K\"), :d) * c(_QA.QuIndex(\"K\"), :d)) + Delta * (c'(:k, :u) * c'(_QA.QuIndex(\"K\"), :d) + c(_QA.QuIndex(\"K\"), :d) * c(:k, :u))))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E2"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S21": {
+      "step_id": "S21",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S20"
+      ],
+      "timestamp": "2026-09-25T11:57:00.916999Z",
+      "user_text": "Bogoliubov 変換（準粒子への基底変換）を、電子演算子とその随伴すべてを含む Nambu スピノル形式の4本まとめて定義する（ダガーは自動生成しない設計のため、生成演算子側の式も明示的に書く）。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S22": {
+      "step_id": "S22",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:00.917059Z",
+      "user_text": "g(k,u) = u * c(k,u) - v * c'(-k,d)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S23": {
+      "step_id": "S23",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S21"
+      ],
+      "timestamp": "2026-09-25T11:57:00.917964Z",
+      "user_text": null,
+      "visible_action": "E3 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E3"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S24": {
+      "step_id": "S24",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:00.918171Z",
+      "user_text": "g(-k,d) = u * c(-k,d) + v * c'(k,u)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S25": {
+      "step_id": "S25",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S23"
+      ],
+      "timestamp": "2026-09-25T11:57:00.918928Z",
+      "user_text": null,
+      "visible_action": "E4 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E4"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S26": {
+      "step_id": "S26",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:00.919128Z",
+      "user_text": "g'(k,u) = u * c'(k,u) - v * c(-k,d)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S27": {
+      "step_id": "S27",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S25"
+      ],
+      "timestamp": "2026-09-25T11:57:00.919878Z",
+      "user_text": null,
+      "visible_action": "E5 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E5"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S28": {
+      "step_id": "S28",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:00.920076Z",
+      "user_text": "g'(-k,d) = u * c'(-k,d) + v * c(k,u)",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S29": {
+      "step_id": "S29",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S27"
+      ],
+      "timestamp": "2026-09-25T11:57:00.920827Z",
+      "user_text": null,
+      "visible_action": "E6 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E6"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S30": {
+      "step_id": "S30",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S29"
+      ],
+      "timestamp": "2026-09-25T11:57:00.921005Z",
+      "user_text": "先に定義した4本の変換式を、電子演算子 c(k,u), c(-k,d), c'(k,u), c'(-k,d) について解き直し（逆変換）、準粒子演算子gで電子演算子を表す式を得る。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S31": {
+      "step_id": "S31",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:00.921047Z",
+      "user_text": "E3, E4, E5, E6 を c(k,u), c(-k,d), c'(k,u), c'(-k,d) について逆変換して",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S32": {
+      "step_id": "S32",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S30"
+      ],
+      "timestamp": "2026-09-25T11:57:05.983152Z",
+      "user_text": null,
+      "visible_action": "逆変換を作る",
+      "operation": "build_inverse_transform",
+      "operation_args": {
+        "equations": "E3, E4, E5, E6",
+        "vars": "c(k,u), c(-k,d), c'(k,u), c'(-k,d)",
+        "new_basis": "g(k,u), g(-k,d), g'(k,u), g'(-k,d)"
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E7 = (let\n    @variables nbA_g_k_u nbA_g__k_d nbA_gD_k_u nbA_gD__k_d nbA_c_k_u nbA_c__k_d nbA_cD_k_u nbA_cD__k_d\n    _sols = Symbolics.simplify.(Symbolics.solve_for([nbA_g_k_u ~ u * nbA_c_k_u - v * nbA_cD__k_d, nbA_g__k_d ~ u * nbA_c__k_d + v * nbA_cD_k_u, nbA_gD_k_u ~ u * nbA_cD_k_u - v * nbA_c__k_d, nbA_gD__k_d ~ u * nbA_cD__k_d + v * nbA_c_k_u], [nbA_c_k_u, nbA_c__k_d, nbA_cD_k_u, nbA_cD__k_d]))\n    replace(join([\"c(k,u)\", \"c(-k,d)\", \"c'(k,u)\", \"c'(-k,d)\"] .* \" = \" .* string.(_sols), \", \"), \"nbA_g_k_u\" => \"g(k,u)\", \"nbA_c_k_u\" => \"c(k,u)\", \"nbA_cD__k_d\" => \"c'(-k,d)\", \"nbA_g__k_d\" => \"g(-k,d)\", \"nbA_c__k_d\" => \"c(-k,d)\", \"nbA_cD_k_u\" => \"c'(k,u)\", \"nbA_gD_k_u\" => \"g'(k,u)\", \"nbA_gD__k_d\" => \"g'(-k,d)\")\nend)",
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7",
+        "E8",
+        "E9",
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S33": {
+      "step_id": "S33",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:05.984502Z",
+      "user_text": null,
+      "visible_action": "E7 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E7"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S34": {
+      "step_id": "S34",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:05.985200Z",
+      "user_text": null,
+      "visible_action": "E8 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E8"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S35": {
+      "step_id": "S35",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:05.985860Z",
+      "user_text": null,
+      "visible_action": "E9 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E9"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S36": {
+      "step_id": "S36",
+      "kind": "expression_registration",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:05.986512Z",
+      "user_text": null,
+      "visible_action": "E10 を登録する",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [
+        "E10"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": "inverse_transform"
+    },
+    "S37": {
+      "step_id": "S37",
+      "kind": "manual_note",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S32"
+      ],
+      "timestamp": "2026-09-25T11:57:05.986837Z",
+      "user_text": "得られた逆変換の結果を BCS ハミルトニアンへ代入し、準粒子演算子 $g$ で表されたハミルトニアンを得る。対生成項 $g^\\dagger_{-k\\downarrow}g^\\dagger_{k\\uparrow}$ の係数がゼロになるよう $u, v$ を選ぶ（Bogoliubov 条件）と、ハミルトニアンは準粒子数演算子 $g^\\dagger g$ のみの対角形になる。",
+      "visible_action": "メモ",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S38": {
+      "step_id": "S38",
+      "kind": "user_input",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:05.986892Z",
+      "user_text": "E1 の c(k,u) に E7 を、c(-k,d) に E8 を代入する",
+      "visible_action": "利用者入力",
+      "operation": null,
+      "operation_args": {},
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S39": {
+      "step_id": "S39",
+      "kind": "llm_supervision",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:05.987523Z",
+      "user_text": "E1 の c(k,u) に E7 を、c(-k,d) に E8 を代入する",
+      "visible_action": "LLM解釈: operator_substitute",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E1",
+        "op_rules": [
+          {
+            "op_name": "c",
+            "formal_index": "k",
+            "spin_label": "u",
+            "rhs": "E7"
+          },
+          {
+            "op_name": "c",
+            "formal_index": "-k",
+            "spin_label": "d",
+            "rhs": "E8"
+          }
+        ]
+      },
+      "backend": null,
+      "rendered_command": null,
+      "show_command_to_user": false,
+      "input_refs": [],
+      "output_refs": [],
+      "state_affecting": false,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    },
+    "S40": {
+      "step_id": "S40",
+      "kind": "cas_operation",
+      "branch_id": "main",
+      "parent_step_ids": [
+        "S37"
+      ],
+      "timestamp": "2026-09-25T11:57:07.142494Z",
+      "user_text": null,
+      "visible_action": "E1 を演算子代入",
+      "operation": "operator_substitute",
+      "operation_args": {
+        "expr": "E1",
+        "op_rules": [
+          {
+            "op_name": "c",
+            "formal_index": "k",
+            "spin_label": "u",
+            "rhs": "E7"
+          },
+          {
+            "op_name": "c",
+            "formal_index": "-k",
+            "spin_label": "d",
+            "rhs": "E8"
+          }
+        ]
+      },
+      "backend": "julia_full",
+      "rendered_command": "_nb_E11 = (_nb_eval_site_deltas(normal_form(xi * ((u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) + u * adjoint(g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")))) * (g'(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * v + g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * u) * (u^2 + v^2)^-1 + (u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * -1 + u * adjoint(g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")))) * (-g'(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * v + g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * u) * (u^2 + v^2)^-1) + Delta * ((u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) + u * adjoint(g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")))) * (u^2 + v^2)^-1 * (v * g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * -1 + u * adjoint(g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")))) + (-g'(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * v + g(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * u) * (u^2 + v^2)^-1 * (g'(_QA.QuIndex(\"K\"), _QA.QuIndex(\"d\")) * v + g(_QA.QuIndex(\"k\"), _QA.QuIndex(\"u\")) * u) * (u^2 + v^2)^-1))))",
+      "show_command_to_user": false,
+      "input_refs": [
+        "E1"
+      ],
+      "output_refs": [
+        "E11"
+      ],
+      "state_affecting": true,
+      "status": "success",
+      "user_confirmation": null,
+      "route": null
+    }
+  },
+  "branches": {
+    "main": {
+      "branch_id": "main",
+      "label": "main",
+      "root_step_id": null,
+      "head_step_id": "S40",
+      "forked_from_step_id": null,
+      "created_at": "2026-09-25T11:56:56.628372Z",
+      "primary_backend": "inherit"
+    }
+  },
+  "quantity_registry": {
+    "c": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "g": {
+      "quantity": {
+        "name": "g",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "u": {
+      "quantity": {
+        "name": "u",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "v": {
+      "quantity": {
+        "name": "v",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "xi": {
+      "quantity": {
+        "name": "xi",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "Delta": {
+      "quantity": {
+        "name": "Delta",
+        "kind": "scalar",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "H_BCS": {
+      "quantity": {
+        "name": "H_BCS",
+        "kind": "anonymous",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": "E11",
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "bose"
+      }
+    },
+    "c'": {
+      "quantity": {
+        "name": "c",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    },
+    "g'": {
+      "quantity": {
+        "name": "g",
+        "kind": "operator",
+        "math_type": {
+          "algebra": "scalar",
+          "shape": null,
+          "field": "complex",
+          "properties": [],
+          "space": null
+        },
+        "index_lowering_style": null,
+        "natural_vars": [],
+        "components": [],
+        "coordinate_system": null,
+        "algebraic_context": null,
+        "defining_expr_id": null,
+        "conjugate_of": null,
+        "held_fixed": [],
+        "time_dependent": false,
+        "time_parameter": "t",
+        "notation": "dot",
+        "latex_name": null,
+        "domain": null,
+        "sign": null,
+        "symmetry": null
+      },
+      "statistics": {
+        "kind": "fermi"
+      }
+    }
+  },
+  "notation_usage": {},
+  "canonical_pairs": [],
+  "spin_display_styles": {},
+  "site_spins": {},
+  "spin_projections": {
+    "c": [
+      -1,
+      1
+    ]
+  },
+  "indexed_bases": {},
+  "called_bases": [],
+  "einstein_summation": false,
+  "lhs_alias_map": {
+    "H_BCS": "E11",
+    "\\frac{d c(k,u)}{d t}": "E2",
+    "((d*c(k,u))/(d*t))": "E2",
+    "g(k,u)": "E3",
+    "g(-k,d)": "E4",
+    "g^{\\dagger}(k,u)": "E5",
+    "g'(k,u)": "E5",
+    "g^{\\dagger}(-k,d)": "E6",
+    "g'(-k,d)": "E6",
+    "c(k,u)": "E7",
+    "c(-k,d)": "E8",
+    "c'(k,u)": "E9",
+    "c'(-k,d)": "E10"
+  },
+  "expr_counter": 11,
+  "internal_counter": 0,
+  "sum_bound_counter": 0,
+  "sum_bound_pairs": {},
+  "step_counter": 40,
+  "branch_counter": 0,
+  "numeric_tasks": {},
+  "numeric_artifacts": {},
+  "numeric_executions": {},
+  "numeric_counter": 0,
+  "plans": {},
+  "plan_counter": 0
+}

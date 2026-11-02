@@ -1,0 +1,3697 @@
+{
+  "_meta": {
+    "version": "0.3.0",
+    "description": "Registry of all common operations in the notebook engine. Backend-independent. Each entry defines one operation that can be mapped to a CAS command by a backend builder.",
+    "spec_section": "11"
+  },
+  "operations": [
+    {
+      "operation": "define_function",
+      "feature": "definition",
+      "display": {
+        "ja": "定義する",
+        "en": "define function"
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [],
+      "supported_backends": [
+        "maxima"
+      ],
+      "aliases": {
+        "ja": [
+          "定義",
+          "定義する",
+          "関数定義",
+          "関数として定義",
+          "関数を定義する",
+          "定義せよ"
+        ],
+        "en": [
+          "define",
+          "define function",
+          "define as"
+        ]
+      }
+    },
+    {
+      "operation": "multiply_both_sides",
+      "feature": "equation_manipulation",
+      "display": {
+        "ja": "両辺に乗じる",
+        "en": "multiply both sides"
+      },
+      "required_fields": [
+        "expr",
+        "factor"
+      ],
+      "optional_fields": [
+        "side"
+      ],
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ],
+      "aliases": {
+        "ja": [
+          "両辺にかける",
+          "両辺に掛ける",
+          "両辺を掛ける",
+          "両辺にかけて",
+          "両辺を乗じる",
+          "かける",
+          "掛ける",
+          "かけて"
+        ],
+        "en": [
+          "multiply both sides",
+          "multiply by",
+          "times both sides"
+        ]
+      }
+    },
+    {
+      "operation": "add_to_both_sides",
+      "feature": "equation_manipulation",
+      "display": {
+        "ja": "両辺に加える",
+        "en": "add to both sides"
+      },
+      "required_fields": [
+        "expr",
+        "term"
+      ],
+      "optional_fields": [],
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ],
+      "aliases": {
+        "ja": [
+          "両辺に加える",
+          "両辺に足す",
+          "両辺に加えて",
+          "両辺に足して",
+          "加える",
+          "加えて",
+          "足す",
+          "足して"
+        ],
+        "en": [
+          "add to both sides",
+          "add to both",
+          "plus both sides",
+          "add"
+        ]
+      }
+    },
+    {
+      "operation": "subtract_from_both_sides",
+      "feature": "equation_manipulation",
+      "display": {
+        "ja": "両辺から引く",
+        "en": "subtract from both sides"
+      },
+      "required_fields": [
+        "expr",
+        "term"
+      ],
+      "optional_fields": [],
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ],
+      "aliases": {
+        "ja": [
+          "両辺から引く",
+          "両辺を引く",
+          "両辺から引いて",
+          "両辺を引いて",
+          "引く",
+          "引いて"
+        ],
+        "en": [
+          "subtract from both sides",
+          "subtract from both",
+          "minus both sides"
+        ]
+      }
+    },
+    {
+      "operation": "divide_both_sides",
+      "feature": "equation_manipulation",
+      "display": {
+        "ja": "両辺を割る",
+        "en": "divide both sides"
+      },
+      "required_fields": [
+        "expr",
+        "factor"
+      ],
+      "optional_fields": [],
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ],
+      "aliases": {
+        "ja": [
+          "両辺を割る",
+          "両辺で割る",
+          "両辺を割って",
+          "両辺で割って",
+          "割る",
+          "割って",
+          "で割る",
+          "で割って"
+        ],
+        "en": [
+          "divide both sides",
+          "divide by",
+          "divide both",
+          "divide"
+        ]
+      }
+    },
+    {
+      "operation": "substitute",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "代入する",
+        "en": "substitute"
+      },
+      "aliases": {
+        "en": [
+          "substitute",
+          "subst",
+          "replace",
+          "plug in",
+          "plug"
+        ],
+        "ja": [
+          "代入",
+          "代入する",
+          "置換",
+          "置換する",
+          "を代入",
+          "に代入",
+          "で置き換え",
+          "に置き換え"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "lhs",
+        "rhs"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "operator_substitute",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "演算子代入",
+        "en": "operator substitution"
+      },
+      "aliases": {
+        "en": [
+          "operator substitute",
+          "operator substitution",
+          "bogoliubov transform",
+          "operator replace"
+        ],
+        "ja": [
+          "演算子代入",
+          "演算子を代入",
+          "演算子で置き換え",
+          "演算子の置き換え",
+          "ボゴリューボフ変換",
+          "ボゴリューボフ変換を適用"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "required_one_of": [
+        [
+          "op_name",
+          "rhs"
+        ],
+        [
+          "op_rules"
+        ]
+      ],
+      "optional_fields": [
+        "op_name",
+        "rhs",
+        "formal_index",
+        "op_rules",
+        "exact_index",
+        "spin_label"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "operator_substitute_pair",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "Nambu対演算子代入",
+        "en": "Nambu paired operator substitution"
+      },
+      "aliases": {
+        "en": [
+          "nambu substitute",
+          "paired operator substitute",
+          "bogoliubov pair transform",
+          "operator substitute pair"
+        ],
+        "ja": [
+          "Nambu演算子代入",
+          "対演算子代入",
+          "ボゴリューボフ対置換"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "op_name",
+        "rhs",
+        "rhs_neg"
+      ],
+      "optional_fields": [
+        "formal_index"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "pair_substitute",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "演算子ペア → c-number 置換",
+        "en": "Operator-pair to c-number substitution"
+      },
+      "aliases": {
+        "en": [
+          "mean field decoupling",
+          "pair decoupling",
+          "operator pair substitute",
+          "replace operator pair",
+          "hartree fock decoupling",
+          "mean field approximation",
+          "pair substitute"
+        ],
+        "ja": [
+          "演算子ペア代入",
+          "ペア置換",
+          "平均場デカップリング",
+          "演算子積置換",
+          "Hartree-Fock近似",
+          "平均場近似",
+          "期待値で置換"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "pair_rules"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "wick_contract",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "Wick 収縮",
+        "en": "Wick contraction"
+      },
+      "aliases": {
+        "en": [
+          "wick contraction",
+          "hartree fock bogoliubov decoupling",
+          "hfb decoupling",
+          "mean field decoupling wick",
+          "operator contraction",
+          "wick contract"
+        ],
+        "ja": [
+          "Wick収縮",
+          "Wick展開",
+          "平均場デカップリング",
+          "HFBデカップリング",
+          "演算子収縮"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "contraction_rules"
+      ],
+      "optional_fields": [
+        "include_constant"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "expand_neighbor_sum",
+      "feature": "lattice",
+      "display": {
+        "ja": "最近接和を展開する",
+        "en": "expand nearest-neighbor sum"
+      },
+      "aliases": {
+        "en": [
+          "nearest neighbor sum",
+          "expand bond sum",
+          "nearest-neighbor interaction",
+          "1d chain sum",
+          "lattice nn sum",
+          "expand neighbor sum"
+        ],
+        "ja": [
+          "最近接和を展開",
+          "隣接和を展開",
+          "最近接相互作用和",
+          "最近接和",
+          "隣接相互作用和",
+          "1次元鎖に展開",
+          "格子和を展開"
+        ]
+      },
+      "required_fields": [
+        "body",
+        "index1",
+        "index2"
+      ],
+      "optional_fields": [
+        "n_sites",
+        "boundary",
+        "pair_constraint",
+        "lattice_shape",
+        "edges",
+        "pin_site"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full",
+        "maxima"
+      ]
+    },
+    {
+      "operation": "re_evaluate_expr",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "式を再評価する",
+        "en": "re-evaluate expression"
+      },
+      "aliases": {
+        "en": [
+          "re_evaluate_expr",
+          "re-evaluate",
+          "re evaluate",
+          "update expression",
+          "expand with values",
+          "substitute and evaluate",
+          "re evaluate expr"
+        ],
+        "ja": [
+          "再評価",
+          "再評価する",
+          "値で展開して",
+          "の値で展開",
+          "定義値で展開",
+          "最新の値で展開",
+          "シンボルを代入して展開",
+          "で更新して",
+          "を更新して"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "substitutions"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "operator_taylor_expand",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "演算子関数のテイラー展開",
+        "en": "operator Taylor expansion"
+      },
+      "aliases": {
+        "en": [
+          "operator taylor expand",
+          "operator function expansion",
+          "apply function to operator",
+          "operator exponential"
+        ],
+        "ja": [
+          "演算子関数のテイラー展開",
+          "演算子のテイラー展開",
+          "演算子に関数を適用",
+          "演算子指数関数",
+          "演算子の冪級数展開"
+        ]
+      },
+      "required_fields": [
+        "func",
+        "op",
+        "var",
+        "order"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "extract_order",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "n次の項を取り出す",
+        "en": "extract order n"
+      },
+      "aliases": {
+        "en": [
+          "extract order",
+          "coefficient of order",
+          "nth order term",
+          "order n coefficient",
+          "extract nth order"
+        ],
+        "ja": [
+          "n次の係数",
+          "n次の項",
+          "次の係数を取り出す",
+          "次数の項",
+          "係数を取り出す",
+          "n次項"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "order"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "truncate_series",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "高次項を打ち切る",
+        "en": "truncate series"
+      },
+      "aliases": {
+        "en": [
+          "truncate series",
+          "truncate at order",
+          "drop higher order",
+          "keep up to order",
+          "truncate perturbation"
+        ],
+        "ja": [
+          "高次項を打ち切る",
+          "次以上を打ち切る",
+          "次以上を無視する",
+          "次まで残す",
+          "摂動展開を打ち切る",
+          "高次を無視"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "order"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "collect_by_operators",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "演算子でまとめる",
+        "en": "collect by operators"
+      },
+      "aliases": {
+        "ja": [
+          "演算子でまとめる",
+          "同類項をまとめる",
+          "演算子係数でまとめる"
+        ],
+        "en": [
+          "collect by operators",
+          "group by operators",
+          "factor out operators"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "collect_spin_pm",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "Sp/Smでまとめ直す",
+        "en": "collect in ladder basis"
+      },
+      "aliases": {
+        "ja": [
+          "Sp/Smでまとめ直す",
+          "梯子演算子でまとめる",
+          "梯子演算子でまとめ直す",
+          "Sp/Smの記法でまとめる"
+        ],
+        "en": [
+          "collect spin ladder",
+          "rewrite in ladder operators",
+          "express using ladder operators",
+          "collect spin pm"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "sp",
+        "sm"
+      ],
+      "optional_fields": [
+        "sp_label",
+        "sm_label"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "use_relation",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "関係式を使う",
+        "en": "use relation"
+      },
+      "aliases": {
+        "en": [
+          "use_relation",
+          "apply_relation",
+          "use relation"
+        ],
+        "ja": [
+          "関係式を使う",
+          "関係式を適用"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "relation_ref"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "simplify",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "簡約する",
+        "en": "simplify"
+      },
+      "aliases": {
+        "en": [
+          "simplify",
+          "reduce"
+        ],
+        "ja": [
+          "簡約",
+          "簡約する",
+          "単純化",
+          "単純化する",
+          "簡単にする",
+          "簡単に",
+          "簡略化",
+          "簡略化する",
+          "簡略",
+          "簡単"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "rational_simplify",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "有理式として約分・通分する",
+        "en": "rationally simplify"
+      },
+      "aliases": {
+        "en": [
+          "rational_simplify",
+          "ratsimp",
+          "simplify_rational",
+          "rational simplify"
+        ],
+        "ja": [
+          "有理簡約",
+          "有理簡約する",
+          "有理式として簡約",
+          "有理式簡約",
+          "有理式簡約する",
+          "約分",
+          "通分",
+          "有理式を簡約"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "expand",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "展開する",
+        "en": "expand"
+      },
+      "aliases": {
+        "en": [
+          "expand"
+        ],
+        "ja": [
+          "展開",
+          "展開する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "factor",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "因数分解する",
+        "en": "factor"
+      },
+      "aliases": {
+        "en": [
+          "factor",
+          "factorize",
+          "factorise"
+        ],
+        "ja": [
+          "因数分解",
+          "因数分解する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "collect",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "変数についてまとめる",
+        "en": "collect"
+      },
+      "aliases": {
+        "en": [
+          "collect",
+          "group_by"
+        ],
+        "ja": [
+          "まとめる",
+          "整理",
+          "整理する",
+          "変数についてまとめる"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "radical_simplify",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "根号を簡約する",
+        "en": "simplify radicals"
+      },
+      "aliases": {
+        "en": [
+          "radical_simplify",
+          "radcan",
+          "radical simplify"
+        ],
+        "ja": [
+          "根号を簡約",
+          "根号を簡約する",
+          "ルートを整理",
+          "根号整理"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "partial_fraction",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "部分分数分解する",
+        "en": "partial fraction decomposition"
+      },
+      "aliases": {
+        "en": [
+          "partial_fraction",
+          "partfrac",
+          "partial fraction"
+        ],
+        "ja": [
+          "部分分数",
+          "部分分数分解",
+          "部分分数分解する"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "log_contract",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "対数をまとめる",
+        "en": "contract logarithms"
+      },
+      "aliases": {
+        "en": [
+          "log_contract",
+          "logcontract",
+          "log contract"
+        ],
+        "ja": [
+          "対数をまとめる",
+          "対数を整理",
+          "ログをまとめる"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "trig_simplify",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "三角関数を簡約する",
+        "en": "trigonometric simplify"
+      },
+      "aliases": {
+        "en": [
+          "trig_simplify",
+          "trigsimp",
+          "simplify_trig",
+          "trig simplify"
+        ],
+        "ja": [
+          "三角簡約",
+          "三角関数を簡約",
+          "三角関数で簡約する",
+          "三角関数を整理"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "trig_expand",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "三角関数を展開する",
+        "en": "expand trigonometric"
+      },
+      "aliases": {
+        "en": [
+          "trig_expand",
+          "trigexpand",
+          "trig expand"
+        ],
+        "ja": [
+          "三角展開",
+          "三角関数を展開",
+          "三角関数を展開する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "trig_reduce",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "三角関数を縮約する",
+        "en": "reduce trigonometric"
+      },
+      "aliases": {
+        "en": [
+          "trig_reduce",
+          "trigreduce",
+          "trig reduce"
+        ],
+        "ja": [
+          "三角縮約",
+          "三角関数を縮約",
+          "三角関数を縮約する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": "simplification",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "trig_to_exponential",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "三角関数を指数形式にする",
+        "en": "convert trig to exponential"
+      },
+      "aliases": {
+        "en": [
+          "trig_to_exponential",
+          "exponentialize",
+          "trig to exponential"
+        ],
+        "ja": [
+          "指数形式に変換",
+          "オイラー形式",
+          "三角関数を指数化"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "solve_equation",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "方程式を解く",
+        "en": "solve equation"
+      },
+      "aliases": {
+        "en": [
+          "solve_equation",
+          "solve",
+          "solve equation"
+        ],
+        "ja": [
+          "方程式を解く",
+          "解く",
+          "解を求める"
+        ]
+      },
+      "required_fields": [
+        "equation",
+        "var"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "solve_ode_general",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "微分方程式の一般解を求める",
+        "en": "general solution of an ODE"
+      },
+      "aliases": {
+        "en": [
+          "solve_ode_general",
+          "general_solution",
+          "solve ode general"
+        ],
+        "ja": [
+          "一般解を求める",
+          "一般に解く"
+        ]
+      },
+      "required_fields": [
+        "equation",
+        "depvar",
+        "indepvar"
+      ],
+      "optional_fields": [
+        "const_names"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "solve_system",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "連立方程式を解く",
+        "en": "solve system"
+      },
+      "aliases": {
+        "en": [
+          "solve_system",
+          "solve system"
+        ],
+        "ja": [
+          "連立方程式を解く",
+          "連立方程式",
+          "連立を解く"
+        ]
+      },
+      "required_fields": [
+        "equations",
+        "vars"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "build_inverse_transform",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "逆変換を作る",
+        "en": "build inverse transform"
+      },
+      "aliases": {
+        "en": [
+          "build_inverse_transform",
+          "build inverse transform"
+        ],
+        "ja": [
+          "逆変換を作る",
+          "逆変換",
+          "逆基底変換"
+        ]
+      },
+      "required_fields": [
+        "equations",
+        "vars"
+      ],
+      "optional_fields": [
+        "new_basis",
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "derive_metric_constraints",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "計量保存条件を求める",
+        "en": "derive metric-preservation constraints"
+      },
+      "aliases": {
+        "en": [
+          "derive_metric_constraints",
+          "derive metric constraints"
+        ],
+        "ja": [
+          "計量保存条件",
+          "直交条件",
+          "計量を保つ条件"
+        ]
+      },
+      "required_fields": [
+        "forward",
+        "basis",
+        "gram"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "apply_canonical_constraints",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "拘束を適用して簡約",
+        "en": "reduce under constraints"
+      },
+      "aliases": {
+        "en": [
+          "apply_canonical_constraints",
+          "apply canonical constraints"
+        ],
+        "ja": [
+          "拘束を適用",
+          "拘束のもとで簡約",
+          "正準拘束を適用"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "relations"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "numeric_solve",
+      "feature": "equation_solving",
+      "display": {
+        "ja": "数値的に解く",
+        "en": "solve numerically"
+      },
+      "aliases": {
+        "en": [
+          "numeric_solve",
+          "nsolve",
+          "solve_numerically",
+          "numeric solve"
+        ],
+        "ja": [
+          "数値解",
+          "数値的に解く",
+          "数値計算で解く"
+        ]
+      },
+      "required_fields": [
+        "function",
+        "initial_guess"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "solving",
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "differentiate",
+      "feature": "calculus",
+      "display": {
+        "ja": "微分する",
+        "en": "differentiate"
+      },
+      "aliases": {
+        "en": [
+          "differentiate",
+          "diff",
+          "derivative",
+          "derive"
+        ],
+        "ja": [
+          "微分",
+          "微分する",
+          "導関数を求める",
+          "微分せよ",
+          "偏微分",
+          "全微分"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var"
+      ],
+      "optional_fields": [
+        "order",
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "integrate_indefinite",
+      "feature": "calculus",
+      "display": {
+        "ja": "不定積分を求める",
+        "en": "integrate indefinitely"
+      },
+      "aliases": {
+        "en": [
+          "integrate_indefinite",
+          "integrate",
+          "integral",
+          "antiderivative",
+          "integrate indefinite"
+        ],
+        "ja": [
+          "不定積分",
+          "積分",
+          "積分する",
+          "不定積分を求める",
+          "原始関数"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "integration",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "integrate_definite",
+      "feature": "calculus",
+      "display": {
+        "ja": "定積分を求める",
+        "en": "integrate definite"
+      },
+      "aliases": {
+        "en": [
+          "integrate_definite",
+          "definite_integral",
+          "definite_integrate",
+          "integrate definite",
+          "integrate",
+          "integral"
+        ],
+        "ja": [
+          "定積分",
+          "定積分を求める",
+          "積分",
+          "積分する"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "lower",
+        "upper"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": "integration",
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "limit",
+      "feature": "calculus",
+      "display": {
+        "ja": "極限を求める",
+        "en": "compute limit"
+      },
+      "aliases": {
+        "en": [
+          "limit",
+          "lim",
+          "right-hand limit",
+          "left-hand limit"
+        ],
+        "ja": [
+          "極限",
+          "極限を求める",
+          "極限値",
+          "極限値を求める",
+          "右極限",
+          "右側極限",
+          "左極限",
+          "左側極限"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "point"
+      ],
+      "optional_fields": [
+        "direction",
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "summation",
+      "feature": "calculus",
+      "display": {
+        "ja": "和を求める",
+        "en": "summation"
+      },
+      "aliases": {
+        "en": [
+          "summation",
+          "sum"
+        ],
+        "ja": [
+          "和",
+          "総和",
+          "シグマ",
+          "和を求める",
+          "総和を求める"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "lower",
+        "upper"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "product_expr",
+      "feature": "calculus",
+      "display": {
+        "ja": "積を求める",
+        "en": "product"
+      },
+      "aliases": {
+        "en": [
+          "product_expr",
+          "product",
+          "product expr"
+        ],
+        "ja": [
+          "積",
+          "総積",
+          "パイ積",
+          "積を求める",
+          "総積を求める"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "lower",
+        "upper"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "laplace_transform",
+      "feature": "calculus",
+      "display": {
+        "ja": "ラプラス変換する",
+        "en": "Laplace transform"
+      },
+      "aliases": {
+        "en": [
+          "laplace_transform",
+          "laplace",
+          "laplace transform"
+        ],
+        "ja": [
+          "ラプラス変換",
+          "ラプラス変換する"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "t",
+        "s"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "inverse_laplace",
+      "feature": "calculus",
+      "display": {
+        "ja": "逆ラプラス変換する",
+        "en": "inverse Laplace transform"
+      },
+      "aliases": {
+        "en": [
+          "inverse_laplace",
+          "ilt",
+          "inverse laplace",
+          "inverse laplace transform"
+        ],
+        "ja": [
+          "逆ラプラス変換",
+          "逆ラプラス変換する"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "s",
+        "t"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "taylor_expand",
+      "feature": "series",
+      "display": {
+        "ja": "テイラー展開する",
+        "en": "Taylor expand"
+      },
+      "aliases": {
+        "en": [
+          "taylor_expand",
+          "taylor",
+          "taylor_series",
+          "taylor expand"
+        ],
+        "ja": [
+          "テイラー展開",
+          "テイラー展開する",
+          "テイラー級数",
+          "テーラー展開",
+          "テーラー展開する",
+          "テーラー級数",
+          "マクローリン展開",
+          "マクローリン展開する",
+          "マクローリン級数"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "point",
+        "order"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "real_part",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "実部を取り出す",
+        "en": "real part"
+      },
+      "aliases": {
+        "en": [
+          "real_part",
+          "realpart",
+          "real part",
+          "re"
+        ],
+        "ja": [
+          "実部",
+          "実部を求める",
+          "実部を取り出す"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "imaginary_part",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "虚部を取り出す",
+        "en": "imaginary part"
+      },
+      "aliases": {
+        "en": [
+          "imaginary_part",
+          "imagpart",
+          "imaginary part",
+          "im"
+        ],
+        "ja": [
+          "虚部",
+          "虚部を求める",
+          "虚部を取り出す"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "complex_conjugate",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "複素共役を求める",
+        "en": "complex conjugate"
+      },
+      "aliases": {
+        "en": [
+          "complex_conjugate",
+          "conjugate",
+          "conj",
+          "complex conjugate"
+        ],
+        "ja": [
+          "複素共役",
+          "共役",
+          "共役複素数"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "to_rectangular",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "直交形式に変換する",
+        "en": "convert to rectangular form"
+      },
+      "aliases": {
+        "en": [
+          "to_rectangular",
+          "rectform",
+          "rectangular_form",
+          "to rectangular"
+        ],
+        "ja": [
+          "直交形式",
+          "直交形式に変換",
+          "デカルト形式"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "to_polar",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "極形式に変換する",
+        "en": "convert to polar form"
+      },
+      "aliases": {
+        "en": [
+          "to_polar",
+          "polarform",
+          "polar_form",
+          "to polar"
+        ],
+        "ja": [
+          "極形式",
+          "極形式に変換"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "residue",
+      "feature": "complex_analysis",
+      "display": {
+        "ja": "留数を求める",
+        "en": "compute residue"
+      },
+      "aliases": {
+        "en": [
+          "residue"
+        ],
+        "ja": [
+          "留数",
+          "留数を求める"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var",
+        "point"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "determinant",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "行列式を求める",
+        "en": "determinant"
+      },
+      "aliases": {
+        "en": [
+          "determinant",
+          "det"
+        ],
+        "ja": [
+          "行列式",
+          "行列式を求める",
+          "det"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "norm",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "ノルムを求める",
+        "en": "compute the norm"
+      },
+      "aliases": {
+        "en": [
+          "norm",
+          "magnitude",
+          "euclidean norm",
+          "frobenius norm",
+          "spectral norm",
+          "operator norm",
+          "vector norm",
+          "matrix norm",
+          "1-norm",
+          "infinity norm",
+          "maximum absolute column sum",
+          "maximum absolute row sum"
+        ],
+        "ja": [
+          "ノルム",
+          "ノルムを求める",
+          "大きさ",
+          "大きさを求める",
+          "フロベニウスノルム",
+          "スペクトルノルム",
+          "ユークリッドノルム",
+          "作用素ノルム",
+          "最大絶対列和",
+          "最大絶対行和"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "kind",
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "characteristic_polynomial",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "特性多項式を求める",
+        "en": "characteristic polynomial"
+      },
+      "aliases": {
+        "en": [
+          "characteristic_polynomial",
+          "characteristic polynomial",
+          "charpoly"
+        ],
+        "ja": [
+          "特性多項式",
+          "特性多項式を求める",
+          "固有値方程式",
+          "永年方程式"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "var"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "inverse_matrix",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "逆行列を求める",
+        "en": "inverse matrix"
+      },
+      "aliases": {
+        "en": [
+          "inverse_matrix",
+          "inv",
+          "invert",
+          "inverse",
+          "inverse matrix"
+        ],
+        "ja": [
+          "逆行列",
+          "逆行列を求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "transpose",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "転置行列を求める",
+        "en": "transpose"
+      },
+      "aliases": {
+        "en": [
+          "transpose"
+        ],
+        "ja": [
+          "転置",
+          "転置行列",
+          "転置行列を求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "trace",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "対角和を求める",
+        "en": "trace"
+      },
+      "aliases": {
+        "en": [
+          "trace"
+        ],
+        "ja": [
+          "対角和",
+          "トレース",
+          "トレースを求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "matrix_multiply",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "行列積を求める",
+        "en": "matrix multiply"
+      },
+      "aliases": {
+        "en": [
+          "matrix_multiply",
+          "matmul",
+          "matrix product",
+          "matrix multiply"
+        ],
+        "ja": [
+          "行列積",
+          "行列の積",
+          "行列積を求める"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "eigenvalues",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "固有値を求める",
+        "en": "eigenvalues"
+      },
+      "aliases": {
+        "en": [
+          "eigenvalues",
+          "evals",
+          "eigen"
+        ],
+        "ja": [
+          "固有値",
+          "固有値を求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "eigenvectors",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "固有ベクトルを求める",
+        "en": "eigenvectors"
+      },
+      "aliases": {
+        "en": [
+          "eigenvectors",
+          "evecs"
+        ],
+        "ja": [
+          "固有ベクトル",
+          "固有ベクトルを求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "diagonalize",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "対角化する（変換行列 P を求める）",
+        "en": "diagonalize (modal matrix P)"
+      },
+      "aliases": {
+        "en": [
+          "diagonalize",
+          "modal matrix"
+        ],
+        "ja": [
+          "対角化",
+          "対角化する",
+          "モード行列",
+          "変換行列"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "diagonal_matrix",
+      "feature": "linear_algebra",
+      "display": {
+        "ja": "対角行列を求める（固有値を並べた D）",
+        "en": "diagonal matrix D of eigenvalues"
+      },
+      "aliases": {
+        "en": [
+          "diagonal matrix"
+        ],
+        "ja": [
+          "対角行列",
+          "対角行列を求める"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "add_assumption",
+      "feature": "assumptions",
+      "display": {
+        "ja": "仮定を追加する",
+        "en": "add assumption"
+      },
+      "aliases": {
+        "en": [
+          "add_assumption",
+          "assume",
+          "add assumption"
+        ],
+        "ja": [
+          "仮定を追加",
+          "仮定する",
+          "assume"
+        ]
+      },
+      "required_fields": [
+        "condition"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "remove_assumption",
+      "feature": "assumptions",
+      "display": {
+        "ja": "仮定を削除する",
+        "en": "remove assumption"
+      },
+      "aliases": {
+        "en": [
+          "remove_assumption",
+          "forget",
+          "remove assumption"
+        ],
+        "ja": [
+          "仮定を削除",
+          "仮定を取り消す",
+          "forget"
+        ]
+      },
+      "required_fields": [
+        "condition"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "solve_ode",
+      "feature": "differential_equations",
+      "display": {
+        "ja": "常微分方程式を解く",
+        "en": "solve ODE"
+      },
+      "aliases": {
+        "en": [
+          "solve_ode",
+          "ode2",
+          "solve ode"
+        ],
+        "ja": [
+          "微分方程式を解く",
+          "ODE",
+          "常微分方程式を解く"
+        ]
+      },
+      "required_fields": [
+        "equation",
+        "y",
+        "x"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "numerical_eval",
+      "feature": "numerical",
+      "display": {
+        "ja": "数値評価する",
+        "en": "evaluate numerically"
+      },
+      "aliases": {
+        "en": [
+          "numerical_eval",
+          "float",
+          "evalf",
+          "numerical eval"
+        ],
+        "ja": [
+          "数値評価",
+          "数値計算",
+          "数値評価する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "numerical_eval_hp",
+      "feature": "numerical",
+      "display": {
+        "ja": "高精度数値評価する",
+        "en": "evaluate numerically (high precision)"
+      },
+      "aliases": {
+        "en": [
+          "numerical_eval_hp",
+          "bfloat",
+          "numerical eval hp"
+        ],
+        "ja": [
+          "高精度数値評価",
+          "高精度計算",
+          "多倍長精度評価"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "to_latex",
+      "feature": "output",
+      "display": {
+        "ja": "LaTeX形式で出力する",
+        "en": "output as LaTeX"
+      },
+      "aliases": {
+        "en": [
+          "to_latex",
+          "latex",
+          "to latex"
+        ],
+        "ja": [
+          "LaTeX出力",
+          "LaTeX形式で出力",
+          "ラテックス出力",
+          "表示",
+          "表示する",
+          "再表示",
+          "再表示する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "to_plain_text",
+      "feature": "output",
+      "display": {
+        "ja": "テキスト形式で出力する",
+        "en": "output as plain text"
+      },
+      "aliases": {
+        "en": [
+          "to_plain_text",
+          "text",
+          "string",
+          "to plain text"
+        ],
+        "ja": [
+          "テキスト出力",
+          "文字列出力"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "commutator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "交換子を計算する",
+        "en": "compute commutator"
+      },
+      "aliases": {
+        "en": [
+          "commutator"
+        ],
+        "ja": [
+          "交換子",
+          "交換子を計算",
+          "交換子を計算する"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "poisson_bracket",
+      "feature": "classical_mechanics",
+      "display": {
+        "ja": "ポアソン括弧を計算する",
+        "en": "compute Poisson bracket"
+      },
+      "aliases": {
+        "en": [
+          "poisson bracket"
+        ],
+        "ja": [
+          "ポアソン括弧",
+          "ポワソン括弧",
+          "ポアソンの括弧",
+          "Poisson 括弧"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "anticommutator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "反交換子を計算する",
+        "en": "compute anticommutator"
+      },
+      "aliases": {
+        "en": [
+          "anticommutator"
+        ],
+        "ja": [
+          "反交換子",
+          "反交換子を計算",
+          "反交換子を計算する"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "normal_order",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "正規順序にする",
+        "en": "normal order"
+      },
+      "aliases": {
+        "en": [
+          "normal_order",
+          "normal_ordering",
+          "normal order"
+        ],
+        "ja": [
+          "正規順序",
+          "正規順序にする",
+          "正規順序化",
+          "正規化",
+          "正規形にする",
+          "正規形"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "vacuum_expectation",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "真空期待値を計算する",
+        "en": "vacuum expectation value"
+      },
+      "aliases": {
+        "en": [
+          "vacuum_expectation",
+          "vev",
+          "vacuum expectation"
+        ],
+        "ja": [
+          "真空期待値",
+          "真空期待値を計算",
+          "真空期待値を計算する"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_boson_operator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "ボソン演算子を定義する",
+        "en": "define boson operator"
+      },
+      "aliases": {
+        "en": [
+          "define_boson_operator",
+          "define boson operator",
+          "as a boson operator",
+          "as the boson operator",
+          "as boson operators",
+          "as a bose operator",
+          "as the bose operator",
+          "as bose operators",
+          "as a bosonic operator",
+          "as the bosonic operator",
+          "as bosonic operators",
+          "as a phonon operator",
+          "as the phonon operator",
+          "as phonon operators",
+          "as a photon operator",
+          "as the photon operator",
+          "as photon operators"
+        ],
+        "ja": [
+          "ボソン演算子を定義",
+          "ボソン演算子",
+          "ボソン演算子を定義する",
+          "ボゾン演算子",
+          "ボゾン演算子を定義",
+          "ボゾン演算子を定義する",
+          "ボーズ演算子",
+          "ボーズ演算子を定義",
+          "ボーズ演算子を定義する",
+          "ボゾン定義",
+          "フォノン演算子",
+          "フォノン演算子を定義",
+          "フォノン演算子を定義する",
+          "フォトン演算子",
+          "フォトン演算子を定義",
+          "フォトン演算子を定義する",
+          "光子演算子",
+          "光子演算子を定義",
+          "光子演算子を定義する",
+          "格子振動演算子",
+          "格子振動演算子を定義",
+          "格子振動演算子を定義する"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "indices"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_fermion_operator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "フェルミオン演算子を定義する",
+        "en": "define fermion operator"
+      },
+      "aliases": {
+        "en": [
+          "define_fermion_operator",
+          "define fermion operator",
+          "as a fermion operator",
+          "as the fermion operator",
+          "as fermion operators",
+          "as a fermionic operator",
+          "as the fermionic operator",
+          "as fermionic operators",
+          "as an electron operator",
+          "as the electron operator",
+          "as electron operators"
+        ],
+        "ja": [
+          "フェルミオン演算子を定義",
+          "フェルミオン演算子",
+          "フェルミオン演算子を定義する",
+          "フェルミ演算子",
+          "フェルミ演算子を定義",
+          "フェルミ演算子を定義する",
+          "電子演算子",
+          "フェルミ定義"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "indices"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_spin_operator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "スピン演算子を定義する",
+        "en": "define spin operator"
+      },
+      "aliases": {
+        "en": [
+          "define_spin_operator",
+          "define spin operator",
+          "Pauli matrix",
+          "Pauli operator",
+          "as a spin operator",
+          "as the spin operator",
+          "as spin operators",
+          "as a Pauli operator",
+          "as the Pauli operator",
+          "as Pauli operators",
+          "as a Pauli matrix",
+          "as the Pauli matrix",
+          "as Pauli matrices"
+        ],
+        "ja": [
+          "スピン演算子を定義",
+          "スピン演算子",
+          "スピン演算子を定義する",
+          "パウリ演算子を定義",
+          "パウリ演算子を定義する",
+          "パウリ行列を定義",
+          "パウリ行列を定義する",
+          "パウリ行列",
+          "スピン定義"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "indices"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full",
+        "maxima"
+      ]
+    },
+    {
+      "operation": "declare_symmetry",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "対称性を宣言する",
+        "en": "declare symmetry"
+      },
+      "aliases": {
+        "en": [
+          "declare symmetry",
+          "antisymmetric",
+          "symmetric matrix",
+          "hermitian matrix",
+          "declare antisymmetric",
+          "set symmetry",
+          "antisymmetric function"
+        ],
+        "ja": [
+          "対称性を宣言",
+          "反対称とする",
+          "反対称行列とする",
+          "対称行列とする",
+          "エルミート行列とする",
+          "対称性を設定",
+          "反対称に設定"
+        ]
+      },
+      "required_fields": [
+        "name",
+        "symmetry"
+      ],
+      "optional_fields": [
+        "algebra"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_scalar_parameter",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "スカラーパラメータを定義する",
+        "en": "define scalar parameter"
+      },
+      "aliases": {
+        "en": [
+          "define_scalar_parameter",
+          "scalar parameter",
+          "real scalar",
+          "integer scalar",
+          "real parameter",
+          "define scalar parameter",
+          "as a scalar",
+          "as the scalar",
+          "as scalars",
+          "as a scalar parameter",
+          "as the scalar parameter",
+          "as scalar parameters",
+          "as a real scalar",
+          "as the real scalar",
+          "as real scalars",
+          "as an integer scalar",
+          "as the integer scalar",
+          "as integer scalars"
+        ],
+        "ja": [
+          "スカラーパラメータを定義",
+          "スカラーパラメータを定義する",
+          "スカラーとする",
+          "スカラーパラメータとする",
+          "スカラー変数とする",
+          "スカラーを定義",
+          "実数スカラーとする",
+          "実数スカラーパラメータとする",
+          "実数として定義",
+          "実数とする",
+          "実数パラメータとする",
+          "整数とする",
+          "整数パラメータとする",
+          "自然数とする",
+          "実数",
+          "整数",
+          "自然数",
+          "スカラーパラメータ",
+          "スカラー変数",
+          "実数パラメータ",
+          "実数スカラー",
+          "実数スカラーパラメータ"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "domain",
+        "sign",
+        "_all_names",
+        "_raw_names"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_vector",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "ベクトルを定義する",
+        "en": "define vector"
+      },
+      "aliases": {
+        "en": [
+          "define_vector",
+          "define vector",
+          "as a vector",
+          "as the vector",
+          "as vectors"
+        ],
+        "ja": [
+          "ベクトルを定義",
+          "ベクトルを定義する",
+          "ベクトルとする",
+          "ベクトル変数とする",
+          "ベクトル量とする",
+          "ベクトルを定義する"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "_all_names",
+        "_raw_names"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_coordinate_system",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "座標系を定義する",
+        "en": "define coordinate system"
+      },
+      "aliases": {
+        "en": [
+          "define_coordinate_system",
+          "define coordinate system",
+          "custom coordinate system",
+          "coordinate system"
+        ],
+        "ja": [
+          "座標系を定義",
+          "座標系を定義する",
+          "座標系として定義する",
+          "カスタム座標系を定義する",
+          "座標系を設定する",
+          "直交座標系を定義する"
+        ]
+      },
+      "required_fields": [
+        "vars",
+        "lame"
+      ],
+      "optional_fields": [
+        "name"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "define_vector_field",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "ベクトル場を定義する",
+        "en": "define vector field"
+      },
+      "aliases": {
+        "en": [
+          "define_vector_field",
+          "vector field",
+          "define vector field",
+          "as a vector field",
+          "as the vector field",
+          "as vector fields"
+        ],
+        "ja": [
+          "ベクトル場を定義",
+          "ベクトル場を定義する",
+          "ベクトル場とする",
+          "ベクトル関数とする",
+          "ベクトル場として定義する",
+          "ベクトル関数として定義する"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "coordinate_system",
+        "natural_vars"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "define_scalar_field",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "スカラー場を定義する",
+        "en": "define scalar field"
+      },
+      "aliases": {
+        "en": [
+          "define_scalar_field",
+          "scalar field",
+          "define scalar field",
+          "as a scalar field",
+          "as the scalar field",
+          "as scalar fields"
+        ],
+        "ja": [
+          "スカラー場を定義",
+          "スカラー場を定義する",
+          "スカラー場とする",
+          "スカラー関数とする",
+          "スカラー場として定義する",
+          "スカラー関数として定義する"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "coordinate_system",
+        "natural_vars"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "divergence",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "発散を計算する",
+        "en": "compute divergence"
+      },
+      "aliases": {
+        "en": [
+          "divergence",
+          "div",
+          "compute divergence",
+          "nabla dot"
+        ],
+        "ja": [
+          "発散",
+          "発散を計算",
+          "発散を計算する",
+          "∇·",
+          "∇・",
+          "ナブラ点",
+          "div"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "coordinate_system"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "curl",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "回転を計算する",
+        "en": "compute curl"
+      },
+      "aliases": {
+        "en": [
+          "curl",
+          "rot",
+          "compute curl",
+          "nabla cross",
+          "rotation"
+        ],
+        "ja": [
+          "回転",
+          "回転を計算",
+          "回転を計算する",
+          "∇×",
+          "ナブラクロス",
+          "rot",
+          "curl"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "coordinate_system"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "gradient",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "勾配を計算する",
+        "en": "compute gradient"
+      },
+      "aliases": {
+        "en": [
+          "gradient",
+          "grad",
+          "compute gradient",
+          "nabla"
+        ],
+        "ja": [
+          "勾配",
+          "勾配を計算",
+          "勾配を計算する",
+          "∇",
+          "ナブラ",
+          "grad",
+          "グラジエント"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "coordinate_system"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "scalar_laplacian",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "スカラーラプラシアンを計算する",
+        "en": "compute scalar Laplacian"
+      },
+      "aliases": {
+        "en": [
+          "scalar_laplacian",
+          "laplacian",
+          "nabla squared",
+          "compute laplacian",
+          "scalar laplacian"
+        ],
+        "ja": [
+          "ラプラシアン",
+          "ラプラシアンを計算",
+          "ラプラシアンを計算する",
+          "∇²",
+          "∇^2",
+          "スカラーラプラシアン",
+          "ラプラス演算子"
+        ]
+      },
+      "required_fields": [
+        "expr"
+      ],
+      "optional_fields": [
+        "coordinate_system"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "cross_product",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "外積を計算する",
+        "en": "compute cross product"
+      },
+      "aliases": {
+        "en": [
+          "cross_product",
+          "cross product",
+          "vector product",
+          "cross"
+        ],
+        "ja": [
+          "外積",
+          "外積を計算",
+          "外積を計算する",
+          "クロス積",
+          "ベクトル積",
+          "外積をとる"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "coordinate_system"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "dot_product",
+      "feature": "vector_calculus",
+      "display": {
+        "ja": "内積を計算する",
+        "en": "compute dot product"
+      },
+      "aliases": {
+        "en": [
+          "dot_product",
+          "dot product",
+          "inner product",
+          "dot",
+          "scalar product"
+        ],
+        "ja": [
+          "内積",
+          "内積を計算",
+          "内積を計算する",
+          "スカラー積",
+          "ドット積",
+          "内積をとる"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "define_matrix",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "行列を定義する",
+        "en": "define matrix"
+      },
+      "aliases": {
+        "en": [
+          "define_matrix",
+          "define matrix",
+          "as a matrix",
+          "as matrices",
+          "as the matrix"
+        ],
+        "ja": [
+          "行列を定義",
+          "行列を定義する",
+          "行列とする",
+          "行列変数とする",
+          "マトリックスとする",
+          "行列を定義する"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "_all_names",
+        "_raw_names"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "define_tensor",
+      "feature": "symbolic_algebra",
+      "display": {
+        "ja": "テンソルを定義する",
+        "en": "define tensor"
+      },
+      "aliases": {
+        "en": [
+          "define_tensor",
+          "define tensor",
+          "as a tensor",
+          "as the tensor",
+          "as tensors"
+        ],
+        "ja": [
+          "テンソルを定義",
+          "テンソルを定義する",
+          "テンソルとする",
+          "テンソル変数とする",
+          "テンソル量とする"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "_all_names",
+        "_raw_names"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "heisenberg_equation",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "ハイゼンベルク方程式を作る",
+        "en": "Heisenberg equation of motion"
+      },
+      "aliases": {
+        "en": [
+          "heisenberg_equation",
+          "heisenberg",
+          "heisenberg equation"
+        ],
+        "ja": [
+          "ハイゼンベルク方程式",
+          "ハイゼンベルク方程式を作る",
+          "ハイゼンベルク運動方程式"
+        ]
+      },
+      "required_fields": [
+        "operator",
+        "hamiltonian"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "heisenberg_operator",
+      "feature": "quantum_algebra",
+      "display": {
+        "ja": "ハイゼンベルク描像の演算子",
+        "en": "Heisenberg-picture operator"
+      },
+      "aliases": {
+        "ja": [
+          "ハイゼンベルク描像の演算子",
+          "時間発展させる",
+          "ハイゼンベルク描像",
+          "時間発展"
+        ],
+        "en": [
+          "heisenberg operator",
+          "evolve in time",
+          "heisenberg picture",
+          "time evolution"
+        ]
+      },
+      "required_fields": [
+        "operator",
+        "hamiltonian"
+      ],
+      "optional_fields": [
+        "time"
+      ],
+      "supported_backends": [
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "multiply_expressions",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "式を掛け合わせる",
+        "en": "multiply expressions"
+      },
+      "aliases": {
+        "en": [
+          "multiply_expressions",
+          "multiply",
+          "product",
+          "multiply expressions"
+        ],
+        "ja": [
+          "式を掛け合わせる",
+          "乗じる",
+          "掛け合わせる",
+          "積を求める",
+          "掛け算",
+          "積"
+        ]
+      },
+      "required_fields": [
+        "a",
+        "b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "declare_time_dependent",
+      "feature": "quantity_metadata",
+      "display": {
+        "ja": "時間依存を宣言する",
+        "en": "declare time-dependent"
+      },
+      "aliases": {
+        "en": [
+          "declare_time_dependent",
+          "time_dependent",
+          "declare time dependent",
+          "as time-dependent",
+          "as a time-dependent function",
+          "as time-dependent functions",
+          "as a time dependent function",
+          "as time dependent functions"
+        ],
+        "ja": [
+          "時間依存を宣言",
+          "時間依存として宣言",
+          "時間依存にする",
+          "時間依存変数として宣言",
+          "時間の関数として宣言",
+          "時間依存関数として定義",
+          "時間依存関数とする"
+        ]
+      },
+      "required_fields": [
+        "name"
+      ],
+      "optional_fields": [
+        "time_parameter"
+      ],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "set_notation",
+      "feature": "quantity_metadata",
+      "display": {
+        "ja": "記法を切り替える",
+        "en": "set notation"
+      },
+      "aliases": {
+        "en": [
+          "set_notation",
+          "notation",
+          "use_dot_notation",
+          "use_leibniz_notation",
+          "dot notation",
+          "leibniz notation",
+          "switch notation",
+          "set notation"
+        ],
+        "ja": [
+          "記法を変更",
+          "記法を切り替え",
+          "dot記法にする",
+          "ドット記法にする",
+          "ドット記法で",
+          "ドット記法に戻す",
+          "ドット記法",
+          "Leibniz記法にする",
+          "ライプニッツ記法にする",
+          "ライプニッツ記法",
+          "Leibniz記法",
+          "d/dt形式にする",
+          "d/dt記法にする",
+          "d/dt記法",
+          "微分記法を変更"
+        ]
+      },
+      "required_fields": [
+        "name",
+        "format"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "combine_expressions",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "式を組み合わせる",
+        "en": "combine expressions"
+      },
+      "aliases": {
+        "en": [
+          "combine_expressions",
+          "combine expressions",
+          "combine"
+        ],
+        "ja": [
+          "式を組み合わせる",
+          "式を足す",
+          "式を引く",
+          "式を掛け合わせる",
+          "式を割る",
+          "式の足し算",
+          "式の引き算",
+          "式の掛け算",
+          "式の割り算"
+        ]
+      },
+      "required_fields": [
+        "expr_a",
+        "expr_b",
+        "op"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "set_latex_name",
+      "feature": "quantity_metadata",
+      "display": {
+        "ja": "LaTeX名を設定",
+        "en": "set LaTeX name"
+      },
+      "aliases": {
+        "en": [
+          "set_latex_name",
+          "set latex name",
+          "rename quantity",
+          "display as",
+          "latex name"
+        ],
+        "ja": [
+          "LaTeX名を設定",
+          "LaTeX名を変更",
+          "LaTeX名にする",
+          "LaTeX表示名を設定",
+          "LaTeX表示名を変更",
+          "ラテックス名を設定",
+          "ラテックス名を変更",
+          "と表示する",
+          "と書く"
+        ]
+      },
+      "required_fields": [
+        "name",
+        "latex"
+      ],
+      "optional_fields": [],
+      "state_affecting_default": false,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "toggle_einstein_summation",
+      "feature": "session",
+      "display": {
+        "ja": "アインシュタイン縮約を切り替える",
+        "en": "toggle Einstein summation"
+      },
+      "required_fields": [
+        "enabled"
+      ],
+      "optional_fields": [],
+      "supported_backends": [
+        "maxima",
+        "julia"
+      ],
+      "aliases": {
+        "ja": [
+          "アインシュタインの縮約記法を有効にして",
+          "アインシュタインの規約を有効化",
+          "アインシュタイン縮約を切り替え",
+          "enable einstein summation",
+          "toggle einstein summation",
+          "enable einstein's rule",
+          "enable einstein rule",
+          "use einstein summation convention"
+        ],
+        "en": [
+          "toggle einstein summation"
+        ]
+      }
+    },
+    {
+      "operation": "change_variable",
+      "feature": "calculus",
+      "display": {
+        "ja": "変数変換する",
+        "en": "change variable"
+      },
+      "aliases": {
+        "ja": [
+          "変数変換",
+          "変数変換する",
+          "置換積分",
+          "積分変数を変換",
+          "変数を置き換え"
+        ],
+        "en": [
+          "change variable",
+          "change of variable",
+          "u-substitution",
+          "substitution in integral"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "old_var",
+        "new_expr"
+      ],
+      "optional_fields": [
+        "new_var",
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "supported_backends": [
+        "maxima"
+      ]
+    },
+    {
+      "operation": "change_integration_variables",
+      "feature": "calculus",
+      "display": {
+        "ja": "積分の多変数変数変換（ヤコビアン込み）",
+        "en": "change integration variables (with Jacobian)"
+      },
+      "aliases": {
+        "en": [
+          "change_integration_variables",
+          "jacobian change of variables",
+          "multivariable substitution",
+          "change integration variables"
+        ],
+        "ja": [
+          "多変数変数変換",
+          "ヤコビアン",
+          "ヤコビアンを挿入",
+          "座標変換して積分",
+          "極座標に変換",
+          "球座標に変換"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "old_vars",
+        "new_vars",
+        "transform"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima",
+        "julia_full"
+      ]
+    },
+    {
+      "operation": "relabel_index",
+      "feature": "algebraic_rewrite",
+      "display": {
+        "ja": "指標をリラベルする",
+        "en": "relabel summation index"
+      },
+      "aliases": {
+        "ja": [
+          "指標変換",
+          "ダミー指標を置き換え",
+          "ダミー指標のリラベル",
+          "和の指標を置き換え",
+          "和の変数を変換"
+        ],
+        "en": [
+          "relabel",
+          "relabel index",
+          "relabel summation index",
+          "rename dummy index",
+          "index substitution"
+        ]
+      },
+      "required_fields": [
+        "expr",
+        "old_index",
+        "new_index"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "supported_backends": [
+        "julia_full",
+        "maxima"
+      ]
+    },
+    {
+      "operation": "pure_nash_equilibria",
+      "feature": "game_theory",
+      "display": {
+        "ja": "純戦略ナッシュ均衡を求める",
+        "en": "find pure-strategy Nash equilibria"
+      },
+      "aliases": {
+        "en": [
+          "pure_nash_equilibria",
+          "pure strategy Nash equilibria",
+          "find pure strategy Nash equilibria",
+          "pure Nash equilibria"
+        ],
+        "ja": [
+          "純戦略ナッシュ均衡",
+          "純戦略ナッシュ均衡を求める"
+        ]
+      },
+      "required_fields": [
+        "payoff_a",
+        "payoff_b"
+      ],
+      "optional_fields": [
+        "assign_to"
+      ],
+      "state_affecting_default": true,
+      "ambiguity_group": null,
+      "supported_backends": [
+        "maxima"
+      ]
+    }
+  ]
+}

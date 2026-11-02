@@ -1,0 +1,85 @@
+% Compile with: uplatex file.tex && dvipdfmx file.dvi
+%           or: latexmk -uplatex file.tex
+\documentclass[dvipdfmx]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+
+\title{scenario\_matrix\_diagonalization}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Register the symmetric matrix $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$.
+
+$A = [2, 1; 1, 2]$
+
+\begin{equation}
+  A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}
+  \label{eq:E1}
+\end{equation}
+
+Find the eigenvalues of $A$.
+
+Find the eigenvalues of E1
+
+\begin{equation}
+  \left\{ 3 , 1 \right\}
+  \label{eq:E2}
+\end{equation}
+
+Find the eigenvectors of $A$.
+
+Find the eigenvectors of E1
+
+\begin{equation}
+  \left[ \left[ \left[ 3 , 1 \right]  , \left[ 1 , 1 \right]  \right]  , \left[ \left[ \left[ 1 , 1 \right]  \right]  , \left[ \left[ 1 , -1 \right]  \right]  \right]  \right]
+  \label{eq:E3}
+\end{equation}
+
+Find the orthogonal transformation matrix $P$ whose columns are the normalized eigenvectors (the matrix that diagonalizes $A$).
+
+Diagonalize E1
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E4}
+\end{equation}
+
+Find the diagonal matrix $D$ with the eigenvalues on its diagonal.
+
+Find the diagonal matrix of E1
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 3&0\cr 0&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E5}
+\end{equation}
+
+To compute the similarity transform $P^{-1}AP$, first find the inverse $P^{-1}$ of $P$ (since $P$ is orthogonal, $P^{-1}$ should equal $P^\top$).
+
+Find the inverse of E4
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E6}
+\end{equation}
+
+Find the matrix product $P^{-1}A$.
+
+Find the matrix product of E6 and E1
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi \frac{3}{\sqrt{2}}&\frac{3}{\sqrt{2}}\cr \frac{1}{\sqrt{2}}&-\left(\frac{1}{\sqrt{2}}\right)\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E7}
+\end{equation}
+
+Multiply by $P$ to complete $P^{-1}AP$. This should match the diagonal matrix $D$ from earlier (the eigenvalues on the diagonal).
+
+Find the matrix product of E7 and E4
+
+\begin{equation}
+  \ifx\endpmatrix\undefined\pmatrix{\else\begin{pmatrix}\fi 3&0\cr 0&1\cr \ifx\endpmatrix\undefined}\else\end{pmatrix}\fi
+  \label{eq:E8}
+\end{equation}
+
+\end{document}
